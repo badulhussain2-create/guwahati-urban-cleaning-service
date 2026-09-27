@@ -1986,7 +1986,7 @@ async function loadTimeSlots(){
 
     timeSlots =
       await supabaseFetch(
-        "/rest/v1/time_slots?select=*&is_active=eq.true&order=start_time.asc"
+        "/rest/v1/time_slots?select=*&is_active=eq.true&order=slot_time.asc"
       );
 
     if(!Array.isArray(timeSlots)){
@@ -1997,7 +1997,7 @@ async function loadTimeSlots(){
 
   }catch(error){
 
-    console.log(error);
+    console.log("Time slots error:", error);
 
     timeSlots = [];
 
