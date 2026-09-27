@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0f766e">
-
 <title>Guwahati Urban Cleaning Service</title>
 
 <style>
@@ -16,87 +14,75 @@
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f6f8f9;
-  color:#17202a;
+  background:#f5f7fb;
+  color:#172033;
   padding-bottom:80px;
 }
 
+button,input,textarea{
+  font:inherit;
+}
+
 button{
-  font-family:inherit;
+  cursor:pointer;
 }
 
-.app{
-  width:100%;
-  max-width:560px;
-  margin:auto;
-  min-height:100vh;
-  background:#fff;
-}
-
-/* HEADER */
 .header{
-  padding:18px 18px 12px;
-  background:#fff;
+  background:#ffffff;
+  padding:16px;
+  position:sticky;
+  top:0;
+  z-index:20;
+  border-bottom:1px solid #e8ebf2;
 }
 
 .header-top{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
 }
 
 .location{
   font-size:13px;
-  color:#777;
+  color:#737b8c;
 }
 
 .location strong{
   display:block;
-  color:#17202a;
-  font-size:16px;
+  color:#172033;
+  font-size:17px;
   margin-top:3px;
 }
 
 .profile-btn{
   width:42px;
   height:42px;
+  border:0;
   border-radius:50%;
-  border:1px solid #e5e5e5;
-  background:#f7f7f7;
+  background:#eef2ff;
   font-size:20px;
 }
 
-/* SEARCH */
-.search-box{
-  margin-top:16px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  background:#f2f5f5;
+.search{
+  width:100%;
+  border:1px solid #e1e5ed;
+  background:#f8f9fc;
   border-radius:14px;
   padding:13px 15px;
-}
-
-.search-box span{
-  font-size:18px;
-}
-
-.search-box input{
-  width:100%;
-  border:0;
   outline:none;
-  background:transparent;
-  font-size:15px;
 }
 
-/* HERO */
+.container{
+  padding:16px;
+}
+
 .hero{
-  margin:12px 18px 20px;
+  background:linear-gradient(135deg,#5b4bdb,#7c5cff);
+  color:white;
+  padding:22px;
   border-radius:20px;
-  padding:24px 20px;
-  background:linear-gradient(135deg,#0f766e,#14a58f);
-  color:#fff;
-  overflow:hidden;
+  margin-bottom:20px;
 }
 
 .hero h1{
@@ -107,30 +93,15 @@ button{
 
 .hero p{
   font-size:14px;
+  opacity:.92;
   line-height:1.5;
-  opacity:.95;
-}
-
-.hero-badge{
-  display:inline-block;
-  margin-top:15px;
-  padding:8px 12px;
-  border-radius:20px;
-  background:rgba(255,255,255,.18);
-  font-size:12px;
-}
-
-/* SECTION */
-.section{
-  padding:0 18px;
-  margin-bottom:25px;
 }
 
 .section-title{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:13px;
+  margin:22px 0 12px;
 }
 
 .section-title h2{
@@ -139,15 +110,14 @@ button{
 
 .section-title span{
   font-size:12px;
-  color:#0f766e;
+  color:#777f90;
 }
 
-/* CATEGORY */
 .categories{
   display:flex;
-  gap:12px;
+  gap:10px;
   overflow-x:auto;
-  padding-bottom:4px;
+  padding-bottom:5px;
 }
 
 .categories::-webkit-scrollbar{
@@ -155,293 +125,360 @@ button{
 }
 
 .category{
-  min-width:76px;
+  min-width:105px;
+  border:1px solid #e5e8ef;
+  background:white;
+  border-radius:15px;
+  padding:14px 10px;
   text-align:center;
-  border:0;
-  background:#fff;
-  cursor:pointer;
 }
 
 .category-icon{
-  width:60px;
-  height:60px;
-  margin:auto;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#eef8f6;
-  font-size:28px;
+  font-size:26px;
+  margin-bottom:7px;
 }
 
-.category p{
-  margin-top:7px;
+.category-name{
   font-size:12px;
-  color:#444;
+  font-weight:600;
 }
 
-/* SERVICES */
 .services{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:14px;
+  gap:13px;
 }
 
 .service-card{
-  border:1px solid #e9eeee;
-  border-radius:18px;
-  overflow:hidden;
   background:#fff;
-  box-shadow:0 3px 12px rgba(0,0,0,.04);
+  border:1px solid #e7eaf0;
+  border-radius:17px;
+  padding:14px;
+  box-shadow:0 3px 12px rgba(0,0,0,.03);
 }
 
-.service-image{
-  height:125px;
-  background:linear-gradient(135deg,#eaf7f5,#dcefed);
+.service-icon{
+  width:50px;
+  height:50px;
+  border-radius:14px;
+  background:#f0edff;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:48px;
+  font-size:27px;
+  margin-bottom:11px;
 }
 
-.service-content{
-  padding:12px;
-}
-
-.service-content h3{
+.service-card h3{
   font-size:15px;
+  line-height:1.3;
   margin-bottom:5px;
 }
 
-.service-content p{
+.service-card p{
+  color:#788093;
   font-size:12px;
-  color:#777;
-  min-height:30px;
-  line-height:1.4;
-}
-
-.service-bottom{
-  margin-top:10px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  margin-bottom:11px;
 }
 
 .price{
-  font-weight:bold;
-  font-size:15px;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:10px;
 }
 
 .book-btn{
+  width:100%;
   border:0;
-  background:#0f766e;
-  color:#fff;
+  background:#5b4bdb;
+  color:white;
   border-radius:10px;
-  padding:8px 12px;
-  font-size:12px;
-  cursor:pointer;
+  padding:10px;
+  font-weight:700;
 }
 
-/* OFFER */
 .offer{
-  margin-top:10px;
-  border-radius:18px;
-  padding:20px;
-  background:#f1f8f6;
-  border:1px solid #dcefeb;
+  background:#fff3df;
+  border:1px solid #ffe2b4;
+  border-radius:17px;
+  padding:17px;
+  margin-top:20px;
 }
 
-.offer h3{
-  font-size:18px;
-  margin-bottom:6px;
+.offer strong{
+  display:block;
+  margin-bottom:5px;
 }
 
 .offer p{
   font-size:13px;
-  color:#666;
-  line-height:1.5;
+  color:#6d5a3b;
 }
 
-/* BOTTOM NAV */
 .bottom-nav{
   position:fixed;
-  left:50%;
   bottom:0;
-  transform:translateX(-50%);
-  width:100%;
-  max-width:560px;
+  left:0;
+  right:0;
   height:68px;
-  background:#fff;
-  border-top:1px solid #e8e8e8;
+  background:white;
+  border-top:1px solid #e5e8ef;
   display:flex;
   justify-content:space-around;
   align-items:center;
-  z-index:1000;
+  z-index:30;
 }
 
 .nav-btn{
   border:0;
   background:none;
-  color:#777;
+  color:#7b8291;
   font-size:11px;
   text-align:center;
-  cursor:pointer;
 }
 
-.nav-btn span{
-  display:block;
-  font-size:20px;
-  margin-bottom:3px;
+.nav-btn div{
+  font-size:21px;
+  margin-bottom:2px;
 }
 
-/* MODAL */
-#serviceOptionsModal{
+.modal{
   position:fixed;
   inset:0;
-  z-index:5000;
-}
-
-.modal-overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.55);
-  display:flex;
+  background:rgba(0,0,0,.5);
+  display:none;
   align-items:flex-end;
-  justify-content:center;
+  z-index:100;
 }
 
-.service-modal{
-  width:100%;
-  max-width:560px;
-  max-height:88vh;
-  overflow-y:auto;
+.modal.active{
+  display:flex;
+}
+
+.modal-box{
   background:#fff;
-  border-radius:26px 26px 0 0;
-  padding:22px 18px 30px;
-  animation:slideUp .25s ease;
+  width:100%;
+  max-height:92vh;
+  overflow-y:auto;
+  border-radius:24px 24px 0 0;
+  padding:20px;
+  animation:slideUp .22s ease;
 }
 
 @keyframes slideUp{
-  from{transform:translateY(100%)}
-  to{transform:translateY(0)}
+  from{
+    transform:translateY(100%);
+  }
+  to{
+    transform:translateY(0);
+  }
 }
 
-.modal-head{
+.modal-header{
   display:flex;
-  align-items:flex-start;
   justify-content:space-between;
-  margin-bottom:18px;
+  align-items:center;
+  margin-bottom:17px;
 }
 
-.modal-head h2{
-  font-size:22px;
-  margin-bottom:5px;
-}
-
-.modal-head p{
-  color:#777;
-  font-size:13px;
+.modal-header h2{
+  font-size:20px;
 }
 
 .close-btn{
-  width:38px;
-  height:38px;
+  width:35px;
+  height:35px;
   border:0;
+  background:#f0f2f6;
   border-radius:50%;
-  background:#f2f2f2;
-  font-size:25px;
-  cursor:pointer;
-}
-
-.option-list{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+  font-size:20px;
 }
 
 .option-card{
-  border:1px solid #e5eaea;
-  border-radius:17px;
-  padding:16px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  cursor:pointer;
-  background:#fff;
-  transition:.2s;
-}
-
-.option-card:active{
-  transform:scale(.98);
-  background:#f5fbfa;
+  border:1px solid #e1e5ed;
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:10px;
+  background:white;
 }
 
 .option-card h3{
-  font-size:16px;
+  font-size:15px;
   margin-bottom:5px;
 }
 
 .option-card p{
+  color:#737b8c;
   font-size:12px;
-  color:#777;
-  margin-bottom:9px;
+  line-height:1.4;
 }
 
-.option-info{
-  flex:1;
-}
-
-.option-meta{
+.option-bottom{
   display:flex;
-  gap:12px;
   align-items:center;
+  justify-content:space-between;
+  margin-top:12px;
 }
 
 .option-price{
-  font-weight:bold;
-  font-size:16px;
+  font-weight:700;
 }
 
-.option-duration{
+.option-select{
+  border:0;
+  background:#5b4bdb;
+  color:white;
+  padding:9px 14px;
+  border-radius:9px;
   font-size:12px;
-  color:#777;
-}
-
-.option-arrow{
-  font-size:28px;
-  color:#999;
-  padding-left:10px;
+  font-weight:700;
 }
 
 .loading{
   text-align:center;
-  padding:30px;
-  color:#777;
+  padding:30px 10px;
+  color:#737b8c;
+}
+
+.form-group{
+  margin-bottom:15px;
+}
+
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.form-control{
+  width:100%;
+  border:1px solid #dfe3eb;
+  border-radius:12px;
+  padding:13px;
+  outline:none;
+  background:white;
+}
+
+.form-control:focus{
+  border-color:#5b4bdb;
+}
+
+textarea.form-control{
+  min-height:85px;
+  resize:vertical;
+}
+
+.booking-summary{
+  background:#f5f3ff;
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:18px;
+}
+
+.booking-summary-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:7px;
+  font-size:13px;
+}
+
+.booking-summary-row:last-child{
+  margin-bottom:0;
+}
+
+.booking-total{
+  border-top:1px solid #ddd8ff;
+  margin-top:10px;
+  padding-top:10px;
+  font-size:18px;
+  font-weight:800;
+}
+
+.time-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+}
+
+.time-btn{
+  border:1px solid #dfe3eb;
+  background:white;
+  border-radius:11px;
+  padding:12px 8px;
+  font-size:13px;
+}
+
+.time-btn.selected{
+  background:#5b4bdb;
+  border-color:#5b4bdb;
+  color:white;
+}
+
+.time-btn:disabled{
+  background:#f0f1f4;
+  color:#a0a5af;
+  cursor:not-allowed;
+}
+
+.confirm-btn{
+  width:100%;
+  border:0;
+  background:#5b4bdb;
+  color:white;
+  padding:15px;
+  border-radius:13px;
+  font-weight:800;
+  margin-top:5px;
+}
+
+.confirm-btn:disabled{
+  opacity:.6;
+}
+
+.success{
+  text-align:center;
+  padding:25px 10px;
+}
+
+.success-icon{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:#e4f8ec;
+  color:#159447;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:35px;
+  margin:0 auto 15px;
+}
+
+.success h2{
+  margin-bottom:8px;
+}
+
+.success p{
+  color:#737b8c;
+  line-height:1.5;
+  font-size:14px;
 }
 
 .error-box{
-  text-align:center;
-  padding:25px 10px;
-  color:#777;
+  background:#fff0f0;
+  color:#b42318;
+  border:1px solid #ffd0d0;
+  padding:12px;
+  border-radius:10px;
+  font-size:13px;
+  margin-bottom:12px;
+  display:none;
 }
 
-/* DESKTOP */
-@media(min-width:700px){
-  body{
-    background:#e9eeee;
-  }
-
-  .app{
-    box-shadow:0 0 30px rgba(0,0,0,.08);
-  }
-
-  .modal-overlay{
-    align-items:center;
-  }
-
-  .service-modal{
-    border-radius:25px;
-    max-height:80vh;
+@media(max-width:360px){
+  .services{
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -449,557 +486,404 @@ button{
 
 <body>
 
-<div class="app">
-
-  <!-- HEADER -->
-  <header class="header">
-
-    <div class="header-top">
-
-      <div class="location">
-        Cleaning Service
-        <strong>📍 Guwahati</strong>
-      </div>
-
-      <button class="profile-btn" onclick="showMessage('Profile')">
-        👤
-      </button>
-
+<header class="header">
+  <div class="header-top">
+    <div class="location">
+      Your location
+      <strong>📍 Guwahati</strong>
     </div>
 
-    <div class="search-box">
-      <span>🔍</span>
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search cleaning services..."
-        oninput="searchServices()"
-      >
-    </div>
+    <button class="profile-btn" onclick="showSimpleMessage('Profile')">
+      👤
+    </button>
+  </div>
 
-  </header>
+  <input
+    id="searchInput"
+    class="search"
+    type="text"
+    placeholder="Search cleaning services..."
+  >
+</header>
 
+<main class="container">
 
-  <!-- HERO -->
   <section class="hero">
-
-    <h1>Clean Home.<br>Happy Life.</h1>
-
+    <h1>Professional Cleaning at Your Doorstep</h1>
     <p>
-      Professional home cleaning services
-      at your doorstep in Guwahati.
+      Book trusted home cleaning services in Guwahati with easy online booking.
     </p>
-
-    <div class="hero-badge">
-      ✨ Easy booking • Trusted service
-    </div>
-
   </section>
 
+  <div class="section-title">
+    <h2>Popular Categories</h2>
+    <span>Explore</span>
+  </div>
 
-  <!-- CATEGORIES -->
-  <section class="section">
+  <div class="categories">
 
-    <div class="section-title">
-      <h2>Categories</h2>
-      <span>View all</span>
+    <button class="category" data-service="Bathroom Cleaning">
+      <div class="category-icon">🚿</div>
+      <div class="category-name">Bathroom</div>
+    </button>
+
+    <button class="category" data-service="Kitchen Cleaning">
+      <div class="category-icon">🍳</div>
+      <div class="category-name">Kitchen</div>
+    </button>
+
+    <button class="category" data-service="Sofa Cleaning">
+      <div class="category-icon">🛋️</div>
+      <div class="category-name">Sofa</div>
+    </button>
+
+    <button class="category" data-service="Home Cleaning">
+      <div class="category-icon">🏠</div>
+      <div class="category-name">Home</div>
+    </button>
+
+    <button class="category" data-service="Window Cleaning">
+      <div class="category-icon">🪟</div>
+      <div class="category-name">Window</div>
+    </button>
+
+  </div>
+
+  <div class="section-title">
+    <h2>Cleaning Services</h2>
+    <span>View all</span>
+  </div>
+
+  <div class="services" id="servicesContainer">
+
+    <div class="service-card" data-service="Bathroom Cleaning">
+      <div class="service-icon">🚿</div>
+      <h3>Bathroom Cleaning</h3>
+      <p>Deep cleaning for your bathroom</p>
+      <div class="price">From ₹499</div>
+      <button class="book-btn" data-service="Bathroom Cleaning">Book</button>
     </div>
 
-    <div class="categories">
-
-      <button class="category" data-service="Bathroom Cleaning">
-        <div class="category-icon">🚿</div>
-        <p>Bathroom</p>
-      </button>
-
-      <button class="category" data-service="Kitchen Cleaning">
-        <div class="category-icon">🍳</div>
-        <p>Kitchen</p>
-      </button>
-
-      <button class="category" data-service="Sofa Cleaning">
-        <div class="category-icon">🛋️</div>
-        <p>Sofa</p>
-      </button>
-
-      <button class="category" data-service="Home Cleaning">
-        <div class="category-icon">🏠</div>
-        <p>Home</p>
-      </button>
-
-      <button class="category" data-service="Window Cleaning">
-        <div class="category-icon">🪟</div>
-        <p>Window</p>
-      </button>
-
+    <div class="service-card" data-service="Kitchen Cleaning">
+      <div class="service-icon">🍳</div>
+      <h3>Kitchen Cleaning</h3>
+      <p>Complete kitchen cleaning</p>
+      <div class="price">From ₹599</div>
+      <button class="book-btn" data-service="Kitchen Cleaning">Book</button>
     </div>
 
-  </section>
-
-
-  <!-- POPULAR SERVICES -->
-  <section class="section">
-
-    <div class="section-title">
-      <h2>Popular Services</h2>
-      <span>Explore</span>
+    <div class="service-card" data-service="Sofa Cleaning">
+      <div class="service-icon">🛋️</div>
+      <h3>Sofa Cleaning</h3>
+      <p>Professional sofa cleaning</p>
+      <div class="price">From ₹299</div>
+      <button class="book-btn" data-service="Sofa Cleaning">Book</button>
     </div>
 
-    <div class="services" id="servicesGrid">
-
-      <!-- Bathroom -->
-      <div class="service-card" data-service-card="Bathroom Cleaning">
-
-        <div class="service-image">🚿</div>
-
-        <div class="service-content">
-
-          <h3>Bathroom Cleaning</h3>
-
-          <p>
-            Professional bathroom cleaning
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹499</span>
-
-            <button class="book-btn"
-              data-service="Bathroom Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Kitchen -->
-      <div class="service-card" data-service-card="Kitchen Cleaning">
-
-        <div class="service-image">🍳</div>
-
-        <div class="service-content">
-
-          <h3>Kitchen Cleaning</h3>
-
-          <p>
-            Kitchen cleaning service
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹599</span>
-
-            <button class="book-btn"
-              data-service="Kitchen Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Sofa -->
-      <div class="service-card" data-service-card="Sofa Cleaning">
-
-        <div class="service-image">🛋️</div>
-
-        <div class="service-content">
-
-          <h3>Sofa Cleaning</h3>
-
-          <p>
-            Sofa and upholstery cleaning
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹399</span>
-
-            <button class="book-btn"
-              data-service="Sofa Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Home -->
-      <div class="service-card" data-service-card="Home Cleaning">
-
-        <div class="service-image">🏠</div>
-
-        <div class="service-content">
-
-          <h3>Home Cleaning</h3>
-
-          <p>
-            Complete home cleaning
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹999</span>
-
-            <button class="book-btn"
-              data-service="Home Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Window -->
-      <div class="service-card" data-service-card="Window Cleaning">
-
-        <div class="service-image">🪟</div>
-
-        <div class="service-content">
-
-          <h3>Window Cleaning</h3>
-
-          <p>
-            Window and glass cleaning
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹399</span>
-
-            <button class="book-btn"
-              data-service="Window Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Full Home -->
-      <div class="service-card" data-service-card="Full Home Deep Cleaning">
-
-        <div class="service-image">✨</div>
-
-        <div class="service-content">
-
-          <h3>Full Home Deep Cleaning</h3>
-
-          <p>
-            Complete deep cleaning
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹1499</span>
-
-            <button class="book-btn"
-              data-service="Full Home Deep Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Floor -->
-      <div class="service-card" data-service-card="Floor Cleaning">
-
-        <div class="service-image">🧹</div>
-
-        <div class="service-content">
-
-          <h3>Floor Cleaning</h3>
-
-          <p>
-            Floor cleaning service
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹299</span>
-
-            <button class="book-btn"
-              data-service="Floor Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Chimney -->
-      <div class="service-card" data-service-card="Chimney Cleaning">
-
-        <div class="service-image">🔥</div>
-
-        <div class="service-content">
-
-          <h3>Chimney Cleaning</h3>
-
-          <p>
-            Kitchen chimney cleaning
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹499</span>
-
-            <button class="book-btn"
-              data-service="Chimney Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Fridge -->
-      <div class="service-card" data-service-card="Fridge Cleaning">
-
-        <div class="service-image">🧊</div>
-
-        <div class="service-content">
-
-          <h3>Fridge Cleaning</h3>
-
-          <p>
-            Refrigerator cleaning
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹299</span>
-
-            <button class="book-btn"
-              data-service="Fridge Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Ceiling Fan -->
-      <div class="service-card" data-service-card="Ceiling Fan Cleaning">
-
-        <div class="service-image">🌀</div>
-
-        <div class="service-content">
-
-          <h3>Ceiling Fan Cleaning</h3>
-
-          <p>
-            Fan cleaning service
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹149</span>
-
-            <button class="book-btn"
-              data-service="Ceiling Fan Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Balcony -->
-      <div class="service-card" data-service-card="Balcony Cleaning">
-
-        <div class="service-image">🌿</div>
-
-        <div class="service-content">
-
-          <h3>Balcony Cleaning</h3>
-
-          <p>
-            Balcony cleaning service
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹299</span>
-
-            <button class="book-btn"
-              data-service="Balcony Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- AC -->
-      <div class="service-card" data-service-card="AC Cleaning">
-
-        <div class="service-image">❄️</div>
-
-        <div class="service-content">
-
-          <h3>AC Cleaning</h3>
-
-          <p>
-            Air conditioner cleaning
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹499</span>
-
-            <button class="book-btn"
-              data-service="AC Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Mattress -->
-      <div class="service-card" data-service-card="Mattress Cleaning">
-
-        <div class="service-image">🛏️</div>
-
-        <div class="service-content">
-
-          <h3>Mattress Cleaning</h3>
-
-          <p>
-            Mattress deep cleaning
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹499</span>
-
-            <button class="book-btn"
-              data-service="Mattress Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- Move in/out -->
-      <div class="service-card" data-service-card="Move-in / Move-out Cleaning">
-
-        <div class="service-image">📦</div>
-
-        <div class="service-content">
-
-          <h3>Move-in / Move-out</h3>
-
-          <p>
-            Moving cleaning service
-          </p>
-
-          <div class="service-bottom">
-
-            <span class="price">From ₹1999</span>
-
-            <button class="book-btn"
-              data-service="Move-in / Move-out Cleaning">
-              Book
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
+    <div class="service-card" data-service="Home Cleaning">
+      <div class="service-icon">🏠</div>
+      <h3>Home Cleaning</h3>
+      <p>Complete home cleaning</p>
+      <div class="price">From ₹999</div>
+      <button class="book-btn" data-service="Home Cleaning">Book</button>
     </div>
 
-  </section>
-
-
-  <!-- OFFER -->
-  <section class="section">
-
-    <div class="offer">
-
-      <h3>✨ Special Cleaning Offers</h3>
-
-      <p>
-        Book professional cleaning services
-        and keep your home fresh and hygienic.
-      </p>
-
+    <div class="service-card" data-service="Window Cleaning">
+      <div class="service-icon">🪟</div>
+      <h3>Window Cleaning</h3>
+      <p>Clean and shining windows</p>
+      <div class="price">From ₹399</div>
+      <button class="book-btn" data-service="Window Cleaning">Book</button>
     </div>
 
-  </section>
+    <div class="service-card" data-service="Full Home Deep Cleaning">
+      <div class="service-icon">✨</div>
+      <h3>Full Home Deep Cleaning</h3>
+      <p>Detailed deep cleaning</p>
+      <div class="price">From ₹1499</div>
+      <button class="book-btn" data-service="Full Home Deep Cleaning">Book</button>
+    </div>
+
+    <div class="service-card" data-service="Floor Cleaning">
+      <div class="service-icon">🧹</div>
+      <h3>Floor Cleaning</h3>
+      <p>Professional floor cleaning</p>
+      <div class="price">From ₹299</div>
+      <button class="book-btn" data-service="Floor Cleaning">Book</button>
+    </div>
+
+    <div class="service-card" data-service="Chimney Cleaning">
+      <div class="service-icon">🔥</div>
+      <h3>Chimney Cleaning</h3>
+      <p>Kitchen chimney cleaning</p>
+      <div class="price">From ₹499</div>
+      <button class="book-btn" data-service="Chimney Cleaning">Book</button>
+    </div>
+
+    <div class="service-card" data-service="Fridge Cleaning">
+      <div class="service-icon">🧊</div>
+      <h3>Fridge Cleaning</h3>
+      <p>Deep refrigerator cleaning</p>
+      <div class="price">From ₹299</div>
+      <button class="book-btn" data-service="Fridge Cleaning">Book</button>
+    </div>
+
+    <div class="service-card" data-service="Ceiling Fan Cleaning">
+      <div class="service-icon">🌀</div>
+      <h3>Ceiling Fan Cleaning</h3>
+      <p>Dust-free ceiling fans</p>
+      <div class="price">From ₹149</div>
+      <button class="book-btn" data-service="Ceiling Fan Cleaning">Book</button>
+    </div>
+
+    <div class="service-card" data-service="Balcony Cleaning">
+      <div class="service-icon">🌿</div>
+      <h3>Balcony Cleaning</h3>
+      <p>Fresh and clean balcony</p>
+      <div class="price">From ₹299</div>
+      <button class="book-btn" data-service="Balcony Cleaning">Book</button>
+    </div>
+
+    <div class="service-card" data-service="AC Cleaning">
+      <div class="service-icon">❄️</div>
+      <h3>AC Cleaning</h3>
+      <p>AC cleaning service</p>
+      <div class="price">From ₹499</div>
+      <button class="book-btn" data-service="AC Cleaning">Book</button>
+    </div>
+
+    <div class="service-card" data-service="Mattress Cleaning">
+      <div class="service-icon">🛏️</div>
+      <h3>Mattress Cleaning</h3>
+      <p>Deep mattress cleaning</p>
+      <div class="price">From ₹499</div>
+      <button class="book-btn" data-service="Mattress Cleaning">Book</button>
+    </div>
+
+    <div class="service-card" data-service="Move-in / Move-out Cleaning">
+      <div class="service-icon">📦</div>
+      <h3>Move-in / Move-out</h3>
+      <p>Complete moving cleaning</p>
+      <div class="price">From ₹1999</div>
+      <button class="book-btn" data-service="Move-in / Move-out Cleaning">Book</button>
+    </div>
+
+  </div>
+
+  <div class="offer">
+    <strong>🎁 Special Offer</strong>
+    <p>Book your cleaning service online and get convenient doorstep service.</p>
+  </div>
+
+</main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn" onclick="scrollToTop()">
+    <div>⌂</div>
+    Home
+  </button>
+
+  <button class="nav-btn" onclick="document.getElementById('servicesContainer').scrollIntoView({behavior:'smooth'})">
+    <div>🧹</div>
+    Services
+  </button>
+
+  <button class="nav-btn" onclick="showSimpleMessage('My Bookings')">
+    <div>📋</div>
+    Bookings
+  </button>
+
+  <button class="nav-btn" onclick="showSimpleMessage('Profile')">
+    <div>👤</div>
+    Profile
+  </button>
+</nav>
+
+
+<!-- SERVICE OPTION MODAL -->
+<div class="modal" id="serviceModal">
+
+  <div class="modal-box">
+
+    <div class="modal-header">
+      <h2 id="serviceTitle">Service</h2>
+
+      <button class="close-btn" onclick="closeModal('serviceModal')">
+        ×
+      </button>
+    </div>
+
+    <div id="serviceOptions">
+      <div class="loading">Loading options...</div>
+    </div>
+
+  </div>
 
 </div>
 
 
-<!-- BOTTOM NAV -->
-<nav class="bottom-nav">
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
 
-  <button class="nav-btn" onclick="scrollToTop()">
-    <span>⌂</span>
-    Home
-  </button>
+  <div class="modal-box">
 
-  <button class="nav-btn" onclick="showMessage('Bookings')">
-    <span>📋</span>
-    Bookings
-  </button>
+    <div class="modal-header">
 
-  <button class="nav-btn" onclick="showMessage('Offers')">
-    <span>🎁</span>
-    Offers
-  </button>
+      <h2>Book Service</h2>
 
-  <button class="nav-btn" onclick="showMessage('Profile')">
-    <span>👤</span>
-    Profile
-  </button>
+      <button class="close-btn" onclick="closeModal('bookingModal')">
+        ×
+      </button>
 
-</nav>
+    </div>
+
+    <div id="bookingError" class="error-box"></div>
+
+    <div class="booking-summary">
+
+      <div class="booking-summary-row">
+        <span>Service</span>
+        <strong id="bookingServiceName">-</strong>
+      </div>
+
+      <div class="booking-summary-row">
+        <span>Option</span>
+        <strong id="bookingOptionName">-</strong>
+      </div>
+
+      <div class="booking-summary-row">
+        <span>Duration</span>
+        <strong id="bookingDuration">-</strong>
+      </div>
+
+      <div class="booking-summary-row booking-total">
+        <span>Total</span>
+        <strong id="bookingPrice">₹0</strong>
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label for="bookingDate">
+        Select Date
+      </label>
+
+      <input
+        id="bookingDate"
+        class="form-control"
+        type="date"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Select Time
+      </label>
+
+      <div id="timeSlots" class="time-grid">
+        <div class="loading">
+          Select a date first
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label for="bookingAddress">
+        Service Address
+      </label>
+
+      <textarea
+        id="bookingAddress"
+        class="form-control"
+        placeholder="Enter your complete address"
+      ></textarea>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label for="bookingPhone">
+        Mobile Number
+      </label>
+
+      <input
+        id="bookingPhone"
+        class="form-control"
+        type="tel"
+        maxlength="10"
+        placeholder="Enter 10 digit mobile number"
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label for="bookingNotes">
+        Additional Notes
+      </label>
+
+      <textarea
+        id="bookingNotes"
+        class="form-control"
+        placeholder="Any special instructions? (Optional)"
+      ></textarea>
+
+    </div>
+
+
+    <button
+      id="confirmBookingBtn"
+      class="confirm-btn"
+      onclick="confirmBooking()"
+    >
+      Confirm Booking
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- SUCCESS MODAL -->
+<div class="modal" id="successModal">
+
+  <div class="modal-box">
+
+    <div class="success">
+
+      <div class="success-icon">
+        ✓
+      </div>
+
+      <h2>Booking Confirmed!</h2>
+
+      <p id="successMessage">
+        Your cleaning service has been booked successfully.
+      </p>
+
+      <button
+        class="confirm-btn"
+        style="margin-top:20px"
+        onclick="closeModal('successModal')"
+      >
+        Done
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
 
 
 <script>
@@ -1015,235 +899,229 @@ const SUPABASE_KEY =
 "sb_publishable_1-iphInSnhfjN8zFmrnuSw_qu1l_qOf";
 
 
-/* =========================
-   SUPABASE REQUEST
-========================= */
-
-async function supabaseFetch(endpoint){
+async function supabaseFetch(
+  endpoint,
+  options = {}
+){
 
   const response = await fetch(
     SUPABASE_URL + endpoint,
     {
-      method:"GET",
+      ...options,
 
       headers:{
         "apikey":SUPABASE_KEY,
-        "Authorization":"Bearer " + SUPABASE_KEY
+        "Authorization":"Bearer " + SUPABASE_KEY,
+        "Content-Type":"application/json",
+
+        ...(options.headers || {})
       }
     }
   );
 
-  if(!response.ok){
-    throw new Error(
-      "Supabase error: " + response.status
-    );
+  const text = await response.text();
+
+  let data = null;
+
+  try{
+    data = text ? JSON.parse(text) : null;
+  }catch{
+    data = text;
   }
 
-  return await response.json();
+  if(!response.ok){
+
+    let message =
+      data?.message ||
+      data?.error_description ||
+      data?.hint ||
+      "Supabase request failed";
+
+    throw new Error(message);
+  }
+
+  return data;
 }
 
 
 /* =========================
-   OPEN SERVICE
+   GLOBAL BOOKING DATA
+========================= */
+
+let selectedService = null;
+let selectedOption = null;
+let selectedTimeSlot = null;
+
+
+/* =========================
+   DATE
+========================= */
+
+function getToday(){
+
+  const now = new Date();
+
+  const year =
+    now.getFullYear();
+
+  const month =
+    String(now.getMonth()+1).padStart(2,"0");
+
+  const day =
+    String(now.getDate()).padStart(2,"0");
+
+  return `${year}-${month}-${day}`;
+}
+
+
+const bookingDate =
+document.getElementById("bookingDate");
+
+bookingDate.min = getToday();
+
+
+/* =========================
+   SERVICE OPEN
 ========================= */
 
 async function openService(serviceName){
 
-  showLoadingModal(serviceName);
+  const modal =
+    document.getElementById("serviceModal");
+
+  const title =
+    document.getElementById("serviceTitle");
+
+  const optionsContainer =
+    document.getElementById("serviceOptions");
+
+  title.textContent = serviceName;
+
+  optionsContainer.innerHTML =
+    `<div class="loading">Loading options...</div>`;
+
+  modal.classList.add("active");
 
   try{
 
     const services =
       await supabaseFetch(
-        "/rest/v1/services" +
-        "?name=eq." +
-        encodeURIComponent(serviceName) +
-        "&is_active=eq.true" +
-        "&select=id,name,description,price,duration_minutes"
+        `/rest/v1/services?name=eq.${encodeURIComponent(serviceName)}&is_active=eq.true&select=id,name,description,price,duration_minutes&limit=1`
       );
 
-    if(!services || services.length === 0){
+    if(!services || !services.length){
 
-      showErrorModal(
-        serviceName,
-        "এই service এখন available নেই।"
-      );
+      optionsContainer.innerHTML =
+        `<div class="loading">
+          No active service found.
+        </div>`;
 
       return;
     }
 
-
-    const service = services[0];
-
+    const service =
+      services[0];
 
     const options =
       await supabaseFetch(
-        "/rest/v1/service_options" +
-        "?service_id=eq." +
-        service.id +
-        "&is_active=eq.true" +
-        "&order=sort_order.asc" +
-        "&select=id,name,description,price,duration_minutes"
+        `/rest/v1/service_options?service_id=eq.${service.id}&is_active=eq.true&order=sort_order.asc&select=id,name,description,price,duration_minutes`
       );
 
+    if(!options || !options.length){
 
-    showOptions(service,options);
+      optionsContainer.innerHTML =
+        `<div class="loading">
+          No options available for this service.
+        </div>`;
 
-  }
-  catch(error){
+      return;
+    }
+
+    selectedService = service;
+
+    showOptions(
+      service,
+      options
+    );
+
+  }catch(error){
 
     console.error(error);
 
-    showErrorModal(
-      serviceName,
-      "Service load করতে সমস্যা হয়েছে।"
-    );
+    optionsContainer.innerHTML =
+      `<div class="loading">
+        Unable to load service options.<br><br>
+        ${escapeHtml(error.message)}
+      </div>`;
   }
-
 }
 
 
 /* =========================
-   LOADING MODAL
+   SHOW OPTIONS
 ========================= */
 
-function showLoadingModal(serviceName){
+function showOptions(
+  service,
+  options
+){
 
-  createModal(`
-    <div class="modal-head">
+  const container =
+    document.getElementById("serviceOptions");
 
-      <div>
-        <h2>${escapeHtml(serviceName)}</h2>
-        <p>Options load হচ্ছে...</p>
-      </div>
+  container.innerHTML = "";
 
-      <button class="close-btn"
-        onclick="closeModal()">×</button>
+  options.forEach(option => {
 
-    </div>
+    const card =
+      document.createElement("div");
 
-    <div class="loading">
-      Loading...
-    </div>
-  `);
+    card.className =
+      "option-card";
 
-}
+    card.innerHTML = `
 
+      <h3>
+        ${escapeHtml(option.name)}
+      </h3>
 
-/* =========================
-   OPTIONS
-========================= */
+      <p>
+        ${escapeHtml(
+          option.description ||
+          "Professional cleaning service"
+        )}
+      </p>
 
-function showOptions(service,options){
+      <div class="option-bottom">
 
-  let optionHTML = "";
+        <div>
 
-  if(options.length === 0){
+          <div class="option-price">
+            ₹${Number(option.price).toLocaleString("en-IN")}
+          </div>
 
-    optionHTML = `
-      <div class="error-box">
-        এই service-এর option এখনো যোগ করা হয়নি।
+          <small>
+            ${option.duration_minutes || "-"} minutes
+          </small>
+
+        </div>
+
+        <button
+          class="option-select"
+          onclick="selectOption(
+            ${JSON.stringify(service).replace(/"/g,"&quot;")},
+            ${JSON.stringify(option).replace(/"/g,"&quot;")}
+          )"
+        >
+          Select
+        </button>
+
       </div>
     `;
 
-  }else{
+    container.appendChild(card);
 
-    optionHTML = options.map(option => {
-
-      return `
-        <div
-          class="option-card"
-          onclick="selectOption(
-            ${service.id},
-            '${escapeJs(service.name)}',
-            ${option.id},
-            '${escapeJs(option.name)}',
-            ${Number(option.price)},
-            ${Number(option.duration_minutes || 0)}
-          )"
-        >
-
-          <div class="option-info">
-
-            <h3>
-              ${escapeHtml(option.name)}
-            </h3>
-
-            <p>
-              ${escapeHtml(
-                option.description || ""
-              )}
-            </p>
-
-            <div class="option-meta">
-
-              <span class="option-price">
-                ₹${Number(option.price)
-                  .toLocaleString("en-IN")}
-              </span>
-
-              ${
-                option.duration_minutes
-                ?
-                `<span class="option-duration">
-                  ${option.duration_minutes} min
-                </span>`
-                :
-                ""
-              }
-
-            </div>
-
-          </div>
-
-          <div class="option-arrow">
-            ›
-          </div>
-
-        </div>
-      `;
-
-    }).join("");
-
-  }
-
-
-  createModal(`
-
-    <div class="modal-head">
-
-      <div>
-
-        <h2>
-          ${escapeHtml(service.name)}
-        </h2>
-
-        <p>
-          ${escapeHtml(
-            service.description ||
-            "Choose your preferred option"
-          )}
-        </p>
-
-      </div>
-
-      <button
-        class="close-btn"
-        onclick="closeModal()">
-        ×
-      </button>
-
-    </div>
-
-
-    <div class="option-list">
-
-      ${optionHTML}
-
-    </div>
-
-  `);
-
+  });
 }
 
 
@@ -1252,102 +1130,469 @@ function showOptions(service,options){
 ========================= */
 
 function selectOption(
-  serviceId,
-  serviceName,
-  optionId,
-  optionName,
-  price,
-  duration
+  service,
+  option
 ){
 
-  closeModal();
+  selectedService = service;
+  selectedOption = option;
+  selectedTimeSlot = null;
 
-  /*
-    Temporary step.
-    Next step will replace this
-    with the real booking screen.
-  */
+  closeModal("serviceModal");
 
-  alert(
-    serviceName +
-    "\n\n" +
-    optionName +
-    "\n" +
-    "Price: ₹" +
-    Number(price).toLocaleString("en-IN") +
-    "\n" +
-    "Duration: " +
-    duration +
-    " minutes"
-  );
+  document.getElementById(
+    "bookingServiceName"
+  ).textContent =
+    service.name;
 
+  document.getElementById(
+    "bookingOptionName"
+  ).textContent =
+    option.name;
+
+  document.getElementById(
+    "bookingDuration"
+  ).textContent =
+    (option.duration_minutes || "-") +
+    " minutes";
+
+  document.getElementById(
+    "bookingPrice"
+  ).textContent =
+    "₹" +
+    Number(option.price)
+      .toLocaleString("en-IN");
+
+  document.getElementById(
+    "bookingAddress"
+  ).value = "";
+
+  document.getElementById(
+    "bookingPhone"
+  ).value = "";
+
+  document.getElementById(
+    "bookingNotes"
+  ).value = "";
+
+  document.getElementById(
+    "bookingDate"
+  ).value = "";
+
+  document.getElementById(
+    "timeSlots"
+  ).innerHTML =
+    `<div class="loading">
+      Select a date first
+    </div>`;
+
+  hideBookingError();
+
+  document
+    .getElementById("bookingModal")
+    .classList.add("active");
 }
 
 
 /* =========================
-   MODAL CREATOR
+   DATE CHANGE
 ========================= */
 
-function createModal(content){
-
-  closeModal();
-
-  const modal =
-    document.createElement("div");
-
-  modal.id =
-    "serviceOptionsModal";
-
-  modal.innerHTML = `
-
-    <div class="modal-overlay"
-         onclick="backgroundClose(event)">
-
-      <div class="service-modal"
-           onclick="event.stopPropagation()">
-
-        ${content}
-
-      </div>
-
-    </div>
-
-  `;
-
-  document.body.appendChild(modal);
-
-}
+bookingDate.addEventListener(
+  "change",
+  loadAvailableTimeSlots
+);
 
 
-function backgroundClose(event){
+async function loadAvailableTimeSlots(){
 
-  if(
-    event.target.classList.contains(
-      "modal-overlay"
-    )
-  ){
-    closeModal();
+  const date =
+    bookingDate.value;
+
+  const container =
+    document.getElementById("timeSlots");
+
+  selectedTimeSlot = null;
+
+  if(!date){
+
+    container.innerHTML =
+      `<div class="loading">
+        Select a date first
+      </div>`;
+
+    return;
   }
 
-}
+  container.innerHTML =
+    `<div class="loading">
+      Loading available times...
+    </div>`;
 
+  try{
 
-function closeModal(){
+    const slots =
+      await supabaseFetch(
+        "/rest/v1/rpc/get_available_time_slots",
+        {
+          method:"POST",
 
-  const modal =
-    document.getElementById(
-      "serviceOptionsModal"
-    );
+          body:JSON.stringify({
+            p_date:date
+          })
+        }
+      );
 
-  if(modal){
-    modal.remove();
+    if(!slots || !slots.length){
+
+      container.innerHTML =
+        `<div class="loading">
+          No time slots available for this date.
+        </div>`;
+
+      return;
+    }
+
+    container.innerHTML = "";
+
+    slots.forEach(slot => {
+
+      const button =
+        document.createElement("button");
+
+      button.type = "button";
+
+      button.className =
+        "time-btn";
+
+      const timeText =
+        formatTime(slot.slot_time);
+
+      button.textContent =
+        timeText;
+
+      if(
+        Number(slot.available_bookings) <= 0
+      ){
+
+        button.disabled = true;
+
+      }else{
+
+        button.addEventListener(
+          "click",
+          function(){
+
+            document
+              .querySelectorAll(".time-btn")
+              .forEach(btn =>
+                btn.classList.remove("selected")
+              );
+
+            button.classList.add("selected");
+
+            selectedTimeSlot = slot;
+
+          }
+        );
+      }
+
+      container.appendChild(button);
+
+    });
+
+  }catch(error){
+
+    console.error(error);
+
+    container.innerHTML =
+      `<div class="loading">
+        Unable to load time slots.<br><br>
+        ${escapeHtml(error.message)}
+      </div>`;
   }
-
 }
 
 
 /* =========================
-   CLICK HANDLER
+   CONFIRM BOOKING
+========================= */
+
+async function confirmBooking(){
+
+  hideBookingError();
+
+  const date =
+    bookingDate.value;
+
+  const address =
+    document.getElementById(
+      "bookingAddress"
+    ).value.trim();
+
+  const phone =
+    document.getElementById(
+      "bookingPhone"
+    ).value.trim();
+
+  const notes =
+    document.getElementById(
+      "bookingNotes"
+    ).value.trim();
+
+
+  if(!selectedService){
+
+    showBookingError(
+      "Service information is missing."
+    );
+
+    return;
+  }
+
+
+  if(!selectedOption){
+
+    showBookingError(
+      "Please select a service option."
+    );
+
+    return;
+  }
+
+
+  if(!date){
+
+    showBookingError(
+      "Please select a booking date."
+    );
+
+    return;
+  }
+
+
+  if(!selectedTimeSlot){
+
+    showBookingError(
+      "Please select an available time slot."
+    );
+
+    return;
+  }
+
+
+  if(address.length < 8){
+
+    showBookingError(
+      "Please enter your complete service address."
+    );
+
+    return;
+  }
+
+
+  if(!/^[0-9]{10}$/.test(phone)){
+
+    showBookingError(
+      "Please enter a valid 10 digit mobile number."
+    );
+
+    return;
+  }
+
+
+  const button =
+    document.getElementById(
+      "confirmBookingBtn"
+    );
+
+  button.disabled = true;
+
+  button.textContent =
+    "Confirming...";
+
+
+  try{
+
+    /* =========================
+       CREATE CUSTOMER
+    ========================= */
+
+    const customerResult =
+      await supabaseFetch(
+        "/rest/v1/customers",
+        {
+          method:"POST",
+
+          headers:{
+            "Prefer":"return=representation"
+          },
+
+          body:JSON.stringify({
+            phone:phone,
+            address:address,
+            city:"Guwahati"
+          })
+        }
+      );
+
+
+    if(
+      !customerResult ||
+      !customerResult.length
+    ){
+
+      throw new Error(
+        "Unable to create customer record."
+      );
+    }
+
+
+    const customer =
+      customerResult[0];
+
+
+    /* =========================
+       CREATE BOOKING
+    ========================= */
+
+    const bookingResult =
+      await supabaseFetch(
+        "/rest/v1/bookings",
+        {
+          method:"POST",
+
+          headers:{
+            "Prefer":"return=representation"
+          },
+
+          body:JSON.stringify({
+
+            customer_id:
+              customer.id,
+
+            service_id:
+              selectedService.id,
+
+            booking_date:
+              date,
+
+            booking_time:
+              selectedTimeSlot.slot_time,
+
+            status:
+              "pending",
+
+            total_amount:
+              Number(selectedOption.price),
+
+            address:
+              address,
+
+            notes:
+              notes || null,
+
+            phone:
+              phone,
+
+            time_slot_id:
+              selectedTimeSlot.id
+
+          })
+        }
+      );
+
+
+    if(
+      !bookingResult ||
+      !bookingResult.length
+    ){
+
+      throw new Error(
+        "Booking could not be created."
+      );
+    }
+
+
+    const booking =
+      bookingResult[0];
+
+
+    closeModal("bookingModal");
+
+
+    document.getElementById(
+      "successMessage"
+    ).innerHTML =
+
+      `Your booking has been confirmed.<br><br>
+       <strong>Booking ID:</strong> ${escapeHtml(
+         String(booking.id)
+       )}<br>
+       <strong>Date:</strong> ${escapeHtml(
+         formatDate(date)
+       )}<br>
+       <strong>Time:</strong> ${escapeHtml(
+         formatTime(selectedTimeSlot.slot_time)
+       )}`;
+
+
+    document
+      .getElementById("successModal")
+      .classList.add("active");
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showBookingError(
+      error.message ||
+      "Booking failed. Please try again."
+    );
+
+  }finally{
+
+    button.disabled = false;
+
+    button.textContent =
+      "Confirm Booking";
+  }
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+function closeModal(id){
+
+  document
+    .getElementById(id)
+    .classList.remove("active");
+}
+
+
+document
+  .querySelectorAll(".modal")
+  .forEach(modal => {
+
+    modal.addEventListener(
+      "click",
+      function(event){
+
+        if(event.target === modal){
+
+          modal.classList.remove("active");
+        }
+      }
+    );
+
+  });
+
+
+/* =========================
+   SERVICE CLICK
 ========================= */
 
 document.addEventListener(
@@ -1359,23 +1604,18 @@ document.addEventListener(
         "[data-service]"
       );
 
-    if(!target){
-      return;
-    }
+    if(!target) return;
 
     const service =
       target.getAttribute(
         "data-service"
       );
 
-    if(!service){
-      return;
-    }
+    if(!service) return;
 
     event.preventDefault();
 
     openService(service);
-
   }
 );
 
@@ -1384,77 +1624,126 @@ document.addEventListener(
    SEARCH
 ========================= */
 
-function searchServices(){
+document
+  .getElementById("searchInput")
+  .addEventListener(
+    "input",
+    function(){
 
-  const search =
-    document.getElementById(
-      "searchInput"
-    ).value
-      .toLowerCase()
-      .trim();
+      const search =
+        this.value
+          .trim()
+          .toLowerCase();
 
-  const cards =
-    document.querySelectorAll(
-      "[data-service-card]"
-    );
+      document
+        .querySelectorAll(
+          "#servicesContainer .service-card"
+        )
+        .forEach(card => {
 
-  cards.forEach(card => {
+          const text =
+            card.innerText.toLowerCase();
 
-    const text =
-      card.innerText.toLowerCase();
-
-    if(
-      !search ||
-      text.includes(search)
-    ){
-      card.style.display="";
-    }else{
-      card.style.display="none";
+          card.style.display =
+            text.includes(search)
+              ? ""
+              : "none";
+        });
     }
-
-  });
-
-}
+  );
 
 
 /* =========================
    HELPERS
 ========================= */
 
+function formatTime(time){
+
+  if(!time) return "";
+
+  const parts =
+    String(time).split(":");
+
+  let hour =
+    Number(parts[0]);
+
+  const minute =
+    parts[1] || "00";
+
+  const ampm =
+    hour >= 12 ? "PM" : "AM";
+
+  hour =
+    hour % 12 || 12;
+
+  return `${hour}:${minute} ${ampm}`;
+}
+
+
+function formatDate(date){
+
+  if(!date) return "";
+
+  const d =
+    new Date(date + "T00:00:00");
+
+  return d.toLocaleDateString(
+    "en-IN",
+    {
+      day:"2-digit",
+      month:"short",
+      year:"numeric"
+    }
+  );
+}
+
+
 function escapeHtml(value){
 
-  return String(value)
+  return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
-
 }
 
 
-function escapeJs(value){
+function showBookingError(message){
 
-  return String(value)
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'")
-    .replace(/\n/g,"\\n")
-    .replace(/\r/g,"");
+  const box =
+    document.getElementById(
+      "bookingError"
+    );
 
+  box.textContent =
+    message;
+
+  box.style.display =
+    "block";
 }
 
 
-/* =========================
-   OTHER BUTTONS
-========================= */
+function hideBookingError(){
 
-function showMessage(name){
+  const box =
+    document.getElementById(
+      "bookingError"
+    );
+
+  box.textContent = "";
+
+  box.style.display =
+    "none";
+}
+
+
+function showSimpleMessage(name){
 
   alert(
     name +
-    " section আমরা পরের ধাপে তৈরি করব।"
+    " section will be connected next."
   );
-
 }
 
 
@@ -1464,7 +1753,6 @@ function scrollToTop(){
     top:0,
     behavior:"smooth"
   });
-
 }
 
 </script>
