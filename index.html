@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <title>Guwahati Urban Cleaning Service</title>
 
 <style>
@@ -12,110 +13,197 @@
   padding:0;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:#f5f7fb;
   color:#172033;
-  padding-bottom:80px;
+  padding-bottom:78px;
 }
 
-button,input,textarea{
-  font:inherit;
+button,
+input,
+textarea{
+  font-family:inherit;
 }
 
 button{
   cursor:pointer;
+  border:none;
 }
 
+.hidden{
+  display:none!important;
+}
+
+/* HEADER */
+
 .header{
-  background:#fff;
-  padding:16px;
+  background:#ffffff;
+  padding:16px 16px 12px;
   position:sticky;
   top:0;
-  z-index:20;
-  border-bottom:1px solid #e8ebf2;
+  z-index:100;
+  border-bottom:1px solid #edf0f5;
 }
 
 .header-top{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:14px;
+  gap:12px;
 }
 
 .location{
-  font-size:13px;
-  color:#737b8c;
+  display:flex;
+  align-items:center;
+  gap:9px;
 }
 
-.location strong{
-  display:block;
-  color:#172033;
-  font-size:17px;
-  margin-top:3px;
-}
-
-.profile-btn{
-  width:42px;
-  height:42px;
-  border:0;
-  border-radius:50%;
-  background:#eef2ff;
+.location-icon{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:#eef5ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-size:20px;
 }
 
-.search{
-  width:100%;
-  border:1px solid #e1e5ed;
-  background:#f8f9fc;
-  border-radius:14px;
-  padding:13px 15px;
-  outline:none;
+.location-text small{
+  display:block;
+  color:#7c8494;
+  font-size:11px;
+  margin-bottom:2px;
 }
 
+.location-text strong{
+  font-size:14px;
+}
+
+.profile-btn{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#172033;
+  color:white;
+  font-size:17px;
+}
+
+/* SEARCH */
+
+.search-box{
+  margin-top:14px;
+  background:#f4f6f9;
+  border:1px solid #e7eaf0;
+  border-radius:14px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  gap:10px;
+}
+
+.search-box span{
+  font-size:18px;
+  color:#8b93a2;
+}
+
+.search-box input{
+  flex:1;
+  border:none;
+  outline:none;
+  background:transparent;
+  font-size:14px;
+}
+
+/* MAIN */
+
 .container{
+  width:100%;
+  max-width:700px;
+  margin:auto;
   padding:16px;
 }
 
+/* HERO */
+
 .hero{
-  background:linear-gradient(135deg,#5b4bdb,#7c5cff);
+  background:linear-gradient(135deg,#162033,#304d7d);
+  border-radius:22px;
+  padding:23px 20px;
   color:white;
-  padding:22px;
-  border-radius:20px;
-  margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:22px;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  right:-45px;
+  top:-50px;
+  background:rgba(255,255,255,.08);
 }
 
 .hero h1{
   font-size:25px;
   line-height:1.2;
-  margin-bottom:8px;
+  margin-bottom:9px;
+  max-width:300px;
 }
 
 .hero p{
-  font-size:14px;
-  opacity:.92;
+  font-size:13px;
+  color:#dbe5f7;
   line-height:1.5;
+  max-width:330px;
 }
 
-.section-title{
+.hero-btn{
+  margin-top:16px;
+  background:white;
+  color:#172033;
+  padding:11px 17px;
+  border-radius:11px;
+  font-weight:bold;
+  font-size:13px;
+}
+
+/* SECTION */
+
+.section{
+  margin-bottom:24px;
+}
+
+.section-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin:22px 0 12px;
+  margin-bottom:13px;
 }
 
-.section-title h2{
-  font-size:19px;
+.section-head h2{
+  font-size:18px;
 }
 
-.section-title span{
+.section-head span{
+  color:#7c8494;
   font-size:12px;
-  color:#777f90;
 }
+
+/* CATEGORY */
 
 .categories{
   display:flex;
-  gap:10px;
+  gap:12px;
   overflow-x:auto;
   padding-bottom:5px;
 }
@@ -125,95 +213,149 @@ button{
 }
 
 .category{
-  min-width:105px;
-  border:1px solid #e5e8ef;
-  background:#fff;
+  min-width:82px;
+  background:white;
+  border:1px solid #edf0f5;
   border-radius:15px;
-  padding:14px 10px;
+  padding:12px 8px;
   text-align:center;
+  box-shadow:0 4px 12px rgba(20,30,50,.04);
 }
 
 .category-icon{
-  font-size:26px;
-  margin-bottom:7px;
+  width:43px;
+  height:43px;
+  border-radius:13px;
+  background:#f0f5ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 8px;
+  font-size:21px;
 }
 
-.category-name{
-  font-size:12px;
+.category small{
+  font-size:11px;
   font-weight:600;
+  line-height:1.2;
 }
 
-.services{
+/* SERVICES */
+
+.services-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:13px;
 }
 
 .service-card{
-  background:#fff;
-  border:1px solid #e7eaf0;
+  background:white;
   border-radius:17px;
-  padding:14px;
-  box-shadow:0 3px 12px rgba(0,0,0,.03);
+  overflow:hidden;
+  border:1px solid #edf0f5;
+  box-shadow:0 4px 14px rgba(20,30,50,.05);
 }
 
-.service-icon{
-  width:50px;
-  height:50px;
-  border-radius:14px;
-  background:#f0edff;
+.service-image{
+  height:125px;
+  background:linear-gradient(135deg,#eaf1fb,#dfe8f7);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:27px;
-  margin-bottom:11px;
+  font-size:43px;
 }
 
-.service-card h3{
-  font-size:15px;
-  line-height:1.3;
-  margin-bottom:5px;
+.service-content{
+  padding:13px;
 }
 
-.service-card p{
-  color:#788093;
-  font-size:12px;
-  margin-bottom:11px;
+.service-content h3{
+  font-size:14px;
+  line-height:1.25;
+  margin-bottom:6px;
+}
+
+.service-content p{
+  font-size:11px;
+  color:#7b8494;
+  min-height:28px;
+  line-height:1.35;
+}
+
+.service-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:10px;
 }
 
 .price{
   font-size:14px;
-  font-weight:700;
-  margin-bottom:10px;
+  font-weight:bold;
 }
 
-.book-btn{
-  width:100%;
-  border:0;
-  background:#5b4bdb;
-  color:#fff;
-  border-radius:10px;
-  padding:10px;
-  font-weight:700;
+.view-btn{
+  background:#172033;
+  color:white;
+  border-radius:9px;
+  padding:8px 10px;
+  font-size:11px;
 }
+
+/* OFFER */
 
 .offer{
-  background:#fff3df;
-  border:1px solid #ffe2b4;
-  border-radius:17px;
+  background:white;
+  border:1px solid #e8ecf3;
+  border-radius:18px;
   padding:17px;
-  margin-top:20px;
+  display:flex;
+  align-items:center;
+  gap:13px;
 }
 
-.offer strong{
-  display:block;
-  margin-bottom:5px;
+.offer-icon{
+  width:48px;
+  height:48px;
+  background:#f1f5ff;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+}
+
+.offer h3{
+  font-size:14px;
+  margin-bottom:4px;
 }
 
 .offer p{
-  font-size:13px;
-  color:#6d5a3b;
+  font-size:11px;
+  color:#7b8494;
 }
+
+/* LOADING */
+
+.loading{
+  text-align:center;
+  padding:35px 15px;
+  color:#7d8798;
+  font-size:13px;
+}
+
+.empty{
+  background:white;
+  border:1px dashed #dce1e9;
+  border-radius:14px;
+  padding:22px 15px;
+  text-align:center;
+  color:#7b8494;
+  font-size:13px;
+  grid-column:1/-1;
+}
+
+/* BOTTOM NAV */
 
 .bottom-nav{
   position:fixed;
@@ -221,47 +363,51 @@ button{
   left:0;
   right:0;
   height:68px;
-  background:#fff;
-  border-top:1px solid #e5e8ef;
+  background:white;
+  border-top:1px solid #e8ebf0;
   display:flex;
   justify-content:space-around;
   align-items:center;
-  z-index:30;
+  z-index:200;
 }
 
 .nav-btn{
-  border:0;
   background:none;
-  color:#7b8291;
-  font-size:11px;
+  color:#8a92a0;
   text-align:center;
+  font-size:10px;
 }
 
 .nav-btn div{
-  font-size:21px;
-  margin-bottom:2px;
+  font-size:20px;
+  margin-bottom:3px;
 }
+
+.nav-btn.active{
+  color:#172033;
+  font-weight:bold;
+}
+
+/* MODAL */
 
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.5);
-  display:none;
-  align-items:flex-end;
-  z-index:100;
-}
-
-.modal.active{
+  background:rgba(9,15,27,.55);
+  z-index:500;
   display:flex;
+  align-items:flex-end;
+  justify-content:center;
 }
 
-.modal-box{
-  background:#fff;
+.modal-card{
   width:100%;
-  max-height:94vh;
+  max-width:700px;
+  max-height:92vh;
   overflow-y:auto;
+  background:#f7f8fb;
   border-radius:24px 24px 0 0;
-  padding:20px;
+  padding:18px 16px 30px;
   animation:slideUp .22s ease;
 }
 
@@ -274,638 +420,523 @@ button{
   }
 }
 
-.modal-header{
+.modal-head{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  margin-bottom:17px;
+  justify-content:space-between;
+  margin-bottom:18px;
 }
 
-.modal-header h2{
+.modal-head h2{
   font-size:20px;
 }
 
 .close-btn{
   width:35px;
   height:35px;
-  border:0;
-  background:#f0f2f6;
   border-radius:50%;
-  font-size:20px;
+  background:#e9edf3;
+  font-size:18px;
 }
 
-.option-card{
-  border:1px solid #e1e5ed;
-  border-radius:15px;
-  padding:15px;
-  margin-bottom:10px;
-  background:#fff;
-}
+/* SERVICE DETAIL */
 
-.option-card h3{
-  font-size:15px;
-  margin-bottom:5px;
-}
-
-.option-card p{
-  color:#737b8c;
-  font-size:12px;
-  line-height:1.4;
-}
-
-.option-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:12px;
-}
-
-.option-price{
-  font-weight:700;
-}
-
-.option-select{
-  border:0;
-  background:#5b4bdb;
-  color:#fff;
-  padding:9px 14px;
-  border-radius:9px;
-  font-size:12px;
-  font-weight:700;
-}
-
-.loading{
-  text-align:center;
-  padding:30px 10px;
-  color:#737b8c;
-}
-
-.form-group{
+.detail-card{
+  background:white;
+  border-radius:18px;
+  padding:16px;
   margin-bottom:15px;
 }
 
-.form-group label{
-  display:block;
-  font-size:13px;
-  font-weight:700;
+.detail-top{
+  display:flex;
+  gap:13px;
+  align-items:center;
+}
+
+.detail-icon{
+  width:65px;
+  height:65px;
+  border-radius:16px;
+  background:#edf3ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:31px;
+}
+
+.detail-info h3{
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+.detail-info p{
+  color:#7c8494;
+  font-size:12px;
+}
+
+/* OPTIONS */
+
+.option-list{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+
+.option-card{
+  background:white;
+  border:1px solid #e6eaf0;
+  border-radius:16px;
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+}
+
+.option-info{
+  flex:1;
+}
+
+.option-info h3{
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.option-info p{
+  font-size:11px;
+  color:#7d8696;
+  line-height:1.4;
+}
+
+.option-price{
+  font-size:14px;
+  font-weight:bold;
   margin-bottom:7px;
+  text-align:right;
 }
 
-.form-control{
-  width:100%;
-  border:1px solid #dfe3eb;
-  border-radius:12px;
-  padding:13px;
-  outline:none;
-  background:#fff;
+.select-option{
+  background:#172033;
+  color:white;
+  padding:8px 11px;
+  border-radius:9px;
+  font-size:11px;
 }
 
-.form-control:focus{
-  border-color:#5b4bdb;
-}
-
-textarea.form-control{
-  min-height:85px;
-  resize:vertical;
-}
+/* BOOKING */
 
 .booking-summary{
-  background:#f5f3ff;
-  border-radius:15px;
-  padding:15px;
-  margin-bottom:18px;
+  background:white;
+  border-radius:17px;
+  padding:16px;
+  margin-bottom:15px;
 }
 
 .booking-summary-row{
   display:flex;
   justify-content:space-between;
-  gap:10px;
-  margin-bottom:7px;
+  padding:7px 0;
   font-size:13px;
 }
 
-.booking-summary-row:last-child{
-  margin-bottom:0;
+.booking-summary-row span:first-child{
+  color:#7b8494;
 }
 
-.booking-total{
-  border-top:1px solid #ddd8ff;
-  margin-top:10px;
-  padding-top:10px;
-  font-size:18px;
-  font-weight:800;
+.booking-summary-row.total{
+  border-top:1px solid #edf0f4;
+  margin-top:6px;
+  padding-top:13px;
+  font-weight:bold;
+  font-size:16px;
 }
 
-.time-grid{
+.form-section{
+  background:white;
+  border-radius:17px;
+  padding:16px;
+  margin-bottom:15px;
+}
+
+.form-section h3{
+  font-size:15px;
+  margin-bottom:14px;
+}
+
+.form-group{
+  margin-bottom:13px;
+}
+
+.form-group label{
+  display:block;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  border:1px solid #dfe4ec;
+  border-radius:11px;
+  padding:12px;
+  outline:none;
+  font-size:13px;
+  background:#fafbfd;
+}
+
+.form-group textarea{
+  min-height:80px;
+  resize:vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:#687da5;
+  background:white;
+}
+
+/* TIME SLOTS */
+
+.time-slots{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:9px;
 }
 
-.time-btn{
-  border:1px solid #dfe3eb;
+.time-slot{
+  padding:11px 5px;
+  border:1px solid #dfe4ec;
   background:#fff;
-  border-radius:11px;
-  padding:12px 8px;
-  font-size:13px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:bold;
 }
 
-.time-btn.selected{
-  background:#5b4bdb;
-  border-color:#5b4bdb;
-  color:#fff;
+.time-slot.selected{
+  background:#172033;
+  color:white;
+  border-color:#172033;
 }
 
-.time-btn:disabled{
-  background:#f0f1f4;
-  color:#a0a5af;
-  cursor:not-allowed;
-}
+/* BOOK BUTTON */
 
 .confirm-btn{
   width:100%;
-  border:0;
-  background:#5b4bdb;
-  color:#fff;
+  background:#172033;
+  color:white;
   padding:15px;
   border-radius:13px;
-  font-weight:800;
-  margin-top:5px;
+  font-size:14px;
+  font-weight:bold;
 }
 
 .confirm-btn:disabled{
-  opacity:.6;
+  opacity:.55;
 }
+
+/* SUCCESS */
 
 .success{
   text-align:center;
-  padding:25px 10px;
+  padding:30px 10px;
 }
 
 .success-icon{
-  width:70px;
-  height:70px;
+  width:72px;
+  height:72px;
   border-radius:50%;
-  background:#e4f8ec;
-  color:#159447;
+  background:#eaf7ef;
   display:flex;
   align-items:center;
   justify-content:center;
+  margin:0 auto 16px;
   font-size:35px;
-  margin:0 auto 15px;
 }
 
 .success h2{
+  font-size:21px;
   margin-bottom:8px;
 }
 
 .success p{
-  color:#737b8c;
-  line-height:1.5;
-  font-size:14px;
-}
-
-.error-box{
-  background:#fff0f0;
-  color:#b42318;
-  border:1px solid #ffd0d0;
-  padding:12px;
-  border-radius:10px;
+  color:#788294;
   font-size:13px;
-  margin-bottom:12px;
-  display:none;
+  line-height:1.5;
 }
 
-@media(max-width:360px){
-  .services{
-    grid-template-columns:1fr;
+.success-btn{
+  margin-top:20px;
+  background:#172033;
+  color:white;
+  padding:12px 20px;
+  border-radius:11px;
+  font-size:13px;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:85px;
+  transform:translateX(-50%) translateY(20px);
+  background:#172033;
+  color:white;
+  padding:12px 16px;
+  border-radius:11px;
+  font-size:12px;
+  z-index:1000;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:420px){
+
+  .services-grid{
+    gap:10px;
   }
+
+  .service-image{
+    height:110px;
+  }
+
+  .hero h1{
+    font-size:23px;
+  }
+
+}
+
+/* DESKTOP */
+
+@media(min-width:701px){
+
+  .bottom-nav{
+    left:50%;
+    transform:translateX(-50%);
+    width:700px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header class="header">
 
   <div class="header-top">
 
     <div class="location">
-      Your location
-      <strong>📍 Guwahati</strong>
+
+      <div class="location-icon">📍</div>
+
+      <div class="location-text">
+        <small>Service location</small>
+        <strong>Guwahati</strong>
+      </div>
+
     </div>
 
-    <button
-      class="profile-btn"
-      onclick="showSimpleMessage('Profile')"
-    >
+    <button class="profile-btn" onclick="showToast('Profile section coming soon')">
       👤
     </button>
 
   </div>
 
-  <input
-    id="searchInput"
-    class="search"
-    type="text"
-    placeholder="Search cleaning services..."
-  >
+  <div class="search-box">
+    <span>🔍</span>
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search cleaning services..."
+      oninput="searchServices()"
+    >
+  </div>
 
 </header>
 
 
+<!-- MAIN -->
+
 <main class="container">
 
-<section class="hero">
+  <!-- HERO -->
 
-  <h1>
-    Professional Cleaning at Your Doorstep
-  </h1>
+  <section class="hero">
 
-  <p>
-    Book trusted home cleaning services in Guwahati with easy online booking.
-  </p>
+    <h1>Professional cleaning for your home</h1>
 
-</section>
+    <p>
+      Book reliable home cleaning services in Guwahati
+      with simple online booking.
+    </p>
 
-
-<div class="section-title">
-  <h2>Popular Categories</h2>
-  <span>Explore</span>
-</div>
-
-
-<div class="categories">
-
-  <button
-    class="category"
-    data-service="Bathroom Cleaning"
-  >
-    <div class="category-icon">🚿</div>
-    <div class="category-name">Bathroom</div>
-  </button>
-
-  <button
-    class="category"
-    data-service="Kitchen Cleaning"
-  >
-    <div class="category-icon">🍳</div>
-    <div class="category-name">Kitchen</div>
-  </button>
-
-  <button
-    class="category"
-    data-service="Sofa Cleaning"
-  >
-    <div class="category-icon">🛋️</div>
-    <div class="category-name">Sofa</div>
-  </button>
-
-  <button
-    class="category"
-    data-service="Home Cleaning"
-  >
-    <div class="category-icon">🏠</div>
-    <div class="category-name">Home</div>
-  </button>
-
-  <button
-    class="category"
-    data-service="Window Cleaning"
-  >
-    <div class="category-icon">🪟</div>
-    <div class="category-name">Window</div>
-  </button>
-
-</div>
-
-
-<div class="section-title">
-  <h2>Cleaning Services</h2>
-  <span>View all</span>
-</div>
-
-
-<div class="services" id="servicesContainer">
-
-  <div
-    class="service-card"
-    data-service="Bathroom Cleaning"
-  >
-    <div class="service-icon">🚿</div>
-    <h3>Bathroom Cleaning</h3>
-    <p>Deep cleaning for your bathroom</p>
-    <div class="price">From ₹499</div>
-    <button
-      class="book-btn"
-      data-service="Bathroom Cleaning"
-    >
-      Book
+    <button class="hero-btn" onclick="scrollToServices()">
+      Explore Services
     </button>
-  </div>
+
+  </section>
 
 
-  <div
-    class="service-card"
-    data-service="Kitchen Cleaning"
-  >
-    <div class="service-icon">🍳</div>
-    <h3>Kitchen Cleaning</h3>
-    <p>Complete kitchen cleaning</p>
-    <div class="price">From ₹599</div>
-    <button
-      class="book-btn"
-      data-service="Kitchen Cleaning"
-    >
-      Book
-    </button>
-  </div>
+  <!-- CATEGORIES -->
+
+  <section class="section">
+
+    <div class="section-head">
+      <h2>Categories</h2>
+      <span>Explore</span>
+    </div>
+
+    <div class="categories">
+
+      <button class="category" onclick="filterServices('Bathroom')">
+        <div class="category-icon">🛁</div>
+        <small>Bathroom</small>
+      </button>
+
+      <button class="category" onclick="filterServices('Kitchen')">
+        <div class="category-icon">🍳</div>
+        <small>Kitchen</small>
+      </button>
+
+      <button class="category" onclick="filterServices('Sofa')">
+        <div class="category-icon">🛋️</div>
+        <small>Sofa</small>
+      </button>
+
+      <button class="category" onclick="filterServices('Home')">
+        <div class="category-icon">🏠</div>
+        <small>Home</small>
+      </button>
+
+      <button class="category" onclick="filterServices('AC')">
+        <div class="category-icon">❄️</div>
+        <small>AC</small>
+      </button>
+
+      <button class="category" onclick="filterServices('Window')">
+        <div class="category-icon">🪟</div>
+        <small>Window</small>
+      </button>
+
+    </div>
+
+  </section>
 
 
-  <div
-    class="service-card"
-    data-service="Sofa Cleaning"
-  >
-    <div class="service-icon">🛋️</div>
-    <h3>Sofa Cleaning</h3>
-    <p>Professional sofa cleaning</p>
-    <div class="price">From ₹299</div>
-    <button
-      class="book-btn"
-      data-service="Sofa Cleaning"
-    >
-      Book
-    </button>
-  </div>
+  <!-- SERVICES -->
+
+  <section class="section" id="servicesSection">
+
+    <div class="section-head">
+      <h2>Popular Services</h2>
+      <span id="serviceCount"></span>
+    </div>
+
+    <div id="servicesGrid" class="services-grid">
+
+      <div class="loading">
+        Loading services...
+      </div>
+
+    </div>
+
+  </section>
 
 
-  <div
-    class="service-card"
-    data-service="Home Cleaning"
-  >
-    <div class="service-icon">🏠</div>
-    <h3>Home Cleaning</h3>
-    <p>Complete home cleaning</p>
-    <div class="price">From ₹999</div>
-    <button
-      class="book-btn"
-      data-service="Home Cleaning"
-    >
-      Book
-    </button>
-  </div>
+  <!-- OFFER -->
 
+  <section class="section">
 
-  <div
-    class="service-card"
-    data-service="Window Cleaning"
-  >
-    <div class="service-icon">🪟</div>
-    <h3>Window Cleaning</h3>
-    <p>Clean and shining windows</p>
-    <div class="price">From ₹399</div>
-    <button
-      class="book-btn"
-      data-service="Window Cleaning"
-    >
-      Book
-    </button>
-  </div>
+    <div class="section-head">
+      <h2>Special Offer</h2>
+    </div>
 
+    <div class="offer">
 
-  <div
-    class="service-card"
-    data-service="Full Home Deep Cleaning"
-  >
-    <div class="service-icon">✨</div>
-    <h3>Full Home Deep Cleaning</h3>
-    <p>Detailed deep cleaning</p>
-    <div class="price">From ₹1499</div>
-    <button
-      class="book-btn"
-      data-service="Full Home Deep Cleaning"
-    >
-      Book
-    </button>
-  </div>
+      <div class="offer-icon">🎁</div>
 
+      <div>
+        <h3>Easy online booking</h3>
+        <p>
+          Choose your service, option, date and time.
+        </p>
+      </div>
 
-  <div
-    class="service-card"
-    data-service="Floor Cleaning"
-  >
-    <div class="service-icon">🧹</div>
-    <h3>Floor Cleaning</h3>
-    <p>Professional floor cleaning</p>
-    <div class="price">From ₹299</div>
-    <button
-      class="book-btn"
-      data-service="Floor Cleaning"
-    >
-      Book
-    </button>
-  </div>
+    </div>
 
-
-  <div
-    class="service-card"
-    data-service="Chimney Cleaning"
-  >
-    <div class="service-icon">🔥</div>
-    <h3>Chimney Cleaning</h3>
-    <p>Kitchen chimney cleaning</p>
-    <div class="price">From ₹499</div>
-    <button
-      class="book-btn"
-      data-service="Chimney Cleaning"
-    >
-      Book
-    </button>
-  </div>
-
-
-  <div
-    class="service-card"
-    data-service="Fridge Cleaning"
-  >
-    <div class="service-icon">🧊</div>
-    <h3>Fridge Cleaning</h3>
-    <p>Deep refrigerator cleaning</p>
-    <div class="price">From ₹299</div>
-    <button
-      class="book-btn"
-      data-service="Fridge Cleaning"
-    >
-      Book
-    </button>
-  </div>
-
-
-  <div
-    class="service-card"
-    data-service="Ceiling Fan Cleaning"
-  >
-    <div class="service-icon">🌀</div>
-    <h3>Ceiling Fan Cleaning</h3>
-    <p>Dust-free ceiling fans</p>
-    <div class="price">From ₹149</div>
-    <button
-      class="book-btn"
-      data-service="Ceiling Fan Cleaning"
-    >
-      Book
-    </button>
-  </div>
-
-
-  <div
-    class="service-card"
-    data-service="Balcony Cleaning"
-  >
-    <div class="service-icon">🌿</div>
-    <h3>Balcony Cleaning</h3>
-    <p>Fresh and clean balcony</p>
-    <div class="price">From ₹299</div>
-    <button
-      class="book-btn"
-      data-service="Balcony Cleaning"
-    >
-      Book
-    </button>
-  </div>
-
-
-  <div
-    class="service-card"
-    data-service="AC Cleaning"
-  >
-    <div class="service-icon">❄️</div>
-    <h3>AC Cleaning</h3>
-    <p>AC cleaning service</p>
-    <div class="price">From ₹499</div>
-    <button
-      class="book-btn"
-      data-service="AC Cleaning"
-    >
-      Book
-    </button>
-  </div>
-
-
-  <div
-    class="service-card"
-    data-service="Mattress Cleaning"
-  >
-    <div class="service-icon">🛏️</div>
-    <h3>Mattress Cleaning</h3>
-    <p>Deep mattress cleaning</p>
-    <div class="price">From ₹499</div>
-    <button
-      class="book-btn"
-      data-service="Mattress Cleaning"
-    >
-      Book
-    </button>
-  </div>
-
-
-  <div
-    class="service-card"
-    data-service="Move-in / Move-out Cleaning"
-  >
-    <div class="service-icon">📦</div>
-    <h3>Move-in / Move-out</h3>
-    <p>Complete moving cleaning</p>
-    <div class="price">From ₹1999</div>
-    <button
-      class="book-btn"
-      data-service="Move-in / Move-out Cleaning"
-    >
-      Book
-    </button>
-  </div>
-
-</div>
-
-
-<div class="offer">
-
-  <strong>🎁 Special Offer</strong>
-
-  <p>
-    Book your cleaning service online and get convenient doorstep service.
-  </p>
-
-</div>
+  </section>
 
 </main>
 
 
+<!-- BOTTOM NAV -->
+
 <nav class="bottom-nav">
 
-  <button
-    class="nav-btn"
-    onclick="scrollToTop()"
-  >
+  <button class="nav-btn active" onclick="goHome()">
     <div>⌂</div>
     Home
   </button>
 
-  <button
-    class="nav-btn"
-    onclick="document.getElementById('servicesContainer').scrollIntoView({behavior:'smooth'})"
-  >
-    <div>🧹</div>
+  <button class="nav-btn" onclick="scrollToServices()">
+    <div>▦</div>
     Services
   </button>
 
-  <button
-    class="nav-btn"
-    onclick="showSimpleMessage('My Bookings')"
-  >
-    <div>📋</div>
+  <button class="nav-btn" onclick="showToast('Your bookings will appear here')">
+    <div>▤</div>
     Bookings
   </button>
 
-  <button
-    class="nav-btn"
-    onclick="showSimpleMessage('Profile')"
-  >
-    <div>👤</div>
+  <button class="nav-btn" onclick="showToast('Profile section coming soon')">
+    <div>●</div>
     Profile
   </button>
 
 </nav>
 
 
-<!-- SERVICE OPTIONS -->
+<!-- SERVICE OPTIONS MODAL -->
 
-<div
-  class="modal"
-  id="serviceModal"
->
+<div id="serviceModal" class="modal hidden">
 
-  <div class="modal-box">
+  <div class="modal-card">
 
-    <div class="modal-header">
+    <div class="modal-head">
 
-      <h2 id="serviceTitle">
-        Service
+      <h2 id="modalServiceTitle">
+        Service Options
       </h2>
 
-      <button
-        class="close-btn"
-        onclick="closeModal('serviceModal')"
-      >
+      <button class="close-btn" onclick="closeServiceModal()">
         ×
       </button>
 
     </div>
 
-    <div id="serviceOptions">
+    <div id="serviceDetail"></div>
+
+    <div id="optionsContainer" class="option-list">
+
       <div class="loading">
         Loading options...
       </div>
+
     </div>
 
   </div>
@@ -913,34 +944,24 @@ textarea.form-control{
 </div>
 
 
-<!-- BOOKING -->
+<!-- BOOKING MODAL -->
 
-<div
-  class="modal"
-  id="bookingModal"
->
+<div id="bookingModal" class="modal hidden">
 
-  <div class="modal-box">
+  <div class="modal-card">
 
-    <div class="modal-header">
+    <div class="modal-head">
 
       <h2>Book Service</h2>
 
-      <button
-        class="close-btn"
-        onclick="closeModal('bookingModal')"
-      >
+      <button class="close-btn" onclick="closeBookingModal()">
         ×
       </button>
 
     </div>
 
 
-    <div
-      id="bookingError"
-      class="error-box"
-    ></div>
-
+    <!-- SUMMARY -->
 
     <div class="booking-summary">
 
@@ -959,7 +980,7 @@ textarea.form-control{
         <strong id="bookingDuration">-</strong>
       </div>
 
-      <div class="booking-summary-row booking-total">
+      <div class="booking-summary-row total">
         <span>Total</span>
         <strong id="bookingPrice">₹0</strong>
       </div>
@@ -967,83 +988,81 @@ textarea.form-control{
     </div>
 
 
-    <div class="form-group">
+    <!-- DATE & TIME -->
 
-      <label for="bookingDate">
-        Select Date
-      </label>
+    <div class="form-section">
 
-      <input
-        id="bookingDate"
-        class="form-control"
-        type="date"
-      >
+      <h3>Choose date & time</h3>
 
-    </div>
+      <div class="form-group">
 
+        <label>Service Date</label>
 
-    <div class="form-group">
+        <input
+          type="date"
+          id="bookingDate"
+          onchange="loadAvailableTimeSlots()"
+        >
 
-      <label>
-        Select Time
-      </label>
+      </div>
 
-      <div
-        id="timeSlots"
-        class="time-grid"
-      >
-        <div class="loading">
-          Select a date first
+      <div class="form-group">
+
+        <label>Available Time</label>
+
+        <div id="timeSlots" class="time-slots">
+
+          <div class="empty">
+            Select a date first.
+          </div>
+
         </div>
+
       </div>
 
     </div>
 
 
-    <div class="form-group">
+    <!-- ADDRESS -->
 
-      <label for="bookingAddress">
-        Service Address
-      </label>
+    <div class="form-section">
 
-      <textarea
-        id="bookingAddress"
-        class="form-control"
-        placeholder="Enter your complete address"
-      ></textarea>
+      <h3>Service Address</h3>
 
-    </div>
+      <div class="form-group">
 
+        <label>Full Address</label>
 
-    <div class="form-group">
+        <textarea
+          id="bookingAddress"
+          placeholder="Enter your complete service address"
+        ></textarea>
 
-      <label for="bookingPhone">
-        Mobile Number
-      </label>
+      </div>
 
-      <input
-        id="bookingPhone"
-        class="form-control"
-        type="tel"
-        maxlength="10"
-        inputmode="numeric"
-        placeholder="Enter 10 digit mobile number"
-      >
+      <div class="form-group">
 
-    </div>
+        <label>Phone Number</label>
 
+        <input
+          type="tel"
+          id="bookingPhone"
+          maxlength="10"
+          placeholder="Enter 10 digit mobile number"
+        >
 
-    <div class="form-group">
+      </div>
 
-      <label for="bookingNotes">
-        Additional Notes
-      </label>
+      <div class="form-group">
 
-      <textarea
-        id="bookingNotes"
-        class="form-control"
-        placeholder="Any special instructions? (Optional)"
-      ></textarea>
+        <label>Additional Notes</label>
+
+        <textarea
+          id="bookingNotes"
+          placeholder="Any special instructions?"
+        ></textarea>
+
+      </div>
 
     </div>
 
@@ -1061,14 +1080,11 @@ textarea.form-control{
 </div>
 
 
-<!-- SUCCESS -->
+<!-- SUCCESS MODAL -->
 
-<div
-  class="modal"
-  id="successModal"
->
+<div id="successModal" class="modal hidden">
 
-  <div class="modal-box">
+  <div class="modal-card">
 
     <div class="success">
 
@@ -1076,20 +1092,18 @@ textarea.form-control{
         ✓
       </div>
 
-      <h2>
-        Booking Confirmed!
-      </h2>
+      <h2>Booking Submitted</h2>
 
-      <p id="successMessage">
-        Your cleaning service has been booked successfully.
+      <p>
+        Your booking request has been submitted successfully.
+        Our team will contact you regarding the booking.
       </p>
 
       <button
-        class="confirm-btn"
-        style="margin-top:20px"
-        onclick="closeModal('successModal')"
+        class="success-btn"
+        onclick="closeAllModals()"
       >
-        Done
+        Back to Home
       </button>
 
     </div>
@@ -1099,11 +1113,16 @@ textarea.form-control{
 </div>
 
 
+<!-- TOAST -->
+
+<div id="toast" class="toast"></div>
+
+
 <script>
 
-/* =========================
-   SUPABASE
-========================= */
+/* =====================================================
+   SUPABASE CONFIG
+===================================================== */
 
 const SUPABASE_URL =
 "https://uuwgiyyyrodghvjvicoy.supabase.co";
@@ -1112,64 +1131,11 @@ const SUPABASE_KEY =
 "sb_publishable_1-iphInSnhfjN8zFmrnuSw_qu1l_qOf";
 
 
-async function supabaseFetch(
-  endpoint,
-  options = {}
-){
-
-  const response =
-    await fetch(
-      SUPABASE_URL + endpoint,
-      {
-        ...options,
-
-        headers:{
-          "apikey":SUPABASE_KEY,
-          "Authorization":
-            "Bearer " + SUPABASE_KEY,
-          "Content-Type":
-            "application/json",
-
-          ...(options.headers || {})
-        }
-      }
-    );
-
-
-  const text =
-    await response.text();
-
-  let data = null;
-
-  try{
-    data =
-      text
-        ? JSON.parse(text)
-        : null;
-  }
-  catch{
-    data = text;
-  }
-
-
-  if(!response.ok){
-
-    throw new Error(
-      data?.message ||
-      data?.error_description ||
-      data?.hint ||
-      "Supabase request failed"
-    );
-  }
-
-
-  return data;
-}
-
-
-/* =========================
+/* =====================================================
    GLOBAL VARIABLES
-========================= */
+===================================================== */
+
+let allServices = [];
 
 let selectedService = null;
 
@@ -1178,370 +1144,630 @@ let selectedOption = null;
 let selectedTimeSlot = null;
 
 
-/* =========================
-   DATE
-========================= */
+/* =====================================================
+   SUPABASE FETCH HELPER
+===================================================== */
 
-const bookingDate =
-  document.getElementById(
-    "bookingDate"
+async function supabaseFetch(endpoint, options = {}){
+
+  const response = await fetch(
+    SUPABASE_URL + endpoint,
+    {
+      ...options,
+
+      headers:{
+        "apikey":SUPABASE_KEY,
+        "Authorization":"Bearer " + SUPABASE_KEY,
+        "Content-Type":"application/json",
+        ...(options.headers || {})
+      }
+    }
   );
 
+  const text = await response.text();
 
-function getToday(){
+  let data = null;
 
-  const now =
-    new Date();
+  try{
+    data = text ? JSON.parse(text) : null;
+  }catch{
+    data = text;
+  }
+
+  if(!response.ok){
+
+    const message =
+      data?.message ||
+      data?.hint ||
+      data?.details ||
+      "Supabase request failed";
+
+    throw new Error(message);
+  }
+
+  return data;
+}
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  async function(){
+
+    setMinimumDate();
+
+    await loadServices();
+
+  }
+);
+
+
+/* =====================================================
+   MINIMUM BOOKING DATE
+===================================================== */
+
+function setMinimumDate(){
+
+  const input =
+    document.getElementById("bookingDate");
+
+  const now = new Date();
 
   const year =
     now.getFullYear();
 
   const month =
-    String(
-      now.getMonth() + 1
-    ).padStart(2,"0");
+    String(now.getMonth()+1).padStart(2,"0");
 
   const day =
-    String(
-      now.getDate()
-    ).padStart(2,"0");
+    String(now.getDate()).padStart(2,"0");
 
-  return (
-    year +
-    "-" +
-    month +
-    "-" +
-    day
-  );
+  const today =
+    `${year}-${month}-${day}`;
+
+  input.min = today;
+
 }
 
 
-bookingDate.min =
-  getToday();
+/* =====================================================
+   LOAD SERVICES
+===================================================== */
 
+async function loadServices(){
 
-/* =========================
-   OPEN SERVICE
-========================= */
-
-async function openService(
-  serviceName
-){
-
-  const modal =
-    document.getElementById(
-      "serviceModal"
-    );
-
-  const title =
-    document.getElementById(
-      "serviceTitle"
-    );
-
-  const container =
-    document.getElementById(
-      "serviceOptions"
-    );
-
-
-  title.textContent =
-    serviceName;
-
-
-  container.innerHTML =
-    `
-      <div class="loading">
-        Loading options...
-      </div>
-    `;
-
-
-  modal.classList.add(
-    "active"
-  );
-
+  const grid =
+    document.getElementById("servicesGrid");
 
   try{
 
-    const services =
-      await supabaseFetch(
-        `/rest/v1/services?name=eq.${encodeURIComponent(serviceName)}&is_active=eq.true&select=id,name,description,price,duration_minutes&limit=1`
-      );
-
-
-    if(
-      !services ||
-      !services.length
-    ){
-
-      container.innerHTML =
-        `
-          <div class="loading">
-            Service not found.
-          </div>
-        `;
-
-      return;
-    }
-
-
-    const service =
-      services[0];
-
-
-    const options =
-      await supabaseFetch(
-        `/rest/v1/service_options?service_id=eq.${service.id}&is_active=eq.true&order=sort_order.asc&select=id,name,description,price,duration_minutes`
-      );
-
-
-    if(
-      !options ||
-      !options.length
-    ){
-
-      container.innerHTML =
-        `
-          <div class="loading">
-            No options available.
-          </div>
-        `;
-
-      return;
-    }
-
-
-    selectedService =
-      service;
-
-
-    showOptions(
-      service,
-      options
+    const data = await supabaseFetch(
+      "/rest/v1/services" +
+      "?is_active=eq.true" +
+      "&select=id,description,image_url,price,duration_minutes,is_active" +
+      "&order=id.asc"
     );
 
-  }
-  catch(error){
+    allServices = data || [];
+
+    renderServices(allServices);
+
+  }catch(error){
 
     console.error(error);
 
-    container.innerHTML =
-      `
-        <div class="loading">
-          Unable to load options.<br><br>
-          ${escapeHtml(error.message)}
-        </div>
-      `;
+    grid.innerHTML = `
+      <div class="empty">
+        Unable to load services.<br><br>
+        Please refresh the page.
+      </div>
+    `;
+
   }
+
 }
 
 
-/* =========================
-   SHOW OPTIONS
-========================= */
+/* =====================================================
+   SERVICE ICON
+===================================================== */
 
-function showOptions(
-  service,
-  options
-){
+function getServiceIcon(name){
 
-  const container =
-    document.getElementById(
-      "serviceOptions"
+  const n =
+    (name || "").toLowerCase();
+
+  if(n.includes("bathroom"))
+    return "🛁";
+
+  if(n.includes("kitchen"))
+    return "🍳";
+
+  if(n.includes("sofa"))
+    return "🛋️";
+
+  if(n.includes("window"))
+    return "🪟";
+
+  if(n.includes("floor"))
+    return "🧹";
+
+  if(n.includes("fan"))
+    return "🌀";
+
+  if(n.includes("chimney"))
+    return "🔥";
+
+  if(n.includes("fridge"))
+    return "🧊";
+
+  if(n.includes("balcony"))
+    return "🌿";
+
+  if(n.includes("ac"))
+    return "❄️";
+
+  if(n.includes("mattress"))
+    return "🛏️";
+
+  if(n.includes("move"))
+    return "📦";
+
+  if(n.includes("home"))
+    return "🏠";
+
+  return "🧽";
+}
+
+
+/* =====================================================
+   SERVICE NAME
+===================================================== */
+
+function getServiceName(service){
+
+  if(service.name){
+    return service.name;
+  }
+
+  if(service.description){
+
+    const first =
+      service.description
+      .split(" - ")[0]
+      .trim();
+
+    if(first){
+      return first;
+    }
+  }
+
+  return "Cleaning Service";
+}
+
+
+/* =====================================================
+   RENDER SERVICES
+===================================================== */
+
+function renderServices(services){
+
+  const grid =
+    document.getElementById("servicesGrid");
+
+  const count =
+    document.getElementById("serviceCount");
+
+  count.textContent =
+    services.length + " services";
+
+
+  if(!services.length){
+
+    grid.innerHTML = `
+      <div class="empty">
+        No services found.
+      </div>
+    `;
+
+    return;
+  }
+
+
+  grid.innerHTML = "";
+
+
+  services.forEach(service => {
+
+    const name =
+      getServiceName(service);
+
+    const icon =
+      getServiceIcon(name);
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "service-card";
+
+
+    card.innerHTML = `
+
+      <div class="service-image">
+        ${icon}
+      </div>
+
+      <div class="service-content">
+
+        <h3>
+          ${escapeHtml(name)}
+        </h3>
+
+        <p>
+          ${escapeHtml(
+            service.description ||
+            "Professional cleaning service"
+          )}
+        </p>
+
+        <div class="service-bottom">
+
+          <div class="price">
+            From ₹${Number(service.price || 0).toLocaleString("en-IN")}
+          </div>
+
+          <button
+            class="view-btn"
+            onclick="openService(${service.id})"
+          >
+            View
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+    grid.appendChild(card);
+
+  });
+
+}
+
+
+/* =====================================================
+   OPEN SERVICE
+===================================================== */
+
+async function openService(serviceId){
+
+  selectedService =
+    allServices.find(
+      s => Number(s.id) === Number(serviceId)
     );
 
+  if(!selectedService){
 
-  container.innerHTML =
-    "";
+    showToast("Service not found");
 
-
-  options.forEach(
-    option => {
-
-      const card =
-        document.createElement(
-          "div"
-        );
+    return;
+  }
 
 
-      card.className =
-        "option-card";
+  const serviceName =
+    getServiceName(selectedService);
 
 
-      card.innerHTML =
-        `
+  document.getElementById(
+    "modalServiceTitle"
+  ).textContent =
+    serviceName;
+
+
+  document.getElementById(
+    "serviceDetail"
+  ).innerHTML = `
+
+    <div class="detail-card">
+
+      <div class="detail-top">
+
+        <div class="detail-icon">
+          ${getServiceIcon(serviceName)}
+        </div>
+
+        <div class="detail-info">
+
           <h3>
-            ${escapeHtml(option.name)}
+            ${escapeHtml(serviceName)}
           </h3>
 
           <p>
             ${escapeHtml(
-              option.description ||
-              "Professional cleaning service"
+              selectedService.description ||
+              "Choose the cleaning option you need."
             )}
           </p>
 
-          <div class="option-bottom">
+        </div>
 
-            <div>
+      </div>
 
-              <div class="option-price">
-                ₹${Number(option.price).toLocaleString("en-IN")}
-              </div>
+    </div>
 
-              <small>
-                ${option.duration_minutes || "-"} minutes
-              </small>
-
-            </div>
-
-            <button
-              class="option-select"
-              data-option-id="${option.id}"
-            >
-              Select
-            </button>
-
-          </div>
-        `;
+  `;
 
 
-      card
-        .querySelector(
-          ".option-select"
-        )
-        .addEventListener(
-          "click",
-          function(){
-
-            selectOption(
-              service,
-              option
-            );
-
-          }
-        );
+  document.getElementById(
+    "optionsContainer"
+  ).innerHTML = `
+    <div class="loading">
+      Loading service options...
+    </div>
+  `;
 
 
-      container.appendChild(
-        card
+  document.getElementById(
+    "serviceModal"
+  ).classList.remove("hidden");
+
+
+  try{
+
+    const options =
+      await supabaseFetch(
+        "/rest/v1/service_options" +
+        "?service_id=eq." +
+        encodeURIComponent(serviceId) +
+        "&is_active=eq.true" +
+        "&select=id,service_id,name,description,price,duration_minutes,image_url,is_active,sort_order" +
+        "&order=sort_order.asc,id.asc"
       );
 
-    }
-  );
+
+    renderOptions(
+      options || []
+    );
+
+  }catch(error){
+
+    console.error(error);
+
+    document.getElementById(
+      "optionsContainer"
+    ).innerHTML = `
+
+      <div class="empty">
+        Unable to load service options.
+        <br><br>
+        ${escapeHtml(error.message)}
+      </div>
+
+    `;
+
+  }
+
 }
 
 
-/* =========================
+/* =====================================================
+   RENDER OPTIONS
+===================================================== */
+
+function renderOptions(options){
+
+  const container =
+    document.getElementById(
+      "optionsContainer"
+    );
+
+
+  if(!options.length){
+
+    container.innerHTML = `
+
+      <div class="empty">
+        No options available for this service.
+      </div>
+
+    `;
+
+    return;
+  }
+
+
+  container.innerHTML = "";
+
+
+  options.forEach(option => {
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "option-card";
+
+
+    const duration =
+      option.duration_minutes
+      ? option.duration_minutes + " min"
+      : "Flexible";
+
+
+    card.innerHTML = `
+
+      <div class="option-info">
+
+        <h3>
+          ${escapeHtml(option.name)}
+        </h3>
+
+        <p>
+          ${escapeHtml(
+            option.description ||
+            "Professional cleaning service"
+          )}
+        </p>
+
+      </div>
+
+      <div>
+
+        <div class="option-price">
+          ₹${Number(option.price || 0).toLocaleString("en-IN")}
+        </div>
+
+        <div style="
+          text-align:right;
+          font-size:10px;
+          color:#7d8696;
+          margin-bottom:7px;
+        ">
+          ${duration}
+        </div>
+
+        <button
+          class="select-option"
+          onclick='selectOption(${JSON.stringify(option).replace(/'/g,"&#39;")})'
+        >
+          Select
+        </button>
+
+      </div>
+
+    `;
+
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+/* =====================================================
    SELECT OPTION
-========================= */
+===================================================== */
 
-function selectOption(
-  service,
-  option
-){
-
-  selectedService =
-    service;
+function selectOption(option){
 
   selectedOption =
     option;
+
+  closeServiceModal();
+
+  openBookingScreen();
+
+}
+
+
+/* =====================================================
+   OPEN BOOKING SCREEN
+===================================================== */
+
+function openBookingScreen(){
+
+  if(!selectedService || !selectedOption){
+
+    showToast(
+      "Please select a service option"
+    );
+
+    return;
+  }
+
 
   selectedTimeSlot =
     null;
 
 
-  closeModal(
-    "serviceModal"
-  );
-
-
   document.getElementById(
     "bookingServiceName"
   ).textContent =
-    service.name;
+    getServiceName(selectedService);
 
 
   document.getElementById(
     "bookingOptionName"
   ).textContent =
-    option.name;
+    selectedOption.name;
 
 
   document.getElementById(
     "bookingDuration"
   ).textContent =
-    (option.duration_minutes || "-") +
-    " minutes";
+    selectedOption.duration_minutes
+    ? selectedOption.duration_minutes + " minutes"
+    : "Flexible";
 
 
   document.getElementById(
     "bookingPrice"
   ).textContent =
     "₹" +
-    Number(option.price)
-      .toLocaleString("en-IN");
+    Number(
+      selectedOption.price || 0
+    ).toLocaleString("en-IN");
+
+
+  document.getElementById(
+    "bookingDate"
+  ).value = "";
 
 
   document.getElementById(
     "bookingAddress"
-  ).value =
-    "";
+  ).value = "";
 
 
   document.getElementById(
     "bookingPhone"
-  ).value =
-    "";
+  ).value = "";
 
 
   document.getElementById(
     "bookingNotes"
-  ).value =
-    "";
-
-
-  bookingDate.value =
-    "";
+  ).value = "";
 
 
   document.getElementById(
     "timeSlots"
-  ).innerHTML =
-    `
-      <div class="loading">
-        Select a date first
-      </div>
-    `;
+  ).innerHTML = `
+
+    <div class="empty">
+      Select a date first.
+    </div>
+
+  `;
 
 
-  hideBookingError();
+  document.getElementById(
+    "bookingModal"
+  ).classList.remove("hidden");
 
-
-  document
-    .getElementById(
-      "bookingModal"
-    )
-    .classList.add(
-      "active"
-    );
 }
 
 
-/* =========================
-   LOAD TIME SLOTS
-========================= */
+/* =====================================================
+   LOAD AVAILABLE TIME SLOTS
+=====================================================
 
-bookingDate.addEventListener(
-  "change",
-  loadAvailableTimeSlots
-);
-
+   IMPORTANT:
+   We directly read from public.time_slots.
+   This avoids the previous RPC problem.
+===================================================== */
 
 async function loadAvailableTimeSlots(){
 
   const date =
-    bookingDate.value;
+    document.getElementById(
+      "bookingDate"
+    ).value;
 
 
   const container =
@@ -1556,200 +1782,166 @@ async function loadAvailableTimeSlots(){
 
   if(!date){
 
-    container.innerHTML =
-      `
-        <div class="loading">
-          Select a date first
-        </div>
-      `;
+    container.innerHTML = `
+      <div class="empty">
+        Select a date first.
+      </div>
+    `;
 
     return;
   }
 
 
-  container.innerHTML =
-    `
-      <div class="loading">
-        Loading available times...
-      </div>
-    `;
+  container.innerHTML = `
+    <div class="empty">
+      Loading available time slots...
+    </div>
+  `;
 
 
   try{
 
-    /*
-      IMPORTANT:
-      Supabase RPC is called using POST.
-      The function returns:
-      id
-      slot_time
-      available_bookings
-    */
-
     const slots =
       await supabaseFetch(
-        "/rest/v1/rpc/get_available_time_slots",
-        {
-          method:"POST",
-
-          body:JSON.stringify({
-            p_date:date
-          })
-        }
+        "/rest/v1/time_slots" +
+        "?is_active=eq.true" +
+        "&select=id,slot_time,max_bookings" +
+        "&order=slot_time.asc"
       );
 
 
-    if(
-      !slots ||
-      !slots.length
-    ){
+    if(!slots || !slots.length){
 
-      container.innerHTML =
-        `
-          <div class="loading">
-            No time slots available for this date.
-          </div>
-        `;
+      container.innerHTML = `
+        <div class="empty">
+          No time slots available.
+        </div>
+      `;
 
       return;
     }
 
 
-    container.innerHTML =
-      "";
+    container.innerHTML = "";
 
 
-    slots.forEach(
-      slot => {
+    slots.forEach(slot => {
 
-        const button =
-          document.createElement(
-            "button"
+      const time =
+        String(slot.slot_time)
+        .substring(0,5);
+
+
+      const button =
+        document.createElement("button");
+
+
+      button.type =
+        "button";
+
+
+      button.className =
+        "time-slot";
+
+
+      button.textContent =
+        formatTime(time);
+
+
+      button.onclick =
+        function(){
+
+          document
+            .querySelectorAll(".time-slot")
+            .forEach(
+              btn =>
+                btn.classList.remove("selected")
+            );
+
+
+          button.classList.add(
+            "selected"
           );
 
 
-        button.type =
-          "button";
+          selectedTimeSlot =
+            slot;
+
+        };
 
 
-        button.className =
-          "time-btn";
+      container.appendChild(
+        button
+      );
+
+    });
 
 
-        button.textContent =
-          formatTime(
-            slot.slot_time
-          );
+  }catch(error){
 
-
-        if(
-          Number(
-            slot.available_bookings
-          ) <= 0
-        ){
-
-          button.disabled =
-            true;
-
-        }
-        else{
-
-          button.addEventListener(
-            "click",
-            function(){
-
-              document
-                .querySelectorAll(
-                  ".time-btn"
-                )
-                .forEach(
-                  btn =>
-                    btn.classList.remove(
-                      "selected"
-                    )
-                );
-
-
-              button.classList.add(
-                "selected"
-              );
-
-
-              selectedTimeSlot =
-                slot;
-
-            }
-          );
-        }
-
-
-        container.appendChild(
-          button
-        );
-
-      }
+    console.error(
+      "Time slot error:",
+      error
     );
 
+
+    container.innerHTML = `
+      <div class="empty">
+        Unable to load time slots.
+        <br><br>
+        ${escapeHtml(error.message)}
+      </div>
+    `;
+
   }
-  catch(error){
 
-    console.error(error);
-
-
-    container.innerHTML =
-      `
-        <div class="loading">
-          Unable to load time slots.<br><br>
-          ${escapeHtml(
-            error.message
-          )}
-        </div>
-      `;
-  }
 }
 
 
-/* =========================
+/* =====================================================
+   FORMAT TIME
+===================================================== */
+
+function formatTime(time){
+
+  const parts =
+    time.split(":");
+
+  let hour =
+    Number(parts[0]);
+
+  const minute =
+    parts[1] || "00";
+
+  const suffix =
+    hour >= 12
+    ? "PM"
+    : "AM";
+
+  hour =
+    hour % 12 || 12;
+
+  return (
+    hour +
+    ":" +
+    minute +
+    " " +
+    suffix
+  );
+
+}
+
+
+/* =====================================================
    CONFIRM BOOKING
-========================= */
+===================================================== */
 
 async function confirmBooking(){
 
-  hideBookingError();
-
-
-  const date =
-    bookingDate.value;
-
-
-  const address =
-    document.getElementById(
-      "bookingAddress"
-    )
-    .value
-    .trim();
-
-
-  const phone =
-    document.getElementById(
-      "bookingPhone"
-    )
-    .value
-    .trim();
-
-
-  const notes =
-    document.getElementById(
-      "bookingNotes"
-    )
-    .value
-    .trim();
-
-
   if(!selectedService){
 
-    showBookingError(
-      "Service information is missing."
+    showToast(
+      "Service is missing"
     );
 
     return;
@@ -1758,18 +1950,42 @@ async function confirmBooking(){
 
   if(!selectedOption){
 
-    showBookingError(
-      "Please select a service option."
+    showToast(
+      "Please select a service option"
     );
 
     return;
   }
 
 
+  const date =
+    document.getElementById(
+      "bookingDate"
+    ).value;
+
+
+  const address =
+    document.getElementById(
+      "bookingAddress"
+    ).value.trim();
+
+
+  const phone =
+    document.getElementById(
+      "bookingPhone"
+    ).value.trim();
+
+
+  const notes =
+    document.getElementById(
+      "bookingNotes"
+    ).value.trim();
+
+
   if(!date){
 
-    showBookingError(
-      "Please select a booking date."
+    showToast(
+      "Please select a date"
     );
 
     return;
@@ -1778,30 +1994,28 @@ async function confirmBooking(){
 
   if(!selectedTimeSlot){
 
-    showBookingError(
-      "Please select a time slot."
+    showToast(
+      "Please select a time slot"
     );
 
     return;
   }
 
 
-  if(address.length < 8){
+  if(address.length < 5){
 
-    showBookingError(
-      "Please enter your complete address."
+    showToast(
+      "Please enter your full address"
     );
 
     return;
   }
 
 
-  if(
-    !/^[0-9]{10}$/.test(phone)
-  ){
+  if(!/^[0-9]{10}$/.test(phone)){
 
-    showBookingError(
-      "Please enter a valid 10 digit mobile number."
+    showToast(
+      "Please enter a valid 10 digit phone number"
     );
 
     return;
@@ -1817,65 +2031,66 @@ async function confirmBooking(){
   button.disabled =
     true;
 
-
   button.textContent =
-    "Confirming...";
+    "Submitting booking...";
 
 
   try{
 
-    /*
-      CREATE CUSTOMER
-    */
+    /* -------------------------------------------
+       STEP 1: CREATE CUSTOMER
+    ------------------------------------------- */
 
-    const customerResult =
+    const customerData =
       await supabaseFetch(
         "/rest/v1/customers",
         {
           method:"POST",
 
           headers:{
-            "Prefer":
-              "return=representation"
+            "Prefer":"return=representation"
           },
 
           body:JSON.stringify({
+
             phone:phone,
+
             address:address,
+
             city:"Guwahati"
+
           })
         }
       );
 
 
-    if(
-      !customerResult ||
-      !customerResult.length
-    ){
+    const customer =
+      Array.isArray(customerData)
+      ? customerData[0]
+      : customerData;
+
+
+    if(!customer || !customer.id){
 
       throw new Error(
-        "Unable to create customer record."
+        "Customer could not be created."
       );
+
     }
 
 
-    const customer =
-      customerResult[0];
+    /* -------------------------------------------
+       STEP 2: CREATE BOOKING
+    ------------------------------------------- */
 
-
-    /*
-      CREATE BOOKING
-    */
-
-    const bookingResult =
+    const bookingData =
       await supabaseFetch(
         "/rest/v1/bookings",
         {
           method:"POST",
 
           headers:{
-            "Prefer":
-              "return=representation"
+            "Prefer":"return=representation"
           },
 
           body:JSON.stringify({
@@ -1897,14 +2112,14 @@ async function confirmBooking(){
 
             total_amount:
               Number(
-                selectedOption.price
+                selectedOption.price || 0
               ),
 
             address:
               address,
 
             notes:
-              notes || null,
+              notes,
 
             phone:
               phone,
@@ -1917,349 +2132,314 @@ async function confirmBooking(){
       );
 
 
-    if(
-      !bookingResult ||
-      !bookingResult.length
-    ){
-
-      throw new Error(
-        "Booking could not be created."
-      );
-    }
-
-
-    const booking =
-      bookingResult[0];
-
-
-    closeModal(
-      "bookingModal"
+    console.log(
+      "Booking created:",
+      bookingData
     );
+
+
+    closeBookingModal();
 
 
     document.getElementById(
-      "successMessage"
-    ).innerHTML =
-      `
-        Your booking has been confirmed.<br><br>
-
-        <strong>Booking ID:</strong>
-        ${escapeHtml(
-          String(booking.id)
-        )}<br>
-
-        <strong>Date:</strong>
-        ${escapeHtml(
-          formatDate(date)
-        )}<br>
-
-        <strong>Time:</strong>
-        ${escapeHtml(
-          formatTime(
-            selectedTimeSlot.slot_time
-          )
-        )}
-      `;
-
-
-    document
-      .getElementById(
-        "successModal"
-      )
-      .classList.add(
-        "active"
-      );
-
-  }
-  catch(error){
-
-    console.error(error);
-
-
-    showBookingError(
-      error.message ||
-      "Booking failed. Please try again."
+      "successModal"
+    ).classList.remove(
+      "hidden"
     );
 
-  }
-  finally{
+
+  }catch(error){
+
+    console.error(
+      "Booking error:",
+      error
+    );
+
+
+    showToast(
+      "Booking failed: " +
+      error.message
+    );
+
+
+  }finally{
 
     button.disabled =
       false;
 
     button.textContent =
       "Confirm Booking";
+
   }
+
 }
 
 
-/* =========================
-   MODAL
-========================= */
-
-function closeModal(id){
-
-  document
-    .getElementById(id)
-    .classList.remove(
-      "active"
-    );
-}
-
-
-document
-  .querySelectorAll(
-    ".modal"
-  )
-  .forEach(
-    modal => {
-
-      modal.addEventListener(
-        "click",
-        function(event){
-
-          if(
-            event.target === modal
-          ){
-
-            modal.classList.remove(
-              "active"
-            );
-          }
-
-        }
-      );
-
-    }
-  );
-
-
-/* =========================
-   SERVICE CLICK
-========================= */
-
-document.addEventListener(
-  "click",
-  function(event){
-
-    const target =
-      event.target.closest(
-        "[data-service]"
-      );
-
-
-    if(!target)
-      return;
-
-
-    const service =
-      target.getAttribute(
-        "data-service"
-      );
-
-
-    if(!service)
-      return;
-
-
-    event.preventDefault();
-
-
-    openService(
-      service
-    );
-  }
-);
-
-
-/* =========================
+/* =====================================================
    SEARCH
-========================= */
+===================================================== */
 
-document
-  .getElementById(
-    "searchInput"
-  )
-  .addEventListener(
-    "input",
-    function(){
+function searchServices(){
 
-      const search =
-        this.value
-          .trim()
+  const value =
+    document.getElementById(
+      "searchInput"
+    ).value
+    .trim()
+    .toLowerCase();
+
+
+  if(!value){
+
+    renderServices(
+      allServices
+    );
+
+    return;
+  }
+
+
+  const filtered =
+    allServices.filter(
+      service => {
+
+        const name =
+          getServiceName(service)
           .toLowerCase();
 
+        const description =
+          (
+            service.description || ""
+          ).toLowerCase();
 
-      document
-        .querySelectorAll(
-          "#servicesContainer .service-card"
-        )
-        .forEach(
-          card => {
-
-            const text =
-              card.innerText
-                .toLowerCase();
-
-
-            card.style.display =
-              text.includes(search)
-                ? ""
-                : "none";
-          }
+        return (
+          name.includes(value) ||
+          description.includes(value)
         );
-    }
-  );
 
-
-/* =========================
-   HELPERS
-========================= */
-
-function formatTime(time){
-
-  if(!time)
-    return "";
-
-
-  const parts =
-    String(time)
-      .split(":");
-
-
-  let hour =
-    Number(parts[0]);
-
-
-  const minute =
-    parts[1] || "00";
-
-
-  const ampm =
-    hour >= 12
-      ? "PM"
-      : "AM";
-
-
-  hour =
-    hour % 12 || 12;
-
-
-  return (
-    hour +
-    ":" +
-    minute +
-    " " +
-    ampm
-  );
-}
-
-
-function formatDate(date){
-
-  if(!date)
-    return "";
-
-
-  const d =
-    new Date(
-      date +
-      "T00:00:00"
+      }
     );
 
 
-  return d.toLocaleDateString(
-    "en-IN",
-    {
-      day:"2-digit",
-      month:"short",
-      year:"numeric"
-    }
+  renderServices(
+    filtered
   );
+
+
+  scrollToServices();
+
 }
 
 
-function escapeHtml(value){
+/* =====================================================
+   CATEGORY FILTER
+===================================================== */
 
-  return String(
-    value ?? ""
-  )
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-  .replace(
-    /</g,
-    "&lt;"
-  )
-  .replace(
-    />/g,
-    "&gt;"
-  )
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-  .replace(
-    /'/g,
-    "&#039;"
-  );
-}
+function filterServices(keyword){
+
+  const filtered =
+    allServices.filter(
+      service => {
+
+        const name =
+          getServiceName(service)
+          .toLowerCase();
+
+        const description =
+          (
+            service.description || ""
+          ).toLowerCase();
 
 
-function showBookingError(
-  message
-){
+        return (
+          name.includes(
+            keyword.toLowerCase()
+          ) ||
+          description.includes(
+            keyword.toLowerCase()
+          )
+        );
 
-  const box =
-    document.getElementById(
-      "bookingError"
+      }
     );
 
 
-  box.textContent =
-    message;
-
-
-  box.style.display =
-    "block";
-}
-
-
-function hideBookingError(){
-
-  const box =
-    document.getElementById(
-      "bookingError"
-    );
-
-
-  box.textContent =
-    "";
-
-
-  box.style.display =
-    "none";
-}
-
-
-function showSimpleMessage(
-  name
-){
-
-  alert(
-    name +
-    " section will be connected next."
+  renderServices(
+    filtered
   );
+
+
+  scrollToServices();
+
 }
 
 
-function scrollToTop(){
+/* =====================================================
+   SCROLL
+===================================================== */
+
+function scrollToServices(){
+
+  document
+    .getElementById(
+      "servicesSection"
+    )
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+function goHome(){
 
   window.scrollTo({
     top:0,
     behavior:"smooth"
   });
+
+}
+
+
+/* =====================================================
+   CLOSE SERVICE MODAL
+===================================================== */
+
+function closeServiceModal(){
+
+  document
+    .getElementById(
+      "serviceModal"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE BOOKING MODAL
+===================================================== */
+
+function closeBookingModal(){
+
+  document
+    .getElementById(
+      "bookingModal"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE ALL MODALS
+===================================================== */
+
+function closeAllModals(){
+
+  document
+    .getElementById(
+      "serviceModal"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+  document
+    .getElementById(
+      "bookingModal"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+  document
+    .getElementById(
+      "successModal"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer;
+
+
+function showToast(message){
+
+  const toast =
+    document.getElementById(
+      "toast"
+    );
+
+
+  toast.textContent =
+    message;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toastTimer =
+    setTimeout(
+      function(){
+
+        toast.classList.remove(
+          "show"
+        );
+
+      },
+      3500
+    );
+
+}
+
+
+/* =====================================================
+   HTML ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
 }
 
 </script>
