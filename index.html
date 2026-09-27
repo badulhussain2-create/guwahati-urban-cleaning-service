@@ -2812,31 +2812,28 @@ async function submitBooking(
 
     const bookingData = {
 
-      customer_id:
-        customer.id,
+  customer_id:
+    customer.id,
 
-      service_id:
-        Number(serviceId),
+  service_id:
+    Number(serviceId),
 
-      service_option_id:
-        Number(optionId),
+  booking_date:
+    date,
 
-      booking_date:
-        date,
+  booking_time:
+    time,
 
-      booking_time:
-        time,
+  address:
+    address,
 
-      address:
-        address,
+  notes:
+    notes || null,
 
-      notes:
-        notes || null,
+  status:
+    "pending"
 
-      status:
-        "pending"
-
-    };
+};
 
 
     let bookingResult;
