@@ -2999,26 +2999,19 @@ async function submitBooking(
 
   }catch(error){
 
-    console.log(
-      "Booking error:",
-      error
-    );
+  console.log(
+    "Booking error:",
+    error
+  );
 
-
-    showToast(
-      "Booking failed. Please try again."
-    );
-
-
-  }finally{
-
-    button.disabled =
-      false;
-
-    button.textContent =
-      "Confirm Booking";
-
-  }
+  showToast(
+    "Booking failed: " +
+    (
+      error && error.message
+        ? error.message
+        : "Unknown error"
+    )
+  );
 
 }
 
