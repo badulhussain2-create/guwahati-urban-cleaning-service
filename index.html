@@ -955,8 +955,7 @@ async function initAuth(){
 
       currentUser = await response.json();
       accessToken = savedToken;
-      headers.Authorization = "Bearer " + accessToken;
-      return;
+      
 
     } else {
 
@@ -988,7 +987,7 @@ async function initAuth(){
 
   localStorage.setItem("gus_access_token", accessToken);
 
-  headers.Authorization = "Bearer " + accessToken;
+  
 }
 const headers = {
   "apikey": SUPABASE_KEY,
