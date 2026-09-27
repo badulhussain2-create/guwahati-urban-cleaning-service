@@ -598,6 +598,334 @@
     }
 
   </script>
+<script>
+const SUPABASE_URL = "https://uuwgiyyyrodghvjvicoy.supabase.co";
+const SUPABASE_KEY = "sb_publishable_1-iphInSnhfjN8zFmrnuSw_qu1l_qOf";
 
+async function getServiceOptions(serviceName) {
+  try {
+    // Find service
+    const serviceResponse = await fetch(
+      `${SUPABASE_URL}/rest/v1/services?name=eq.${encodeURIComponent(serviceName)}&is_active=eq.true&select=id,name,description,price,duration_minutes`,
+      {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`
+        }
+      }
+    );
+
+    const services = await serviceResponse.json();
+
+    if (!services.length) {
+      alert("এই service এখন available নেই।");
+      return;
+    }
+
+    const service = services[0];
+
+    // Get options
+    const optionResponse = await fetch(
+      `${SUPABASE_URL}/rest/v1/service_options?service_id=eq.${service.id}&is_active=eq.true&order=sort_order.asc&select=id,name,description,price,duration_minutes`,
+      {
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`
+        }
+      }
+    );
+
+    const options = await optionResponse.json();
+
+    showServiceOptions(service, options);
+
+  } catch (error) {
+    console.error(error);
+    alert("Service load করতে সমস্যা হয়েছে।");
+  }
+}
+
+
+function showServiceOptions(service, options) {
+
+  const oldModal = document.getElementById("serviceOptionsModal");
+  if (oldModal) oldModal.remove();
+
+  const modal = document.createElement("div");
+  modal.id = "serviceOptionsModal";
+
+  modal.innerHTML = `
+    <div class="service-modal-overlay">
+      <div class="service-modal">
+
+        <button class="service-close" onclick="closeServiceOptions()">×</button>
+
+        <div class="service-modal-header">
+          <div>
+            <h2>${service.name}</h2>
+            <p>${service.description || "Choose your preferred option"}</p>
+          </div>
+        </div>
+
+        <div class="service-options-list">
+
+          ${
+            options.length
+            ? options.map(option => `
+              <div class="service-option-card"
+                   onclick="selectServiceOption(
+                     '${service.id}',
+                     '${service.name.replace(/'/g, "\\'")}',
+                     '${option.id}',
+                     '${option.name.replace(/'/g, "\\'")}',
+                     '${option.price}',
+                     '${option.duration_minutes || 0}'
+                   )">
+
+                <div class="option-info">
+                  <h3>${option.name}</h3>
+                  <p>${option.description || ""}</p>
+
+                  <div class="option-meta">
+                    <span>₹${Number(option.price).toLocaleString("en-IN")}</span>
+                    ${
+                      option.duration_minutes
+                      ? `<small>${option.duration_minutes} min</small>`
+                      : ""
+                    }
+                  </div>
+                </div>
+
+                <div class="option-arrow">›</div>
+
+              </div>
+            `).join("")
+            : `
+              <div class="no-options">
+                <p>এই service-এর কোনো option এখনো যোগ করা হয়নি।</p>
+              </div>
+            `
+          }
+
+        </div>
+
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+}
+
+
+function closeServiceOptions() {
+  const modal = document.getElementById("serviceOptionsModal");
+  if (modal) modal.remove();
+}
+
+
+function selectServiceOption(
+  serviceId,
+  serviceName,
+  optionId,
+  optionName,
+  price,
+  duration
+) {
+
+  closeServiceOptions();
+
+  alert(
+    `${serviceName}\n\n` +
+    `${optionName}\n` +
+    `Price: ₹${Number(price).toLocaleString("en-IN")}\n` +
+    `Duration: ${duration} minutes\n\n` +
+    `পরের ধাপে Booking screen তৈরি করব।`
+  );
+}
+
+
+/* Detect service cards/buttons */
+document.addEventListener("click", function(event) {
+
+  const clickable = event.target.closest(
+    "button, .service-card, .category-card, .popular-card, .card"
+  );
+
+  if (!clickable) return;
+
+  const text = clickable.innerText || "";
+
+  const services = [
+    "Bathroom Cleaning",
+    "Kitchen Cleaning",
+    "Sofa Cleaning",
+    "Home Cleaning",
+    "Full Home Cleaning",
+    "Full Home Deep Cleaning",
+    "Window Cleaning",
+    "Floor Cleaning",
+    "Move-in / Move-out Cleaning",
+    "Chimney Cleaning",
+    "Fridge Cleaning",
+    "Ceiling Fan Cleaning",
+    "Balcony Cleaning",
+    "AC Cleaning",
+    "Mattress Cleaning"
+  ];
+
+  const matchedService = services.find(service =>
+    text.toLowerCase().includes(service.toLowerCase())
+  );
+
+  if (!matchedService) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  getServiceOptions(matchedService);
+
+}, true);
+
+
+/* Modal styling */
+const serviceStyle = document.createElement("style");
+
+serviceStyle.textContent = `
+#serviceOptionsModal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+}
+
+.service-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.service-modal {
+  width: 100%;
+  max-width: 520px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 26px 26px 0 0;
+  padding: 24px 18px 30px;
+  box-shadow: 0 -10px 40px rgba(0,0,0,.2);
+  animation: serviceModalUp .25s ease;
+}
+
+@keyframes serviceModalUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.service-close {
+  float: right;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: #f2f2f2;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.service-modal-header {
+  padding: 5px 45px 20px 5px;
+}
+
+.service-modal-header h2 {
+  margin: 0 0 6px;
+  font-size: 24px;
+}
+
+.service-modal-header p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
+
+.service-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.service-option-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px;
+  border: 1px solid #e8e8e8;
+  border-radius: 17px;
+  background: #fff;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.service-option-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(0,0,0,.08);
+}
+
+.option-info h3 {
+  margin: 0 0 5px;
+  font-size: 17px;
+}
+
+.option-info p {
+  margin: 0 0 9px;
+  color: #777;
+  font-size: 13px;
+}
+
+.option-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.option-meta span {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.option-meta small {
+  color: #777;
+}
+
+.option-arrow {
+  font-size: 30px;
+  color: #999;
+}
+
+.no-options {
+  text-align: center;
+  padding: 30px 10px;
+  color: #777;
+}
+
+@media (min-width: 700px) {
+  .service-modal-overlay {
+    align-items: center;
+  }
+
+  .service-modal {
+    border-radius: 26px;
+    max-height: 80vh;
+  }
+}
+`;
+
+document.head.appendChild(serviceStyle);
+</script>
 </body>
 </html>
