@@ -933,8 +933,37 @@ const SUPABASE_KEY =
   "sb_publishable_1-iphInSnhfjN8zFmrnuSw_qu1l_qOf";
 
 let currentUser = null;
+let accessToken = null;
 
 async function initAuth(){
+
+  const savedToken = localStorage.getItem("gus_access_token");
+
+  if(savedToken){
+
+    const response = await fetch(
+      SUPABASE_URL + "/auth/v1/user",
+      {
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + savedToken
+        }
+      }
+    );
+
+    if(response.ok){
+
+      currentUser = await response.json();
+      accessToken = savedToken;
+      headers.Authorization = "Bearer " + accessToken;
+      return;
+
+    } else {
+
+      localStorage.removeItem("gus_access_token");
+
+    }
+  }
 
   const response = await fetch(
     SUPABASE_URL + "/auth/v1/signup",
@@ -948,16 +977,18 @@ async function initAuth(){
     }
   );
 
-  if(response.ok){
-
-    const data = await response.json();
-
-    if(data.user){
-      currentUser = data.user;
-    }
-
+  if(!response.ok){
+    throw new Error("Anonymous sign-in failed");
   }
 
+  const data = await response.json();
+
+  currentUser = data.user;
+  accessToken = data.access_token;
+
+  localStorage.setItem("gus_access_token", accessToken);
+
+  headers.Authorization = "Bearer " + accessToken;
 }
 const headers = {
   "apikey": SUPABASE_KEY,
@@ -2005,6 +2036,8 @@ document
 ================================ */
 
 async function init(){
+
+  await initAuth();
 
   await Promise.all([
     loadServices(),
