@@ -2438,47 +2438,54 @@ function formatTime(time){
 function fillTimeSlots(){
 
   const select =
-    document.getElementById(
-      "bookingTime"
-    );
+    document.getElementById("bookingTime");
 
   if(!select){
     return;
   }
 
-
   select.innerHTML =
-    `<option value="">
-      Select time
-    </option>`;
+    `<option value="">Select time</option>`;
 
+  if(!Array.isArray(timeSlots) || !timeSlots.length){
 
-  timeSlots.forEach(
-    slot => {
+    select.innerHTML +=
+      `<option value="" disabled>
+        No time slots available
+      </option>`;
 
-      const option =
-        document.createElement(
-          "option"
-        );
+    return;
+  }
 
-      option.value =
-        String(slot.start_time)
-          .substring(0,5);
+  timeSlots.forEach(slot => {
 
-      option.textContent =
-        formatTime(
-          slot.start_time
-        );
+    const rawTime =
+      slot.start_time ||
+      slot.time ||
+      slot.start ||
+      "";
 
-      select.appendChild(
-        option
-      );
-
+    if(!rawTime){
+      return;
     }
-  );
+
+    const timeValue =
+      String(rawTime).substring(0,5);
+
+    const option =
+      document.createElement("option");
+
+    option.value =
+      timeValue;
+
+    option.textContent =
+      formatTime(timeValue);
+
+    select.appendChild(option);
+
+  });
 
 }
-
 
 /* =====================================================
    BOOKING MODAL
