@@ -28,7 +28,7 @@ button{
 }
 
 .header{
-  background:#ffffff;
+  background:#fff;
   padding:16px;
   position:sticky;
   top:0;
@@ -127,7 +127,7 @@ button{
 .category{
   min-width:105px;
   border:1px solid #e5e8ef;
-  background:white;
+  background:#fff;
   border-radius:15px;
   padding:14px 10px;
   text-align:center;
@@ -191,7 +191,7 @@ button{
   width:100%;
   border:0;
   background:#5b4bdb;
-  color:white;
+  color:#fff;
   border-radius:10px;
   padding:10px;
   font-weight:700;
@@ -221,7 +221,7 @@ button{
   left:0;
   right:0;
   height:68px;
-  background:white;
+  background:#fff;
   border-top:1px solid #e5e8ef;
   display:flex;
   justify-content:space-around;
@@ -258,7 +258,7 @@ button{
 .modal-box{
   background:#fff;
   width:100%;
-  max-height:92vh;
+  max-height:94vh;
   overflow-y:auto;
   border-radius:24px 24px 0 0;
   padding:20px;
@@ -299,7 +299,7 @@ button{
   border-radius:15px;
   padding:15px;
   margin-bottom:10px;
-  background:white;
+  background:#fff;
 }
 
 .option-card h3{
@@ -327,7 +327,7 @@ button{
 .option-select{
   border:0;
   background:#5b4bdb;
-  color:white;
+  color:#fff;
   padding:9px 14px;
   border-radius:9px;
   font-size:12px;
@@ -357,7 +357,7 @@ button{
   border-radius:12px;
   padding:13px;
   outline:none;
-  background:white;
+  background:#fff;
 }
 
 .form-control:focus{
@@ -404,7 +404,7 @@ textarea.form-control{
 
 .time-btn{
   border:1px solid #dfe3eb;
-  background:white;
+  background:#fff;
   border-radius:11px;
   padding:12px 8px;
   font-size:13px;
@@ -413,7 +413,7 @@ textarea.form-control{
 .time-btn.selected{
   background:#5b4bdb;
   border-color:#5b4bdb;
-  color:white;
+  color:#fff;
 }
 
 .time-btn:disabled{
@@ -426,7 +426,7 @@ textarea.form-control{
   width:100%;
   border:0;
   background:#5b4bdb;
-  color:white;
+  color:#fff;
   padding:15px;
   border-radius:13px;
   font-weight:800;
@@ -487,15 +487,21 @@ textarea.form-control{
 <body>
 
 <header class="header">
+
   <div class="header-top">
+
     <div class="location">
       Your location
       <strong>📍 Guwahati</strong>
     </div>
 
-    <button class="profile-btn" onclick="showSimpleMessage('Profile')">
+    <button
+      class="profile-btn"
+      onclick="showSimpleMessage('Profile')"
+    >
       👤
     </button>
+
   </div>
 
   <input
@@ -504,217 +510,402 @@ textarea.form-control{
     type="text"
     placeholder="Search cleaning services..."
   >
+
 </header>
+
 
 <main class="container">
 
-  <section class="hero">
-    <h1>Professional Cleaning at Your Doorstep</h1>
-    <p>
-      Book trusted home cleaning services in Guwahati with easy online booking.
-    </p>
-  </section>
+<section class="hero">
 
-  <div class="section-title">
-    <h2>Popular Categories</h2>
-    <span>Explore</span>
+  <h1>
+    Professional Cleaning at Your Doorstep
+  </h1>
+
+  <p>
+    Book trusted home cleaning services in Guwahati with easy online booking.
+  </p>
+
+</section>
+
+
+<div class="section-title">
+  <h2>Popular Categories</h2>
+  <span>Explore</span>
+</div>
+
+
+<div class="categories">
+
+  <button
+    class="category"
+    data-service="Bathroom Cleaning"
+  >
+    <div class="category-icon">🚿</div>
+    <div class="category-name">Bathroom</div>
+  </button>
+
+  <button
+    class="category"
+    data-service="Kitchen Cleaning"
+  >
+    <div class="category-icon">🍳</div>
+    <div class="category-name">Kitchen</div>
+  </button>
+
+  <button
+    class="category"
+    data-service="Sofa Cleaning"
+  >
+    <div class="category-icon">🛋️</div>
+    <div class="category-name">Sofa</div>
+  </button>
+
+  <button
+    class="category"
+    data-service="Home Cleaning"
+  >
+    <div class="category-icon">🏠</div>
+    <div class="category-name">Home</div>
+  </button>
+
+  <button
+    class="category"
+    data-service="Window Cleaning"
+  >
+    <div class="category-icon">🪟</div>
+    <div class="category-name">Window</div>
+  </button>
+
+</div>
+
+
+<div class="section-title">
+  <h2>Cleaning Services</h2>
+  <span>View all</span>
+</div>
+
+
+<div class="services" id="servicesContainer">
+
+  <div
+    class="service-card"
+    data-service="Bathroom Cleaning"
+  >
+    <div class="service-icon">🚿</div>
+    <h3>Bathroom Cleaning</h3>
+    <p>Deep cleaning for your bathroom</p>
+    <div class="price">From ₹499</div>
+    <button
+      class="book-btn"
+      data-service="Bathroom Cleaning"
+    >
+      Book
+    </button>
   </div>
 
-  <div class="categories">
 
-    <button class="category" data-service="Bathroom Cleaning">
-      <div class="category-icon">🚿</div>
-      <div class="category-name">Bathroom</div>
+  <div
+    class="service-card"
+    data-service="Kitchen Cleaning"
+  >
+    <div class="service-icon">🍳</div>
+    <h3>Kitchen Cleaning</h3>
+    <p>Complete kitchen cleaning</p>
+    <div class="price">From ₹599</div>
+    <button
+      class="book-btn"
+      data-service="Kitchen Cleaning"
+    >
+      Book
     </button>
-
-    <button class="category" data-service="Kitchen Cleaning">
-      <div class="category-icon">🍳</div>
-      <div class="category-name">Kitchen</div>
-    </button>
-
-    <button class="category" data-service="Sofa Cleaning">
-      <div class="category-icon">🛋️</div>
-      <div class="category-name">Sofa</div>
-    </button>
-
-    <button class="category" data-service="Home Cleaning">
-      <div class="category-icon">🏠</div>
-      <div class="category-name">Home</div>
-    </button>
-
-    <button class="category" data-service="Window Cleaning">
-      <div class="category-icon">🪟</div>
-      <div class="category-name">Window</div>
-    </button>
-
   </div>
 
-  <div class="section-title">
-    <h2>Cleaning Services</h2>
-    <span>View all</span>
+
+  <div
+    class="service-card"
+    data-service="Sofa Cleaning"
+  >
+    <div class="service-icon">🛋️</div>
+    <h3>Sofa Cleaning</h3>
+    <p>Professional sofa cleaning</p>
+    <div class="price">From ₹299</div>
+    <button
+      class="book-btn"
+      data-service="Sofa Cleaning"
+    >
+      Book
+    </button>
   </div>
 
-  <div class="services" id="servicesContainer">
 
-    <div class="service-card" data-service="Bathroom Cleaning">
-      <div class="service-icon">🚿</div>
-      <h3>Bathroom Cleaning</h3>
-      <p>Deep cleaning for your bathroom</p>
-      <div class="price">From ₹499</div>
-      <button class="book-btn" data-service="Bathroom Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Kitchen Cleaning">
-      <div class="service-icon">🍳</div>
-      <h3>Kitchen Cleaning</h3>
-      <p>Complete kitchen cleaning</p>
-      <div class="price">From ₹599</div>
-      <button class="book-btn" data-service="Kitchen Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Sofa Cleaning">
-      <div class="service-icon">🛋️</div>
-      <h3>Sofa Cleaning</h3>
-      <p>Professional sofa cleaning</p>
-      <div class="price">From ₹299</div>
-      <button class="book-btn" data-service="Sofa Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Home Cleaning">
-      <div class="service-icon">🏠</div>
-      <h3>Home Cleaning</h3>
-      <p>Complete home cleaning</p>
-      <div class="price">From ₹999</div>
-      <button class="book-btn" data-service="Home Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Window Cleaning">
-      <div class="service-icon">🪟</div>
-      <h3>Window Cleaning</h3>
-      <p>Clean and shining windows</p>
-      <div class="price">From ₹399</div>
-      <button class="book-btn" data-service="Window Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Full Home Deep Cleaning">
-      <div class="service-icon">✨</div>
-      <h3>Full Home Deep Cleaning</h3>
-      <p>Detailed deep cleaning</p>
-      <div class="price">From ₹1499</div>
-      <button class="book-btn" data-service="Full Home Deep Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Floor Cleaning">
-      <div class="service-icon">🧹</div>
-      <h3>Floor Cleaning</h3>
-      <p>Professional floor cleaning</p>
-      <div class="price">From ₹299</div>
-      <button class="book-btn" data-service="Floor Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Chimney Cleaning">
-      <div class="service-icon">🔥</div>
-      <h3>Chimney Cleaning</h3>
-      <p>Kitchen chimney cleaning</p>
-      <div class="price">From ₹499</div>
-      <button class="book-btn" data-service="Chimney Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Fridge Cleaning">
-      <div class="service-icon">🧊</div>
-      <h3>Fridge Cleaning</h3>
-      <p>Deep refrigerator cleaning</p>
-      <div class="price">From ₹299</div>
-      <button class="book-btn" data-service="Fridge Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Ceiling Fan Cleaning">
-      <div class="service-icon">🌀</div>
-      <h3>Ceiling Fan Cleaning</h3>
-      <p>Dust-free ceiling fans</p>
-      <div class="price">From ₹149</div>
-      <button class="book-btn" data-service="Ceiling Fan Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Balcony Cleaning">
-      <div class="service-icon">🌿</div>
-      <h3>Balcony Cleaning</h3>
-      <p>Fresh and clean balcony</p>
-      <div class="price">From ₹299</div>
-      <button class="book-btn" data-service="Balcony Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="AC Cleaning">
-      <div class="service-icon">❄️</div>
-      <h3>AC Cleaning</h3>
-      <p>AC cleaning service</p>
-      <div class="price">From ₹499</div>
-      <button class="book-btn" data-service="AC Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Mattress Cleaning">
-      <div class="service-icon">🛏️</div>
-      <h3>Mattress Cleaning</h3>
-      <p>Deep mattress cleaning</p>
-      <div class="price">From ₹499</div>
-      <button class="book-btn" data-service="Mattress Cleaning">Book</button>
-    </div>
-
-    <div class="service-card" data-service="Move-in / Move-out Cleaning">
-      <div class="service-icon">📦</div>
-      <h3>Move-in / Move-out</h3>
-      <p>Complete moving cleaning</p>
-      <div class="price">From ₹1999</div>
-      <button class="book-btn" data-service="Move-in / Move-out Cleaning">Book</button>
-    </div>
-
+  <div
+    class="service-card"
+    data-service="Home Cleaning"
+  >
+    <div class="service-icon">🏠</div>
+    <h3>Home Cleaning</h3>
+    <p>Complete home cleaning</p>
+    <div class="price">From ₹999</div>
+    <button
+      class="book-btn"
+      data-service="Home Cleaning"
+    >
+      Book
+    </button>
   </div>
 
-  <div class="offer">
-    <strong>🎁 Special Offer</strong>
-    <p>Book your cleaning service online and get convenient doorstep service.</p>
+
+  <div
+    class="service-card"
+    data-service="Window Cleaning"
+  >
+    <div class="service-icon">🪟</div>
+    <h3>Window Cleaning</h3>
+    <p>Clean and shining windows</p>
+    <div class="price">From ₹399</div>
+    <button
+      class="book-btn"
+      data-service="Window Cleaning"
+    >
+      Book
+    </button>
   </div>
+
+
+  <div
+    class="service-card"
+    data-service="Full Home Deep Cleaning"
+  >
+    <div class="service-icon">✨</div>
+    <h3>Full Home Deep Cleaning</h3>
+    <p>Detailed deep cleaning</p>
+    <div class="price">From ₹1499</div>
+    <button
+      class="book-btn"
+      data-service="Full Home Deep Cleaning"
+    >
+      Book
+    </button>
+  </div>
+
+
+  <div
+    class="service-card"
+    data-service="Floor Cleaning"
+  >
+    <div class="service-icon">🧹</div>
+    <h3>Floor Cleaning</h3>
+    <p>Professional floor cleaning</p>
+    <div class="price">From ₹299</div>
+    <button
+      class="book-btn"
+      data-service="Floor Cleaning"
+    >
+      Book
+    </button>
+  </div>
+
+
+  <div
+    class="service-card"
+    data-service="Chimney Cleaning"
+  >
+    <div class="service-icon">🔥</div>
+    <h3>Chimney Cleaning</h3>
+    <p>Kitchen chimney cleaning</p>
+    <div class="price">From ₹499</div>
+    <button
+      class="book-btn"
+      data-service="Chimney Cleaning"
+    >
+      Book
+    </button>
+  </div>
+
+
+  <div
+    class="service-card"
+    data-service="Fridge Cleaning"
+  >
+    <div class="service-icon">🧊</div>
+    <h3>Fridge Cleaning</h3>
+    <p>Deep refrigerator cleaning</p>
+    <div class="price">From ₹299</div>
+    <button
+      class="book-btn"
+      data-service="Fridge Cleaning"
+    >
+      Book
+    </button>
+  </div>
+
+
+  <div
+    class="service-card"
+    data-service="Ceiling Fan Cleaning"
+  >
+    <div class="service-icon">🌀</div>
+    <h3>Ceiling Fan Cleaning</h3>
+    <p>Dust-free ceiling fans</p>
+    <div class="price">From ₹149</div>
+    <button
+      class="book-btn"
+      data-service="Ceiling Fan Cleaning"
+    >
+      Book
+    </button>
+  </div>
+
+
+  <div
+    class="service-card"
+    data-service="Balcony Cleaning"
+  >
+    <div class="service-icon">🌿</div>
+    <h3>Balcony Cleaning</h3>
+    <p>Fresh and clean balcony</p>
+    <div class="price">From ₹299</div>
+    <button
+      class="book-btn"
+      data-service="Balcony Cleaning"
+    >
+      Book
+    </button>
+  </div>
+
+
+  <div
+    class="service-card"
+    data-service="AC Cleaning"
+  >
+    <div class="service-icon">❄️</div>
+    <h3>AC Cleaning</h3>
+    <p>AC cleaning service</p>
+    <div class="price">From ₹499</div>
+    <button
+      class="book-btn"
+      data-service="AC Cleaning"
+    >
+      Book
+    </button>
+  </div>
+
+
+  <div
+    class="service-card"
+    data-service="Mattress Cleaning"
+  >
+    <div class="service-icon">🛏️</div>
+    <h3>Mattress Cleaning</h3>
+    <p>Deep mattress cleaning</p>
+    <div class="price">From ₹499</div>
+    <button
+      class="book-btn"
+      data-service="Mattress Cleaning"
+    >
+      Book
+    </button>
+  </div>
+
+
+  <div
+    class="service-card"
+    data-service="Move-in / Move-out Cleaning"
+  >
+    <div class="service-icon">📦</div>
+    <h3>Move-in / Move-out</h3>
+    <p>Complete moving cleaning</p>
+    <div class="price">From ₹1999</div>
+    <button
+      class="book-btn"
+      data-service="Move-in / Move-out Cleaning"
+    >
+      Book
+    </button>
+  </div>
+
+</div>
+
+
+<div class="offer">
+
+  <strong>🎁 Special Offer</strong>
+
+  <p>
+    Book your cleaning service online and get convenient doorstep service.
+  </p>
+
+</div>
 
 </main>
 
+
 <nav class="bottom-nav">
-  <button class="nav-btn" onclick="scrollToTop()">
+
+  <button
+    class="nav-btn"
+    onclick="scrollToTop()"
+  >
     <div>⌂</div>
     Home
   </button>
 
-  <button class="nav-btn" onclick="document.getElementById('servicesContainer').scrollIntoView({behavior:'smooth'})">
+  <button
+    class="nav-btn"
+    onclick="document.getElementById('servicesContainer').scrollIntoView({behavior:'smooth'})"
+  >
     <div>🧹</div>
     Services
   </button>
 
-  <button class="nav-btn" onclick="showSimpleMessage('My Bookings')">
+  <button
+    class="nav-btn"
+    onclick="showSimpleMessage('My Bookings')"
+  >
     <div>📋</div>
     Bookings
   </button>
 
-  <button class="nav-btn" onclick="showSimpleMessage('Profile')">
+  <button
+    class="nav-btn"
+    onclick="showSimpleMessage('Profile')"
+  >
     <div>👤</div>
     Profile
   </button>
+
 </nav>
 
 
-<!-- SERVICE OPTION MODAL -->
-<div class="modal" id="serviceModal">
+<!-- SERVICE OPTIONS -->
+
+<div
+  class="modal"
+  id="serviceModal"
+>
 
   <div class="modal-box">
 
     <div class="modal-header">
-      <h2 id="serviceTitle">Service</h2>
 
-      <button class="close-btn" onclick="closeModal('serviceModal')">
+      <h2 id="serviceTitle">
+        Service
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal('serviceModal')"
+      >
         ×
       </button>
+
     </div>
 
     <div id="serviceOptions">
-      <div class="loading">Loading options...</div>
+      <div class="loading">
+        Loading options...
+      </div>
     </div>
 
   </div>
@@ -722,8 +913,12 @@ textarea.form-control{
 </div>
 
 
-<!-- BOOKING MODAL -->
-<div class="modal" id="bookingModal">
+<!-- BOOKING -->
+
+<div
+  class="modal"
+  id="bookingModal"
+>
 
   <div class="modal-box">
 
@@ -731,13 +926,21 @@ textarea.form-control{
 
       <h2>Book Service</h2>
 
-      <button class="close-btn" onclick="closeModal('bookingModal')">
+      <button
+        class="close-btn"
+        onclick="closeModal('bookingModal')"
+      >
         ×
       </button>
 
     </div>
 
-    <div id="bookingError" class="error-box"></div>
+
+    <div
+      id="bookingError"
+      class="error-box"
+    ></div>
+
 
     <div class="booking-summary">
 
@@ -785,7 +988,10 @@ textarea.form-control{
         Select Time
       </label>
 
-      <div id="timeSlots" class="time-grid">
+      <div
+        id="timeSlots"
+        class="time-grid"
+      >
         <div class="loading">
           Select a date first
         </div>
@@ -820,6 +1026,7 @@ textarea.form-control{
         class="form-control"
         type="tel"
         maxlength="10"
+        inputmode="numeric"
         placeholder="Enter 10 digit mobile number"
       >
 
@@ -854,8 +1061,12 @@ textarea.form-control{
 </div>
 
 
-<!-- SUCCESS MODAL -->
-<div class="modal" id="successModal">
+<!-- SUCCESS -->
+
+<div
+  class="modal"
+  id="successModal"
+>
 
   <div class="modal-box">
 
@@ -865,7 +1076,9 @@ textarea.form-control{
         ✓
       </div>
 
-      <h2>Booking Confirmed!</h2>
+      <h2>
+        Booking Confirmed!
+      </h2>
 
       <p id="successMessage">
         Your cleaning service has been booked successfully.
@@ -904,52 +1117,64 @@ async function supabaseFetch(
   options = {}
 ){
 
-  const response = await fetch(
-    SUPABASE_URL + endpoint,
-    {
-      ...options,
+  const response =
+    await fetch(
+      SUPABASE_URL + endpoint,
+      {
+        ...options,
 
-      headers:{
-        "apikey":SUPABASE_KEY,
-        "Authorization":"Bearer " + SUPABASE_KEY,
-        "Content-Type":"application/json",
+        headers:{
+          "apikey":SUPABASE_KEY,
+          "Authorization":
+            "Bearer " + SUPABASE_KEY,
+          "Content-Type":
+            "application/json",
 
-        ...(options.headers || {})
+          ...(options.headers || {})
+        }
       }
-    }
-  );
+    );
 
-  const text = await response.text();
+
+  const text =
+    await response.text();
 
   let data = null;
 
   try{
-    data = text ? JSON.parse(text) : null;
-  }catch{
+    data =
+      text
+        ? JSON.parse(text)
+        : null;
+  }
+  catch{
     data = text;
   }
 
+
   if(!response.ok){
 
-    let message =
+    throw new Error(
       data?.message ||
       data?.error_description ||
       data?.hint ||
-      "Supabase request failed";
-
-    throw new Error(message);
+      "Supabase request failed"
+    );
   }
+
 
   return data;
 }
 
 
 /* =========================
-   GLOBAL BOOKING DATA
+   GLOBAL VARIABLES
 ========================= */
 
 let selectedService = null;
+
 let selectedOption = null;
+
 let selectedTimeSlot = null;
 
 
@@ -957,50 +1182,84 @@ let selectedTimeSlot = null;
    DATE
 ========================= */
 
+const bookingDate =
+  document.getElementById(
+    "bookingDate"
+  );
+
+
 function getToday(){
 
-  const now = new Date();
+  const now =
+    new Date();
 
   const year =
     now.getFullYear();
 
   const month =
-    String(now.getMonth()+1).padStart(2,"0");
+    String(
+      now.getMonth() + 1
+    ).padStart(2,"0");
 
   const day =
-    String(now.getDate()).padStart(2,"0");
+    String(
+      now.getDate()
+    ).padStart(2,"0");
 
-  return `${year}-${month}-${day}`;
+  return (
+    year +
+    "-" +
+    month +
+    "-" +
+    day
+  );
 }
 
 
-const bookingDate =
-document.getElementById("bookingDate");
-
-bookingDate.min = getToday();
+bookingDate.min =
+  getToday();
 
 
 /* =========================
-   SERVICE OPEN
+   OPEN SERVICE
 ========================= */
 
-async function openService(serviceName){
+async function openService(
+  serviceName
+){
 
   const modal =
-    document.getElementById("serviceModal");
+    document.getElementById(
+      "serviceModal"
+    );
 
   const title =
-    document.getElementById("serviceTitle");
+    document.getElementById(
+      "serviceTitle"
+    );
 
-  const optionsContainer =
-    document.getElementById("serviceOptions");
+  const container =
+    document.getElementById(
+      "serviceOptions"
+    );
 
-  title.textContent = serviceName;
 
-  optionsContainer.innerHTML =
-    `<div class="loading">Loading options...</div>`;
+  title.textContent =
+    serviceName;
 
-  modal.classList.add("active");
+
+  container.innerHTML =
+    `
+      <div class="loading">
+        Loading options...
+      </div>
+    `;
+
+
+  modal.classList.add(
+    "active"
+  );
+
 
   try{
 
@@ -1009,50 +1268,70 @@ async function openService(serviceName){
         `/rest/v1/services?name=eq.${encodeURIComponent(serviceName)}&is_active=eq.true&select=id,name,description,price,duration_minutes&limit=1`
       );
 
-    if(!services || !services.length){
 
-      optionsContainer.innerHTML =
-        `<div class="loading">
-          No active service found.
-        </div>`;
+    if(
+      !services ||
+      !services.length
+    ){
+
+      container.innerHTML =
+        `
+          <div class="loading">
+            Service not found.
+          </div>
+        `;
 
       return;
     }
 
+
     const service =
       services[0];
+
 
     const options =
       await supabaseFetch(
         `/rest/v1/service_options?service_id=eq.${service.id}&is_active=eq.true&order=sort_order.asc&select=id,name,description,price,duration_minutes`
       );
 
-    if(!options || !options.length){
 
-      optionsContainer.innerHTML =
-        `<div class="loading">
-          No options available for this service.
-        </div>`;
+    if(
+      !options ||
+      !options.length
+    ){
+
+      container.innerHTML =
+        `
+          <div class="loading">
+            No options available.
+          </div>
+        `;
 
       return;
     }
 
-    selectedService = service;
+
+    selectedService =
+      service;
+
 
     showOptions(
       service,
       options
     );
 
-  }catch(error){
+  }
+  catch(error){
 
     console.error(error);
 
-    optionsContainer.innerHTML =
-      `<div class="loading">
-        Unable to load service options.<br><br>
-        ${escapeHtml(error.message)}
-      </div>`;
+    container.innerHTML =
+      `
+        <div class="loading">
+          Unable to load options.<br><br>
+          ${escapeHtml(error.message)}
+        </div>
+      `;
   }
 }
 
@@ -1067,61 +1346,89 @@ function showOptions(
 ){
 
   const container =
-    document.getElementById("serviceOptions");
+    document.getElementById(
+      "serviceOptions"
+    );
 
-  container.innerHTML = "";
 
-  options.forEach(option => {
+  container.innerHTML =
+    "";
 
-    const card =
-      document.createElement("div");
 
-    card.className =
-      "option-card";
+  options.forEach(
+    option => {
 
-    card.innerHTML = `
+      const card =
+        document.createElement(
+          "div"
+        );
 
-      <h3>
-        ${escapeHtml(option.name)}
-      </h3>
 
-      <p>
-        ${escapeHtml(
-          option.description ||
-          "Professional cleaning service"
-        )}
-      </p>
+      card.className =
+        "option-card";
 
-      <div class="option-bottom">
 
-        <div>
+      card.innerHTML =
+        `
+          <h3>
+            ${escapeHtml(option.name)}
+          </h3>
 
-          <div class="option-price">
-            ₹${Number(option.price).toLocaleString("en-IN")}
+          <p>
+            ${escapeHtml(
+              option.description ||
+              "Professional cleaning service"
+            )}
+          </p>
+
+          <div class="option-bottom">
+
+            <div>
+
+              <div class="option-price">
+                ₹${Number(option.price).toLocaleString("en-IN")}
+              </div>
+
+              <small>
+                ${option.duration_minutes || "-"} minutes
+              </small>
+
+            </div>
+
+            <button
+              class="option-select"
+              data-option-id="${option.id}"
+            >
+              Select
+            </button>
+
           </div>
+        `;
 
-          <small>
-            ${option.duration_minutes || "-"} minutes
-          </small>
 
-        </div>
+      card
+        .querySelector(
+          ".option-select"
+        )
+        .addEventListener(
+          "click",
+          function(){
 
-        <button
-          class="option-select"
-          onclick="selectOption(
-            ${JSON.stringify(service).replace(/"/g,"&quot;")},
-            ${JSON.stringify(option).replace(/"/g,"&quot;")}
-          )"
-        >
-          Select
-        </button>
+            selectOption(
+              service,
+              option
+            );
 
-      </div>
-    `;
+          }
+        );
 
-    container.appendChild(card);
 
-  });
+      container.appendChild(
+        card
+      );
+
+    }
+  );
 }
 
 
@@ -1134,27 +1441,39 @@ function selectOption(
   option
 ){
 
-  selectedService = service;
-  selectedOption = option;
-  selectedTimeSlot = null;
+  selectedService =
+    service;
 
-  closeModal("serviceModal");
+  selectedOption =
+    option;
+
+  selectedTimeSlot =
+    null;
+
+
+  closeModal(
+    "serviceModal"
+  );
+
 
   document.getElementById(
     "bookingServiceName"
   ).textContent =
     service.name;
 
+
   document.getElementById(
     "bookingOptionName"
   ).textContent =
     option.name;
+
 
   document.getElementById(
     "bookingDuration"
   ).textContent =
     (option.duration_minutes || "-") +
     " minutes";
+
 
   document.getElementById(
     "bookingPrice"
@@ -1163,39 +1482,54 @@ function selectOption(
     Number(option.price)
       .toLocaleString("en-IN");
 
+
   document.getElementById(
     "bookingAddress"
-  ).value = "";
+  ).value =
+    "";
+
 
   document.getElementById(
     "bookingPhone"
-  ).value = "";
+  ).value =
+    "";
+
 
   document.getElementById(
     "bookingNotes"
-  ).value = "";
+  ).value =
+    "";
 
-  document.getElementById(
-    "bookingDate"
-  ).value = "";
+
+  bookingDate.value =
+    "";
+
 
   document.getElementById(
     "timeSlots"
   ).innerHTML =
-    `<div class="loading">
-      Select a date first
-    </div>`;
+    `
+      <div class="loading">
+        Select a date first
+      </div>
+    `;
+
 
   hideBookingError();
 
+
   document
-    .getElementById("bookingModal")
-    .classList.add("active");
+    .getElementById(
+      "bookingModal"
+    )
+    .classList.add(
+      "active"
+    );
 }
 
 
 /* =========================
-   DATE CHANGE
+   LOAD TIME SLOTS
 ========================= */
 
 bookingDate.addEventListener(
@@ -1209,27 +1543,48 @@ async function loadAvailableTimeSlots(){
   const date =
     bookingDate.value;
 
-  const container =
-    document.getElementById("timeSlots");
 
-  selectedTimeSlot = null;
+  const container =
+    document.getElementById(
+      "timeSlots"
+    );
+
+
+  selectedTimeSlot =
+    null;
+
 
   if(!date){
 
     container.innerHTML =
-      `<div class="loading">
-        Select a date first
-      </div>`;
+      `
+        <div class="loading">
+          Select a date first
+        </div>
+      `;
 
     return;
   }
 
+
   container.innerHTML =
-    `<div class="loading">
-      Loading available times...
-    </div>`;
+    `
+      <div class="loading">
+        Loading available times...
+      </div>
+    `;
+
 
   try{
+
+    /*
+      IMPORTANT:
+      Supabase RPC is called using POST.
+      The function returns:
+      id
+      slot_time
+      available_bookings
+    */
 
     const slots =
       await supabaseFetch(
@@ -1243,73 +1598,113 @@ async function loadAvailableTimeSlots(){
         }
       );
 
-    if(!slots || !slots.length){
+
+    if(
+      !slots ||
+      !slots.length
+    ){
 
       container.innerHTML =
-        `<div class="loading">
-          No time slots available for this date.
-        </div>`;
+        `
+          <div class="loading">
+            No time slots available for this date.
+          </div>
+        `;
 
       return;
     }
 
-    container.innerHTML = "";
 
-    slots.forEach(slot => {
+    container.innerHTML =
+      "";
 
-      const button =
-        document.createElement("button");
 
-      button.type = "button";
+    slots.forEach(
+      slot => {
 
-      button.className =
-        "time-btn";
+        const button =
+          document.createElement(
+            "button"
+          );
 
-      const timeText =
-        formatTime(slot.slot_time);
 
-      button.textContent =
-        timeText;
+        button.type =
+          "button";
 
-      if(
-        Number(slot.available_bookings) <= 0
-      ){
 
-        button.disabled = true;
+        button.className =
+          "time-btn";
 
-      }else{
 
-        button.addEventListener(
-          "click",
-          function(){
+        button.textContent =
+          formatTime(
+            slot.slot_time
+          );
 
-            document
-              .querySelectorAll(".time-btn")
-              .forEach(btn =>
-                btn.classList.remove("selected")
+
+        if(
+          Number(
+            slot.available_bookings
+          ) <= 0
+        ){
+
+          button.disabled =
+            true;
+
+        }
+        else{
+
+          button.addEventListener(
+            "click",
+            function(){
+
+              document
+                .querySelectorAll(
+                  ".time-btn"
+                )
+                .forEach(
+                  btn =>
+                    btn.classList.remove(
+                      "selected"
+                    )
+                );
+
+
+              button.classList.add(
+                "selected"
               );
 
-            button.classList.add("selected");
 
-            selectedTimeSlot = slot;
+              selectedTimeSlot =
+                slot;
 
-          }
+            }
+          );
+        }
+
+
+        container.appendChild(
+          button
         );
+
       }
+    );
 
-      container.appendChild(button);
-
-    });
-
-  }catch(error){
+  }
+  catch(error){
 
     console.error(error);
 
+
     container.innerHTML =
-      `<div class="loading">
-        Unable to load time slots.<br><br>
-        ${escapeHtml(error.message)}
-      </div>`;
+      `
+        <div class="loading">
+          Unable to load time slots.<br><br>
+          ${escapeHtml(
+            error.message
+          )}
+        </div>
+      `;
   }
 }
 
@@ -1322,23 +1717,33 @@ async function confirmBooking(){
 
   hideBookingError();
 
+
   const date =
     bookingDate.value;
+
 
   const address =
     document.getElementById(
       "bookingAddress"
-    ).value.trim();
+    )
+    .value
+    .trim();
+
 
   const phone =
     document.getElementById(
       "bookingPhone"
-    ).value.trim();
+    )
+    .value
+    .trim();
+
 
   const notes =
     document.getElementById(
       "bookingNotes"
-    ).value.trim();
+    )
+    .value
+    .trim();
 
 
   if(!selectedService){
@@ -1374,7 +1779,7 @@ async function confirmBooking(){
   if(!selectedTimeSlot){
 
     showBookingError(
-      "Please select an available time slot."
+      "Please select a time slot."
     );
 
     return;
@@ -1384,14 +1789,16 @@ async function confirmBooking(){
   if(address.length < 8){
 
     showBookingError(
-      "Please enter your complete service address."
+      "Please enter your complete address."
     );
 
     return;
   }
 
 
-  if(!/^[0-9]{10}$/.test(phone)){
+  if(
+    !/^[0-9]{10}$/.test(phone)
+  ){
 
     showBookingError(
       "Please enter a valid 10 digit mobile number."
@@ -1406,7 +1813,10 @@ async function confirmBooking(){
       "confirmBookingBtn"
     );
 
-  button.disabled = true;
+
+  button.disabled =
+    true;
+
 
   button.textContent =
     "Confirming...";
@@ -1414,9 +1824,9 @@ async function confirmBooking(){
 
   try{
 
-    /* =========================
-       CREATE CUSTOMER
-    ========================= */
+    /*
+      CREATE CUSTOMER
+    */
 
     const customerResult =
       await supabaseFetch(
@@ -1425,7 +1835,8 @@ async function confirmBooking(){
           method:"POST",
 
           headers:{
-            "Prefer":"return=representation"
+            "Prefer":
+              "return=representation"
           },
 
           body:JSON.stringify({
@@ -1452,9 +1863,9 @@ async function confirmBooking(){
       customerResult[0];
 
 
-    /* =========================
-       CREATE BOOKING
-    ========================= */
+    /*
+      CREATE BOOKING
+    */
 
     const bookingResult =
       await supabaseFetch(
@@ -1463,7 +1874,8 @@ async function confirmBooking(){
           method:"POST",
 
           headers:{
-            "Prefer":"return=representation"
+            "Prefer":
+              "return=representation"
           },
 
           body:JSON.stringify({
@@ -1484,7 +1896,9 @@ async function confirmBooking(){
               "pending",
 
             total_amount:
-              Number(selectedOption.price),
+              Number(
+                selectedOption.price
+              ),
 
             address:
               address,
@@ -1518,42 +1932,60 @@ async function confirmBooking(){
       bookingResult[0];
 
 
-    closeModal("bookingModal");
+    closeModal(
+      "bookingModal"
+    );
 
 
     document.getElementById(
       "successMessage"
     ).innerHTML =
+      `
+        Your booking has been confirmed.<br><br>
 
-      `Your booking has been confirmed.<br><br>
-       <strong>Booking ID:</strong> ${escapeHtml(
-         String(booking.id)
-       )}<br>
-       <strong>Date:</strong> ${escapeHtml(
-         formatDate(date)
-       )}<br>
-       <strong>Time:</strong> ${escapeHtml(
-         formatTime(selectedTimeSlot.slot_time)
-       )}`;
+        <strong>Booking ID:</strong>
+        ${escapeHtml(
+          String(booking.id)
+        )}<br>
+
+        <strong>Date:</strong>
+        ${escapeHtml(
+          formatDate(date)
+        )}<br>
+
+        <strong>Time:</strong>
+        ${escapeHtml(
+          formatTime(
+            selectedTimeSlot.slot_time
+          )
+        )}
+      `;
 
 
     document
-      .getElementById("successModal")
-      .classList.add("active");
+      .getElementById(
+        "successModal"
+      )
+      .classList.add(
+        "active"
+      );
 
-
-  }catch(error){
+  }
+  catch(error){
 
     console.error(error);
+
 
     showBookingError(
       error.message ||
       "Booking failed. Please try again."
     );
 
-  }finally{
+  }
+  finally{
 
-    button.disabled = false;
+    button.disabled =
+      false;
 
     button.textContent =
       "Confirm Booking";
@@ -1569,26 +2001,37 @@ function closeModal(id){
 
   document
     .getElementById(id)
-    .classList.remove("active");
+    .classList.remove(
+      "active"
+    );
 }
 
 
 document
-  .querySelectorAll(".modal")
-  .forEach(modal => {
+  .querySelectorAll(
+    ".modal"
+  )
+  .forEach(
+    modal => {
 
-    modal.addEventListener(
-      "click",
-      function(event){
+      modal.addEventListener(
+        "click",
+        function(event){
 
-        if(event.target === modal){
+          if(
+            event.target === modal
+          ){
 
-          modal.classList.remove("active");
+            modal.classList.remove(
+              "active"
+            );
+          }
+
         }
-      }
-    );
+      );
 
-  });
+    }
+  );
 
 
 /* =========================
@@ -1604,18 +2047,27 @@ document.addEventListener(
         "[data-service]"
       );
 
-    if(!target) return;
+
+    if(!target)
+      return;
+
 
     const service =
       target.getAttribute(
         "data-service"
       );
 
-    if(!service) return;
+
+    if(!service)
+      return;
+
 
     event.preventDefault();
 
-    openService(service);
+
+    openService(
+      service
+    );
   }
 );
 
@@ -1625,7 +2077,9 @@ document.addEventListener(
 ========================= */
 
 document
-  .getElementById("searchInput")
+  .getElementById(
+    "searchInput"
+  )
   .addEventListener(
     "input",
     function(){
@@ -1635,20 +2089,25 @@ document
           .trim()
           .toLowerCase();
 
+
       document
         .querySelectorAll(
           "#servicesContainer .service-card"
         )
-        .forEach(card => {
+        .forEach(
+          card => {
 
-          const text =
-            card.innerText.toLowerCase();
+            const text =
+              card.innerText
+                .toLowerCase();
 
-          card.style.display =
-            text.includes(search)
-              ? ""
-              : "none";
-        });
+
+            card.style.display =
+              text.includes(search)
+                ? ""
+                : "none";
+          }
+        );
     }
   );
 
@@ -1659,33 +2118,55 @@ document
 
 function formatTime(time){
 
-  if(!time) return "";
+  if(!time)
+    return "";
+
 
   const parts =
-    String(time).split(":");
+    String(time)
+      .split(":");
+
 
   let hour =
     Number(parts[0]);
 
+
   const minute =
     parts[1] || "00";
 
+
   const ampm =
-    hour >= 12 ? "PM" : "AM";
+    hour >= 12
+      ? "PM"
+      : "AM";
+
 
   hour =
     hour % 12 || 12;
 
-  return `${hour}:${minute} ${ampm}`;
+
+  return (
+    hour +
+    ":" +
+    minute +
+    " " +
+    ampm
+  );
 }
 
 
 function formatDate(date){
 
-  if(!date) return "";
+  if(!date)
+    return "";
+
 
   const d =
-    new Date(date + "T00:00:00");
+    new Date(
+      date +
+      "T00:00:00"
+    );
+
 
   return d.toLocaleDateString(
     "en-IN",
@@ -1700,24 +2181,45 @@ function formatDate(date){
 
 function escapeHtml(value){
 
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  return String(
+    value ?? ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
 }
 
 
-function showBookingError(message){
+function showBookingError(
+  message
+){
 
   const box =
     document.getElementById(
       "bookingError"
     );
 
+
   box.textContent =
     message;
+
 
   box.style.display =
     "block";
@@ -1731,14 +2233,19 @@ function hideBookingError(){
       "bookingError"
     );
 
-  box.textContent = "";
+
+  box.textContent =
+    "";
+
 
   box.style.display =
     "none";
 }
 
 
-function showSimpleMessage(name){
+function showSimpleMessage(
+  name
+){
 
   alert(
     name +
