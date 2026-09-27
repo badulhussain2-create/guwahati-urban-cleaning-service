@@ -2812,28 +2812,31 @@ async function submitBooking(
 
     const bookingData = {
 
-  customer_id:
-    customer.id,
+      customer_id:
+        customer.id,
 
-  service_id:
-    Number(serviceId),
+      service_id:
+        Number(serviceId),
 
-  booking_date:
-    date,
+      service_option_id:
+        Number(optionId),
 
-  booking_time:
-    time,
+      booking_date:
+        date,
 
-  address:
-    address,
+      booking_time:
+        time,
 
-  notes:
-    notes || null,
+      address:
+        address,
 
-  status:
-    "pending"
+      notes:
+        notes || null,
 
-};
+      status:
+        "pending"
+
+    };
 
 
     let bookingResult;
@@ -2974,401 +2977,6 @@ async function submitBooking(
 
 
     document.getElementById(
-async function submitBooking(
-  event
-){
-
-  event.preventDefault();
-
-
-  if(!currentUser){
-
-    showToast(
-      "Please wait a moment and try again."
-    );
-
-    return;
-
-  }
-
-
-  const name =
-    document.getElementById(
-      "customerName"
-    ).value.trim();
-
-  const phone =
-    document.getElementById(
-      "customerPhone"
-    ).value.trim();
-
-  const serviceId =
-    document.getElementById(
-      "serviceSelect"
-    ).value;
-
-  const optionId =
-    document.getElementById(
-      "serviceOption"
-    ).value;
-
-  const date =
-    document.getElementById(
-      "bookingDate"
-    ).value;
-
-  const time =
-    document.getElementById(
-      "bookingTime"
-    ).value;
-
-  const address =
-    document.getElementById(
-      "customerAddress"
-    ).value.trim();
-
-  const notes =
-    document.getElementById(
-      "bookingNotes"
-    ).value.trim();
-
-
-  if(!/^[0-9]{10}$/.test(phone)){
-
-    showToast(
-      "Enter a valid 10 digit phone number."
-    );
-
-    return;
-
-  }
-
-
-  if(!serviceId){
-
-    showToast(
-      "Please select a service."
-    );
-
-    return;
-
-  }
-
-
-  if(!optionId){
-
-    showToast(
-      "Please select a service option."
-    );
-
-    return;
-
-  }
-
-
-  if(!date){
-
-    showToast(
-      "Please select booking date."
-    );
-
-    return;
-
-  }
-
-
-  if(!time){
-
-    showToast(
-      "Please select booking time."
-    );
-
-    return;
-
-  }
-
-
-  if(!address){
-
-    showToast(
-      "Please enter service address."
-    );
-
-    return;
-
-  }
-
-
-  const button =
-    document.querySelector(
-      "#bookingForm .confirm-btn"
-    );
-
-
-  if(button){
-
-    button.disabled =
-      true;
-
-    button.textContent =
-      "Booking...";
-
-  }
-
-
-  try{
-
-    /* ---------------------------------
-       CUSTOMER
-    --------------------------------- */
-
-    let customers =
-      await supabaseFetch(
-        "/rest/v1/customers?select=*&user_id=eq." +
-        encodeURIComponent(
-          currentUser.id
-        ) +
-        "&limit=1"
-      );
-
-
-    let customer =
-      customers &&
-      customers.length
-      ?
-      customers[0]
-      :
-      null;
-
-
-    if(!customer){
-
-      customer =
-        await supabaseFetch(
-          "/rest/v1/customers",
-          {
-            method:"POST",
-
-            headers:{
-              "Prefer":
-                "return=representation"
-            },
-
-            body:
-              JSON.stringify({
-
-                user_id:
-                  currentUser.id,
-
-                full_name:
-                  name,
-
-                phone:
-                  phone,
-
-                email:
-                  currentUser.email ||
-                  null,
-
-                address:
-                  address,
-
-                city:
-                  "Guwahati"
-
-              })
-          }
-        );
-
-
-      customer =
-        Array.isArray(customer)
-        ?
-        customer[0]
-        :
-        customer;
-
-    }else{
-
-      try{
-
-        await supabaseFetch(
-          "/rest/v1/customers?id=eq." +
-          customer.id,
-          {
-            method:"PATCH",
-
-            headers:{
-              "Prefer":
-                "return=minimal"
-            },
-
-            body:
-              JSON.stringify({
-
-                full_name:
-                  name,
-
-                phone:
-                  phone,
-
-                address:
-                  address
-
-              })
-          }
-        );
-
-      }catch(e){
-
-        console.log(
-          "Customer update skipped:",
-          e
-        );
-
-      }
-
-    }
-
-
-    if(!customer || !customer.id){
-
-      throw new Error(
-        "Customer profile could not be created."
-      );
-
-    }
-
-
-    /* ---------------------------------
-       SELECTED OPTION
-    --------------------------------- */
-
-    const selectedOption =
-      serviceOptions.find(
-        item =>
-          String(item.id) ===
-          String(optionId)
-      );
-
-
-    /* ---------------------------------
-       BOOKING DATA
-    --------------------------------- */
-
-    const bookingData = {
-
-      customer_id:
-        customer.id,
-
-      service_id:
-        Number(serviceId),
-
-      booking_date:
-        date,
-
-      booking_time:
-        time,
-
-      address:
-        address,
-
-      notes:
-        notes || null,
-
-      status:
-        "pending"
-
-    };
-
-
-    /* ---------------------------------
-       CREATE BOOKING
-    --------------------------------- */
-
-    const bookingResult =
-      await supabaseFetch(
-        "/rest/v1/bookings",
-        {
-          method:"POST",
-
-          headers:{
-            "Prefer":
-              "return=representation"
-          },
-
-          body:
-            JSON.stringify(
-              bookingData
-            )
-        }
-      );
-
-
-    /* ---------------------------------
-       LOCAL BACKUP
-    --------------------------------- */
-
-    const localBooking = {
-
-      id:
-        bookingResult &&
-        bookingResult[0]
-        ?
-        bookingResult[0].id
-        :
-        "local-" +
-        Date.now(),
-
-      service_id:
-        Number(serviceId),
-
-      service_option_id:
-        Number(optionId),
-
-      booking_date:
-        date,
-
-      booking_time:
-        time,
-
-      address:
-        address,
-
-      notes:
-        notes,
-
-      status:
-        "pending",
-
-      service_name:
-        selectedServiceName(
-          serviceId
-        ),
-
-      option_name:
-        selectedOption
-        ?
-        selectedOption.name
-        :
-        "Cleaning Service",
-
-      price:
-        selectedOption
-        ?
-        selectedOption.price
-        :
-        0
-
-    };
-
-
-    saveLocalBooking(
-      localBooking
-    );
-
-
-    document.getElementById(
       "bookingForm"
     ).reset();
 
@@ -3396,30 +3004,19 @@ async function submitBooking(
       error
     );
 
+
     showToast(
-      "Booking failed: " +
-      (
-        error &&
-        error.message
-        ?
-        error.message
-        :
-        "Unknown error"
-      )
+      "Booking failed. Please try again."
     );
 
 
   }finally{
 
-    if(button){
+    button.disabled =
+      false;
 
-      button.disabled =
-        false;
-
-      button.textContent =
-        "Confirm Booking";
-
-    }
+    button.textContent =
+      "Confirm Booking";
 
   }
 
