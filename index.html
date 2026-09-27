@@ -568,6 +568,10 @@ button{
   margin-bottom:13px;
 }
 
+.form-group:last-child{
+  margin-bottom:0;
+}
+
 .form-group label{
   display:block;
   font-size:12px;
@@ -759,12 +763,14 @@ button{
 
   <div class="search-box">
     <span>🔍</span>
+
     <input
       id="searchInput"
       type="text"
       placeholder="Search cleaning services..."
       oninput="searchServices()"
     >
+
   </div>
 
 </header>
@@ -872,6 +878,7 @@ button{
 
       <div>
         <h3>Easy online booking</h3>
+
         <p>
           Choose your service, option, date and time.
         </p>
@@ -1023,6 +1030,44 @@ button{
     </div>
 
 
+    <!-- CUSTOMER DETAILS -->
+
+    <div class="form-section">
+
+      <h3>Customer Details</h3>
+
+      <div class="form-group">
+
+        <label>Full Name</label>
+
+        <input
+          type="text"
+          id="bookingFullName"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          maxlength="100"
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Phone Number</label>
+
+        <input
+          type="tel"
+          id="bookingPhone"
+          maxlength="10"
+          inputmode="numeric"
+          placeholder="Enter 10 digit mobile number"
+          autocomplete="tel"
+        >
+
+      </div>
+
+    </div>
+
+
     <!-- ADDRESS -->
 
     <div class="form-section">
@@ -1037,19 +1082,6 @@ button{
           id="bookingAddress"
           placeholder="Enter your complete service address"
         ></textarea>
-
-      </div>
-
-      <div class="form-group">
-
-        <label>Phone Number</label>
-
-        <input
-          type="tel"
-          id="bookingPhone"
-          maxlength="10"
-          placeholder="Enter 10 digit mobile number"
-        >
 
       </div>
 
@@ -1721,6 +1753,11 @@ function openBookingScreen(){
 
 
   document.getElementById(
+    "bookingFullName"
+  ).value = "";
+
+
+  document.getElementById(
     "bookingAddress"
   ).value = "";
 
@@ -1755,11 +1792,6 @@ function openBookingScreen(){
 
 /* =====================================================
    LOAD AVAILABLE TIME SLOTS
-=====================================================
-
-   IMPORTANT:
-   We directly read from public.time_slots.
-   This avoids the previous RPC problem.
 ===================================================== */
 
 async function loadAvailableTimeSlots(){
@@ -1964,6 +1996,12 @@ async function confirmBooking(){
     ).value;
 
 
+  const fullName =
+    document.getElementById(
+      "bookingFullName"
+    ).value.trim();
+
+
   const address =
     document.getElementById(
       "bookingAddress"
@@ -1982,6 +2020,8 @@ async function confirmBooking(){
     ).value.trim();
 
 
+  /* VALIDATION */
+
   if(!date){
 
     showToast(
@@ -1996,6 +2036,16 @@ async function confirmBooking(){
 
     showToast(
       "Please select a time slot"
+    );
+
+    return;
+  }
+
+
+  if(fullName.length < 2){
+
+    showToast(
+      "Please enter your full name"
     );
 
     return;
@@ -2053,11 +2103,17 @@ async function confirmBooking(){
 
           body:JSON.stringify({
 
-            phone:phone,
+            full_name:
+              fullName,
 
-            address:address,
+            phone:
+              phone,
 
-            city:"Guwahati"
+            address:
+              address,
+
+            city:
+              "Guwahati"
 
           })
         }
