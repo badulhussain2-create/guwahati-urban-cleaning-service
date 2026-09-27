@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Guwahati Urban Cleaning Service</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f6f7f9;
+      color: #222;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #0b7a75;
+    }
+
+    .menu {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0b7a75, #12a39a);
+      color: white;
+      padding: 45px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    .hero button {
+      background: white;
+      color: #08756f;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .section {
+      padding: 30px 18px;
+    }
+
+    .section h2 {
+      font-size: 23px;
+      margin-bottom: 18px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .service {
+      background: white;
+      border-radius: 12px;
+      padding: 18px 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+    }
+
+    .service-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .service h3 {
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    .service p {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #08756f;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .book-btn {
+      width: 100%;
+      background: #0b7a75;
+      color: white;
+      border: none;
+      padding: 9px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .booking {
+      background: white;
+      margin: 10px 18px 30px;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    }
+
+    .booking h2 {
+      margin-bottom: 18px;
+    }
+
+    .booking label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .booking input,
+    .booking select,
+    .booking textarea {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #ddd;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .confirm-btn {
+      width: 100%;
+      margin-top: 18px;
+      padding: 13px;
+      background: #0b7a75;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .feature {
+      background: white;
+      padding: 18px 12px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .feature h3 {
+      font-size: 14px;
+    }
+
+    footer {
+      background: #202525;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #ccc;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 700px) {
+      .services {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .features {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .section,
+      .booking {
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Guwahati Urban Cleaning</div>
+    <div class="menu">☰</div>
+  </header>
+
+  <section class="hero">
+    <h1>Professional Cleaning at Your Doorstep</h1>
+    <p>
+      Book trusted home cleaning services in Guwahati.
+      Easy booking, transparent pricing and professional service.
+    </p>
+    <button onclick="document.getElementById('booking').scrollIntoView()">
+      Book a Service
+    </button>
+  </section>
+
+  <section class="section">
+    <h2>Our Cleaning Services</h2>
+
+    <div class="services">
+
+      <div class="service">
+        <div class="service
