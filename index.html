@@ -2460,10 +2460,7 @@ function fillTimeSlots(){
   timeSlots.forEach(slot => {
 
     const rawTime =
-      slot.start_time ||
-      slot.time ||
-      slot.start ||
-      "";
+      slot.slot_time || "";
 
     if(!rawTime){
       return;
