@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#ffffff">
+
 <title>Guwahati Urban Cleaning Service</title>
 
 <style>
@@ -19,12 +20,15 @@ html{
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#f7f8fa;
+  background:#f6f7f9;
   color:#171717;
-  padding-bottom:78px;
+  padding-bottom:82px;
 }
 
-button,input,textarea,select{
+button,
+input,
+textarea,
+select{
   font:inherit;
 }
 
@@ -33,43 +37,36 @@ button{
 }
 
 .app{
-  max-width:600px;
+  max-width:700px;
   margin:auto;
-  min-height:100vh;
   background:#fff;
+  min-height:100vh;
 }
 
 /* HEADER */
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:30;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(12px);
-  padding:14px 16px 10px;
-  border-bottom:1px solid #eee;
-}
 
-.header-row{
+.topbar{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:18px 16px 10px;
+  background:#fff;
 }
 
 .location{
   display:flex;
   align-items:center;
-  gap:9px;
+  gap:10px;
 }
 
 .location-icon{
-  width:38px;
-  height:38px;
-  border-radius:12px;
-  background:#f1f7f5;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#f0f5ff;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   font-size:20px;
 }
 
@@ -77,30 +74,30 @@ button{
   display:block;
   color:#777;
   font-size:11px;
-  margin-bottom:2px;
+  margin-bottom:3px;
 }
 
 .location strong{
-  font-size:15px;
+  font-size:14px;
 }
 
 .profile-btn{
   width:40px;
   height:40px;
-  border:none;
+  border:0;
   border-radius:50%;
-  background:#171717;
-  color:white;
-  font-weight:700;
+  background:#111;
+  color:#fff;
+  font-weight:bold;
 }
 
 /* SEARCH */
+
 .search-box{
-  margin-top:13px;
-  height:48px;
-  border:1px solid #e5e5e5;
-  background:#f7f7f7;
+  margin:8px 16px 16px;
+  background:#f4f5f7;
   border-radius:14px;
+  height:48px;
   display:flex;
   align-items:center;
   padding:0 14px;
@@ -108,110 +105,80 @@ button{
 }
 
 .search-box span{
-  font-size:19px;
+  font-size:23px;
   color:#777;
 }
 
 .search-box input{
-  border:none;
-  outline:none;
+  flex:1;
+  border:0;
+  outline:0;
   background:transparent;
-  width:100%;
-  font-size:14px;
 }
 
-/* MAIN */
-.main{
-  padding:18px 16px;
+/* PAGE */
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
 }
 
 /* HERO */
+
 .hero{
-  position:relative;
-  overflow:hidden;
-  min-height:190px;
-  border-radius:24px;
-  padding:24px 20px;
-  background:linear-gradient(135deg,#101c19,#24584e 60%,#78b9a5);
-  color:white;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  margin-bottom:25px;
-}
-
-.hero:after{
-  content:"";
-  position:absolute;
-  width:190px;
-  height:190px;
-  border-radius:50%;
-  right:-70px;
-  top:-65px;
-  background:rgba(255,255,255,.10);
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  width:110px;
-  height:110px;
-  border-radius:50%;
-  right:45px;
-  bottom:-70px;
-  background:rgba(255,255,255,.08);
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:320px;
+  margin:0 16px 24px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#111,#303030);
+  color:#fff;
+  padding:28px 22px;
 }
 
 .hero-tag{
   display:inline-block;
-  background:rgba(255,255,255,.14);
-  border:1px solid rgba(255,255,255,.15);
-  padding:6px 10px;
-  border-radius:20px;
   font-size:11px;
-  margin-bottom:12px;
+  background:rgba(255,255,255,.12);
+  padding:7px 10px;
+  border-radius:20px;
+  margin-bottom:15px;
 }
 
 .hero h1{
-  font-size:28px;
-  line-height:1.12;
-  margin-bottom:9px;
+  font-size:31px;
+  line-height:1.08;
+  margin-bottom:12px;
 }
 
 .hero p{
-  font-size:13px;
+  color:#d7d7d7;
   line-height:1.5;
-  color:#e5eeee;
+  font-size:14px;
+  margin-bottom:20px;
 }
 
 .hero-btn{
-  margin-top:15px;
-  width:max-content;
-  border:none;
-  background:white;
-  color:#173d35;
-  padding:10px 16px;
+  border:0;
+  background:#fff;
+  color:#111;
+  padding:12px 17px;
   border-radius:12px;
-  font-size:13px;
-  font-weight:700;
+  font-weight:bold;
 }
 
-/* SECTION */
+/* SECTIONS */
+
 .section{
-  margin-bottom:27px;
+  padding:0 16px;
+  margin-bottom:25px;
 }
 
 .section-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:13px;
+  margin-bottom:14px;
 }
 
 .section-head h2{
@@ -219,186 +186,144 @@ button{
 }
 
 .section-head span{
-  color:#777;
   font-size:12px;
+  color:#777;
 }
 
 /* CATEGORIES */
-.categories{
-  display:flex;
-  gap:13px;
-  overflow-x:auto;
-  scrollbar-width:none;
-  padding-bottom:3px;
-}
 
-.categories::-webkit-scrollbar{
-  display:none;
+.categories{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
 }
 
 .category{
-  min-width:82px;
+  border:0;
+  background:#fff;
   text-align:center;
-  border:none;
-  background:white;
 }
 
 .cat-icon{
-  width:62px;
-  height:62px;
-  margin:auto;
-  border-radius:19px;
-  background:#f3f7f5;
+  height:56px;
+  border-radius:15px;
+  background:#f4f5f7;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:28px;
-  border:1px solid #edf0ef;
+  font-size:25px;
+  margin-bottom:7px;
 }
 
 .category span{
-  display:block;
   font-size:11px;
-  margin-top:8px;
   color:#444;
-  white-space:nowrap;
 }
 
 /* OFFER */
+
 .offer{
-  border-radius:20px;
+  border-radius:18px;
+  background:#eef5ff;
   padding:18px;
-  background:#f1eee5;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:15px;
 }
 
-.offer-text{
-  flex:1;
+.offer-text small{
+  font-size:10px;
+  font-weight:bold;
+  color:#526d9d;
 }
 
-.offer small{
-  color:#666;
-  font-size:11px;
-}
-
-.offer h3{
-  font-size:18px;
+.offer-text h3{
+  font-size:17px;
   margin:5px 0;
 }
 
-.offer p{
-  font-size:11px;
+.offer-text p{
+  font-size:12px;
   color:#666;
-  line-height:1.4;
 }
 
 .offer-btn{
-  border:none;
-  background:#171717;
-  color:white;
-  padding:10px 13px;
+  border:0;
+  background:#111;
+  color:#fff;
   border-radius:11px;
-  font-size:11px;
-  font-weight:700;
+  padding:10px 13px;
+  white-space:nowrap;
 }
 
 /* SERVICES */
+
 .services{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
 
 .service-card{
-  border:1px solid #ededed;
-  border-radius:18px;
-  overflow:hidden;
-  background:white;
-  box-shadow:0 3px 14px rgba(0,0,0,.045);
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:13px;
+  border:1px solid #eee;
+  border-radius:16px;
+  background:#fff;
 }
 
-.service-image{
-  height:125px;
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(135deg,#dfeee9,#f5e9d9);
-}
-
-.service-image img{
-  width:100%;
-  height:100%;
+.service-img{
+  width:75px;
+  height:75px;
+  border-radius:13px;
   object-fit:cover;
+  background:#eee;
+  flex-shrink:0;
 }
 
-.image-fallback{
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:48px;
+.service-info{
+  flex:1;
 }
 
-.service-body{
-  padding:12px;
+.service-info h3{
+  font-size:15px;
+  margin-bottom:5px;
 }
 
-.service-title{
-  font-size:14px;
-  font-weight:700;
-  line-height:1.25;
-  min-height:35px;
-}
-
-.service-desc{
-  color:#777;
-  font-size:10px;
-  line-height:1.4;
-  margin-top:5px;
-  min-height:28px;
-}
-
-.service-meta{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  margin-top:9px;
-  font-size:10px;
-  color:#666;
-}
-
-.rating{
-  color:#222;
-  font-weight:700;
-}
-
-.service-bottom{
-  margin-top:12px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:5px;
-}
-
-.price{
+.service-info p{
   font-size:12px;
-  font-weight:700;
+  color:#777;
+  line-height:1.4;
+  margin-bottom:5px;
 }
 
-.book-btn{
-  border:none;
-  background:#173f36;
-  color:white;
-  border-radius:9px;
-  padding:8px 10px;
-  font-size:10px;
-  font-weight:700;
+.service-price{
+  font-weight:bold;
+  font-size:14px;
 }
 
-/* WHY US */
+.book-small{
+  border:0;
+  background:#111;
+  color:#fff;
+  border-radius:10px;
+  padding:9px 11px;
+  font-size:12px;
+}
+
+.empty{
+  display:none;
+  text-align:center;
+  padding:30px 10px;
+  color:#777;
+  font-size:14px;
+}
+
+/* WHY */
+
 .why-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -406,106 +331,311 @@ button{
 }
 
 .why-card{
-  background:#f7f8f8;
+  background:#f7f7f7;
   border-radius:15px;
-  padding:14px 8px;
+  padding:15px 8px;
   text-align:center;
 }
 
 .why-card div{
-  font-size:22px;
+  font-size:23px;
   margin-bottom:7px;
 }
 
 .why-card strong{
   display:block;
-  font-size:11px;
+  font-size:12px;
 }
 
 .why-card span{
   display:block;
   color:#777;
-  font-size:9px;
+  font-size:10px;
   margin-top:4px;
 }
 
-/* EMPTY */
-.empty{
-  text-align:center;
-  padding:35px 15px;
-  color:#777;
-  font-size:13px;
-  display:none;
-}
-
 /* BOTTOM NAV */
+
 .bottom-nav{
   position:fixed;
+  z-index:50;
   bottom:0;
   left:50%;
   transform:translateX(-50%);
   width:100%;
-  max-width:600px;
-  height:68px;
+  max-width:700px;
+  height:70px;
   background:rgba(255,255,255,.97);
-  backdrop-filter:blur(15px);
-  border-top:1px solid #e8e8e8;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  z-index:50;
+  border-top:1px solid #eee;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
 }
 
 .nav-btn{
-  border:none;
-  background:transparent;
-  color:#777;
-  min-width:65px;
+  border:0;
+  background:none;
   display:flex;
   flex-direction:column;
+  justify-content:center;
   align-items:center;
   gap:4px;
+  color:#888;
   font-size:10px;
 }
 
-.nav-btn .nav-icon{
-  font-size:20px;
+.nav-btn span:first-child{
+  font-size:21px;
 }
 
 .nav-btn.active{
-  color:#173f36;
-  font-weight:700;
+  color:#111;
+  font-weight:bold;
+}
+
+/* GENERAL PAGE */
+
+.inner-page{
+  padding:18px 16px 30px;
+}
+
+.page-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.back-btn{
+  border:0;
+  background:#f3f3f3;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  font-size:20px;
+}
+
+.page-title h2{
+  font-size:22px;
+}
+
+/* BOOKING CARDS */
+
+.booking-card{
+  border:1px solid #eee;
+  border-radius:17px;
+  padding:15px;
+  margin-bottom:12px;
+  background:#fff;
+}
+
+.booking-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.booking-card h3{
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+.booking-meta{
+  color:#777;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.status{
+  font-size:10px;
+  padding:6px 9px;
+  border-radius:20px;
+  height:max-content;
+  background:#eee;
+  white-space:nowrap;
+}
+
+.status.confirmed,
+.status.pending{
+  background:#eaf7ed;
+  color:#26733a;
+}
+
+.status.cancelled{
+  background:#fdecec;
+  color:#a32626;
+}
+
+.booking-actions{
+  display:flex;
+  gap:7px;
+  margin-top:13px;
+}
+
+.booking-actions button{
+  flex:1;
+  border:1px solid #ddd;
+  background:#fff;
+  border-radius:9px;
+  padding:8px 5px;
+  font-size:11px;
+}
+
+.booking-actions button.primary{
+  background:#111;
+  color:#fff;
+  border-color:#111;
+}
+
+.no-bookings{
+  text-align:center;
+  padding:60px 20px;
+  color:#777;
+}
+
+.no-bookings .big{
+  font-size:45px;
+  margin-bottom:15px;
+}
+
+/* OFFERS PAGE */
+
+.offer-page-card{
+  border-radius:19px;
+  background:#111;
+  color:#fff;
+  padding:20px;
+  margin-bottom:13px;
+}
+
+.offer-page-card:nth-child(2){
+  background:#eef5ff;
+  color:#111;
+}
+
+.offer-page-card h3{
+  margin:7px 0;
+  font-size:19px;
+}
+
+.offer-page-card p{
+  color:#aaa;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.offer-page-card:nth-child(2) p{
+  color:#666;
+}
+
+.coupon{
+  margin-top:15px;
+  display:inline-block;
+  border:1px dashed currentColor;
+  padding:8px 12px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* PROFILE */
+
+.profile-card{
+  background:#111;
+  color:#fff;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:18px;
+}
+
+.profile-avatar{
+  width:60px;
+  height:60px;
+  background:#fff;
+  color:#111;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:23px;
+  font-weight:bold;
+  margin-bottom:13px;
+}
+
+.profile-card h3{
+  font-size:19px;
+  margin-bottom:5px;
+}
+
+.profile-card p{
+  font-size:12px;
+  color:#bbb;
+}
+
+.profile-menu{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.profile-menu button{
+  border:1px solid #eee;
+  background:#fff;
+  border-radius:14px;
+  padding:14px;
+  text-align:left;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.profile-menu button span:last-child{
+  margin-left:auto;
+  color:#aaa;
+}
+
+/* SUPPORT */
+
+.support-card{
+  border:1px solid #eee;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:10px;
+}
+
+.support-card strong{
+  display:block;
+  margin-bottom:5px;
+}
+
+.support-card p{
+  font-size:12px;
+  color:#777;
 }
 
 /* MODAL */
-.modal-bg{
+
+.modal-overlay{
   position:fixed;
   inset:0;
+  z-index:100;
   background:rgba(0,0,0,.55);
   display:none;
   align-items:flex-end;
   justify-content:center;
-  z-index:100;
 }
 
-.modal-bg.show{
+.modal-overlay.show{
   display:flex;
 }
 
 .modal{
   width:100%;
-  max-width:600px;
-  max-height:92vh;
+  max-width:700px;
+  max-height:94vh;
   overflow-y:auto;
-  background:white;
-  border-radius:25px 25px 0 0;
-  padding:20px 17px 30px;
-  animation:slideUp .25s ease;
-}
-
-@keyframes slideUp{
-  from{transform:translateY(100%);}
-  to{transform:translateY(0);}
+  background:#fff;
+  border-radius:24px 24px 0 0;
+  padding:20px 17px 28px;
 }
 
 .modal-head{
@@ -516,27 +646,27 @@ button{
 }
 
 .modal-head h2{
-  font-size:20px;
+  font-size:21px;
 }
 
 .close{
-  width:34px;
-  height:34px;
-  border:none;
-  background:#f2f2f2;
+  border:0;
+  background:#f3f3f3;
+  width:38px;
+  height:38px;
   border-radius:50%;
-  font-size:20px;
+  font-size:24px;
 }
 
 .form-group{
-  margin-bottom:13px;
+  margin-bottom:14px;
 }
 
 .form-group label{
   display:block;
   font-size:12px;
-  font-weight:700;
-  margin-bottom:6px;
+  font-weight:bold;
+  margin-bottom:7px;
 }
 
 .form-group input,
@@ -544,11 +674,10 @@ button{
 .form-group select{
   width:100%;
   border:1px solid #ddd;
-  border-radius:12px;
+  border-radius:11px;
   padding:12px;
-  outline:none;
-  background:white;
-  font-size:13px;
+  outline:0;
+  background:#fff;
 }
 
 .form-group textarea{
@@ -556,64 +685,170 @@ button{
   resize:vertical;
 }
 
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+  border-color:#111;
+}
+
 .confirm-btn{
   width:100%;
-  border:none;
-  background:#173f36;
-  color:white;
+  border:0;
+  background:#111;
+  color:#fff;
   padding:14px;
-  border-radius:13px;
-  font-weight:700;
+  border-radius:12px;
+  font-weight:bold;
   margin-top:5px;
 }
 
 /* SUCCESS */
+
+.success-overlay{
+  position:fixed;
+  inset:0;
+  z-index:120;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.success-overlay.show{
+  display:flex;
+}
+
 .success-box{
+  width:100%;
+  max-width:390px;
+  background:#fff;
+  border-radius:23px;
+  padding:30px 22px;
   text-align:center;
-  padding:20px 10px 10px;
 }
 
 .success-icon{
-  width:70px;
-  height:70px;
+  width:65px;
+  height:65px;
   border-radius:50%;
-  background:#e7f5ef;
-  color:#176b51;
+  background:#e9f8ed;
+  color:#24933f;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:35px;
   margin:0 auto 15px;
+  font-size:32px;
 }
 
 .success-box h2{
-  font-size:21px;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
 .success-box p{
   color:#777;
   font-size:13px;
-  line-height:1.5;
+  line-height:1.6;
+  margin-bottom:20px;
 }
 
 .success-close{
-  margin-top:20px;
-  border:none;
-  background:#173f36;
-  color:white;
-  padding:12px 30px;
+  border:0;
+  background:#111;
+  color:#fff;
+  width:100%;
+  padding:13px;
+  border-radius:11px;
+}
+
+/* OPTIONS */
+
+.option-info{
+  background:#f6f7f9;
   border-radius:12px;
+  padding:11px;
+  margin-bottom:10px;
+  font-size:12px;
+  color:#555;
+}
+
+.price-preview{
+  background:#f0f5ff;
+  padding:12px;
+  border-radius:12px;
+  margin-bottom:14px;
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  z-index:200;
+  bottom:85px;
+  left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:#111;
+  color:#fff;
+  padding:11px 16px;
+  border-radius:10px;
+  font-size:12px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* LOADING */
+
+.loading{
+  padding:25px;
+  text-align:center;
+  color:#777;
+  font-size:13px;
+}
+
+/* EDIT PROFILE */
+
+.edit-profile-box{
+  display:none;
+}
+
+.edit-profile-box.show{
+  display:block;
+}
+
+.small-btn{
+  border:0;
+  background:#111;
+  color:#fff;
+  padding:10px 13px;
+  border-radius:9px;
+  font-size:12px;
 }
 
 /* RESPONSIVE */
-@media(max-width:380px){
-  .services{
-    grid-template-columns:1fr;
+
+@media(max-width:390px){
+  .categories{
+    gap:5px;
+  }
+
+  .cat-icon{
+    height:50px;
+    font-size:21px;
   }
 
   .hero h1{
-    font-size:25px;
+    font-size:27px;
   }
 }
 </style>
@@ -623,308 +858,848 @@ button{
 
 <div class="app">
 
-  <!-- HEADER -->
-  <header class="topbar">
-    <div class="header-row">
+<!-- ================= HOME PAGE ================= -->
 
-      <div class="location">
-        <div class="location-icon">📍</div>
-        <div>
-          <small>Cleaning at</small>
-          <strong>Guwahati, Assam</strong>
-        </div>
+<div class="page active" id="homePage">
+
+  <div class="topbar">
+
+    <div class="location">
+      <div class="location-icon">📍</div>
+
+      <div>
+        <small>Cleaning at</small>
+        <strong>Guwahati, Assam</strong>
       </div>
+    </div>
 
-      <button class="profile-btn" id="profileBtn">B</button>
+    <button class="profile-btn" id="profileBtn">B</button>
+
+  </div>
+
+  <div class="search-box">
+    <span>⌕</span>
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search for cleaning services"
+    >
+  </div>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <span class="hero-tag">
+        ✨ Professional Home Cleaning
+      </span>
+
+      <h1>
+        A cleaner home starts here.
+      </h1>
+
+      <p>
+        Book trusted cleaning professionals
+        for your home in Guwahati.
+      </p>
+
+      <button class="hero-btn" id="heroBookBtn">
+        Book a Service →
+      </button>
 
     </div>
 
-    <div class="search-box">
-      <span>⌕</span>
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search for cleaning services"
-      >
+  </section>
+
+
+  <!-- CATEGORIES -->
+
+  <section class="section">
+
+    <div class="section-head">
+      <h2>What do you need?</h2>
+      <span>Explore</span>
     </div>
-  </header>
+
+    <div class="categories">
+
+      <button class="category" data-category="Bathroom">
+        <div class="cat-icon">🛁</div>
+        <span>Bathroom</span>
+      </button>
+
+      <button class="category" data-category="Kitchen">
+        <div class="cat-icon">🍳</div>
+        <span>Kitchen</span>
+      </button>
+
+      <button class="category" data-category="Sofa">
+        <div class="cat-icon">🛋️</div>
+        <span>Sofa</span>
+      </button>
+
+      <button class="category" data-category="Full Home">
+        <div class="cat-icon">🏠</div>
+        <span>Full Home</span>
+      </button>
+
+      <button class="category" data-category="Cleaning">
+        <div class="cat-icon">✨</div>
+        <span>Cleaning</span>
+      </button>
+
+    </div>
+
+  </section>
 
 
-  <!-- MAIN -->
-  <main class="main">
+  <!-- OFFER -->
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-content">
-        <span class="hero-tag">✨ Professional Home Cleaning</span>
+  <section class="section">
 
-        <h1>A cleaner home starts here.</h1>
+    <div class="offer">
+
+      <div class="offer-text">
+
+        <small>LIMITED OFFER</small>
+
+        <h3>
+          Fresh home, fresh feeling.
+        </h3>
 
         <p>
-          Book trusted cleaning professionals for your home in Guwahati.
+          Professional cleaning at your doorstep.
         </p>
 
-        <button class="hero-btn" id="heroBookBtn">
-          Book a Service →
-        </button>
-      </div>
-    </section>
-
-
-    <!-- CATEGORIES -->
-    <section class="section">
-
-      <div class="section-head">
-        <h2>What do you need?</h2>
-        <span>Explore</span>
       </div>
 
-      <div class="categories">
+      <button class="offer-btn" id="offerBtn">
+        Book Now
+      </button>
 
-        <button class="category" data-category="Bathroom">
-          <div class="cat-icon">🛁</div>
-          <span>Bathroom</span>
-        </button>
+    </div>
 
-        <button class="category" data-category="Kitchen">
-          <div class="cat-icon">🍳</div>
-          <span>Kitchen</span>
-        </button>
-
-        <button class="category" data-category="Sofa">
-          <div class="cat-icon">🛋️</div>
-          <span>Sofa</span>
-        </button>
-
-        <button class="category" data-category="Full Home">
-          <div class="cat-icon">🏠</div>
-          <span>Full Home</span>
-        </button>
-
-        <button class="category" data-category="Cleaning">
-          <div class="cat-icon">✨</div>
-          <span>Cleaning</span>
-        </button>
-
-      </div>
-    </section>
+  </section>
 
 
-    <!-- OFFER -->
-    <section class="section">
+  <!-- SERVICES -->
 
-      <div class="offer">
+  <section class="section" id="servicesSection">
 
-        <div class="offer-text">
-          <small>LIMITED OFFER</small>
-          <h3>Fresh home, fresh feeling.</h3>
-          <p>
-            Professional cleaning at your doorstep.
-          </p>
-        </div>
+    <div class="section-head">
 
-        <button class="offer-btn" id="offerBtn">
-          Book Now
-        </button>
+      <h2>Popular Services</h2>
 
-      </div>
+      <span id="serviceCount">
+        Loading...
+      </span>
 
-    </section>
+    </div>
+
+    <div
+      class="services"
+      id="servicesList">
+    </div>
+
+    <div
+      class="empty"
+      id="emptyServices">
+      No matching services found.
+    </div>
+
+  </section>
 
 
-    <!-- SERVICES -->
-    <section class="section" id="servicesSection">
+  <!-- WHY US -->
 
-      <div class="section-head">
-        <h2>Popular Services</h2>
-        <span id="serviceCount">Loading...</span>
+  <section class="section">
+
+    <div class="section-head">
+      <h2>Why choose us?</h2>
+    </div>
+
+    <div class="why-grid">
+
+      <div class="why-card">
+        <div>🧑‍🔧</div>
+        <strong>Trained Pros</strong>
+        <span>Professional service</span>
       </div>
 
-      <div class="services" id="servicesList"></div>
-
-      <div class="empty" id="emptyServices">
-        No matching services found.
+      <div class="why-card">
+        <div>🛡️</div>
+        <strong>Reliable</strong>
+        <span>Safe & trusted</span>
       </div>
 
-    </section>
-
-
-    <!-- WHY US -->
-    <section class="section">
-
-      <div class="section-head">
-        <h2>Why choose us?</h2>
+      <div class="why-card">
+        <div>🏠</div>
+        <strong>At Your Door</strong>
+        <span>Home service</span>
       </div>
 
-      <div class="why-grid">
+    </div>
 
-        <div class="why-card">
-          <div>🧑‍🔧</div>
-          <strong>Trained Pros</strong>
-          <span>Professional service</span>
-        </div>
+  </section>
 
-        <div class="why-card">
-          <div>🛡️</div>
-          <strong>Reliable</strong>
-          <span>Safe & trusted</span>
-        </div>
-
-        <div class="why-card">
-          <div>🏠</div>
-          <strong>At Your Door</strong>
-          <span>Home service</span>
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
 </div>
 
 
-<!-- BOTTOM NAV -->
+<!-- ================= BOOKINGS PAGE ================= -->
+
+<div class="page" id="bookingsPage">
+
+  <div class="inner-page">
+
+    <div class="page-title">
+
+      <button
+        class="back-btn"
+        onclick="showPage('homePage')">
+        ‹
+      </button>
+
+      <h2>My Bookings</h2>
+
+    </div>
+
+    <div id="bookingsList">
+
+      <div class="loading">
+        Loading bookings...
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= OFFERS PAGE ================= -->
+
+<div class="page" id="offersPage">
+
+  <div class="inner-page">
+
+    <div class="page-title">
+
+      <button
+        class="back-btn"
+        onclick="showPage('homePage')">
+        ‹
+      </button>
+
+      <h2>Offers</h2>
+
+    </div>
+
+
+    <div class="offer-page-card">
+
+      <small>WELCOME OFFER</small>
+
+      <h3>
+        Get special cleaning offers
+      </h3>
+
+      <p>
+        Enjoy professional cleaning
+        services at special prices.
+      </p>
+
+      <div class="coupon">
+        WELCOME10
+      </div>
+
+    </div>
+
+
+    <div class="offer-page-card">
+
+      <small>HOME CLEANING</small>
+
+      <h3>
+        Fresh Home Offer
+      </h3>
+
+      <p>
+        Book your home cleaning service
+        and ask our team about current offers.
+      </p>
+
+      <div class="coupon">
+        FRESH10
+      </div>
+
+    </div>
+
+
+    <div class="offer-page-card">
+
+      <small>REGULAR CUSTOMER</small>
+
+      <h3>
+        Thank you for choosing us
+      </h3>
+
+      <p>
+        Repeat customers may receive
+        special service offers.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= PROFILE PAGE ================= -->
+
+<div class="page" id="profilePage">
+
+  <div class="inner-page">
+
+    <div class="page-title">
+
+      <button
+        class="back-btn"
+        onclick="showPage('homePage')">
+        ‹
+      </button>
+
+      <h2>Profile</h2>
+
+    </div>
+
+
+    <div class="profile-card">
+
+      <div
+        class="profile-avatar"
+        id="profileAvatar">
+        B
+      </div>
+
+      <h3 id="profileName">
+        Guest Customer
+      </h3>
+
+      <p id="profilePhone">
+        Add your phone number
+      </p>
+
+    </div>
+
+
+    <!-- PROFILE EDIT -->
+
+    <div
+      class="edit-profile-box"
+      id="editProfileBox">
+
+      <div class="form-group">
+
+        <label>
+          Full Name
+        </label>
+
+        <input
+          id="profileEditName"
+          type="text"
+          placeholder="Your name">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Phone Number
+        </label>
+
+        <input
+          id="profileEditPhone"
+          type="tel"
+          maxlength="10"
+          placeholder="10 digit mobile number">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Email
+        </label>
+
+        <input
+          id="profileEditEmail"
+          type="email"
+          placeholder="Email">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Address
+        </label>
+
+        <textarea
+          id="profileEditAddress"
+          placeholder="Your address">
+        </textarea>
+
+      </div>
+
+
+      <button
+        class="small-btn"
+        onclick="saveProfile()">
+        Save Profile
+      </button>
+
+    </div>
+
+
+    <div class="profile-menu">
+
+      <button onclick="openEditProfile()">
+
+        <span>✏️</span>
+        <strong>Edit Profile</strong>
+        <span>›</span>
+
+      </button>
+
+
+      <button onclick="showPage('bookingsPage'); loadBookings();">
+
+        <span>📖</span>
+        <strong>My Bookings</strong>
+        <span>›</span>
+
+      </button>
+
+
+      <button onclick="showPage('offersPage')">
+
+        <span>🎁</span>
+        <strong>Offers & Coupons</strong>
+        <span>›</span>
+
+      </button>
+
+
+      <button onclick="openSupport()">
+
+        <span>💬</span>
+        <strong>Help & Support</strong>
+        <span>›</span>
+
+      </button>
+
+
+      <button onclick="showNotifications()">
+
+        <span>🔔</span>
+        <strong>Notifications</strong>
+        <span>›</span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= SUPPORT PAGE ================= -->
+
+<div class="page" id="supportPage">
+
+  <div class="inner-page">
+
+    <div class="page-title">
+
+      <button
+        class="back-btn"
+        onclick="showPage('profilePage')">
+        ‹
+      </button>
+
+      <h2>Help & Support</h2>
+
+    </div>
+
+
+    <div class="support-card">
+
+      <strong>
+        📞 Contact Support
+      </strong>
+
+      <p>
+        Our support team can help with bookings,
+        rescheduling and service questions.
+      </p>
+
+      <br>
+
+      <button
+        class="small-btn"
+        onclick="contactSupport()">
+        Contact Us
+      </button>
+
+    </div>
+
+
+    <div class="support-card">
+
+      <strong>
+        📅 Booking Help
+      </strong>
+
+      <p>
+        You can view, reschedule or cancel
+        your booking from My Bookings.
+      </p>
+
+    </div>
+
+
+    <div class="support-card">
+
+      <strong>
+        💳 Payment Help
+      </strong>
+
+      <p>
+        Payment options can be added to
+        the booking process later.
+      </p>
+
+    </div>
+
+
+    <div class="support-card">
+
+      <strong>
+        🧹 Service Help
+      </strong>
+
+      <p>
+        Please provide complete service details
+        when making a booking.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= BOTTOM NAV ================= -->
+
 <nav class="bottom-nav">
 
-  <button class="nav-btn active" id="homeNav">
-    <span class="nav-icon">⌂</span>
+  <button
+    class="nav-btn active"
+    id="navHome"
+    onclick="showPage('homePage')">
+
+    <span>⌂</span>
     <span>Home</span>
+
   </button>
 
-  <button class="nav-btn" id="bookingsNav">
-    <span class="nav-icon">▣</span>
+
+  <button
+    class="nav-btn"
+    id="navBookings"
+    onclick="showPage('bookingsPage'); loadBookings();">
+
+    <span>▣</span>
     <span>Bookings</span>
+
   </button>
 
-  <button class="nav-btn" id="offersNav">
-    <span class="nav-icon">%</span>
+
+  <button
+    class="nav-btn"
+    id="navOffers"
+    onclick="showPage('offersPage')">
+
+    <span>%</span>
     <span>Offers</span>
+
   </button>
 
-  <button class="nav-btn" id="profileNav">
-    <span class="nav-icon">●</span>
+
+  <button
+    class="nav-btn"
+    id="navProfile"
+    onclick="showPage('profilePage'); loadProfile();">
+
+    <span>●</span>
     <span>Profile</span>
+
   </button>
 
 </nav>
 
 
-<!-- BOOKING MODAL -->
-<div class="modal-bg" id="bookingModal">
+<!-- ================= BOOKING MODAL ================= -->
+
+<div
+  class="modal-overlay"
+  id="bookingModal">
 
   <div class="modal">
 
     <div class="modal-head">
-      <h2>Book a Service</h2>
-      <button class="close" id="closeBooking">×</button>
+
+      <h2>
+        Book a Service
+      </h2>
+
+      <button
+        class="close"
+        id="closeBooking">
+        ×
+      </button>
+
     </div>
+
 
     <form id="bookingForm">
 
+
       <div class="form-group">
-        <label>Your Name</label>
+
+        <label>
+          Your Name
+        </label>
+
         <input
           type="text"
           id="customerName"
           placeholder="Enter your full name"
-          required
-        >
+          required>
+
       </div>
 
+
       <div class="form-group">
-        <label>Phone Number</label>
+
+        <label>
+          Phone Number
+        </label>
+
         <input
           type="tel"
           id="customerPhone"
           placeholder="10 digit mobile number"
           maxlength="10"
-          required
-        >
+          required>
+
       </div>
 
+
       <div class="form-group">
-        <label>Service Option</label>
-        <select id="serviceOption" required>
-          <option value="">Select service option</option>
+
+        <label>
+          Service
+        </label>
+
+        <select
+          id="serviceSelect"
+          required>
+
+          <option value="">
+            Select service
+          </option>
+
         </select>
+
       </div>
 
+
+      <div
+        class="option-info"
+        id="selectedServiceInfo"
+        style="display:none">
+      </div>
+
+
       <div class="form-group">
-        <label>Date</label>
+
+        <label>
+          Service Option
+        </label>
+
+        <select
+          id="serviceOption"
+          required>
+
+          <option value="">
+            Select service option
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div
+        class="price-preview"
+        id="pricePreview"
+        style="display:none">
+
+        <span>
+          Estimated Price
+        </span>
+
+        <span id="selectedPrice">
+          ₹0
+        </span>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Date
+        </label>
+
         <input
           type="date"
           id="bookingDate"
-          required
-        >
+          required>
+
       </div>
 
+
       <div class="form-group">
-        <label>Time</label>
-        <select id="bookingTime" required>
-          <option value="">Select time</option>
+
+        <label>
+          Time
+        </label>
+
+        <select
+          id="bookingTime"
+          required>
+
+          <option value="">
+            Select time
+          </option>
+
         </select>
+
       </div>
 
+
       <div class="form-group">
-        <label>Address</label>
+
+        <label>
+          Address
+        </label>
+
         <textarea
           id="customerAddress"
           placeholder="Enter complete service address"
-          required
-        ></textarea>
+          required></textarea>
+
       </div>
+
 
       <div class="form-group">
-        <label>Notes (Optional)</label>
+
+        <label>
+          Notes (Optional)
+        </label>
+
         <textarea
           id="bookingNotes"
-          placeholder="Any special instructions?"
-        ></textarea>
+          placeholder="Any special instructions?"></textarea>
+
       </div>
 
-      <button class="confirm-btn" type="submit">
+
+      <button
+        class="confirm-btn"
+        type="submit">
+
         Confirm Booking
+
       </button>
 
     </form>
 
   </div>
+
 </div>
 
 
-<!-- SUCCESS MODAL -->
-<div class="modal-bg" id="successModal">
+<!-- ================= SUCCESS ================= -->
 
-  <div class="modal">
+<div
+  class="success-overlay"
+  id="successModal">
 
-    <div class="success-box">
+  <div class="success-box">
 
-      <div class="success-icon">✓</div>
-
-      <h2>Booking Confirmed!</h2>
-
-      <p>
-        Your cleaning service booking has been received successfully.
-        Our team will contact you shortly.
-      </p>
-
-      <button class="success-close" id="closeSuccess">
-        Done
-      </button>
-
+    <div class="success-icon">
+      ✓
     </div>
+
+    <h2>
+      Booking Confirmed!
+    </h2>
+
+    <p>
+      Your cleaning service booking has
+      been received successfully.
+      Our team will contact you shortly.
+    </p>
+
+    <button
+      class="success-close"
+      id="closeSuccess">
+
+      Done
+
+    </button>
 
   </div>
 
 </div>
 
 
+<!-- ================= TOAST ================= -->
+
+<div
+  class="toast"
+  id="toast">
+</div>
+
+
 <script>
 
-/* ================================
-   SUPABASE
-================================ */
+/* =====================================================
+   SUPABASE CONFIG
+===================================================== */
 
 const SUPABASE_URL =
   "https://uuwgiyyyrodghvjvicoy.supabase.co";
@@ -933,315 +1708,266 @@ const SUPABASE_KEY =
   "sb_publishable_1-iphInSnhfjN8zFmrnuSw_qu1l_qOf";
 
 
-const headers = {
-  "apikey": SUPABASE_KEY,
-  "Authorization": "Bearer " + SUPABASE_KEY,
-  "Content-Type": "application/json"
-};
-
-
-/* ================================
-   GLOBAL DATA
-================================ */
+let currentUser = null;
+let accessToken = null;
 
 let services = [];
 let serviceOptions = [];
 let timeSlots = [];
 
-let selectedService = null;
+let selectedServiceId = null;
 
 
-/* ================================
-   HTML ESCAPE
-================================ */
+/* =====================================================
+   SUPABASE HEADERS
+===================================================== */
 
-function escapeHtml(value){
+function getHeaders(){
 
-  if(value === null || value === undefined){
-    return "";
+  const headers = {
+    "apikey": SUPABASE_KEY,
+    "Content-Type": "application/json"
+  };
+
+  if(accessToken){
+
+    headers["Authorization"] =
+      "Bearer " + accessToken;
+
   }
 
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  return headers;
 }
 
 
-/* ================================
-   FETCH SERVICES
-================================ */
+/* =====================================================
+   API REQUEST
+===================================================== */
 
-async function loadServices(){
+async function supabaseFetch(
+  path,
+  options = {}
+){
 
-  const list = document.getElementById("servicesList");
-  const count = document.getElementById("serviceCount");
-
-  try{
-
-    const response = await fetch(
-      SUPABASE_URL +
-      "/rest/v1/services?is_active=eq.true&select=*&order=id.asc",
+  const response =
+    await fetch(
+      SUPABASE_URL + path,
       {
-        headers
+        ...options,
+        headers:{
+          ...getHeaders(),
+          ...(options.headers || {})
+        }
       }
     );
 
-    if(!response.ok){
-      throw new Error("Could not load services");
+  if(!response.ok){
+
+    const text =
+      await response.text();
+
+    throw new Error(
+      text || "Supabase request failed"
+    );
+
+  }
+
+  const text =
+    await response.text();
+
+  if(!text){
+    return null;
+  }
+
+  try{
+    return JSON.parse(text);
+  }catch{
+    return text;
+  }
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer;
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent =
+    message;
+
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer =
+    setTimeout(
+      ()=>{
+        toast.classList.remove("show");
+      },
+      2800
+    );
+
+}
+
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+async function initAuth(){
+
+  try{
+
+    const savedToken =
+      localStorage.getItem(
+        "gus_access_token"
+      );
+
+    if(savedToken){
+
+      accessToken =
+        savedToken;
+
+      try{
+
+        const user =
+          await supabaseFetch(
+            "/auth/v1/user"
+          );
+
+        if(user && user.id){
+
+          currentUser =
+            user;
+
+          return;
+
+        }
+
+      }catch(e){
+
+        localStorage.removeItem(
+          "gus_access_token"
+        );
+
+        accessToken = null;
+
+      }
+
     }
 
-    services = await response.json();
 
-    renderServices(services);
+    /*
+      Anonymous account
+    */
+
+    const signupResponse =
+      await fetch(
+        SUPABASE_URL +
+        "/auth/v1/signup",
+        {
+          method:"POST",
+          headers:{
+            "apikey":SUPABASE_KEY,
+            "Content-Type":
+              "application/json"
+          },
+          body:"{}"
+        }
+      );
+
+
+    const authData =
+      await signupResponse.json();
+
+
+    if(authData.access_token){
+
+      accessToken =
+        authData.access_token;
+
+      currentUser =
+        authData.user;
+
+      localStorage.setItem(
+        "gus_access_token",
+        accessToken
+      );
+
+    }
 
   }catch(error){
 
-    console.error(error);
-
-    list.innerHTML = `
-      <div style="
-        grid-column:1/-1;
-        padding:25px;
-        text-align:center;
-        color:#777;
-        font-size:13px;
-      ">
-        Unable to load services right now.
-      </div>
-    `;
-
-    count.textContent = "";
+    console.log(
+      "Auth error:",
+      error
+    );
 
   }
-}
-
-
-/* ================================
-   SERVICE TITLE
-================================ */
-
-function getServiceTitle(service){
-
-  return (
-    service.name ||
-    service.title ||
-    service.service_name ||
-    "Cleaning Service"
-  );
-}
-
-
-/* ================================
-   SERVICE DESCRIPTION
-================================ */
-
-function getServiceDescription(service){
-
-  return (
-    service.description ||
-    "Professional cleaning service at your doorstep."
-  );
-}
-
-
-/* ================================
-   SERVICE PRICE
-================================ */
-
-function getServicePrice(service){
-
-  const price =
-    service.starting_price ??
-    service.price ??
-    service.base_price;
-
-  if(price !== null && price !== undefined){
-    return "₹" + Number(price).toLocaleString("en-IN");
-  }
-
-  return "View price";
-}
-
-
-/* ================================
-   SERVICE IMAGE
-================================ */
-
-function serviceVisual(service){
-
-  if(service.image_url){
-
-    return `
-      <img
-        src="${escapeHtml(service.image_url)}"
-        alt="${escapeHtml(getServiceTitle(service))}"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-      >
-
-      <div
-        class="image-fallback"
-        style="display:none;"
-      >
-        ✨
-      </div>
-    `;
-
-  }
-
-  const title =
-    getServiceTitle(service).toLowerCase();
-
-  let emoji = "✨";
-
-  if(title.includes("bath")){
-    emoji = "🛁";
-  }
-  else if(title.includes("kitchen")){
-    emoji = "🍳";
-  }
-  else if(title.includes("sofa")){
-    emoji = "🛋️";
-  }
-  else if(title.includes("home")){
-    emoji = "🏠";
-  }
-  else if(title.includes("floor")){
-    emoji = "🧹";
-  }
-
-  return `
-    <div class="image-fallback">
-      ${emoji}
-    </div>
-  `;
-}
-
-
-/* ================================
-   RENDER SERVICES
-================================ */
-
-function renderServices(list){
-
-  const container =
-    document.getElementById("servicesList");
-
-  const empty =
-    document.getElementById("emptyServices");
-
-  const count =
-    document.getElementById("serviceCount");
-
-
-  container.innerHTML = "";
-
-  count.textContent =
-    list.length + " services";
-
-
-  if(!list.length){
-
-    empty.style.display = "block";
-    return;
-
-  }
-
-  empty.style.display = "none";
-
-
-  list.forEach(service => {
-
-    const card =
-      document.createElement("div");
-
-    card.className = "service-card";
-
-
-    card.innerHTML = `
-
-      <div class="service-image">
-        ${serviceVisual(service)}
-      </div>
-
-      <div class="service-body">
-
-        <div class="service-title">
-          ${escapeHtml(getServiceTitle(service))}
-        </div>
-
-        <div class="service-desc">
-          ${escapeHtml(getServiceDescription(service))}
-        </div>
-
-        <div class="service-meta">
-          <span class="rating">★ 4.8</span>
-          <span>•</span>
-          <span>Professional</span>
-        </div>
-
-        <div class="service-bottom">
-
-          <div class="price">
-            From ${escapeHtml(getServicePrice(service))}
-          </div>
-
-          <button
-            class="book-btn"
-            data-service-id="${escapeHtml(service.id)}"
-          >
-            Book
-          </button>
-
-        </div>
-
-      </div>
-    `;
-
-
-    card
-      .querySelector(".book-btn")
-      .addEventListener("click", () => {
-
-        openBooking(service);
-
-      });
-
-
-    container.appendChild(card);
-
-  });
 
 }
 
 
-/* ================================
+/* =====================================================
+   LOAD SERVICES
+===================================================== */
+
+async function loadServices(){
+
+  try{
+
+    services =
+      await supabaseFetch(
+        "/rest/v1/services?select=*&order=id.asc"
+      );
+
+    if(!Array.isArray(services)){
+      services = [];
+    }
+
+    renderServices();
+    fillServiceSelect();
+
+  }catch(error){
+
+    console.log(error);
+
+    services = [];
+
+    renderServices();
+
+  }
+
+}
+
+
+/* =====================================================
    LOAD SERVICE OPTIONS
-================================ */
+===================================================== */
 
 async function loadServiceOptions(){
 
   try{
 
-    const response = await fetch(
-      SUPABASE_URL +
-      "/rest/v1/service_options?is_active=eq.true&select=*&order=sort_order.asc,id.asc",
-      {
-        headers
-      }
-    );
+    serviceOptions =
+      await supabaseFetch(
+        "/rest/v1/service_options?select=*&is_active=eq.true&order=sort_order.asc"
+      );
 
-    if(!response.ok){
-      throw new Error("Could not load service options");
+    if(!Array.isArray(serviceOptions)){
+      serviceOptions = [];
     }
-
-    serviceOptions = await response.json();
 
   }catch(error){
 
-    console.error(error);
+    console.log(error);
 
     serviceOptions = [];
 
@@ -1250,78 +1976,430 @@ async function loadServiceOptions(){
 }
 
 
-/* ================================
+/* =====================================================
    LOAD TIME SLOTS
-================================ */
+===================================================== */
 
 async function loadTimeSlots(){
 
   try{
 
-    const response = await fetch(
-      SUPABASE_URL +
-      "/rest/v1/time_slots?is_active=eq.true&select=*&order=slot_time.asc",
-      {
-        headers
-      }
-    );
+    timeSlots =
+      await supabaseFetch(
+        "/rest/v1/time_slots?select=*&is_active=eq.true&order=start_time.asc"
+      );
 
-    if(!response.ok){
-      throw new Error("Could not load time slots");
+    if(!Array.isArray(timeSlots)){
+      timeSlots = [];
     }
 
-    timeSlots = await response.json();
-
-    renderTimeSlots();
+    fillTimeSlots();
 
   }catch(error){
 
-    console.error(error);
+    console.log(error);
 
     timeSlots = [];
+
+    fillTimeSlots();
 
   }
 
 }
 
 
-/* ================================
-   RENDER TIME SLOTS
-================================ */
+/* =====================================================
+   SERVICE NAME HELPER
+===================================================== */
 
-function renderTimeSlots(){
+function serviceName(service){
 
-  const select =
-    document.getElementById("bookingTime");
-
-  select.innerHTML =
-    `<option value="">Select time</option>`;
-
-
-  timeSlots.forEach(slot => {
-
-    const option =
-      document.createElement("option");
-
-    option.value =
-      slot.slot_time;
-
-    option.textContent =
-      formatTime(slot.slot_time);
-
-    option.dataset.slotId =
-      slot.id;
-
-    select.appendChild(option);
-
-  });
+  return (
+    service.name ||
+    service.title ||
+    service.service_name ||
+    "Cleaning Service"
+  );
 
 }
 
 
-/* ================================
-   FORMAT TIME
-================================ */
+/* =====================================================
+   SERVICE DESCRIPTION
+===================================================== */
+
+function serviceDescription(service){
+
+  return (
+    service.description ||
+    service.short_description ||
+    "Professional cleaning service at your doorstep."
+  );
+
+}
+
+
+/* =====================================================
+   SERVICE PRICE
+===================================================== */
+
+function servicePrice(service){
+
+  const price =
+    service.price ??
+    service.starting_price ??
+    service.amount ??
+    null;
+
+  if(price === null){
+    return "View options";
+  }
+
+  return "From ₹" +
+    Number(price).toLocaleString(
+      "en-IN"
+    );
+
+}
+
+
+/* =====================================================
+   RENDER SERVICES
+===================================================== */
+
+function renderServices(){
+
+  const list =
+    document.getElementById(
+      "servicesList"
+    );
+
+  const empty =
+    document.getElementById(
+      "emptyServices"
+    );
+
+  const count =
+    document.getElementById(
+      "serviceCount"
+    );
+
+
+  if(!services.length){
+
+    list.innerHTML = "";
+
+    empty.style.display =
+      "block";
+
+    count.textContent =
+      "0 services";
+
+    return;
+
+  }
+
+
+  empty.style.display =
+    "none";
+
+
+  count.textContent =
+    services.length +
+    " services";
+
+
+  list.innerHTML =
+    services.map(
+      service => {
+
+        const image =
+          service.image_url ||
+          service.image ||
+          "";
+
+
+        return `
+
+          <div
+            class="service-card"
+            data-name="${escapeHtml(serviceName(service))}">
+
+            ${
+              image
+              ?
+              `<img
+                class="service-img"
+                src="${escapeAttr(image)}"
+                alt="">`
+              :
+              `<div class="service-img"></div>`
+            }
+
+            <div class="service-info">
+
+              <h3>
+                ${escapeHtml(
+                  serviceName(service)
+                )}
+              </h3>
+
+              <p>
+                ${escapeHtml(
+                  serviceDescription(service)
+                )}
+              </p>
+
+              <div class="service-price">
+                ${escapeHtml(
+                  servicePrice(service)
+                )}
+              </div>
+
+            </div>
+
+            <button
+              class="book-small"
+              onclick="openBooking(${Number(service.id)})">
+
+              Book
+
+            </button>
+
+          </div>
+
+        `;
+
+      }
+    ).join("");
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+function escapeAttr(value){
+
+  return escapeHtml(value);
+
+}
+
+
+/* =====================================================
+   SERVICE SELECT
+===================================================== */
+
+function fillServiceSelect(){
+
+  const select =
+    document.getElementById(
+      "serviceSelect"
+    );
+
+  if(!select){
+    return;
+  }
+
+
+  select.innerHTML =
+    `<option value="">
+      Select service
+    </option>`;
+
+
+  services.forEach(
+    service => {
+
+      const option =
+        document.createElement(
+          "option"
+        );
+
+      option.value =
+        service.id;
+
+      option.textContent =
+        serviceName(service);
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   SERVICE OPTION SELECT
+===================================================== */
+
+function loadOptionsForService(
+  serviceId
+){
+
+  const select =
+    document.getElementById(
+      "serviceOption"
+    );
+
+  const info =
+    document.getElementById(
+      "selectedServiceInfo"
+    );
+
+  const pricePreview =
+    document.getElementById(
+      "pricePreview"
+    );
+
+
+  select.innerHTML =
+    `<option value="">
+      Select service option
+    </option>`;
+
+
+  pricePreview.style.display =
+    "none";
+
+
+  const selected =
+    services.find(
+      s =>
+        String(s.id) ===
+        String(serviceId)
+    );
+
+
+  if(selected){
+
+    info.style.display =
+      "block";
+
+    info.textContent =
+      serviceDescription(selected);
+
+  }else{
+
+    info.style.display =
+      "none";
+
+  }
+
+
+  const options =
+    serviceOptions.filter(
+      option =>
+        String(option.service_id) ===
+        String(serviceId)
+    );
+
+
+  if(!options.length){
+
+    select.innerHTML =
+      `<option value="">
+        No options available
+      </option>`;
+
+    return;
+
+  }
+
+
+  options.forEach(
+    option => {
+
+      const el =
+        document.createElement(
+          "option"
+        );
+
+      el.value =
+        option.id;
+
+      el.textContent =
+        option.name +
+        " — ₹" +
+        Number(option.price)
+          .toLocaleString("en-IN");
+
+      select.appendChild(el);
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   OPTION PRICE
+===================================================== */
+
+function updateOptionPrice(){
+
+  const optionId =
+    document.getElementById(
+      "serviceOption"
+    ).value;
+
+  const option =
+    serviceOptions.find(
+      item =>
+        String(item.id) ===
+        String(optionId)
+    );
+
+
+  const preview =
+    document.getElementById(
+      "pricePreview"
+    );
+
+  const price =
+    document.getElementById(
+      "selectedPrice"
+    );
+
+
+  if(option){
+
+    price.textContent =
+      "₹" +
+      Number(option.price)
+        .toLocaleString("en-IN");
+
+    preview.style.display =
+      "flex";
+
+  }else{
+
+    preview.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* =====================================================
+   TIME SLOTS
+===================================================== */
 
 function formatTime(time){
 
@@ -1330,855 +2408,654 @@ function formatTime(time){
   }
 
   const parts =
-    time.split(":");
+    String(time).split(":");
 
-  let hour =
+  const hour =
     Number(parts[0]);
 
   const minute =
-    parts[1] || "00";
+    Number(parts[1] || 0);
 
   const ampm =
-    hour >= 12 ? "PM" : "AM";
+    hour >= 12
+    ? "PM"
+    : "AM";
 
-  hour =
+  const h =
     hour % 12 || 12;
 
-  return hour + ":" + minute + " " + ampm;
+  return (
+    h +
+    ":" +
+    String(minute).padStart(2,"0") +
+    " " +
+    ampm
+  );
 
 }
 
 
-/* ================================
-   OPEN BOOKING
-================================ */
+function fillTimeSlots(){
 
-async function openBooking(service){
-
-  selectedService = service;
-
-  const modal =
-    document.getElementById("bookingModal");
-
-  const optionSelect =
-    document.getElementById("serviceOption");
-
-  optionSelect.innerHTML =
-    `<option value="">Select service option</option>`;
-
-
-  const serviceId =
-    Number(service.id);
-
-
-  const options =
-    serviceOptions.filter(option =>
-      Number(option.service_id) === serviceId
+  const select =
+    document.getElementById(
+      "bookingTime"
     );
 
-
-  options.forEach(option => {
-
-    const item =
-      document.createElement("option");
-
-    item.value =
-      option.id;
-
-    item.textContent =
-      option.name +
-      " — ₹" +
-      Number(option.price).toLocaleString("en-IN");
-
-    item.dataset.price =
-      option.price;
-
-    item.dataset.duration =
-      option.duration_minutes || "";
-
-    optionSelect.appendChild(item);
-
-  });
+  if(!select){
+    return;
+  }
 
 
-  if(!options.length){
+  select.innerHTML =
+    `<option value="">
+      Select time
+    </option>`;
 
-    const item =
-      document.createElement("option");
 
-    item.value = "0";
+  timeSlots.forEach(
+    slot => {
 
-    item.textContent =
-      getServiceTitle(service);
+      const option =
+        document.createElement(
+          "option"
+        );
 
-    optionSelect.appendChild(item);
+      option.value =
+        String(slot.start_time)
+          .substring(0,5);
+
+      option.textContent =
+        formatTime(
+          slot.start_time
+        );
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   BOOKING MODAL
+===================================================== */
+
+function openBooking(
+  serviceId = null
+){
+
+  const modal =
+    document.getElementById(
+      "bookingModal"
+    );
+
+  modal.classList.add("show");
+
+
+  selectedServiceId =
+    serviceId;
+
+
+  if(serviceId){
+
+    document.getElementById(
+      "serviceSelect"
+    ).value =
+      serviceId;
+
+    loadOptionsForService(
+      serviceId
+    );
+
+  }else{
+
+    loadOptionsForService("");
 
   }
 
 
-  modal.classList.add("show");
+  loadProfileIntoBooking();
 
 }
 
 
-/* ================================
-   CLOSE BOOKING
-================================ */
+function closeBooking(){
 
-document
-  .getElementById("closeBooking")
-  .addEventListener("click", () => {
+  document.getElementById(
+    "bookingModal"
+  ).classList.remove(
+    "show"
+  );
 
-    document
-      .getElementById("bookingModal")
-      .classList.remove("show");
+}
 
-  });
 
+/* =====================================================
+   BOOKING FORM
+===================================================== */
 
-/* ================================
-   DATE MINIMUM
-================================ */
+async function submitBooking(
+  event
+){
 
-const today =
-  new Date().toISOString().split("T")[0];
+  event.preventDefault();
 
-document
-  .getElementById("bookingDate")
-  .min = today;
 
+  if(!currentUser){
 
-/* ================================
-   BOOKING SUBMIT
-================================ */
+    showToast(
+      "Please wait a moment and try again."
+    );
 
-document
-  .getElementById("bookingForm")
-  .addEventListener("submit", async function(e){
+    return;
 
-    e.preventDefault();
+  }
 
 
-    if(!selectedService){
+  const name =
+    document.getElementById(
+      "customerName"
+    ).value.trim();
 
-      alert("Please select a service.");
+  const phone =
+    document.getElementById(
+      "customerPhone"
+    ).value.trim();
 
-      return;
+  const serviceId =
+    document.getElementById(
+      "serviceSelect"
+    ).value;
 
-    }
+  const optionId =
+    document.getElementById(
+      "serviceOption"
+    ).value;
 
+  const date =
+    document.getElementById(
+      "bookingDate"
+    ).value;
 
-    const name =
-      document
-        .getElementById("customerName")
-        .value
-        .trim();
+  const time =
+    document.getElementById(
+      "bookingTime"
+    ).value;
 
+  const address =
+    document.getElementById(
+      "customerAddress"
+    ).value.trim();
 
-    const phone =
-      document
-        .getElementById("customerPhone")
-        .value
-        .trim();
+  const notes =
+    document.getElementById(
+      "bookingNotes"
+    ).value.trim();
 
 
-    const optionSelect =
-      document.getElementById("serviceOption");
+  if(!/^[0-9]{10}$/.test(phone)){
 
+    showToast(
+      "Enter a valid 10 digit phone number."
+    );
 
-    const optionId =
-      optionSelect.value;
+    return;
 
+  }
 
-    const selectedOption =
-      optionSelect.options[
-        optionSelect.selectedIndex
-      ];
 
+  if(!serviceId){
 
-    const bookingDate =
-      document
-        .getElementById("bookingDate")
-        .value;
+    showToast(
+      "Please select a service."
+    );
 
+    return;
 
-    const bookingTime =
-      document
-        .getElementById("bookingTime")
-        .value;
+  }
 
 
-    const selectedTimeOption =
-      document
-        .getElementById("bookingTime")
-        .options[
-          document
-            .getElementById("bookingTime")
-            .selectedIndex
-        ];
+  if(!optionId){
 
+    showToast(
+      "Please select a service option."
+    );
 
-    const slotId =
-      selectedTimeOption
-        ? selectedTimeOption.dataset.slotId
-        : null;
+    return;
 
+  }
 
-    const address =
-      document
-        .getElementById("customerAddress")
-        .value
-        .trim();
 
+  if(!date){
 
-    const notes =
-      document
-        .getElementById("bookingNotes")
-        .value
-        .trim();
+    showToast(
+      "Please select booking date."
+    );
 
+    return;
 
-    /* VALIDATION */
+  }
 
-    if(!name){
 
-      alert("Please enter your name.");
+  if(!time){
 
-      return;
+    showToast(
+      "Please select booking time."
+    );
 
-    }
+    return;
 
+  }
 
-    if(!/^[0-9]{10}$/.test(phone)){
 
-      alert("Please enter a valid 10 digit phone number.");
+  if(!address){
 
-      return;
+    showToast(
+      "Please enter service address."
+    );
 
-    }
+    return;
 
+  }
 
-    if(!optionId){
 
-      alert("Please select a service option.");
+  const button =
+    document.querySelector(
+      "#bookingForm .confirm-btn"
+    );
 
-      return;
 
-    }
+  button.disabled =
+    true;
 
+  button.textContent =
+    "Booking...";
 
-    if(!bookingDate){
 
-      alert("Please select booking date.");
+  try{
 
-      return;
+    /* ---------------------------------
+       CUSTOMER
+    --------------------------------- */
 
-    }
-
-
-    if(!bookingTime){
-
-      alert("Please select booking time.");
-
-      return;
-
-    }
-
-
-    if(!address){
-
-      alert("Please enter your address.");
-
-      return;
-
-    }
-
-
-    const price =
-      Number(
-        selectedOption?.dataset?.price || 0
+    let customers =
+      await supabaseFetch(
+        "/rest/v1/customers?select=*&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        ) +
+        "&limit=1"
       );
 
 
-    /* CUSTOMER ID */
-
-    const customerId =
-      Date.now() * 1000 +
-      Math.floor(Math.random() * 1000);
-
-
-    const confirmButton =
-      this.querySelector(".confirm-btn");
+    let customer =
+      customers &&
+      customers.length
+      ?
+      customers[0]
+      :
+      null;
 
 
-    confirmButton.disabled = true;
+    if(!customer){
 
-    confirmButton.textContent =
-      "Booking...";
-
-
-    try{
-
-      /* =========================
-         CREATE CUSTOMER
-      ========================= */
-
-      const customerResponse =
-        await fetch(
-          SUPABASE_URL +
+      customer =
+        await supabaseFetch(
           "/rest/v1/customers",
           {
             method:"POST",
             headers:{
-              ...headers,
-              "Prefer":"return=minimal"
+              "Prefer":
+                "return=representation"
             },
             body:JSON.stringify({
 
-              id:customerId,
+              user_id:
+                currentUser.id,
 
-              full_name:name,
+              full_name:
+                name,
 
-              phone:phone,
+              phone:
+                phone,
 
-              address:address,
+              email:
+                currentUser.email ||
+                null,
 
-              city:"Guwahati"
-              user_id:currentUser.id
-              
+              address:
+                address,
+
+              city:
+                "Guwahati"
+
             })
           }
         );
 
 
-      if(!customerResponse.ok){
+      customer =
+        Array.isArray(customer)
+        ?
+        customer[0]
+        :
+        customer;
 
-        const errorText =
-          await customerResponse.text();
+    }else{
 
-        console.error(errorText);
+      try{
 
-        throw new Error(
-          "Customer creation failed"
+        await supabaseFetch(
+          "/rest/v1/customers?id=eq." +
+          customer.id,
+          {
+            method:"PATCH",
+            headers:{
+              "Prefer":
+                "return=minimal"
+            },
+            body:JSON.stringify({
+
+              full_name:
+                name,
+
+              phone:
+                phone,
+
+              address:
+                address
+
+            })
+          }
+        );
+
+      }catch(e){
+
+        console.log(
+          "Customer update skipped:",
+          e
         );
 
       }
 
+    }
 
-      /* =========================
-         CREATE BOOKING
-      ========================= */
 
-      const bookingResponse =
-        await fetch(
-          SUPABASE_URL +
+    if(!customer || !customer.id){
+
+      throw new Error(
+        "Customer profile could not be created."
+      );
+
+    }
+
+
+    /* ---------------------------------
+       BOOKING
+    --------------------------------- */
+
+    const selectedOption =
+      serviceOptions.find(
+        item =>
+          String(item.id) ===
+          String(optionId)
+      );
+
+
+    const bookingData = {
+
+      customer_id:
+        customer.id,
+
+      service_id:
+        Number(serviceId),
+
+      service_option_id:
+        Number(optionId),
+
+      booking_date:
+        date,
+
+      booking_time:
+        time,
+
+      address:
+        address,
+
+      notes:
+        notes || null,
+
+      status:
+        "pending"
+
+    };
+
+
+    let bookingResult;
+
+
+    try{
+
+      bookingResult =
+        await supabaseFetch(
           "/rest/v1/bookings",
           {
             method:"POST",
             headers:{
-              ...headers,
-              "Prefer":"return=minimal"
+              "Prefer":
+                "return=representation"
             },
-            body:JSON.stringify({
-
-              customer_id:customerId,
-
-              service_id:Number(
-                selectedService.id
-              ),
-
-              booking_date:bookingDate,
-
-              booking_time:bookingTime,
-
-              status:"pending",
-
-              total_amount:price,
-
-              address:address,
-
-              notes:notes,
-
-              phone:phone,
-
-              time_slot_id:
-                slotId
-                  ? Number(slotId)
-                  : null
-
-            })
+            body:
+              JSON.stringify(
+                bookingData
+              )
           }
         );
 
+    }catch(firstError){
 
-      if(!bookingResponse.ok){
+      /*
+        Fallback for databases
+        where some optional columns
+        are not yet present.
+      */
 
-        const errorText =
-          await bookingResponse.text();
+      const fallbackData = {
 
-        console.error(errorText);
+        customer_id:
+          customer.id,
 
-        throw new Error(
-          "Booking creation failed"
+        service_id:
+          Number(serviceId),
+
+        booking_date:
+          date,
+
+        booking_time:
+          time,
+
+        address:
+          address,
+
+        notes:
+          notes || null,
+
+        status:
+          "pending"
+
+      };
+
+
+      bookingResult =
+        await supabaseFetch(
+          "/rest/v1/bookings",
+          {
+            method:"POST",
+            headers:{
+              "Prefer":
+                "return=representation"
+            },
+            body:
+              JSON.stringify(
+                fallbackData
+              )
+          }
         );
 
-      }
-
-
-      /* =========================
-         SUCCESS
-      ========================= */
-
-      document
-        .getElementById("bookingModal")
-        .classList.remove("show");
-
-
-      document
-        .getElementById("successModal")
-        .classList.add("show");
-
-
-      this.reset();
-
-
-    }catch(error){
-
-      console.error(error);
-
-      alert(
-        "Booking could not be completed. Please try again."
-      );
-
-
-    }finally{
-
-      confirmButton.disabled = false;
-
-      confirmButton.textContent =
-        "Confirm Booking";
-
-    }
-
-  });
-
-
-/* ================================
-   SUCCESS CLOSE
-================================ */
-
-document
-  .getElementById("closeSuccess")
-  .addEventListener("click", () => {
-
-    document
-      .getElementById("successModal")
-      .classList.remove("show");
-
-  });
-
-
-/* ================================
-   SEARCH
-================================ */
-
-document
-  .getElementById("searchInput")
-  .addEventListener("input", function(){
-
-    const query =
-      this.value
-        .trim()
-        .toLowerCase();
-
-
-    if(!query){
-
-      renderServices(services);
-
-      return;
-
     }
 
 
-    const filtered =
-      services.filter(service => {
+    /* ---------------------------------
+       LOCAL BACKUP
+    --------------------------------- */
 
-        const title =
-          getServiceTitle(service)
-            .toLowerCase();
+    const localBooking = {
 
-        const description =
-          getServiceDescription(service)
-            .toLowerCase();
+      id:
+        bookingResult &&
+        bookingResult[0]
+        ?
+        bookingResult[0].id
+        :
+        "local-" +
+        Date.now(),
 
-        return (
-          title.includes(query) ||
-          description.includes(query)
-        );
+      service_id:
+        Number(serviceId),
 
-      });
+      service_option_id:
+        Number(optionId),
 
+      booking_date:
+        date,
 
-    renderServices(filtered);
+      booking_time:
+        time,
 
-  });
+      address:
+        address,
 
+      notes:
+        notes,
 
-/* ================================
-   CATEGORY FILTER
-================================ */
+      status:
+        "pending",
 
-document
-  .querySelectorAll(".category")
-  .forEach(button => {
+      service_name:
+        selectedServiceName(
+          serviceId
+        ),
 
-    button.addEventListener("click", () => {
+      option_name:
+        selectedOption
+        ?
+        selectedOption.name
+        :
+        "Cleaning Service",
 
-      const category =
-        button.dataset.category
-          .toLowerCase();
+      price:
+        selectedOption
+        ?
+        selectedOption.price
+        :
+        0
 
-
-      const filtered =
-        services.filter(service => {
-
-          const title =
-            getServiceTitle(service)
-              .toLowerCase();
-
-          const description =
-            getServiceDescription(service)
-              .toLowerCase();
-
-          return (
-            title.includes(category) ||
-            description.includes(category)
-          );
-
-        });
-
-
-      document
-        .getElementById("servicesSection")
-        .scrollIntoView({
-          behavior:"smooth"
-        });
+    };
 
 
-      renderServices(filtered);
-
-    });
-
-  });
-
-
-/* ================================
-   HERO BOOK
-================================ */
-
-document
-  .getElementById("heroBookBtn")
-  .addEventListener("click", () => {
-
-    if(services.length){
-
-      openBooking(services[0]);
-
-    }else{
-
-      document
-        .getElementById("servicesSection")
-        .scrollIntoView({
-          behavior:"smooth"
-        });
-
-    }
-
-  });
-
-
-/* ================================
-   OFFER BOOK
-================================ */
-
-document
-  .getElementById("offerBtn")
-  .addEventListener("click", () => {
-
-    if(services.length){
-
-      openBooking(services[0]);
-
-    }
-
-  });
-
-
-/* ================================
-   BOTTOM NAV
-================================ */
-
-document
-  .getElementById("homeNav")
-  .addEventListener("click", () => {
-
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    });
-
-  });
-
-
-document
-  .getElementById("bookingsNav")
-  .addEventListener("click", () => {
-
-    alert(
-      "Your bookings section will be available here."
+    saveLocalBooking(
+      localBooking
     );
 
-  });
+
+    document.getElementById(
+      "bookingForm"
+    ).reset();
 
 
-document
-  .getElementById("offersNav")
-  .addEventListener("click", () => {
+    document.getElementById(
+      "pricePreview"
+    ).style.display =
+      "none";
 
-    alert(
-      "Offers and coupons will be available here."
+
+    closeBooking();
+
+
+    document.getElementById(
+      "successModal"
+    ).classList.add(
+      "show"
     );
 
-  });
 
+  }catch(error){
 
-document
-  .getElementById("profileNav")
-  .addEventListener("click", () => {
-
-    alert(
-      "Customer profile will be available here."
+    console.log(
+      "Booking error:",
+      error
     );
 
-  });
 
-
-document
-  .getElementById("profileBtn")
-  .addEventListener("click", () => {
-
-    alert(
-      "Customer profile will be available here."
+    showToast(
+      "Booking failed. Please try again."
     );
 
-  });
 
+  }finally{
 
-/* ================================
-   INITIAL LOAD
-================================ */
+    button.disabled =
+      false;
 
-async function init(){
+    button.textContent =
+      "Confirm Booking";
 
-  await initAuth();
-
-  await Promise.all([
-    loadServices(),
-    loadServiceOptions(),
-    loadTimeSlots()
-  ]);
-
-}
-
-init();
-
-</script>
-<!-- ================================
-     BOOKINGS SCREEN
-================================ -->
-
-<div id="bookingsPage" style="
-  display:none;
-  min-height:100vh;
-  background:#f7f8fa;
-  padding-bottom:90px;
-">
-
-  <div style="
-    position:sticky;
-    top:0;
-    z-index:20;
-    background:rgba(255,255,255,.97);
-    backdrop-filter:blur(12px);
-    padding:17px 16px;
-    border-bottom:1px solid #eee;
-  ">
-
-    <div style="
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    ">
-
-      <div>
-        <div style="
-          font-size:12px;
-          color:#777;
-          margin-bottom:4px;
-        ">
-          GUWAHATI URBAN
-        </div>
-
-        <h1 style="
-          font-size:24px;
-          margin:0;
-        ">
-          My Bookings
-        </h1>
-      </div>
-
-      <button
-        onclick="showHomePage()"
-        style="
-          width:40px;
-          height:40px;
-          border:none;
-          border-radius:50%;
-          background:#f1f3f3;
-          font-size:20px;
-        "
-      >
-        ←
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <div style="padding:18px 16px;">
-
-    <div id="bookingHistory"></div>
-
-    <div id="noBookings" style="
-      display:none;
-      text-align:center;
-      padding:70px 20px;
-    ">
-
-      <div style="
-        width:75px;
-        height:75px;
-        border-radius:50%;
-        background:#eaf3f0;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        margin:0 auto 18px;
-        font-size:35px;
-      ">
-        📋
-      </div>
-
-      <h2 style="
-        font-size:19px;
-        margin-bottom:8px;
-      ">
-        No bookings yet
-      </h2>
-
-      <p style="
-        color:#777;
-        font-size:13px;
-        line-height:1.5;
-        margin-bottom:20px;
-      ">
-        Your upcoming and previous cleaning bookings
-        will appear here.
-      </p>
-
-      <button
-        onclick="showHomePage()"
-        style="
-          border:none;
-          background:#173f36;
-          color:white;
-          padding:12px 22px;
-          border-radius:12px;
-          font-weight:700;
-        "
-      >
-        Book a Service
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<script>
-
-/* ================================
-   PAGE NAVIGATION
-================================ */
-
-function showBookingsPage(){
-
-  document.querySelector(".app").style.display = "none";
-
-  document.querySelector(".bottom-nav").style.display = "none";
-
-  document.getElementById("bookingsPage").style.display = "block";
-
-  loadMyBookings();
-
-  window.scrollTo(0,0);
+  }
 
 }
 
 
-function showHomePage(){
+/* =====================================================
+   SELECTED SERVICE NAME
+===================================================== */
 
-  document.querySelector(".app").style.display = "block";
+function selectedServiceName(
+  serviceId
+){
 
-  document.querySelector(".bottom-nav").style.display = "flex";
+  const service =
+    services.find(
+      item =>
+        String(item.id) ===
+        String(serviceId)
+    );
 
-  document.getElementById("bookingsPage").style.display = "none";
-
-  window.scrollTo(0,0);
+  return service
+    ? serviceName(service)
+    : "Cleaning Service";
 
 }
 
 
-/* ================================
-   REPLACE OLD BOOKINGS BUTTON
-================================ */
-
-document
-  .getElementById("bookingsNav")
-  .onclick = function(){
-
-    showBookingsPage();
-
-  };
-
-
-/* ================================
-   LOCAL BOOKING HISTORY
-================================ */
+/* =====================================================
+   LOCAL BOOKINGS
+===================================================== */
 
 function getLocalBookings(){
 
   try{
 
     return JSON.parse(
-      localStorage.getItem("gus_bookings") || "[]"
+      localStorage.getItem(
+        "gus_bookings"
+      ) || "[]"
     );
 
-  }catch(e){
+  }catch{
 
     return [];
 
@@ -2187,490 +3064,1409 @@ function getLocalBookings(){
 }
 
 
-function saveLocalBooking(booking){
+function saveLocalBooking(
+  booking
+){
 
-  const bookings =
+  const list =
     getLocalBookings();
 
-  bookings.unshift(booking);
+  list.unshift(
+    booking
+  );
 
   localStorage.setItem(
     "gus_bookings",
-    JSON.stringify(bookings)
+    JSON.stringify(
+      list.slice(0,50)
+    )
   );
 
 }
 
 
-/* ================================
-   RENDER BOOKINGS
-================================ */
+/* =====================================================
+   LOAD BOOKINGS
+===================================================== */
 
-function loadMyBookings(){
+async function loadBookings(){
 
   const container =
-    document.getElementById("bookingHistory");
+    document.getElementById(
+      "bookingsList"
+    );
 
-  const empty =
-    document.getElementById("noBookings");
 
-  const bookings =
+  container.innerHTML =
+    `<div class="loading">
+      Loading bookings...
+    </div>`;
+
+
+  let remoteBookings = [];
+
+
+  try{
+
+    if(currentUser){
+
+      const customers =
+        await supabaseFetch(
+          "/rest/v1/customers?select=id&user_id=eq." +
+          encodeURIComponent(
+            currentUser.id
+          )
+        );
+
+
+      if(
+        customers &&
+        customers.length
+      ){
+
+        const customerIds =
+          customers
+            .map(
+              c => c.id
+            )
+            .join(",");
+
+
+        remoteBookings =
+          await supabaseFetch(
+            "/rest/v1/bookings?select=*&customer_id=in.(" +
+            customerIds +
+            ")&order=created_at.desc"
+          );
+
+
+        if(!Array.isArray(
+          remoteBookings
+        )){
+
+          remoteBookings = [];
+
+        }
+
+      }
+
+    }
+
+  }catch(error){
+
+    console.log(
+      "Load bookings error:",
+      error
+    );
+
+  }
+
+
+  const local =
     getLocalBookings();
 
 
-  container.innerHTML = "";
+  /*
+    Remote bookings are preferred.
+    Local bookings are added only when
+    not already present.
+  */
+
+  const ids =
+    new Set(
+      remoteBookings.map(
+        item =>
+          String(item.id)
+      )
+    );
 
 
-  if(!bookings.length){
+  const merged =
+    [
+      ...remoteBookings,
+      ...local.filter(
+        item =>
+          !ids.has(
+            String(item.id)
+          )
+      )
+    ];
 
-    empty.style.display = "block";
+
+  if(!merged.length){
+
+    container.innerHTML = `
+
+      <div class="no-bookings">
+
+        <div class="big">
+          📖
+        </div>
+
+        <h3>
+          No bookings yet
+        </h3>
+
+        <p>
+          Your upcoming cleaning bookings
+          will appear here.
+        </p>
+
+        <br>
+
+        <button
+          class="small-btn"
+          onclick="openBooking()">
+
+          Book a Service
+
+        </button>
+
+      </div>
+
+    `;
 
     return;
 
   }
 
 
-  empty.style.display = "none";
+  container.innerHTML =
+    merged.map(
+      booking =>
+        renderBookingCard(
+          booking
+        )
+    ).join("");
+
+}
 
 
-  bookings.forEach((booking,index) => {
+/* =====================================================
+   BOOKING CARD
+===================================================== */
 
-    const card =
-      document.createElement("div");
+function renderBookingCard(
+  booking
+){
 
-
-    card.style.cssText = `
-      background:white;
-      border:1px solid #e9e9e9;
-      border-radius:20px;
-      padding:16px;
-      margin-bottom:13px;
-      box-shadow:0 4px 15px rgba(0,0,0,.04);
-    `;
-
-
-    let statusBg = "#fff4d9";
-    let statusColor = "#946800";
-
-    if(booking.status === "confirmed"){
-
-      statusBg = "#e6f5ed";
-      statusColor = "#19704f";
-
-    }
-
-    if(booking.status === "cancelled"){
-
-      statusBg = "#fce9e9";
-      statusColor = "#b33a3a";
-
-    }
+  const service =
+    services.find(
+      item =>
+        String(item.id) ===
+        String(booking.service_id)
+    );
 
 
-    card.innerHTML = `
+  const option =
+    serviceOptions.find(
+      item =>
+        String(item.id) ===
+        String(
+          booking.service_option_id
+        )
+    );
 
-      <div style="
-        display:flex;
-        justify-content:space-between;
-        align-items:flex-start;
-        gap:10px;
-      ">
+
+  const serviceTitle =
+    booking.service_name ||
+    (service
+      ? serviceName(service)
+      : "Cleaning Service");
+
+
+  const optionTitle =
+    booking.option_name ||
+    (option
+      ? option.name
+      : "Service");
+
+
+  const status =
+    String(
+      booking.status ||
+      "pending"
+    ).toLowerCase();
+
+
+  const date =
+    booking.booking_date ||
+    booking.date ||
+    "";
+
+
+  const time =
+    booking.booking_time ||
+    booking.time ||
+    "";
+
+
+  return `
+
+    <div class="booking-card">
+
+      <div class="booking-top">
 
         <div>
 
-          <div style="
-            font-size:11px;
-            color:#888;
-            margin-bottom:5px;
-          ">
-            BOOKING #${index + 1}
-          </div>
-
-          <h3 style="
-            font-size:16px;
-            margin:0;
-          ">
-            ${escapeHtml(booking.service)}
+          <h3>
+            ${escapeHtml(
+              serviceTitle
+            )}
           </h3>
+
+          <div class="booking-meta">
+
+            ${escapeHtml(
+              optionTitle
+            )}
+
+            <br>
+
+            📅 ${escapeHtml(date)}
+
+            <br>
+
+            ⏰ ${escapeHtml(
+              formatTime(time)
+            )}
+
+            <br>
+
+            📍 ${escapeHtml(
+              booking.address || ""
+            )}
+
+          </div>
 
         </div>
 
-        <span style="
-          background:${statusBg};
-          color:${statusColor};
-          padding:6px 9px;
-          border-radius:20px;
-          font-size:10px;
-          font-weight:700;
-        ">
+
+        <span class="status ${escapeAttr(status)}">
+
           ${escapeHtml(
-            (booking.status || "pending").toUpperCase()
+            status.charAt(0).toUpperCase() +
+            status.slice(1)
           )}
+
         </span>
 
       </div>
 
 
-      <div style="
-        height:1px;
-        background:#eee;
-        margin:14px 0;
-      "></div>
-
-
-      <div style="
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:12px;
-      ">
-
-        <div>
-
-          <div style="
-            color:#888;
-            font-size:10px;
-            margin-bottom:4px;
-          ">
-            DATE
-          </div>
-
-          <strong style="font-size:12px;">
-            📅 ${escapeHtml(booking.date)}
-          </strong>
-
-        </div>
-
-
-        <div>
-
-          <div style="
-            color:#888;
-            font-size:10px;
-            margin-bottom:4px;
-          ">
-            TIME
-          </div>
-
-          <strong style="font-size:12px;">
-            🕐 ${escapeHtml(booking.time)}
-          </strong>
-
-        </div>
-
-
-        <div>
-
-          <div style="
-            color:#888;
-            font-size:10px;
-            margin-bottom:4px;
-          ">
-            AMOUNT
-          </div>
-
-          <strong style="font-size:13px;">
-            ₹${Number(
-              booking.amount || 0
-            ).toLocaleString("en-IN")}
-          </strong>
-
-        </div>
-
-
-        <div>
-
-          <div style="
-            color:#888;
-            font-size:10px;
-            margin-bottom:4px;
-          ">
-            PHONE
-          </div>
-
-          <strong style="font-size:12px;">
-            ${escapeHtml(booking.phone)}
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <div style="
-        margin-top:13px;
-        background:#f7f8f8;
-        border-radius:11px;
-        padding:10px;
-        font-size:11px;
-        color:#666;
-      ">
-        📍 ${escapeHtml(booking.address)}
-      </div>
-
-
-      <div style="
-        display:flex;
-        gap:9px;
-        margin-top:13px;
-      ">
+      <div class="booking-actions">
 
         <button
-          class="rebook-local"
-          data-index="${index}"
-          style="
-            flex:1;
-            border:1px solid #173f36;
-            background:white;
-            color:#173f36;
-            padding:10px;
-            border-radius:10px;
-            font-size:11px;
-            font-weight:700;
-          "
-        >
-          🔄 Rebook
+          class="primary"
+          onclick="rebookBooking(${Number(booking.service_id)})">
+
+          Rebook
+
         </button>
 
+
         ${
-          booking.status !== "cancelled"
-          ? `
+          status !== "cancelled"
+          ?
+          `
           <button
-            class="cancel-local"
-            data-index="${index}"
-            style="
-              flex:1;
-              border:1px solid #ddd;
-              background:white;
-              color:#a33;
-              padding:10px;
-              border-radius:10px;
-              font-size:11px;
-              font-weight:700;
-            "
-          >
+            onclick='openReschedule(${JSON.stringify(
+              booking
+            )})'>
+
+            Reschedule
+
+          </button>
+
+          <button
+            onclick="cancelBooking('${escapeAttr(String(booking.id))}')">
+
             Cancel
+
           </button>
           `
-          : ""
+          :
+          ""
         }
 
       </div>
 
-    `;
+    </div>
 
-
-    container.appendChild(card);
-
-  });
-
-
-  /* REBOOK */
-
-  document
-    .querySelectorAll(".rebook-local")
-    .forEach(button => {
-
-      button.onclick = function(){
-
-        const index =
-          Number(this.dataset.index);
-
-        const booking =
-          getLocalBookings()[index];
-
-
-        const service =
-          services.find(
-            s =>
-              String(s.id) ===
-              String(booking.serviceId)
-          );
-
-
-        if(service){
-
-          showHomePage();
-
-          setTimeout(() => {
-
-            openBooking(service);
-
-          },300);
-
-        }else{
-
-          alert(
-            "This service is no longer available."
-          );
-
-        }
-
-      };
-
-    });
-
-
-  /* CANCEL */
-
-  document
-    .querySelectorAll(".cancel-local")
-    .forEach(button => {
-
-      button.onclick = function(){
-
-        const index =
-          Number(this.dataset.index);
-
-
-        if(!confirm(
-          "Are you sure you want to cancel this booking?"
-        )){
-
-          return;
-
-        }
-
-
-        const bookings =
-          getLocalBookings();
-
-
-        bookings[index].status =
-          "cancelled";
-
-
-        localStorage.setItem(
-          "gus_bookings",
-          JSON.stringify(bookings)
-        );
-
-
-        loadMyBookings();
-
-      };
-
-    });
+  `;
 
 }
 
 
-/* ================================
-   SAVE BOOKING AFTER SUCCESS
-================================ */
+/* =====================================================
+   REBOOK
+===================================================== */
 
-/*
-   We intercept the successful booking
-   and save a copy on this device.
-*/
+function rebookBooking(
+  serviceId
+){
 
-const originalShowSuccess =
-  document.getElementById("successModal");
+  openBooking(
+    serviceId
+  );
 
-
-/*
-   Listen for booking success by watching
-   the success modal.
-*/
-
-const successObserver =
-  new MutationObserver(() => {
-
-    const modal =
-      document.getElementById("successModal");
+}
 
 
-    if(
-      modal.classList.contains("show") &&
-      selectedService
-    ){
+/* =====================================================
+   RESCHEDULE
+===================================================== */
 
-      const optionSelect =
-        document.getElementById("serviceOption");
+function openReschedule(
+  booking
+){
 
-
-      const selectedOption =
-        optionSelect.options[
-          optionSelect.selectedIndex
-        ];
-
-
-      const booking = {
-
-        serviceId:
-          selectedService.id,
-
-        service:
-          getServiceTitle(selectedService),
-
-        date:
-          document.getElementById(
-            "bookingDate"
-          ).value,
-
-        time:
-          formatTime(
-            document.getElementById(
-              "bookingTime"
-            ).value
-          ),
-
-        amount:
-          Number(
-            selectedOption?.dataset?.price || 0
-          ),
-
-        phone:
-          document.getElementById(
-            "customerPhone"
-          ).value,
-
-        address:
-          document.getElementById(
-            "customerAddress"
-          ).value,
-
-        status:"pending"
-
-      };
+  const newDate =
+    prompt(
+      "Enter new date (YYYY-MM-DD):",
+      booking.booking_date || ""
+    );
 
 
-      /*
-        Prevent duplicate save.
-      */
+  if(!newDate){
+    return;
+  }
 
-      const existing =
+
+  const newTime =
+    prompt(
+      "Enter new time (HH:MM):",
+      String(
+        booking.booking_time || ""
+      ).substring(0,5)
+    );
+
+
+  if(!newTime){
+    return;
+  }
+
+
+  updateBookingSchedule(
+    booking.id,
+    newDate,
+    newTime
+  );
+
+}
+
+
+async function updateBookingSchedule(
+  bookingId,
+  date,
+  time
+){
+
+  try{
+
+    if(String(bookingId).startsWith(
+      "local-"
+    )){
+
+      const list =
         getLocalBookings();
 
-
-      const duplicate =
-        existing.some(item =>
-          item.date === booking.date &&
-          item.time === booking.time &&
-          item.phone === booking.phone &&
-          String(item.serviceId) ===
-          String(booking.serviceId)
+      const index =
+        list.findIndex(
+          item =>
+            String(item.id) ===
+            String(bookingId)
         );
 
 
-      if(!duplicate){
+      if(index >= 0){
 
-        saveLocalBooking(booking);
+        list[index].booking_date =
+          date;
+
+        list[index].booking_time =
+          time;
+
+        localStorage.setItem(
+          "gus_bookings",
+          JSON.stringify(list)
+        );
+
+      }
+
+
+      showToast(
+        "Booking rescheduled."
+      );
+
+      loadBookings();
+
+      return;
+
+    }
+
+
+    await supabaseFetch(
+      "/rest/v1/bookings?id=eq." +
+      encodeURIComponent(
+        bookingId
+      ),
+      {
+        method:"PATCH",
+        headers:{
+          "Prefer":
+            "return=minimal"
+        },
+        body:JSON.stringify({
+
+          booking_date:
+            date,
+
+          booking_time:
+            time
+
+        })
+      }
+    );
+
+
+    showToast(
+      "Booking rescheduled."
+    );
+
+
+    loadBookings();
+
+
+  }catch(error){
+
+    console.log(error);
+
+    showToast(
+      "Could not reschedule booking."
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   CANCEL BOOKING
+===================================================== */
+
+async function cancelBooking(
+  bookingId
+){
+
+  const ok =
+    confirm(
+      "Are you sure you want to cancel this booking?"
+    );
+
+
+  if(!ok){
+    return;
+  }
+
+
+  try{
+
+    if(String(bookingId).startsWith(
+      "local-"
+    )){
+
+      const list =
+        getLocalBookings();
+
+      const item =
+        list.find(
+          booking =>
+            String(booking.id) ===
+            String(bookingId)
+        );
+
+
+      if(item){
+
+        item.status =
+          "cancelled";
+
+      }
+
+
+      localStorage.setItem(
+        "gus_bookings",
+        JSON.stringify(list)
+      );
+
+
+    }else{
+
+      await supabaseFetch(
+        "/rest/v1/bookings?id=eq." +
+        encodeURIComponent(
+          bookingId
+        ),
+        {
+          method:"PATCH",
+          headers:{
+            "Prefer":
+              "return=minimal"
+          },
+          body:JSON.stringify({
+
+            status:
+              "cancelled"
+
+          })
+        }
+      );
+
+    }
+
+
+    showToast(
+      "Booking cancelled."
+    );
+
+
+    loadBookings();
+
+
+  }catch(error){
+
+    console.log(error);
+
+    showToast(
+      "Could not cancel booking."
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+async function loadProfile(){
+
+  if(!currentUser){
+    return;
+  }
+
+
+  try{
+
+    const customers =
+      await supabaseFetch(
+        "/rest/v1/customers?select=*&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        ) +
+        "&limit=1"
+      );
+
+
+    if(
+      customers &&
+      customers.length
+    ){
+
+      const customer =
+        customers[0];
+
+
+      document.getElementById(
+        "profileName"
+      ).textContent =
+        customer.full_name ||
+        "Customer";
+
+
+      document.getElementById(
+        "profilePhone"
+      ).textContent =
+        customer.phone ||
+        "Add your phone number";
+
+
+      const letter =
+        (
+          customer.full_name ||
+          "B"
+        ).charAt(0)
+          .toUpperCase();
+
+
+      document.getElementById(
+        "profileAvatar"
+      ).textContent =
+        letter;
+
+
+      document.getElementById(
+        "profileBtn"
+      ).textContent =
+        letter;
+
+
+      document.getElementById(
+        "profileEditName"
+      ).value =
+        customer.full_name ||
+        "";
+
+
+      document.getElementById(
+        "profileEditPhone"
+      ).value =
+        customer.phone ||
+        "";
+
+
+      document.getElementById(
+        "profileEditEmail"
+      ).value =
+        customer.email ||
+        "";
+
+
+      document.getElementById(
+        "profileEditAddress"
+      ).value =
+        customer.address ||
+        "";
+
+    }
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+}
+
+
+/* =====================================================
+   PROFILE INTO BOOKING
+===================================================== */
+
+async function loadProfileIntoBooking(){
+
+  try{
+
+    if(!currentUser){
+      return;
+    }
+
+
+    const customers =
+      await supabaseFetch(
+        "/rest/v1/customers?select=*&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        ) +
+        "&limit=1"
+      );
+
+
+    if(
+      customers &&
+      customers.length
+    ){
+
+      const customer =
+        customers[0];
+
+
+      if(customer.full_name){
+
+        document.getElementById(
+          "customerName"
+        ).value =
+          customer.full_name;
+
+      }
+
+
+      if(customer.phone){
+
+        document.getElementById(
+          "customerPhone"
+        ).value =
+          customer.phone;
+
+      }
+
+
+      if(customer.address){
+
+        document.getElementById(
+          "customerAddress"
+        ).value =
+          customer.address;
 
       }
 
     }
 
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+}
+
+
+/* =====================================================
+   EDIT PROFILE
+===================================================== */
+
+function openEditProfile(){
+
+  showPage(
+    "profilePage"
+  );
+
+  document.getElementById(
+    "editProfileBox"
+  ).classList.add(
+    "show"
+  );
+
+  loadProfile();
+
+}
+
+
+async function saveProfile(){
+
+  if(!currentUser){
+
+    showToast(
+      "Profile is not ready yet."
+    );
+
+    return;
+
+  }
+
+
+  const name =
+    document.getElementById(
+      "profileEditName"
+    ).value.trim();
+
+  const phone =
+    document.getElementById(
+      "profileEditPhone"
+    ).value.trim();
+
+  const email =
+    document.getElementById(
+      "profileEditEmail"
+    ).value.trim();
+
+  const address =
+    document.getElementById(
+      "profileEditAddress"
+    ).value.trim();
+
+
+  if(!name){
+
+    showToast(
+      "Please enter your name."
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+    const customers =
+      await supabaseFetch(
+        "/rest/v1/customers?select=id&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        ) +
+        "&limit=1"
+      );
+
+
+    if(
+      customers &&
+      customers.length
+    ){
+
+      await supabaseFetch(
+        "/rest/v1/customers?id=eq." +
+        customers[0].id,
+        {
+          method:"PATCH",
+          headers:{
+            "Prefer":
+              "return=minimal"
+          },
+          body:JSON.stringify({
+
+            full_name:
+              name,
+
+            phone:
+              phone || null,
+
+            email:
+              email || null,
+
+            address:
+              address || null
+
+          })
+        }
+      );
+
+    }else{
+
+      await supabaseFetch(
+        "/rest/v1/customers",
+        {
+          method:"POST",
+          headers:{
+            "Prefer":
+              "return=minimal"
+          },
+          body:JSON.stringify({
+
+            user_id:
+              currentUser.id,
+
+            full_name:
+              name,
+
+            phone:
+              phone || null,
+
+            email:
+              email || null,
+
+            address:
+              address || null,
+
+            city:
+              "Guwahati"
+
+          })
+        }
+      );
+
+    }
+
+
+    document.getElementById(
+      "editProfileBox"
+    ).classList.remove(
+      "show"
+    );
+
+
+    await loadProfile();
+
+
+    showToast(
+      "Profile saved successfully."
+    );
+
+
+  }catch(error){
+
+    console.log(error);
+
+    showToast(
+      "Could not save profile."
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function showPage(
+  pageId
+){
+
+  document
+    .querySelectorAll(
+      ".page"
+    )
+    .forEach(
+      page =>
+        page.classList.remove(
+          "active"
+        )
+    );
+
+
+  const page =
+    document.getElementById(
+      pageId
+    );
+
+
+  if(page){
+
+    page.classList.add(
+      "active"
+    );
+
+  }
+
+
+  document
+    .querySelectorAll(
+      ".nav-btn"
+    )
+    .forEach(
+      btn =>
+        btn.classList.remove(
+          "active"
+        )
+    );
+
+
+  if(pageId === "homePage"){
+
+    document
+      .getElementById(
+        "navHome"
+      )
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  if(pageId === "bookingsPage"){
+
+    document
+      .getElementById(
+        "navBookings"
+      )
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  if(pageId === "offersPage"){
+
+    document
+      .getElementById(
+        "navOffers"
+      )
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  if(pageId === "profilePage"){
+
+    document
+      .getElementById(
+        "navProfile"
+      )
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
   });
 
+}
 
-successObserver.observe(
-  document.getElementById("successModal"),
-  {
-    attributes:true,
-    attributeFilter:["class"]
-  }
-);
+
+/* =====================================================
+   SUPPORT
+===================================================== */
+
+function openSupport(){
+
+  showPage(
+    "supportPage"
+  );
+
+}
+
+
+function contactSupport(){
+
+  showToast(
+    "Support contact option will be connected here."
+  );
+
+}
+
+
+/* =====================================================
+   NOTIFICATIONS
+===================================================== */
+
+function showNotifications(){
+
+  alert(
+    "🔔 Notifications\n\n" +
+    "No new notifications right now."
+  );
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function setupSearch(){
+
+  const input =
+    document.getElementById(
+      "searchInput"
+    );
+
+
+  input.addEventListener(
+    "input",
+    function(){
+
+      const query =
+        this.value
+          .trim()
+          .toLowerCase();
+
+
+      document
+        .querySelectorAll(
+          ".service-card"
+        )
+        .forEach(
+          card => {
+
+            const name =
+              String(
+                card.dataset.name ||
+                ""
+              ).toLowerCase();
+
+
+            card.style.display =
+              !query ||
+              name.includes(query)
+              ?
+              "flex"
+              :
+              "none";
+
+          }
+        );
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   CATEGORY FILTER
+===================================================== */
+
+function setupCategories(){
+
+  document
+    .querySelectorAll(
+      ".category"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          function(){
+
+            const category =
+              String(
+                this.dataset.category ||
+                ""
+              ).toLowerCase();
+
+
+            showPage(
+              "homePage"
+            );
+
+
+            const input =
+              document.getElementById(
+                "searchInput"
+              );
+
+
+            input.value =
+              category;
+
+
+            input.dispatchEvent(
+              new Event(
+                "input"
+              )
+            );
+
+
+            document
+              .getElementById(
+                "servicesSection"
+              )
+              .scrollIntoView({
+                behavior:"smooth"
+              });
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* =====================================================
+   MINIMUM BOOKING DATE
+===================================================== */
+
+function setMinimumDate(){
+
+  const input =
+    document.getElementById(
+      "bookingDate"
+    );
+
+
+  const today =
+    new Date();
+
+
+  const year =
+    today.getFullYear();
+
+
+  const month =
+    String(
+      today.getMonth()+1
+    ).padStart(2,"0");
+
+
+  const day =
+    String(
+      today.getDate()
+    ).padStart(2,"0");
+
+
+  input.min =
+    year +
+    "-" +
+    month +
+    "-" +
+    day;
+
+}
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+document
+  .getElementById(
+    "heroBookBtn"
+  )
+  .addEventListener(
+    "click",
+    () => openBooking()
+  );
+
+
+document
+  .getElementById(
+    "offerBtn"
+  )
+  .addEventListener(
+    "click",
+    () => openBooking()
+  );
+
+
+document
+  .getElementById(
+    "profileBtn"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      showPage(
+        "profilePage"
+      );
+
+      loadProfile();
+
+    }
+  );
+
+
+document
+  .getElementById(
+    "closeBooking"
+  )
+  .addEventListener(
+    "click",
+    closeBooking
+  );
+
+
+document
+  .getElementById(
+    "closeSuccess"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      document
+        .getElementById(
+          "successModal"
+        )
+        .classList.remove(
+          "show"
+        );
+
+      showPage(
+        "bookingsPage"
+      );
+
+      loadBookings();
+
+    }
+  );
+
+
+document
+  .getElementById(
+    "bookingModal"
+  )
+  .addEventListener(
+    "click",
+    function(event){
+
+      if(
+        event.target ===
+        this
+      ){
+
+        closeBooking();
+
+      }
+
+    }
+  );
+
+
+document
+  .getElementById(
+    "serviceSelect"
+  )
+  .addEventListener(
+    "change",
+    function(){
+
+      loadOptionsForService(
+        this.value
+      );
+
+    }
+  );
+
+
+document
+  .getElementById(
+    "serviceOption"
+  )
+  .addEventListener(
+    "change",
+    updateOptionPrice
+  );
+
+
+document
+  .getElementById(
+    "bookingForm"
+  )
+  .addEventListener(
+    "submit",
+    submitBooking
+  );
+
+
+/* =====================================================
+   INIT
+===================================================== */
+
+async function init(){
+
+  setMinimumDate();
+
+  setupSearch();
+
+  setupCategories();
+
+
+  await initAuth();
+
+
+  await Promise.all([
+    loadServices(),
+    loadServiceOptions(),
+    loadTimeSlots()
+  ]);
+
+
+  await loadProfile();
+
+}
+
+
+init();
 
 </script>
+
+</div>
+
 </body>
 </html>
