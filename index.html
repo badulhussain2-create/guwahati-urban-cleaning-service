@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Guwahati Urban Cleaning Service</title>
-
-  <meta name="description"
-        content="Professional home cleaning services in Guwahati. Book bathroom, kitchen, sofa and full home cleaning services.">
+  <title>Guwahati Urban Cleaning</title>
 
   <style>
     * {
@@ -18,205 +15,292 @@
     }
 
     body {
-      background: #f5f7fa;
-      color: #222;
+      background: #f6f7f9;
+      color: #202124;
+      padding-bottom: 75px;
     }
 
-    header {
+    /* TOP HEADER */
+
+    .top {
       background: #ffffff;
-      padding: 16px 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      padding: 18px 16px 12px;
     }
 
-    .header-content {
-      max-width: 1100px;
-      margin: auto;
+    .top-row {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
+      justify-content: space-between;
     }
 
     .location {
-      font-size: 14px;
-      color: #666;
+      font-size: 13px;
+      color: #777;
     }
 
-    .hero {
-      background: #eaf7ff;
-      padding: 55px 20px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 17px;
-      color: #555;
-      margin-bottom: 25px;
-    }
-
-    .hero button {
-      border: none;
-      padding: 14px 25px;
-      border-radius: 8px;
-      background: #111;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 25px;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
-
-    .service-card h3 {
-      margin-bottom: 10px;
-    }
-
-    .service-card p {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-
-    .price {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .book-btn {
-      width: 100%;
-      padding: 11px;
-      border: none;
-      border-radius: 7px;
-      background: #111;
-      color: white;
-      cursor: pointer;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      text-align: center;
-    }
-
-    .feature {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    }
-
-    .booking {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      max-width: 650px;
-      margin: auto;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
+    .location strong {
       display: block;
-      margin-bottom: 7px;
-      font-weight: bold;
+      color: #222;
+      font-size: 16px;
+      margin-top: 3px;
     }
 
-    input,
-    select,
-    textarea {
+    .profile {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #eeeeee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+    }
+
+    /* SEARCH */
+
+    .search {
+      margin-top: 17px;
+      background: #f1f2f4;
+      border-radius: 12px;
+      padding: 13px 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search input {
+      border: none;
+      outline: none;
+      background: transparent;
       width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 7px;
       font-size: 15px;
     }
 
-    textarea {
-      min-height: 90px;
-      resize: vertical;
+    /* HERO */
+
+    .hero {
+      margin: 15px;
+      border-radius: 18px;
+      padding: 25px 20px;
+      background: #dff4ee;
     }
 
-    .confirm-btn {
-      width: 100%;
-      padding: 14px;
+    .hero h1 {
+      font-size: 25px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 280px;
+    }
+
+    .hero button {
+      margin-top: 16px;
       border: none;
-      border-radius: 8px;
       background: #111;
       color: white;
+      padding: 11px 18px;
+      border-radius: 9px;
+      font-weight: bold;
+    }
+
+    /* SECTION */
+
+    .section {
+      padding: 8px 15px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .section-title h2 {
+      font-size: 19px;
+    }
+
+    .section-title span {
+      font-size: 13px;
+      color: #777;
+    }
+
+    /* CATEGORIES */
+
+    .categories {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category {
+      min-width: 82px;
+      text-align: center;
+    }
+
+    .category-icon {
+      height: 65px;
+      width: 65px;
+      margin: auto;
+      border-radius: 16px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 29px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .category p {
+      font-size: 12px;
+      margin-top: 7px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+    }
+
+    .service {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.06);
+    }
+
+    .service-image {
+      height: 125px;
+      background: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+    }
+
+    .service-content {
+      padding: 12px;
+    }
+
+    .service h3 {
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .rating {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 9px;
+    }
+
+    .price {
       font-size: 16px;
+      font-weight: bold;
+    }
+
+    .book {
+      margin-top: 10px;
+      width: 100%;
+      padding: 9px;
+      border: 1px solid #111;
+      background: white;
+      border-radius: 8px;
+      font-weight: bold;
       cursor: pointer;
     }
 
-    footer {
-      background: #111;
-      color: white;
+    /* OFFER */
+
+    .offer {
+      margin-top: 12px;
+      background: white;
+      border-radius: 15px;
+      padding: 17px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.05);
+    }
+
+    .offer h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .offer p {
+      font-size: 12px;
+      color: #777;
+    }
+
+    .offer-icon {
+      font-size: 38px;
+    }
+
+    /* BOTTOM NAV */
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 67px;
+      background: white;
+      border-top: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .nav-item {
       text-align: center;
-      padding: 25px 15px;
-      margin-top: 30px;
+      font-size: 11px;
+      color: #777;
+      cursor: pointer;
     }
 
-    @media (max-width: 800px) {
-      .services {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 29px;
-      }
+    .nav-item.active {
+      color: #111;
+      font-weight: bold;
     }
 
-    @media (max-width: 500px) {
-      .services {
-        grid-template-columns: 1fr;
+    .nav-icon {
+      font-size: 21px;
+      margin-bottom: 3px;
+    }
+
+    /* DESKTOP */
+
+    @media (min-width: 800px) {
+
+      body {
+        max-width: 1100px;
+        margin: auto;
       }
 
-      .header-content {
-        flex-direction: column;
-        gap: 5px;
+      .services {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .hero {
+        padding: 40px;
+      }
+
+      .bottom-nav {
+        max-width: 1100px;
+        margin: auto;
       }
     }
   </style>
@@ -224,192 +308,293 @@
 
 <body>
 
-  <header>
-    <div class="header-content">
-      <div class="logo">Guwahati Urban Cleaning</div>
-      <div class="location">📍 Guwahati, Assam</div>
+  <!-- HEADER -->
+
+  <div class="top">
+
+    <div class="top-row">
+
+      <div class="location">
+        Your location
+        <strong>📍 Guwahati, Assam</strong>
+      </div>
+
+      <div class="profile">
+        👤
+      </div>
+
     </div>
-  </header>
 
-  <section class="hero">
-    <h1>Professional Home Cleaning Service</h1>
-    <p>Book trusted cleaning professionals for your home in Guwahati.</p>
+    <div class="search">
+      🔍
+      <input
+        type="text"
+        placeholder="What service do you need?"
+      >
+    </div>
 
-    <button onclick="scrollToBooking()">
-      Book a Service
+  </div>
+
+
+  <!-- HERO -->
+
+  <div class="hero">
+
+    <h1>
+      Professional cleaning,
+      right at your doorstep
+    </h1>
+
+    <p>
+      Book trusted cleaning professionals
+      for your home in Guwahati.
+    </p>
+
+    <button onclick="bookService()">
+      Book a service
     </button>
-  </section>
 
-  <section class="container">
-    <h2 class="section-title">Our Services</h2>
+  </div>
+
+
+  <!-- CATEGORIES -->
+
+  <div class="section">
+
+    <div class="section-title">
+      <h2>Categories</h2>
+      <span>View all</span>
+    </div>
+
+    <div class="categories">
+
+      <div class="category">
+        <div class="category-icon">🚿</div>
+        <p>Bathroom</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🍳</div>
+        <p>Kitchen</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🛋️</div>
+        <p>Sofa</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🏠</div>
+        <p>Home</p>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🪟</div>
+        <p>Windows</p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- POPULAR SERVICES -->
+
+  <div class="section">
+
+    <div class="section-title">
+      <h2>Popular services</h2>
+      <span>View all</span>
+    </div>
 
     <div class="services">
 
-      <div class="service-card">
-        <h3>Bathroom Cleaning</h3>
-        <p>Deep cleaning of bathroom floors, tiles and sanitary areas.</p>
-        <div class="price">₹499</div>
-        <button class="book-btn" onclick="selectService('Bathroom Cleaning')">
-          Book Now
-        </button>
+      <div class="service">
+
+        <div class="service-image">
+          🚿
+        </div>
+
+        <div class="service-content">
+
+          <h3>Bathroom Cleaning</h3>
+
+          <div class="rating">
+            ⭐ 4.8 · Professional cleaning
+          </div>
+
+          <div class="price">
+            ₹499
+          </div>
+
+          <button
+            class="book"
+            onclick="bookService('Bathroom Cleaning')"
+          >
+            Book
+          </button>
+
+        </div>
+
       </div>
 
-      <div class="service-card">
-        <h3>Kitchen Cleaning</h3>
-        <p>Professional cleaning of kitchen surfaces, tiles and appliances.</p>
-        <div class="price">₹599</div>
-        <button class="book-btn" onclick="selectService('Kitchen Cleaning')">
-          Book Now
-        </button>
+
+      <div class="service">
+
+        <div class="service-image">
+          🍳
+        </div>
+
+        <div class="service-content">
+
+          <h3>Kitchen Cleaning</h3>
+
+          <div class="rating">
+            ⭐ 4.7 · Professional cleaning
+          </div>
+
+          <div class="price">
+            ₹599
+          </div>
+
+          <button
+            class="book"
+            onclick="bookService('Kitchen Cleaning')"
+          >
+            Book
+          </button>
+
+        </div>
+
       </div>
 
-      <div class="service-card">
-        <h3>Sofa Cleaning</h3>
-        <p>Professional sofa cleaning to remove dirt, dust and stains.</p>
-        <div class="price">₹399</div>
-        <button class="book-btn" onclick="selectService('Sofa Cleaning')">
-          Book Now
-        </button>
+
+      <div class="service">
+
+        <div class="service-image">
+          🛋️
+        </div>
+
+        <div class="service-content">
+
+          <h3>Sofa Cleaning</h3>
+
+          <div class="rating">
+            ⭐ 4.8 · Professional cleaning
+          </div>
+
+          <div class="price">
+            ₹399
+          </div>
+
+          <button
+            class="book"
+            onclick="bookService('Sofa Cleaning')"
+          >
+            Book
+          </button>
+
+        </div>
+
       </div>
 
-      <div class="service-card">
-        <h3>Full Home Cleaning</h3>
-        <p>Complete home cleaning service for a fresh and clean home.</p>
-        <div class="price">₹1499</div>
-        <button class="book-btn" onclick="selectService('Full Home Cleaning')">
-          Book Now
-        </button>
+
+      <div class="service">
+
+        <div class="service-image">
+          🏠
+        </div>
+
+        <div class="service-content">
+
+          <h3>Full Home Cleaning</h3>
+
+          <div class="rating">
+            ⭐ 4.9 · Deep cleaning
+          </div>
+
+          <div class="price">
+            ₹1499
+          </div>
+
+          <button
+            class="book"
+            onclick="bookService('Full Home Cleaning')"
+          >
+            Book
+          </button>
+
+        </div>
+
       </div>
 
     </div>
-  </section>
 
-  <section class="container">
-    <h2 class="section-title">Why Choose Us?</h2>
+  </div>
 
-    <div class="features">
 
-      <div class="feature">
-        <h3>✓ Professional Team</h3>
-        <p>Trained cleaning professionals.</p>
+  <!-- OFFER -->
+
+  <div class="section">
+
+    <div class="offer">
+
+      <div>
+        <h3>🎁 Special cleaning offers</h3>
+        <p>Save more on selected services.</p>
       </div>
 
-      <div class="feature">
-        <h3>✓ Easy Booking</h3>
-        <p>Book your cleaning service easily online.</p>
-      </div>
-
-      <div class="feature">
-        <h3>✓ Reliable Service</h3>
-        <p>Professional and convenient home cleaning.</p>
+      <div class="offer-icon">
+        🏷️
       </div>
 
     </div>
-  </section>
 
-  <section class="container" id="booking">
+  </div>
 
-    <h2 class="section-title">Book Your Service</h2>
 
-    <div class="booking">
+  <!-- BOTTOM NAV -->
 
-      <div class="form-group">
-        <label>Service</label>
+  <div class="bottom-nav">
 
-        <select id="service">
-          <option value="">Select a service</option>
-          <option>Bathroom Cleaning</option>
-          <option>Kitchen Cleaning</option>
-          <option>Sofa Cleaning</option>
-          <option>Full Home Cleaning</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Date</label>
-        <input type="date" id="date">
-      </div>
-
-      <div class="form-group">
-        <label>Time</label>
-
-        <select id="time">
-          <option value="">Select time</option>
-          <option>09:00 AM</option>
-          <option>10:00 AM</option>
-          <option>11:00 AM</option>
-          <option>12:00 PM</option>
-          <option>01:00 PM</option>
-          <option>02:00 PM</option>
-          <option>03:00 PM</option>
-          <option>04:00 PM</option>
-          <option>05:00 PM</option>
-          <option>06:00 PM</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Your Name</label>
-        <input type="text" id="name" placeholder="Enter your name">
-      </div>
-
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" id="phone" placeholder="Enter phone number">
-      </div>
-
-      <div class="form-group">
-        <label>Address</label>
-        <textarea id="address" placeholder="Enter your full address"></textarea>
-      </div>
-
-      <button class="confirm-btn" onclick="confirmBooking()">
-        Confirm Booking
-      </button>
-
+    <div class="nav-item active">
+      <div class="nav-icon">⌂</div>
+      Home
     </div>
 
-  </section>
+    <div class="nav-item">
+      <div class="nav-icon">📋</div>
+      Bookings
+    </div>
 
-  <footer>
-    <p>© 2026 Guwahati Urban Cleaning Service</p>
-    <p>Professional Home Cleaning Service in Guwahati</p>
-  </footer>
+    <div class="nav-item">
+      <div class="nav-icon">🎁</div>
+      Offers
+    </div>
+
+    <div class="nav-item">
+      <div class="nav-icon">👤</div>
+      Profile
+    </div>
+
+  </div>
+
 
   <script>
 
-    function scrollToBooking() {
-      document.getElementById("booking").scrollIntoView({
-        behavior: "smooth"
-      });
-    }
+    function bookService(service) {
 
-    function selectService(serviceName) {
-      document.getElementById("service").value = serviceName;
-      scrollToBooking();
-    }
-
-    function confirmBooking() {
-
-      const service = document.getElementById("service").value;
-      const date = document.getElementById("date").value;
-      const time = document.getElementById("time").value;
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const address = document.getElementById("address").value;
-
-      if (!service || !date || !time || !name || !phone || !address) {
-        alert("Please fill in all booking details.");
-        return;
+      if (service) {
+        alert(
+          service +
+          " selected.\n\nBooking screen will be connected to our booking system next."
+        );
+      } else {
+        alert(
+          "Booking screen will be connected to our booking system next."
+        );
       }
 
-      alert(
-        "Booking request received!\n\n" +
-        "Service: " + service + "\n" +
-        "Date: " + date + "\n" +
-        "Time: " + time + "\n\n" +
-        "We will contact you shortly."
-      );
     }
 
   </script>
