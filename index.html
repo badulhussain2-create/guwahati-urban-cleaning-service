@@ -3007,8 +3007,13 @@ async function submitBooking(
 
 
     showToast(
-      "Booking failed. Please try again."
-    );
+  "Booking failed: " +
+  (
+    error && error.message
+      ? error.message
+      : "Unknown error"
+  )
+);
 
 
   }finally{
