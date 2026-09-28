@@ -1886,7 +1886,8 @@ async function initAuth(){
 
     const authData =
       await signupResponse.json();
-
+console.log("SIGNUP STATUS:", signupResponse.status);
+console.log("SIGNUP RESPONSE:", authData);
 
     if(authData.access_token){
 
