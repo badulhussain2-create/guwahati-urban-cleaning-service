@@ -9,1460 +9,883 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f6f7f9;
-  color:#171717;
-  padding-bottom:82px
-}
+body{font-family:Arial,Helvetica,sans-serif;background:#f6f7f9;color:#171717;padding-bottom:82px}
 button,input,textarea,select{font:inherit}
 button{cursor:pointer}
 button:disabled{opacity:.6;cursor:not-allowed}
 
-.app{
-  max-width:700px;
-  margin:auto;
-  background:#fff;
-  min-height:100vh
-}
+.app{max-width:700px;margin:auto;background:#fff;min-height:100vh}
 
 .topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 16px 10px;
-  background:#fff
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 16px 10px;background:#fff
 }
-
-.location{
-  display:flex;
-  align-items:center;
-  gap:10px
-}
-
+.location{display:flex;align-items:center;gap:10px}
 .location-icon{
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:#f0f5ff;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:20px
+width:40px;height:40px;border-radius:50%;background:#f0f5ff;
+display:flex;justify-content:center;align-items:center;font-size:20px
 }
-
-.location small{
-  display:block;
-  color:#777;
-  font-size:11px;
-  margin-bottom:3px
-}
-
+.location small{display:block;color:#777;font-size:11px;margin-bottom:3px}
 .location strong{font-size:14px}
 
 .profile-btn{
-  width:40px;
-  height:40px;
-  border:0;
-  border-radius:50%;
-  background:#111;
-  color:#fff;
-  font-weight:bold
+width:40px;height:40px;border:0;border-radius:50%;
+background:#111;color:#fff;font-weight:bold
 }
 
 .search-box{
-  margin:8px 16px 16px;
-  background:#f4f5f7;
-  border-radius:14px;
-  height:48px;
-  display:flex;
-  align-items:center;
-  padding:0 14px;
-  gap:10px
+margin:8px 16px 16px;background:#f4f5f7;border-radius:14px;
+height:48px;display:flex;align-items:center;padding:0 14px;gap:10px
 }
-
-.search-box span{
-  font-size:23px;
-  color:#777
-}
-
-.search-box input{
-  flex:1;
-  border:0;
-  outline:0;
-  background:transparent
-}
+.search-box span{font-size:23px;color:#777}
+.search-box input{flex:1;border:0;outline:0;background:transparent}
 
 .page{display:none}
 .page.active{display:block}
 
 .hero{
-  margin:0 16px 24px;
-  border-radius:22px;
-  background:linear-gradient(135deg,#111,#303030);
-  color:#fff;
-  padding:28px 22px
+margin:0 16px 24px;border-radius:22px;
+background:linear-gradient(135deg,#111,#303030);
+color:#fff;padding:28px 22px
 }
-
 .hero-tag{
-  display:inline-block;
-  font-size:11px;
-  background:rgba(255,255,255,.12);
-  padding:7px 10px;
-  border-radius:20px;
-  margin-bottom:15px
+display:inline-block;font-size:11px;background:rgba(255,255,255,.12);
+padding:7px 10px;border-radius:20px;margin-bottom:15px
 }
-
-.hero h1{
-  font-size:31px;
-  line-height:1.08;
-  margin-bottom:12px
-}
-
-.hero p{
-  color:#d7d7d7;
-  line-height:1.5;
-  font-size:14px;
-  margin-bottom:20px
-}
-
+.hero h1{font-size:31px;line-height:1.08;margin-bottom:12px}
+.hero p{color:#d7d7d7;line-height:1.5;font-size:14px;margin-bottom:20px}
 .hero-btn{
-  border:0;
-  background:#fff;
-  color:#111;
-  padding:12px 17px;
-  border-radius:12px;
-  font-weight:bold
+border:0;background:#fff;color:#111;padding:12px 17px;
+border-radius:12px;font-weight:bold
 }
 
-.section{
-  padding:0 16px;
-  margin-bottom:25px
-}
-
+.section{padding:0 16px;margin-bottom:25px}
 .section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:14px
+display:flex;justify-content:space-between;align-items:center;margin-bottom:14px
 }
-
 .section-head h2{font-size:19px}
-.section-head span{
-  font-size:12px;
-  color:#777
-}
+.section-head span{font-size:12px;color:#777}
 
 .categories{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:8px
+display:grid;grid-template-columns:repeat(5,1fr);gap:8px
 }
-
-.category{
-  border:0;
-  background:#fff;
-  text-align:center
-}
-
+.category{border:0;background:#fff;text-align:center}
 .cat-icon{
-  height:56px;
-  border-radius:15px;
-  background:#f4f5f7;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:25px;
-  margin-bottom:7px
+height:56px;border-radius:15px;background:#f4f5f7;
+display:flex;align-items:center;justify-content:center;
+font-size:25px;margin-bottom:7px
 }
-
-.category span{
-  font-size:11px;
-  color:#444
-}
+.category span{font-size:11px;color:#444}
 
 .offer{
-  border-radius:18px;
-  background:#eef5ff;
-  padding:18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px
+border-radius:18px;background:#eef5ff;padding:18px;
+display:flex;align-items:center;justify-content:space-between;gap:15px
 }
-
-.offer-text small{
-  font-size:10px;
-  font-weight:bold;
-  color:#526d9d
-}
-
-.offer-text h3{
-  font-size:17px;
-  margin:5px 0
-}
-
-.offer-text p{
-  font-size:12px;
-  color:#666
-}
-
+.offer-text small{font-size:10px;font-weight:bold;color:#526d9d}
+.offer-text h3{font-size:17px;margin:5px 0}
+.offer-text p{font-size:12px;color:#666}
 .offer-btn{
-  border:0;
-  background:#111;
-  color:#fff;
-  border-radius:11px;
-  padding:10px 13px;
-  white-space:nowrap
+border:0;background:#111;color:#fff;border-radius:11px;
+padding:10px 13px;white-space:nowrap
 }
 
-.services{
-  display:flex;
-  flex-direction:column;
-  gap:12px
-}
-
+.services{display:flex;flex-direction:column;gap:12px}
 .service-card{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  padding:13px;
-  border:1px solid #eee;
-  border-radius:16px;
-  background:#fff
+display:flex;align-items:center;gap:13px;padding:13px;
+border:1px solid #eee;border-radius:16px;background:#fff
 }
-
 .service-img{
-  width:75px;
-  height:75px;
-  border-radius:13px;
-  object-fit:cover;
-  background:#eee;
-  flex-shrink:0
+width:75px;height:75px;border-radius:13px;object-fit:cover;
+background:#eee;flex-shrink:0
 }
-
 .service-info{flex:1}
-
-.service-info h3{
-  font-size:15px;
-  margin-bottom:5px
-}
-
+.service-info h3{font-size:15px;margin-bottom:5px}
 .service-info p{
-  font-size:12px;
-  color:#777;
-  line-height:1.4;
-  margin-bottom:5px
+font-size:12px;color:#777;line-height:1.4;margin-bottom:5px
 }
-
-.service-price{
-  font-weight:bold;
-  font-size:14px
-}
-
+.service-price{font-weight:bold;font-size:14px}
 .book-small{
-  border:0;
-  background:#111;
-  color:#fff;
-  border-radius:10px;
-  padding:9px 11px;
-  font-size:12px
+border:0;background:#111;color:#fff;border-radius:10px;
+padding:9px 11px;font-size:12px
 }
-
 .empty{
-  display:none;
-  text-align:center;
-  padding:30px 10px;
-  color:#777;
-  font-size:14px
+display:none;text-align:center;padding:30px 10px;
+color:#777;font-size:14px
 }
 
 .why-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:9px
+display:grid;grid-template-columns:repeat(3,1fr);gap:9px
 }
-
 .why-card{
-  background:#f7f7f7;
-  border-radius:15px;
-  padding:15px 8px;
-  text-align:center
+background:#f7f7f7;border-radius:15px;padding:15px 8px;text-align:center
 }
-
-.why-card div{
-  font-size:23px;
-  margin-bottom:7px
-}
-
-.why-card strong{
-  display:block;
-  font-size:12px
-}
-
-.why-card span{
-  display:block;
-  color:#777;
-  font-size:10px;
-  margin-top:4px
-}
+.why-card div{font-size:23px;margin-bottom:7px}
+.why-card strong{display:block;font-size:12px}
+.why-card span{display:block;color:#777;font-size:10px;margin-top:4px}
 
 .bottom-nav{
-  position:fixed;
-  z-index:50;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  max-width:700px;
-  height:70px;
-  background:rgba(255,255,255,.97);
-  border-top:1px solid #eee;
-  display:grid;
-  grid-template-columns:repeat(4,1fr)
+position:fixed;z-index:50;bottom:0;left:50%;
+transform:translateX(-50%);width:100%;max-width:700px;height:70px;
+background:rgba(255,255,255,.97);border-top:1px solid #eee;
+display:grid;grid-template-columns:repeat(4,1fr)
 }
-
 .nav-btn{
-  border:0;
-  background:none;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:4px;
-  color:#888;
-  font-size:10px
+border:0;background:none;display:flex;flex-direction:column;
+justify-content:center;align-items:center;gap:4px;color:#888;font-size:10px
 }
-
 .nav-btn span:first-child{font-size:21px}
-.nav-btn.active{
-  color:#111;
-  font-weight:bold
-}
+.nav-btn.active{color:#111;font-weight:bold}
 
-.inner-page{
-  padding:18px 16px 30px
-}
-
+.inner-page{padding:18px 16px 30px}
 .page-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:20px
+display:flex;align-items:center;gap:12px;margin-bottom:20px
 }
-
 .back-btn{
-  border:0;
-  background:#f3f3f3;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  font-size:20px
+border:0;background:#f3f3f3;width:38px;height:38px;
+border-radius:50%;font-size:20px
 }
-
 .page-title h2{font-size:22px}
 
 .booking-card{
-  border:1px solid #eee;
-  border-radius:17px;
-  padding:15px;
-  margin-bottom:12px;
-  background:#fff
+border:1px solid #eee;border-radius:17px;padding:15px;
+margin-bottom:12px;background:#fff
 }
-
 .booking-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px
+display:flex;justify-content:space-between;gap:10px
 }
-
-.booking-card h3{
-  font-size:15px;
-  margin-bottom:5px
-}
-
-.booking-meta{
-  color:#777;
-  font-size:12px;
-  line-height:1.7
-}
-
+.booking-card h3{font-size:15px;margin-bottom:5px}
+.booking-meta{color:#777;font-size:12px;line-height:1.7}
 .status{
-  font-size:10px;
-  padding:6px 9px;
-  border-radius:20px;
-  height:max-content;
-  background:#eee;
-  white-space:nowrap
+font-size:10px;padding:6px 9px;border-radius:20px;
+height:max-content;background:#eee;white-space:nowrap
 }
-
-.status.confirmed,
-.status.pending{
-  background:#eaf7ed;
-  color:#26733a
+.status.confirmed,.status.pending{
+background:#eaf7ed;color:#26733a
 }
-
-.status.cancelled{
-  background:#fdecec;
-  color:#a32626
-}
+.status.cancelled{background:#fdecec;color:#a32626}
 
 .booking-actions{
-  display:flex;
-  gap:7px;
-  margin-top:13px;
-  flex-wrap:wrap
+display:flex;gap:7px;margin-top:13px;flex-wrap:wrap
 }
-
 .booking-actions button{
-  flex:1;
-  border:1px solid #ddd;
-  background:#fff;
-  border-radius:9px;
-  padding:8px 5px;
-  font-size:11px
+flex:1;border:1px solid #ddd;background:#fff;
+border-radius:9px;padding:8px 5px;font-size:11px
 }
-
 .booking-actions button.primary{
-  background:#111;
-  color:#fff;
-  border-color:#111
+background:#111;color:#fff;border-color:#111
 }
-
 .booking-actions a{
-  flex:1;
-  text-align:center;
-  text-decoration:none;
-  border:1px solid #ddd;
-  background:#fff;
-  color:#111;
-  border-radius:9px;
-  padding:8px 5px;
-  font-size:11px
+flex:1;text-align:center;text-decoration:none;
+border:1px solid #ddd;background:#fff;color:#111;
+border-radius:9px;padding:8px 5px;font-size:11px
 }
 
-.no-bookings{
-  text-align:center;
-  padding:60px 20px;
-  color:#777
-}
-
-.no-bookings .big{
-  font-size:45px;
-  margin-bottom:15px
-}
+.no-bookings{text-align:center;padding:60px 20px;color:#777}
+.no-bookings .big{font-size:45px;margin-bottom:15px}
 
 .offer-page-card{
-  border-radius:19px;
-  background:#111;
-  color:#fff;
-  padding:20px;
-  margin-bottom:13px
+border-radius:19px;background:#111;color:#fff;
+padding:20px;margin-bottom:13px
 }
-
-.offer-page-card:nth-child(2){
-  background:#eef5ff;
-  color:#111
-}
-
-.offer-page-card h3{
-  margin:7px 0;
-  font-size:19px
-}
-
+.offer-page-card:nth-child(2){background:#eef5ff;color:#111}
+.offer-page-card h3{margin:7px 0;font-size:19px}
 .offer-page-card p{
-  color:#aaa;
-  font-size:12px;
-  line-height:1.5
+color:#aaa;font-size:12px;line-height:1.5
 }
-
 .offer-page-card:nth-child(2) p{color:#666}
-
 .coupon{
-  margin-top:15px;
-  display:inline-block;
-  border:1px dashed currentColor;
-  padding:8px 12px;
-  border-radius:8px;
-  font-size:12px;
-  font-weight:bold
+margin-top:15px;display:inline-block;border:1px dashed currentColor;
+padding:8px 12px;border-radius:8px;font-size:12px;font-weight:bold
 }
 
 .profile-card{
-  background:#111;
-  color:#fff;
-  border-radius:20px;
-  padding:20px;
-  margin-bottom:18px
+background:#111;color:#fff;border-radius:20px;
+padding:20px;margin-bottom:18px
 }
-
 .profile-avatar{
-  width:60px;
-  height:60px;
-  background:#fff;
-  color:#111;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:23px;
-  font-weight:bold;
-  margin-bottom:13px
+width:60px;height:60px;background:#fff;color:#111;
+border-radius:50%;display:flex;align-items:center;
+justify-content:center;font-size:23px;font-weight:bold;margin-bottom:13px
 }
+.profile-card h3{font-size:19px;margin-bottom:5px}
+.profile-card p{font-size:12px;color:#bbb}
 
-.profile-card h3{
-  font-size:19px;
-  margin-bottom:5px
-}
-
-.profile-card p{
-  font-size:12px;
-  color:#bbb
-}
-
-.profile-menu{
-  display:flex;
-  flex-direction:column;
-  gap:9px
-}
-
+.profile-menu{display:flex;flex-direction:column;gap:9px}
 .profile-menu button{
-  border:1px solid #eee;
-  background:#fff;
-  border-radius:14px;
-  padding:14px;
-  text-align:left;
-  display:flex;
-  align-items:center;
-  gap:12px
+border:1px solid #eee;background:#fff;border-radius:14px;
+padding:14px;text-align:left;display:flex;
+align-items:center;gap:12px
 }
-
-.profile-menu button span:last-child{
-  margin-left:auto;
-  color:#aaa
-}
-
+.profile-menu button span:last-child{margin-left:auto;color:#aaa}
 .logout-button{color:#c62828!important}
 
 .support-card{
-  border:1px solid #eee;
-  border-radius:16px;
-  padding:16px;
-  margin-bottom:10px
+border:1px solid #eee;border-radius:16px;
+padding:16px;margin-bottom:10px
 }
-
-.support-card strong{
-  display:block;
-  margin-bottom:5px
-}
-
-.support-card p{
-  font-size:12px;
-  color:#777
-}
+.support-card strong{display:block;margin-bottom:5px}
+.support-card p{font-size:12px;color:#777}
 
 .modal-overlay{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  background:rgba(0,0,0,.55);
-  display:none;
-  align-items:flex-end;
-  justify-content:center
+position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.55);
+display:none;align-items:flex-end;justify-content:center
 }
-
 .modal-overlay.show{display:flex}
-
 .modal{
-  width:100%;
-  max-width:700px;
-  max-height:94vh;
-  overflow-y:auto;
-  background:#fff;
-  border-radius:24px 24px 0 0;
-  padding:20px 17px 28px
+width:100%;max-width:700px;max-height:94vh;overflow-y:auto;
+background:#fff;border-radius:24px 24px 0 0;padding:20px 17px 28px
 }
-
 .modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px
+display:flex;justify-content:space-between;
+align-items:center;margin-bottom:18px
 }
-
 .modal-head h2{font-size:21px}
-
 .close{
-  border:0;
-  background:#f3f3f3;
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  font-size:24px
+border:0;background:#f3f3f3;width:38px;height:38px;
+border-radius:50%;font-size:24px
 }
 
 .form-group{margin-bottom:14px}
-
 .form-group label{
-  display:block;
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:7px
+display:block;font-size:12px;font-weight:bold;margin-bottom:7px
 }
-
 .form-group input,
 .form-group textarea,
 .form-group select{
-  width:100%;
-  border:1px solid #ddd;
-  border-radius:11px;
-  padding:12px;
-  outline:0;
-  background:#fff
+width:100%;border:1px solid #ddd;border-radius:11px;
+padding:12px;outline:0;background:#fff
 }
-
-.form-group textarea{
-  min-height:80px;
-  resize:vertical
-}
-
+.form-group textarea{min-height:80px;resize:vertical}
 .form-group input:focus,
 .form-group textarea:focus,
-.form-group select:focus{
-  border-color:#111
-}
+.form-group select:focus{border-color:#111}
 
 .confirm-btn{
-  width:100%;
-  border:0;
-  background:#111;
-  color:#fff;
-  padding:14px;
-  border-radius:12px;
-  font-weight:bold;
-  margin-top:5px
+width:100%;border:0;background:#111;color:#fff;
+padding:14px;border-radius:12px;font-weight:bold;margin-top:5px
 }
 
 .location-box{
-  background:#f6f7f9;
-  border-radius:13px;
-  padding:12px;
-  margin-top:7px
+background:#f6f7f9;border-radius:13px;padding:12px;margin-top:7px
 }
-
 .location-status{
-  font-size:11px;
-  color:#777;
-  line-height:1.5;
-  margin-bottom:8px
+font-size:11px;color:#777;line-height:1.5;margin-bottom:8px
 }
-
 .location-btn{
-  width:100%;
-  border:0;
-  background:#111;
-  color:#fff;
-  padding:11px;
-  border-radius:10px;
-  font-size:12px
+width:100%;border:0;background:#111;color:#fff;
+padding:11px;border-radius:10px;font-size:12px
 }
-
-.location-btn.captured{
-  background:#26733a
-}
+.location-btn.captured{background:#26733a}
 
 .success-overlay{
-  position:fixed;
-  inset:0;
-  z-index:120;
-  background:rgba(0,0,0,.55);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px
+position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.55);
+display:none;align-items:center;justify-content:center;padding:20px
 }
-
 .success-overlay.show{display:flex}
-
 .success-box{
-  width:100%;
-  max-width:390px;
-  background:#fff;
-  border-radius:23px;
-  padding:30px 22px;
-  text-align:center
+width:100%;max-width:390px;background:#fff;border-radius:23px;
+padding:30px 22px;text-align:center
 }
-
 .success-icon{
-  width:65px;
-  height:65px;
-  border-radius:50%;
-  background:#e9f8ed;
-  color:#24933f;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0 auto 15px;
-  font-size:32px
+width:65px;height:65px;border-radius:50%;
+background:#e9f8ed;color:#24933f;display:flex;
+align-items:center;justify-content:center;margin:0 auto 15px;
+font-size:32px
 }
-
 .success-box h2{margin-bottom:10px}
-
 .success-box p{
-  color:#777;
-  font-size:13px;
-  line-height:1.6;
-  margin-bottom:20px
+color:#777;font-size:13px;line-height:1.6;margin-bottom:20px
 }
-
 .success-close{
-  border:0;
-  background:#111;
-  color:#fff;
-  width:100%;
-  padding:13px;
-  border-radius:11px
+border:0;background:#111;color:#fff;
+width:100%;padding:13px;border-radius:11px
 }
 
 .option-info{
-  background:#f6f7f9;
-  border-radius:12px;
-  padding:11px;
-  margin-bottom:10px;
-  font-size:12px;
-  color:#555
+background:#f6f7f9;border-radius:12px;
+padding:11px;margin-bottom:10px;font-size:12px;color:#555
+}
+
+/* QUANTITY */
+.quantity-box{
+display:none;align-items:center;justify-content:space-between;
+gap:12px;background:#f6f7f9;border-radius:12px;
+padding:12px;margin-bottom:14px
+}
+.quantity-box.show{display:flex}
+.quantity-info strong{display:block;font-size:13px}
+.quantity-info span{
+display:block;color:#777;font-size:10px;margin-top:3px
+}
+.quantity-control{
+display:flex;align-items:center;gap:10px
+}
+.quantity-control button{
+width:34px;height:34px;border:0;border-radius:9px;
+background:#111;color:#fff;font-size:20px;line-height:1
+}
+.quantity-control input{
+width:42px!important;text-align:center;
+border:1px solid #ddd!important;border-radius:9px!important;
+padding:8px 4px!important;background:#fff!important;
+font-weight:bold
+}
+
+/* PROVIDER */
+.provider-card{
+margin-top:14px;padding:14px;background:#f0f7f2;
+border:1px solid #dcefe1;border-radius:13px
+}
+.provider-waiting{
+background:#fff8e8;border-color:#f4e2ad
+}
+.provider-label{
+font-size:11px;font-weight:bold;color:#26733a;margin-bottom:9px
+}
+.provider-waiting .provider-label{color:#8a6500}
+.provider-row{
+display:flex;gap:11px;align-items:center
+}
+.provider-photo{
+width:48px;height:48px;border-radius:50%;
+object-fit:cover;background:#ddd;flex-shrink:0
+}
+.provider-avatar{
+width:48px;height:48px;border-radius:50%;
+background:#111;color:#fff;display:flex;
+align-items:center;justify-content:center;
+font-weight:bold;font-size:18px;flex-shrink:0
+}
+.provider-name{
+font-size:14px;font-weight:bold;margin-bottom:3px
+}
+.provider-sub{
+font-size:11px;color:#666;margin-top:3px
+}
+.provider-call{
+display:block;text-align:center;text-decoration:none;
+background:#111;color:#fff;padding:9px;border-radius:9px;
+margin-top:11px;font-size:11px
+}
+.provider-wait-text{
+font-size:11px;color:#777;line-height:1.5
 }
 
 .price-preview{
-  background:#f0f5ff;
-  padding:12px;
-  border-radius:12px;
-  margin-bottom:14px;
-  display:flex;
-  justify-content:space-between;
-  font-weight:bold
+background:#f0f5ff;padding:12px;border-radius:12px;
+margin-bottom:14px;display:flex;
+justify-content:space-between;font-weight:bold
 }
 
 .toast{
-  position:fixed;
-  z-index:200;
-  bottom:85px;
-  left:50%;
-  transform:translateX(-50%) translateY(20px);
-  background:#111;
-  color:#fff;
-  padding:11px 16px;
-  border-radius:10px;
-  font-size:12px;
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
-  max-width:90%;
-  text-align:center
+position:fixed;z-index:200;bottom:85px;left:50%;
+transform:translateX(-50%) translateY(20px);
+background:#111;color:#fff;padding:11px 16px;border-radius:10px;
+font-size:12px;opacity:0;pointer-events:none;transition:.3s;
+max-width:90%;text-align:center
 }
-
 .toast.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0)
+opacity:1;transform:translateX(-50%) translateY(0)
 }
 
 .loading{
-  padding:25px;
-  text-align:center;
-  color:#777;
-  font-size:13px
+padding:25px;text-align:center;color:#777;font-size:13px
 }
 
 .edit-profile-box{
-  display:none;
-  margin-bottom:18px
+display:none;margin-bottom:18px
 }
-
 .edit-profile-box.show{display:block}
 
 .small-btn{
-  border:0;
-  background:#111;
-  color:#fff;
-  padding:10px 13px;
-  border-radius:9px;
-  font-size:12px
+border:0;background:#111;color:#fff;
+padding:10px 13px;border-radius:9px;font-size:12px
 }
 
+/* AUTH */
 .auth-overlay{
-  position:fixed;
-  inset:0;
-  z-index:300;
-  background:rgba(0,0,0,.58);
-  display:none;
-  align-items:flex-end;
-  justify-content:center
+position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.58);
+display:none;align-items:flex-end;justify-content:center
 }
-
 .auth-overlay.show{display:flex}
-
 .auth-box{
-  width:100%;
-  max-width:700px;
-  background:#fff;
-  border-radius:25px 25px 0 0;
-  padding:24px 18px 30px;
-  max-height:92vh;
-  overflow-y:auto
+width:100%;max-width:700px;background:#fff;
+border-radius:25px 25px 0 0;padding:24px 18px 30px;
+max-height:92vh;overflow-y:auto
 }
-
 .auth-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px
+display:flex;justify-content:space-between;
+align-items:center;margin-bottom:18px
 }
-
 .auth-top h2{font-size:22px}
-
 .auth-close{
-  width:38px;
-  height:38px;
-  border:0;
-  border-radius:50%;
-  background:#f3f3f3;
-  font-size:23px
+width:38px;height:38px;border:0;
+border-radius:50%;background:#f3f3f3;font-size:23px
 }
-
 .auth-intro{
-  background:#f6f7f9;
-  border-radius:14px;
-  padding:13px;
-  margin-bottom:18px;
-  font-size:12px;
-  color:#666;
-  line-height:1.5
+background:#f6f7f9;border-radius:14px;
+padding:13px;margin-bottom:18px;
+font-size:12px;color:#666;line-height:1.5
 }
-
-.phone-wrap{
-  display:flex;
-  gap:7px
-}
-
+.phone-wrap{display:flex;gap:7px}
 .phone-prefix{
-  width:62px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid #ddd;
-  border-radius:11px;
-  background:#f8f8f8;
-  font-weight:bold;
-  font-size:13px
+width:62px;display:flex;align-items:center;
+justify-content:center;border:1px solid #ddd;
+border-radius:11px;background:#f8f8f8;
+font-weight:bold;font-size:13px
 }
-
 .phone-input{flex:1}
-
 .auth-submit{
-  width:100%;
-  border:0;
-  background:#111;
-  color:#fff;
-  padding:14px;
-  border-radius:12px;
-  font-weight:bold;
-  margin-top:4px
+width:100%;border:0;background:#111;color:#fff;
+padding:14px;border-radius:12px;font-weight:bold;margin-top:4px
 }
-
 .auth-switch{
-  text-align:center;
-  margin-top:17px;
-  font-size:12px;
-  color:#777
+text-align:center;margin-top:17px;
+font-size:12px;color:#777
 }
-
 .auth-switch button{
-  border:0;
-  background:none;
-  color:#111;
-  font-weight:bold
+border:0;background:none;color:#111;font-weight:bold
 }
-
 .auth-note{
-  text-align:center;
-  font-size:10px;
-  color:#999;
-  margin-top:12px;
-  line-height:1.5
+text-align:center;font-size:10px;color:#999;
+margin-top:12px;line-height:1.5
 }
-
 .auth-error{
-  display:none;
-  background:#fdecec;
-  color:#a32626;
-  padding:10px;
-  border-radius:10px;
-  margin-bottom:13px;
-  font-size:12px
+display:none;background:#fdecec;color:#a32626;
+padding:10px;border-radius:10px;margin-bottom:13px;
+font-size:12px
 }
 
 @media(max-width:390px){
-  .categories{gap:5px}
-  .cat-icon{
-    height:50px;
-    font-size:21px
-  }
-  .hero h1{font-size:27px}
+.categories{gap:5px}
+.cat-icon{height:50px;font-size:21px}
+.hero h1{font-size:27px}
 }
 </style>
 </head>
 
 <body>
-
 <div class="app">
 
-<!-- ================= HOME ================= -->
-
+<!-- HOME -->
 <div class="page active" id="homePage">
 
 <div class="topbar">
-  <div class="location">
-    <div class="location-icon">📍</div>
-    <div>
-      <small>Cleaning at</small>
-      <strong>Guwahati, Assam</strong>
-    </div>
-  </div>
-
-  <button class="profile-btn" id="profileBtn">B</button>
+<div class="location">
+<div class="location-icon">📍</div>
+<div>
+<small>Cleaning at</small>
+<strong>Guwahati, Assam</strong>
+</div>
+</div>
+<button class="profile-btn" id="profileBtn">B</button>
 </div>
 
 <div class="search-box">
-  <span>⌕</span>
-  <input
-    type="text"
-    id="searchInput"
-    placeholder="Search for cleaning services"
-  >
+<span>⌕</span>
+<input type="text" id="searchInput" placeholder="Search for cleaning services">
 </div>
 
 <section class="hero">
-  <span class="hero-tag">✨ Professional Home Cleaning</span>
-  <h1>A cleaner home starts here.</h1>
-  <p>
-    Book trusted cleaning professionals for your home in Guwahati.
-  </p>
-  <button class="hero-btn" id="heroBookBtn">
-    Book a Service →
-  </button>
+<span class="hero-tag">✨ Professional Home Cleaning</span>
+<h1>A cleaner home starts here.</h1>
+<p>Book trusted cleaning professionals for your home in Guwahati.</p>
+<button class="hero-btn" id="heroBookBtn">Book a Service →</button>
 </section>
 
 <section class="section">
-
 <div class="section-head">
-  <h2>What do you need?</h2>
-  <span>Explore</span>
+<h2>What do you need?</h2>
+<span>Explore</span>
 </div>
 
 <div class="categories">
 
 <button class="category" data-category="Bathroom">
-  <div class="cat-icon">🛁</div>
-  <span>Bathroom</span>
+<div class="cat-icon">🛁</div>
+<span>Bathroom</span>
 </button>
 
 <button class="category" data-category="Kitchen">
-  <div class="cat-icon">🍳</div>
-  <span>Kitchen</span>
+<div class="cat-icon">🍳</div>
+<span>Kitchen</span>
 </button>
 
 <button class="category" data-category="Sofa">
-  <div class="cat-icon">🛋️</div>
-  <span>Sofa</span>
+<div class="cat-icon">🛋️</div>
+<span>Sofa</span>
 </button>
 
 <button class="category" data-category="Full Home">
-  <div class="cat-icon">🏠</div>
-  <span>Full Home</span>
+<div class="cat-icon">🏠</div>
+<span>Full Home</span>
 </button>
 
 <button class="category" data-category="Cleaning">
-  <div class="cat-icon">✨</div>
-  <span>Cleaning</span>
+<div class="cat-icon">✨</div>
+<span>Cleaning</span>
 </button>
 
 </div>
 </section>
 
 <section class="section">
-
 <div class="offer">
-
 <div class="offer-text">
-  <small>LIMITED OFFER</small>
-  <h3>Fresh home, fresh feeling.</h3>
-  <p>Professional cleaning at your doorstep.</p>
+<small>LIMITED OFFER</small>
+<h3>Fresh home, fresh feeling.</h3>
+<p>Professional cleaning at your doorstep.</p>
 </div>
-
-<button class="offer-btn" id="offerBtn">
-  Book Now
-</button>
-
+<button class="offer-btn" id="offerBtn">Book Now</button>
 </div>
-
 </section>
 
 <section class="section" id="servicesSection">
-
 <div class="section-head">
-  <h2>Popular Services</h2>
-  <span id="serviceCount">Loading...</span>
+<h2>Popular Services</h2>
+<span id="serviceCount">Loading...</span>
 </div>
 
 <div class="services" id="servicesList"></div>
-
-<div class="empty" id="emptyServices">
-  No matching services found.
-</div>
-
+<div class="empty" id="emptyServices">No matching services found.</div>
 </section>
 
 <section class="section">
-
 <div class="section-head">
-  <h2>Why choose us?</h2>
+<h2>Why choose us?</h2>
 </div>
 
 <div class="why-grid">
 
 <div class="why-card">
-  <div>🧑‍🔧</div>
-  <strong>Trained Pros</strong>
-  <span>Professional service</span>
+<div>🧑‍🔧</div>
+<strong>Trained Pros</strong>
+<span>Professional service</span>
 </div>
 
 <div class="why-card">
-  <div>🛡️</div>
-  <strong>Reliable</strong>
-  <span>Safe & trusted</span>
+<div>🛡️</div>
+<strong>Reliable</strong>
+<span>Safe & trusted</span>
 </div>
 
 <div class="why-card">
-  <div>🏠</div>
-  <strong>At Your Door</strong>
-  <span>Home service</span>
+<div>🏠</div>
+<strong>At Your Door</strong>
+<span>Home service</span>
 </div>
 
 </div>
-
 </section>
 
 </div>
 
 
-<!-- ================= BOOKINGS ================= -->
-
+<!-- BOOKINGS -->
 <div class="page" id="bookingsPage">
-
 <div class="inner-page">
 
 <div class="page-title">
-  <button class="back-btn" onclick="showPage('homePage')">
-    ‹
-  </button>
-  <h2>My Bookings</h2>
+<button class="back-btn" onclick="showPage('homePage')">‹</button>
+<h2>My Bookings</h2>
 </div>
 
 <div id="bookingsList">
-  <div class="loading">Loading bookings...</div>
+<div class="loading">Loading bookings...</div>
 </div>
 
 </div>
-
 </div>
 
 
-<!-- ================= OFFERS ================= -->
-
+<!-- OFFERS -->
 <div class="page" id="offersPage">
-
 <div class="inner-page">
 
 <div class="page-title">
-  <button class="back-btn" onclick="showPage('homePage')">
-    ‹
-  </button>
-  <h2>Offers</h2>
+<button class="back-btn" onclick="showPage('homePage')">‹</button>
+<h2>Offers</h2>
 </div>
 
 <div class="offer-page-card">
-  <small>WELCOME OFFER</small>
-  <h3>Get special cleaning offers</h3>
-  <p>
-    Enjoy professional cleaning services at special prices.
-  </p>
-  <div class="coupon">WELCOME10</div>
+<small>WELCOME OFFER</small>
+<h3>Get special cleaning offers</h3>
+<p>Enjoy professional cleaning services at special prices.</p>
+<div class="coupon">WELCOME10</div>
 </div>
 
 <div class="offer-page-card">
-  <small>HOME CLEANING</small>
-  <h3>Fresh Home Offer</h3>
-  <p>
-    Book your home cleaning service and ask our team about current offers.
-  </p>
-  <div class="coupon">FRESH10</div>
+<small>HOME CLEANING</small>
+<h3>Fresh Home Offer</h3>
+<p>Book your home cleaning service and ask our team about current offers.</p>
+<div class="coupon">FRESH10</div>
 </div>
 
 <div class="offer-page-card">
-  <small>REGULAR CUSTOMER</small>
-  <h3>Thank you for choosing us</h3>
-  <p>
-    Repeat customers may receive special service offers.
-  </p>
+<small>REGULAR CUSTOMER</small>
+<h3>Thank you for choosing us</h3>
+<p>Repeat customers may receive special service offers.</p>
 </div>
 
 </div>
-
 </div>
 
 
-<!-- ================= PROFILE ================= -->
-
+<!-- PROFILE -->
 <div class="page" id="profilePage">
-
 <div class="inner-page">
 
 <div class="page-title">
-  <button class="back-btn" onclick="showPage('homePage')">
-    ‹
-  </button>
-  <h2>Profile</h2>
+<button class="back-btn" onclick="showPage('homePage')">‹</button>
+<h2>Profile</h2>
 </div>
 
 <div class="profile-card">
-
-<div class="profile-avatar" id="profileAvatar">
-  B
+<div class="profile-avatar" id="profileAvatar">B</div>
+<h3 id="profileName">Guest Customer</h3>
+<p id="profilePhone">Login to your account</p>
 </div>
-
-<h3 id="profileName">
-  Guest Customer
-</h3>
-
-<p id="profilePhone">
-  Login to your account
-</p>
-
-</div>
-
 
 <div class="edit-profile-box" id="editProfileBox">
 
 <div class="form-group">
-  <label>Full Name</label>
-  <input
-    id="profileEditName"
-    type="text"
-    placeholder="Your name"
-  >
+<label>Full Name</label>
+<input id="profileEditName" type="text" placeholder="Your name">
 </div>
 
 <div class="form-group">
-  <label>Phone Number</label>
-  <input
-    id="profileEditPhone"
-    type="tel"
-    maxlength="10"
-    placeholder="10 digit mobile number"
-  >
+<label>Phone Number</label>
+<input id="profileEditPhone" type="tel" maxlength="10" placeholder="10 digit mobile number">
 </div>
 
 <div class="form-group">
-  <label>Email</label>
-  <input
-    id="profileEditEmail"
-    type="email"
-    placeholder="Email"
-  >
+<label>Email</label>
+<input id="profileEditEmail" type="email" placeholder="Email">
 </div>
 
 <div class="form-group">
-  <label>Address</label>
-  <textarea
-    id="profileEditAddress"
-    placeholder="Your address"
-  ></textarea>
+<label>Address</label>
+<textarea id="profileEditAddress" placeholder="Your address"></textarea>
 </div>
 
-<button class="small-btn" onclick="saveProfile()">
-  Save Profile
-</button>
+<button class="small-btn" onclick="saveProfile()">Save Profile</button>
 
 </div>
-
 
 <div class="profile-menu">
 
-<button
-  id="loginProfileButton"
-  onclick="openAuth('login')"
->
-  <span>🔐</span>
-  <strong>Login / Create Account</strong>
-  <span>›</span>
+<button id="loginProfileButton" onclick="openAuth('login')">
+<span>🔐</span>
+<strong>Login / Create Account</strong>
+<span>›</span>
 </button>
 
 <button onclick="openEditProfile()">
-  <span>✏️</span>
-  <strong>Edit Profile</strong>
-  <span>›</span>
+<span>✏️</span>
+<strong>Edit Profile</strong>
+<span>›</span>
 </button>
 
-<button
-  onclick="showPage('bookingsPage');loadBookings();"
->
-  <span>📖</span>
-  <strong>My Bookings</strong>
-  <span>›</span>
+<button onclick="showPage('bookingsPage');loadBookings();">
+<span>📖</span>
+<strong>My Bookings</strong>
+<span>›</span>
 </button>
 
 <button onclick="showPage('offersPage')">
-  <span>🎁</span>
-  <strong>Offers & Coupons</strong>
-  <span>›</span>
+<span>🎁</span>
+<strong>Offers & Coupons</strong>
+<span>›</span>
 </button>
 
 <button onclick="openSupport()">
-  <span>💬</span>
-  <strong>Help & Support</strong>
-  <span>›</span>
+<span>💬</span>
+<strong>Help & Support</strong>
+<span>›</span>
 </button>
 
 <button onclick="showNotifications()">
-  <span>🔔</span>
-  <strong>Notifications</strong>
-  <span>›</span>
+<span>🔔</span>
+<strong>Notifications</strong>
+<span>›</span>
 </button>
 
-<button
-  id="logoutButton"
-  class="logout-button"
-  style="display:none"
-  onclick="logout()"
->
-  <span>🚪</span>
-  <strong>Logout</strong>
-  <span>›</span>
+<button id="logoutButton" class="logout-button" style="display:none" onclick="logout()">
+<span>🚪</span>
+<strong>Logout</strong>
+<span>›</span>
 </button>
 
 </div>
 
 </div>
-
 </div>
 
 
-<!-- ================= SUPPORT ================= -->
-
+<!-- SUPPORT -->
 <div class="page" id="supportPage">
-
 <div class="inner-page">
 
 <div class="page-title">
-  <button class="back-btn" onclick="showPage('profilePage')">
-    ‹
-  </button>
-  <h2>Help & Support</h2>
+<button class="back-btn" onclick="showPage('profilePage')">‹</button>
+<h2>Help & Support</h2>
 </div>
 
 <div class="support-card">
-  <strong>📞 Contact Support</strong>
-  <p>
-    Our support team can help with bookings, rescheduling and service questions.
-  </p>
-  <br>
-  <button class="small-btn" onclick="contactSupport()">
-    Contact Us
-  </button>
+<strong>📞 Contact Support</strong>
+<p>Our support team can help with bookings, rescheduling and service questions.</p>
+<br>
+<button class="small-btn" onclick="contactSupport()">Contact Us</button>
 </div>
 
 <div class="support-card">
-  <strong>📅 Booking Help</strong>
-  <p>
-    You can view, reschedule or cancel your booking from My Bookings.
-  </p>
+<strong>📅 Booking Help</strong>
+<p>You can view, reschedule or cancel your booking from My Bookings.</p>
 </div>
 
 <div class="support-card">
-  <strong>💳 Payment Help</strong>
-  <p>
-    Payment options can be added to the booking process later.
-  </p>
+<strong>💳 Payment Help</strong>
+<p>Payment options can be added to the booking process later.</p>
 </div>
 
 <div class="support-card">
-  <strong>🧹 Service Help</strong>
-  <p>
-    Please provide complete service details when making a booking.
-  </p>
+<strong>🧹 Service Help</strong>
+<p>Please provide complete service details when making a booking.</p>
 </div>
 
 </div>
-
 </div>
 
 
-<!-- ================= BOTTOM NAV ================= -->
-
+<!-- BOTTOM NAV -->
 <nav class="bottom-nav">
 
-<button
-  class="nav-btn active"
-  id="navHome"
-  onclick="showPage('homePage')"
->
-  <span>⌂</span>
-  <span>Home</span>
+<button class="nav-btn active" id="navHome" onclick="showPage('homePage')">
+<span>⌂</span>
+<span>Home</span>
 </button>
 
-<button
-  class="nav-btn"
-  id="navBookings"
-  onclick="showPage('bookingsPage');loadBookings();"
->
-  <span>▣</span>
-  <span>Bookings</span>
+<button class="nav-btn" id="navBookings" onclick="showPage('bookingsPage');loadBookings();">
+<span>▣</span>
+<span>Bookings</span>
 </button>
 
-<button
-  class="nav-btn"
-  id="navOffers"
-  onclick="showPage('offersPage')"
->
-  <span>%</span>
-  <span>Offers</span>
+<button class="nav-btn" id="navOffers" onclick="showPage('offersPage')">
+<span>%</span>
+<span>Offers</span>
 </button>
 
-<button
-  class="nav-btn"
-  id="navProfile"
-  onclick="showPage('profilePage');loadProfile();"
->
-  <span>●</span>
-  <span>Profile</span>
+<button class="nav-btn" id="navProfile" onclick="showPage('profilePage');loadProfile();">
+<span>●</span>
+<span>Profile</span>
 </button>
 
 </nav>
 
 
-<!-- ================= BOOKING MODAL ================= -->
-
+<!-- BOOKING MODAL -->
 <div class="modal-overlay" id="bookingModal">
 
 <div class="modal">
 
 <div class="modal-head">
-  <h2>Book a Service</h2>
-  <button class="close" id="closeBooking">×</button>
+<h2>Book a Service</h2>
+<button class="close" id="closeBooking">×</button>
 </div>
 
 <form id="bookingForm">
 
 <div class="form-group">
-  <label>Your Name</label>
-  <input
-    type="text"
-    id="customerName"
-    placeholder="Enter your full name"
-    required
-  >
+<label>Your Name</label>
+<input type="text" id="customerName" placeholder="Enter your full name" required>
 </div>
 
 <div class="form-group">
-  <label>Phone Number</label>
-  <input
-    type="tel"
-    id="customerPhone"
-    placeholder="10 digit mobile number"
-    maxlength="10"
-    required
-  >
+<label>Phone Number</label>
+<input type="tel" id="customerPhone" placeholder="10 digit mobile number" maxlength="10" required>
 </div>
 
 <div class="form-group">
-  <label>Service</label>
-
-  <select id="serviceSelect" required>
-    <option value="">Select service</option>
-  </select>
-
-</div>
-
-<div
-  class="option-info"
-  id="selectedServiceInfo"
-  style="display:none"
-></div>
-
-<div class="form-group">
-
-<label>Service Option</label>
-
-<select id="serviceOption" required>
-  <option value="">Select service option</option>
+<label>Service</label>
+<select id="serviceSelect" required>
+<option value="">Select service</option>
 </select>
-
 </div>
 
-<div
-  class="price-preview"
-  id="pricePreview"
-  style="display:none"
->
-  <span>Estimated Price</span>
-  <span id="selectedPrice">₹0</span>
+<div class="option-info" id="selectedServiceInfo" style="display:none"></div>
+
+
+<!-- QUANTITY -->
+<div class="quantity-box" id="quantityBox">
+
+<div class="quantity-info">
+<strong id="quantityLabel">Quantity</strong>
+<span id="quantityHint">Select how many you need.</span>
 </div>
 
-<div class="form-group">
+<div class="quantity-control">
 
-<label>Date</label>
+<button type="button" onclick="changeQuantity(-1)">−</button>
 
 <input
-  type="date"
-  id="bookingDate"
-  required
+id="bookingQuantity"
+type="number"
+min="1"
+max="20"
+value="1"
+readonly
 >
 
+<button type="button" onclick="changeQuantity(1)">+</button>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+<label>Service Option</label>
+<select id="serviceOption" required>
+<option value="">Select service option</option>
+</select>
+</div>
+
+<div class="price-preview" id="pricePreview" style="display:none">
+<span>Estimated Price</span>
+<span id="selectedPrice">₹0</span>
 </div>
 
 <div class="form-group">
+<label>Date</label>
+<input type="date" id="bookingDate" required>
+</div>
 
+<div class="form-group">
 <label>Time</label>
-
 <select id="bookingTime" required>
-  <option value="">Select time</option>
+<option value="">Select time</option>
 </select>
-
 </div>
 
 
-<!-- ================= CURRENT LOCATION ================= -->
-
+<!-- LOCATION -->
 <div class="form-group">
 
 <label>Service Location</label>
 
 <div class="location-box">
 
-<div
-  class="location-status"
-  id="locationStatus"
->
-  Use your current location so our service provider can find you easily.
+<div class="location-status" id="locationStatus">
+Use your current location so our service provider can find you easily.
 </div>
 
 <button
-  type="button"
-  class="location-btn"
-  id="currentLocationBtn"
-  onclick="useCurrentLocation()"
+type="button"
+class="location-btn"
+id="currentLocationBtn"
+onclick="useCurrentLocation()"
 >
-  📍 Use Current Location
+📍 Use Current Location
 </button>
 
 </div>
@@ -1471,66 +894,41 @@ button:disabled{opacity:.6;cursor:not-allowed}
 
 
 <div class="form-group">
-
 <label>Service Address</label>
-
-<textarea
-  id="customerAddress"
-  placeholder="Enter complete service address"
-  required
-></textarea>
-
+<textarea id="customerAddress" placeholder="Enter complete service address" required></textarea>
 </div>
-
 
 <div class="form-group">
-
 <label>Notes (Optional)</label>
-
-<textarea
-  id="bookingNotes"
-  placeholder="Any special instructions?"
-></textarea>
-
+<textarea id="bookingNotes" placeholder="Any special instructions?"></textarea>
 </div>
 
-
-<button
-  class="confirm-btn"
-  type="submit"
->
-  Confirm Booking
+<button class="confirm-btn" type="submit">
+Confirm Booking
 </button>
 
 </form>
 
 </div>
-
 </div>
 
 
-<!-- ================= SUCCESS ================= -->
-
+<!-- SUCCESS -->
 <div class="success-overlay" id="successModal">
 
 <div class="success-box">
 
-<div class="success-icon">
-  ✓
-</div>
+<div class="success-icon">✓</div>
 
 <h2>Booking Confirmed!</h2>
 
 <p>
-  Your cleaning service booking has been received successfully.
-  Our team will contact you shortly.
+Your cleaning service booking has been received successfully.
+Our team will contact you shortly.
 </p>
 
-<button
-  class="success-close"
-  id="closeSuccess"
->
-  Done
+<button class="success-close" id="closeSuccess">
+Done
 </button>
 
 </div>
@@ -1538,52 +936,26 @@ button:disabled{opacity:.6;cursor:not-allowed}
 </div>
 
 
-<!-- ================= AUTH ================= -->
-
+<!-- AUTH -->
 <div class="auth-overlay" id="authModal">
 
 <div class="auth-box">
 
 <div class="auth-top">
-
-<h2 id="authTitle">
-  Login
-</h2>
-
-<button
-  class="auth-close"
-  onclick="closeAuth()"
->
-  ×
-</button>
-
+<h2 id="authTitle">Login</h2>
+<button class="auth-close" onclick="closeAuth()">×</button>
 </div>
 
 <div class="auth-intro">
-  🇮🇳 Use your Indian mobile number and password to access your account.
+🇮🇳 Use your Indian mobile number and password to access your account.
 </div>
 
-<div
-  class="auth-error"
-  id="authError"
-></div>
+<div class="auth-error" id="authError"></div>
 
-
-<div
-  class="form-group"
-  id="authNameGroup"
->
-
+<div class="form-group" id="authNameGroup">
 <label>Full Name</label>
-
-<input
-  id="authName"
-  type="text"
-  placeholder="Enter your full name"
->
-
+<input id="authName" type="text" placeholder="Enter your full name">
 </div>
-
 
 <div class="form-group">
 
@@ -1591,2200 +963,2062 @@ button:disabled{opacity:.6;cursor:not-allowed}
 
 <div class="phone-wrap">
 
-<div class="phone-prefix">
-  +91
-</div>
+<div class="phone-prefix">+91</div>
 
 <input
-  class="phone-input"
-  id="authPhone"
-  type="tel"
-  maxlength="10"
-  inputmode="numeric"
-  placeholder="10 digit mobile number"
+class="phone-input"
+id="authPhone"
+type="tel"
+maxlength="10"
+inputmode="numeric"
+placeholder="10 digit mobile number"
 >
 
 </div>
 
 </div>
-
 
 <div class="form-group">
-
 <label>Password</label>
-
-<input
-  id="authPassword"
-  type="password"
-  placeholder="Minimum 6 characters"
->
-
+<input id="authPassword" type="password" placeholder="Minimum 6 characters">
 </div>
 
-
-<div
-  class="form-group"
-  id="authConfirmGroup"
->
-
+<div class="form-group" id="authConfirmGroup">
 <label>Confirm Password</label>
-
-<input
-  id="authConfirmPassword"
-  type="password"
-  placeholder="Enter password again"
->
-
+<input id="authConfirmPassword" type="password" placeholder="Enter password again">
 </div>
 
-
-<button
-  class="auth-submit"
-  id="authSubmitButton"
-  onclick="submitAuth()"
->
-  Create Account
+<button class="auth-submit" id="authSubmitButton" onclick="submitAuth()">
+Create Account
 </button>
-
 
 <div class="auth-switch">
-
-<span id="authSwitchText">
-  Already have an account?
-</span>
-
-<button
-  id="authSwitchButton"
-  onclick="switchAuthMode()"
->
-  Login
-</button>
-
+<span id="authSwitchText">Already have an account?</span>
+<button id="authSwitchButton" onclick="switchAuthMode()">Login</button>
 </div>
-
 
 <div class="auth-note">
-  Your mobile number is used to create and identify your customer account.
+Your mobile number is used to create and identify your customer account.
 </div>
 
 </div>
-
 </div>
-
 
 <div class="toast" id="toast"></div>
 
 
 <script>
 
-const SUPABASE_URL =
-"https://uuwgiyyyrodghvjvicoy.supabase.co";
+const SUPABASE_URL="https://uuwgiyyyrodghvjvicoy.supabase.co";
 
-const SUPABASE_KEY =
-"sb_publishable_1-iphInSnhfjN8zFmrnuSw_qu1l_qOf";
+const SUPABASE_KEY="sb_publishable_1-iphInSnhfjN8zFmrnuSw_qu1l_qOf";
 
+let currentUser=null;
+let accessToken=null;
 
-let currentUser = null;
-let accessToken = null;
+let services=[];
+let serviceOptions=[];
+let timeSlots=[];
 
-let services = [];
-let serviceOptions = [];
-let timeSlots = [];
+let selectedServiceId=null;
+let authMode="login";
 
-let selectedServiceId = null;
+let customerLatitude=null;
+let customerLongitude=null;
+let locationAddress="";
 
-let authMode = "login";
-
-
-// ================= LOCATION STATE =================
-
-let customerLatitude = null;
-let customerLongitude = null;
-let locationAddress = "";
+let bookingQuantity=1;
 
 let toastTimer;
 
 
-// ================= SUPABASE =================
-
 function getHeaders(){
 
-  const h = {
-    "apikey": SUPABASE_KEY,
-    "Content-Type": "application/json"
-  };
+const h={
+"apikey":SUPABASE_KEY,
+"Content-Type":"application/json"
+};
 
-  if(accessToken){
-    h.Authorization =
-      "Bearer " + accessToken;
-  }
+if(accessToken){
+h.Authorization="Bearer "+accessToken;
+}
 
-  return h;
+return h;
+
 }
 
 
 async function supabaseFetch(path,options={}){
 
-  const r = await fetch(
-    SUPABASE_URL + path,
-    {
-      ...options,
-      headers:{
-        ...getHeaders(),
-        ...(options.headers || {})
-      }
-    }
-  );
+const r=await fetch(
+SUPABASE_URL+path,
+{
+...options,
+headers:{
+...getHeaders(),
+...(options.headers||{})
+}
+}
+);
 
-  if(!r.ok){
+if(!r.ok){
 
-    const text = await r.text();
+const text=await r.text();
 
-    let msg =
-      text || "Supabase request failed";
+let msg=text||"Supabase request failed";
 
-    try{
+try{
 
-      const j = JSON.parse(text);
+const j=JSON.parse(text);
 
-      msg =
-        j.msg ||
-        j.message ||
-        j.error_description ||
-        j.error ||
-        text;
+msg=
+j.msg||
+j.message||
+j.error_description||
+j.error||
+text;
 
-    }catch(e){}
+}catch(e){}
 
-    throw new Error(msg);
-  }
-
-  const text = await r.text();
-
-  if(!text)return null;
-
-  try{
-    return JSON.parse(text);
-  }catch{
-    return text;
-  }
+throw new Error(msg);
 
 }
 
+const text=await r.text();
 
-// ================= TOAST =================
+if(!text)return null;
+
+try{
+return JSON.parse(text);
+}catch{
+return text;
+}
+
+}
+
 
 function showToast(message){
 
-  const t =
-    document.getElementById("toast");
+const t=document.getElementById("toast");
 
-  t.textContent =
-    message;
+t.textContent=message;
 
-  t.classList.add("show");
+t.classList.add("show");
 
-  clearTimeout(toastTimer);
+clearTimeout(toastTimer);
 
-  toastTimer =
-    setTimeout(
-      ()=>t.classList.remove("show"),
-      3000
-    );
+toastTimer=setTimeout(
+()=>t.classList.remove("show"),
+3000
+);
 
 }
 
-
-// ================= AUTH HELPERS =================
 
 function mobileToEmail(phone){
 
-  return String(phone).trim() +
-    "@guscustomer.com";
+return String(phone).trim()+"@guscustomer.com";
 
 }
+
 
 function getSavedToken(){
 
-  return localStorage.getItem(
-    "gus_access_token"
-  );
+return localStorage.getItem("gus_access_token");
 
 }
 
 
-// ================= AUTH =================
-
 async function initAuth(){
 
-  const saved =
-    getSavedToken();
+const saved=getSavedToken();
 
-  if(!saved){
+if(!saved){
 
-    accessToken = null;
-    currentUser = null;
+accessToken=null;
+currentUser=null;
 
-    updateAuthUI();
+updateAuthUI();
 
-    return;
-  }
+return;
 
-  accessToken = saved;
+}
 
-  try{
+accessToken=saved;
 
-    const u =
-      await supabaseFetch(
-        "/auth/v1/user"
-      );
+try{
 
-    if(u && u.id){
+const u=await supabaseFetch("/auth/v1/user");
 
-      currentUser = u;
+if(u&&u.id){
 
-      updateAuthUI();
+currentUser=u;
 
-      return;
-    }
+updateAuthUI();
 
-  }catch(e){
+return;
 
-    console.log(
-      "Saved session invalid:",
-      e
-    );
+}
 
-  }
+}catch(e){
 
-  localStorage.removeItem(
-    "gus_access_token"
-  );
+console.log("Saved session invalid:",e);
 
-  accessToken = null;
-  currentUser = null;
+}
 
-  updateAuthUI();
+localStorage.removeItem("gus_access_token");
+
+accessToken=null;
+currentUser=null;
+
+updateAuthUI();
 
 }
 
 
 function openAuth(mode="login"){
 
-  authMode =
-    mode === "signup"
-      ? "signup"
-      : "login";
+authMode=mode==="signup"?"signup":"login";
 
-  updateAuthModal();
+updateAuthModal();
 
-  document
-    .getElementById("authModal")
-    .classList.add("show");
+document.getElementById("authModal").classList.add("show");
 
 }
 
 
 function closeAuth(){
 
-  document
-    .getElementById("authModal")
-    .classList.remove("show");
+document.getElementById("authModal").classList.remove("show");
 
 }
 
 
 function switchAuthMode(){
 
-  authMode =
-    authMode === "login"
-      ? "signup"
-      : "login";
+authMode=authMode==="login"?"signup":"login";
 
-  updateAuthModal();
+updateAuthModal();
 
 }
 
 
 function updateAuthModal(){
 
-  const signup =
-    authMode === "signup";
+const signup=authMode==="signup";
 
-  document.getElementById(
-    "authTitle"
-  ).textContent =
-    signup
-      ? "Create Account"
-      : "Login";
+document.getElementById("authTitle").textContent=
+signup?"Create Account":"Login";
 
-  document.getElementById(
-    "authNameGroup"
-  ).style.display =
-    signup
-      ? "block"
-      : "none";
+document.getElementById("authNameGroup").style.display=
+signup?"block":"none";
 
-  document.getElementById(
-    "authConfirmGroup"
-  ).style.display =
-    signup
-      ? "block"
-      : "none";
+document.getElementById("authConfirmGroup").style.display=
+signup?"block":"none";
 
-  document.getElementById(
-    "authSubmitButton"
-  ).textContent =
-    signup
-      ? "Create Account"
-      : "Login";
+document.getElementById("authSubmitButton").textContent=
+signup?"Create Account":"Login";
 
-  document.getElementById(
-    "authSwitchText"
-  ).textContent =
-    signup
-      ? "Already have an account?"
-      : "Don't have an account?";
+document.getElementById("authSwitchText").textContent=
+signup?
+"Already have an account?":
+"Don't have an account?";
 
-  document.getElementById(
-    "authSwitchButton"
-  ).textContent =
-    signup
-      ? "Login"
-      : "Create Account";
+document.getElementById("authSwitchButton").textContent=
+signup?
+"Login":
+"Create Account";
 
-  document.getElementById(
-    "authError"
-  ).style.display =
-    "none";
+document.getElementById("authError").style.display="none";
 
 }
 
 
 function showAuthError(message){
 
-  const b =
-    document.getElementById(
-      "authError"
-    );
+const b=document.getElementById("authError");
 
-  b.textContent =
-    message;
+b.textContent=message;
 
-  b.style.display =
-    "block";
+b.style.display="block";
 
 }
 
 
 async function submitAuth(){
 
-  const name =
-    document
-      .getElementById("authName")
-      .value
-      .trim();
+const name=
+document.getElementById("authName").value.trim();
 
-  const phone =
-    document
-      .getElementById("authPhone")
-      .value
-      .trim();
+const phone=
+document.getElementById("authPhone").value.trim();
 
-  const password =
-    document.getElementById(
-      "authPassword"
-    ).value;
+const password=
+document.getElementById("authPassword").value;
 
-  const confirmPassword =
-    document.getElementById(
-      "authConfirmPassword"
-    ).value;
+const confirmPassword=
+document.getElementById("authConfirmPassword").value;
 
-  const button =
-    document.getElementById(
-      "authSubmitButton"
-    );
+const button=
+document.getElementById("authSubmitButton");
 
-  document.getElementById(
-    "authError"
-  ).style.display =
-    "none";
+document.getElementById("authError").style.display="none";
 
 
-  if(!/^[0-9]{10}$/.test(phone)){
+if(!/^[0-9]{10}$/.test(phone))
 
-    return showAuthError(
-      "Enter a valid 10 digit Indian mobile number."
-    );
+return showAuthError(
+"Enter a valid 10 digit Indian mobile number."
+);
 
-  }
 
+if(password.length<6)
 
-  if(password.length < 6){
+return showAuthError(
+"Password must be at least 6 characters."
+);
 
-    return showAuthError(
-      "Password must be at least 6 characters."
-    );
 
-  }
+if(authMode==="signup"&&!name)
 
+return showAuthError(
+"Please enter your full name."
+);
 
-  if(authMode === "signup" && !name){
 
-    return showAuthError(
-      "Please enter your full name."
-    );
+if(authMode==="signup"&&password!==confirmPassword)
 
-  }
+return showAuthError(
+"Passwords do not match."
+);
 
 
-  if(
-    authMode === "signup" &&
-    password !== confirmPassword
-  ){
+const email=mobileToEmail(phone);
 
-    return showAuthError(
-      "Passwords do not match."
-    );
+button.disabled=true;
 
-  }
+button.textContent=
+authMode==="signup"?
+"Creating Account...":
+"Logging in...";
 
 
-  const email =
-    mobileToEmail(phone);
+try{
 
-  button.disabled = true;
+if(authMode==="signup"){
 
-  button.textContent =
-    authMode === "signup"
-      ? "Creating Account..."
-      : "Logging in...";
+const signup=
+await supabaseFetch(
+"/auth/v1/signup",
+{
+method:"POST",
+headers:{
+"apikey":SUPABASE_KEY,
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+email,
+password,
+data:{
+full_name:name,
+phone
+}
+})
+}
+);
 
 
-  try{
+if(signup&&signup.access_token){
 
-    if(authMode === "signup"){
+accessToken=signup.access_token;
+currentUser=signup.user;
 
-      const signup =
-        await supabaseFetch(
-          "/auth/v1/signup",
-          {
-            method:"POST",
-            headers:{
-              "apikey":SUPABASE_KEY,
-              "Content-Type":
-                "application/json"
-            },
-            body:JSON.stringify({
-              email,
-              password,
-              data:{
-                full_name:name,
-                phone
-              }
-            })
-          }
-        );
+localStorage.setItem(
+"gus_access_token",
+accessToken
+);
 
+}else{
 
-      if(
-        signup &&
-        signup.access_token
-      ){
+await loginWithPassword(email,password);
 
-        accessToken =
-          signup.access_token;
+}
 
-        currentUser =
-          signup.user;
+await createCustomerProfile(name,phone);
 
-        localStorage.setItem(
-          "gus_access_token",
-          accessToken
-        );
+closeAuth();
 
-      }else{
+updateAuthUI();
 
-        await loginWithPassword(
-          email,
-          password
-        );
+showToast("Account created successfully.");
 
-      }
+}else{
 
+await loginWithPassword(email,password);
 
-      await createCustomerProfile(
-        name,
-        phone
-      );
+closeAuth();
 
-      closeAuth();
+updateAuthUI();
 
-      updateAuthUI();
+showToast("Login successful.");
 
-      showToast(
-        "Account created successfully."
-      );
+}
 
-    }else{
+}catch(error){
 
-      await loginWithPassword(
-        email,
-        password
-      );
+let m=error.message||"Authentication failed.";
 
-      closeAuth();
+let l=m.toLowerCase();
 
-      updateAuthUI();
+if(
+l.includes("already registered")||
+l.includes("already exists")
+)
 
-      showToast(
-        "Login successful."
-      );
+m=
+"This mobile number is already registered. Please Login.";
 
-    }
 
-  }catch(error){
+if(l.includes("invalid login credentials"))
 
-    let m =
-      error.message ||
-      "Authentication failed.";
+m="Wrong mobile number or password.";
 
-    const l =
-      m.toLowerCase();
 
-    if(
-      l.includes("already registered") ||
-      l.includes("already exists")
-    ){
+if(l.includes("email rate limit"))
 
-      m =
-        "This mobile number is already registered. Please Login.";
+m="Too many attempts. Please try again later.";
 
-    }
 
-    if(
-      l.includes(
-        "invalid login credentials"
-      )
-    ){
+showAuthError(m);
 
-      m =
-        "Wrong mobile number or password.";
+console.log("Auth error:",error);
 
-    }
+}finally{
 
-    if(
-      l.includes("email rate limit")
-    ){
+button.disabled=false;
 
-      m =
-        "Too many attempts. Please try again later.";
+button.textContent=
+authMode==="signup"?
+"Create Account":
+"Login";
 
-    }
-
-    showAuthError(m);
-
-    console.log(
-      "Auth error:",
-      error
-    );
-
-  }finally{
-
-    button.disabled = false;
-
-    button.textContent =
-      authMode === "signup"
-        ? "Create Account"
-        : "Login";
-
-  }
+}
 
 }
 
 
-async function loginWithPassword(
-  email,
-  password
-){
+async function loginWithPassword(email,password){
 
-  const r =
-    await supabaseFetch(
-      "/auth/v1/token?grant_type=password",
-      {
-        method:"POST",
-        headers:{
-          "apikey":SUPABASE_KEY,
-          "Content-Type":
-            "application/json"
-        },
-        body:JSON.stringify({
-          email,
-          password
-        })
-      }
-    );
+const r=
+await supabaseFetch(
+"/auth/v1/token?grant_type=password",
+{
+method:"POST",
+headers:{
+"apikey":SUPABASE_KEY,
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+email,
+password
+})
+}
+);
 
 
-  if(
-    !r ||
-    !r.access_token
-  ){
+if(!r||!r.access_token)
 
-    throw new Error(
-      "Login failed."
-    );
-
-  }
+throw new Error("Login failed.");
 
 
-  accessToken =
-    r.access_token;
+accessToken=r.access_token;
 
-  currentUser =
-    r.user;
+currentUser=r.user;
 
-  localStorage.setItem(
-    "gus_access_token",
-    accessToken
-  );
+localStorage.setItem(
+"gus_access_token",
+accessToken
+);
 
 }
 
 
-async function createCustomerProfile(
-  name,
-  phone
-){
+async function createCustomerProfile(name,phone){
 
-  if(!currentUser)return null;
+if(!currentUser)return null;
 
-  try{
+try{
 
-    const existing =
-      await supabaseFetch(
-        "/rest/v1/customers?select=*&user_id=eq." +
-        encodeURIComponent(
-          currentUser.id
-        ) +
-        "&limit=1"
-      );
+const existing=
+await supabaseFetch(
+"/rest/v1/customers?select=*&user_id=eq."+
+encodeURIComponent(currentUser.id)+
+"&limit=1"
+);
 
+if(existing&&existing.length)
 
-    if(
-      existing &&
-      existing.length
-    ){
-
-      return existing[0];
-
-    }
+return existing[0];
 
 
-    const created =
-      await supabaseFetch(
-        "/rest/v1/customers",
-        {
-          method:"POST",
-          headers:{
-            "Prefer":
-              "return=representation"
-          },
-          body:JSON.stringify({
-            user_id:
-              currentUser.id,
-            full_name:name,
-            phone,
-            email:
-              currentUser.email ||
-              mobileToEmail(phone),
-            city:"Guwahati"
-          })
-        }
-      );
+const created=
+await supabaseFetch(
+"/rest/v1/customers",
+{
+method:"POST",
+headers:{
+"Prefer":"return=representation"
+},
+body:JSON.stringify({
+user_id:currentUser.id,
+full_name:name,
+phone,
+email:
+currentUser.email||
+mobileToEmail(phone),
+city:"Guwahati"
+})
+}
+);
 
+return Array.isArray(created)?
+created[0]:
+created;
 
-    return Array.isArray(created)
-      ? created[0]
-      : created;
+}catch(e){
 
-  }catch(e){
+console.log(
+"Customer profile creation error:",
+e
+);
 
-    console.log(
-      "Customer profile creation error:",
-      e
-    );
+return null;
 
-    return null;
-  }
+}
 
 }
 
 
 async function logout(){
 
-  try{
+try{
 
-    if(accessToken){
+if(accessToken)
 
-      await fetch(
-        SUPABASE_URL +
-        "/auth/v1/logout",
-        {
-          method:"POST",
-          headers:{
-            "apikey":SUPABASE_KEY,
-            "Authorization":
-              "Bearer " +
-              accessToken
-          }
-        }
-      );
+await fetch(
+SUPABASE_URL+"/auth/v1/logout",
+{
+method:"POST",
+headers:{
+"apikey":SUPABASE_KEY,
+"Authorization":
+"Bearer "+accessToken
+}
+}
+);
 
-    }
+}catch(e){}
 
-  }catch(e){}
+accessToken=null;
+currentUser=null;
 
+localStorage.removeItem(
+"gus_access_token"
+);
 
-  accessToken = null;
-  currentUser = null;
+updateAuthUI();
 
-  localStorage.removeItem(
-    "gus_access_token"
-  );
+showPage("homePage");
 
-  updateAuthUI();
-
-  showPage("homePage");
-
-  showToast(
-    "Logged out successfully."
-  );
+showToast("Logged out successfully.");
 
 }
 
 
 function updateAuthUI(){
 
-  const logged =
-    !!currentUser;
+const logged=!!currentUser;
 
-  document.getElementById(
-    "loginProfileButton"
-  ).style.display =
-    logged
-      ? "none"
-      : "flex";
+document.getElementById(
+"loginProfileButton"
+).style.display=
+logged?"none":"flex";
 
-  document.getElementById(
-    "logoutButton"
-  ).style.display =
-    logged
-      ? "flex"
-      : "none";
+document.getElementById(
+"logoutButton"
+).style.display=
+logged?"flex":"none";
 
 
-  if(!logged){
+if(!logged){
 
-    document.getElementById(
-      "profileName"
-    ).textContent =
-      "Guest Customer";
+document.getElementById(
+"profileName"
+).textContent=
+"Guest Customer";
 
-    document.getElementById(
-      "profilePhone"
-    ).textContent =
-      "Login to your account";
+document.getElementById(
+"profilePhone"
+).textContent=
+"Login to your account";
 
-  }
+}
 
 }
 
 
 function requireLogin(){
 
-  if(currentUser)return true;
+if(currentUser)return true;
 
-  openAuth("login");
+openAuth("login");
 
-  showToast(
-    "Please login to book a service."
-  );
+showToast(
+"Please login to book a service."
+);
 
-  return false;
+return false;
 
 }
 
 
-// ================= SERVICES =================
-
 async function loadServices(){
 
-  try{
+try{
 
-    services =
-      await supabaseFetch(
-        "/rest/v1/services?select=*&order=id.asc"
-      );
+services=
+await supabaseFetch(
+"/rest/v1/services?select=*&order=id.asc"
+);
 
-    if(!Array.isArray(services))
-      services = [];
+if(!Array.isArray(services))
 
-  }catch(e){
+services=[];
 
-    services = [];
+}catch(e){
 
-    console.log(
-      "Services error:",
-      e
-    );
+services=[];
 
-  }
+console.log(
+"Services error:",
+e
+);
 
-  renderServices();
+}
 
-  fillServiceSelect();
+renderServices();
+
+fillServiceSelect();
 
 }
 
 
 async function loadServiceOptions(){
 
-  try{
+try{
 
-    serviceOptions =
-      await supabaseFetch(
-        "/rest/v1/service_options?select=*&is_active=eq.true&order=sort_order.asc"
-      );
+serviceOptions=
+await supabaseFetch(
+"/rest/v1/service_options?select=*&is_active=eq.true&order=sort_order.asc"
+);
 
-    if(!Array.isArray(serviceOptions))
-      serviceOptions = [];
+if(!Array.isArray(serviceOptions))
 
-  }catch(e){
+serviceOptions=[];
 
-    serviceOptions = [];
+}catch(e){
 
-    console.log(
-      "Service options error:",
-      e
-    );
+serviceOptions=[];
 
-  }
+console.log(
+"Service options error:",
+e
+);
+
+}
 
 }
 
 
 async function loadTimeSlots(){
 
-  try{
+try{
 
-    timeSlots =
-      await supabaseFetch(
-        "/rest/v1/time_slots?select=*&is_active=eq.true&order=slot_time.asc"
-      );
+timeSlots=
+await supabaseFetch(
+"/rest/v1/time_slots?select=*&is_active=eq.true&order=slot_time.asc"
+);
 
-    if(!Array.isArray(timeSlots))
-      timeSlots = [];
+if(!Array.isArray(timeSlots))
 
-  }catch(e){
+timeSlots=[];
 
-    timeSlots = [];
+}catch(e){
 
-    console.log(
-      "Time slots error:",
-      e
-    );
+timeSlots=[];
 
-  }
+console.log(
+"Time slots error:",
+e
+);
 
-  fillTimeSlots();
+}
+
+fillTimeSlots();
 
 }
 
 
 function serviceName(s){
 
-  return (
-    s.name ||
-    s.title ||
-    s.service_name ||
-    "Cleaning Service"
-  );
+return s.name||
+s.title||
+s.service_name||
+"Cleaning Service";
 
 }
 
 
 function serviceDescription(s){
 
-  return (
-    s.description ||
-    s.short_description ||
-    "Professional cleaning service at your doorstep."
-  );
+return s.description||
+s.short_description||
+"Professional cleaning service at your doorstep.";
 
 }
 
 
 function servicePrice(s){
 
-  const p =
-    s.price ??
-    s.starting_price ??
-    s.amount ??
-    null;
+const p=
+s.price??
+s.starting_price??
+s.amount??
+null;
 
-  return p === null
-    ? "View options"
-    : "From ₹" +
-      Number(p).toLocaleString("en-IN");
+return p===null?
+"View options":
+"From ₹"+
+Number(p).toLocaleString("en-IN");
 
 }
 
 
 function escapeHtml(v){
 
-  return String(v ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+return String(v??"")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 
 }
 
 
 function escapeAttr(v){
 
-  return escapeHtml(v);
+return escapeHtml(v);
 
 }
 
 
 function renderServices(){
 
-  const list =
-    document.getElementById(
-      "servicesList"
-    );
+const list=
+document.getElementById("servicesList");
 
-  const empty =
-    document.getElementById(
-      "emptyServices"
-    );
+const empty=
+document.getElementById("emptyServices");
 
-  const count =
-    document.getElementById(
-      "serviceCount"
-    );
+const count=
+document.getElementById("serviceCount");
 
 
-  if(!services.length){
+if(!services.length){
 
-    list.innerHTML = "";
+list.innerHTML="";
 
-    empty.style.display =
-      "block";
+empty.style.display="block";
 
-    count.textContent =
-      "0 services";
+count.textContent="0 services";
 
-    return;
-  }
+return;
 
-
-  empty.style.display =
-    "none";
-
-  count.textContent =
-    services.length +
-    " services";
+}
 
 
-  list.innerHTML =
-    services.map(s=>{
+empty.style.display="none";
 
-      const image =
-        s.image_url ||
-        s.image ||
-        "";
+count.textContent=
+services.length+" services";
 
 
-      return `
-<div
-  class="service-card"
-  data-name="${escapeHtml(serviceName(s))}"
->
+list.innerHTML=
+services.map(s=>{
+
+const image=
+s.image_url||
+s.image||
+"";
+
+
+return `
+<div class="service-card"
+data-name="${escapeHtml(serviceName(s))}">
 
 ${
-  image
-  ? `<img
-      class="service-img"
-      src="${escapeAttr(image)}"
-      alt=""
-    >`
-  : `<div class="service-img"></div>`
+image
+?
+`<img class="service-img"
+src="${escapeAttr(image)}"
+alt="">`
+:
+`<div class="service-img"></div>`
 }
 
 <div class="service-info">
 
 <h3>
-  ${escapeHtml(serviceName(s))}
+${escapeHtml(serviceName(s))}
 </h3>
 
 <p>
-  ${escapeHtml(serviceDescription(s))}
+${escapeHtml(serviceDescription(s))}
 </p>
 
 <div class="service-price">
-  ${escapeHtml(servicePrice(s))}
+${escapeHtml(servicePrice(s))}
 </div>
 
 </div>
 
 <button
-  class="book-small"
-  onclick="openBooking(${Number(s.id)})"
+class="book-small"
+onclick="openBooking(${Number(s.id)})"
 >
-  Book
+Book
 </button>
 
 </div>
 `;
 
-    }).join("");
+}).join("");
 
 }
 
 
 function fillServiceSelect(){
 
-  const s =
-    document.getElementById(
-      "serviceSelect"
-    );
+const s=
+document.getElementById("serviceSelect");
 
-  s.innerHTML =
-    '<option value="">Select service</option>';
+s.innerHTML=
+'<option value="">Select service</option>';
 
-  services.forEach(x=>{
+services.forEach(x=>{
 
-    const o =
-      document.createElement(
-        "option"
-      );
+const o=
+document.createElement("option");
 
-    o.value =
-      x.id;
+o.value=x.id;
 
-    o.textContent =
-      serviceName(x);
+o.textContent=
+serviceName(x);
 
-    s.appendChild(o);
+s.appendChild(o);
 
-  });
+});
 
 }
 
 
-function loadOptionsForService(
-  serviceId
-){
+function isQuantityService(serviceId){
 
-  const select =
-    document.getElementById(
-      "serviceOption"
-    );
+const s=
+services.find(
+x=>String(x.id)===String(serviceId)
+);
 
-  const info =
-    document.getElementById(
-      "selectedServiceInfo"
-    );
+const name=
+(s?serviceName(s):"")
+.toLowerCase();
 
-  const preview =
-    document.getElementById(
-      "pricePreview"
-    );
+return /bathroom|toilet|ceiling\s*fan|fan cleaning|window|sofa|air\s*conditioner|\bac\b|fridge|refrigerator/.test(name);
+
+}
 
 
-  select.innerHTML =
-    '<option value="">Select service option</option>';
+function getQuantityLabel(serviceId){
 
-  preview.style.display =
-    "none";
+const s=
+services.find(
+x=>String(x.id)===String(serviceId)
+);
 
-
-  const selected =
-    services.find(
-      s =>
-        String(s.id) ===
-        String(serviceId)
-    );
+const name=
+(s?serviceName(s):"")
+.toLowerCase();
 
 
-  if(selected){
+if(/bathroom|toilet/.test(name))
 
-    info.style.display =
-      "block";
-
-    info.textContent =
-      serviceDescription(
-        selected
-      );
-
-  }else{
-
-    info.style.display =
-      "none";
-
-  }
+return {
+label:"Number of Bathrooms",
+hint:"Select how many bathrooms need cleaning."
+};
 
 
-  const options =
-    serviceOptions.filter(
-      o =>
-        String(o.service_id) ===
-        String(serviceId)
-    );
+if(/ceiling\s*fan|fan cleaning/.test(name))
+
+return {
+label:"Number of Ceiling Fans",
+hint:"Select how many ceiling fans need cleaning."
+};
 
 
-  if(!options.length){
+if(/window/.test(name))
 
-    select.innerHTML =
-      '<option value="">No options available</option>';
-
-    return;
-
-  }
+return {
+label:"Number of Windows",
+hint:"Select how many windows need cleaning."
+};
 
 
-  options.forEach(o=>{
+if(/sofa/.test(name))
 
-    const el =
-      document.createElement(
-        "option"
-      );
+return {
+label:"Number of Sofas",
+hint:"Select how many sofas need cleaning."
+};
 
-    el.value =
-      o.id;
 
-    el.textContent =
-      o.name +
-      " — ₹" +
-      Number(o.price)
-        .toLocaleString("en-IN");
+if(/air\s*conditioner|\bac\b/.test(name))
 
-    select.appendChild(el);
+return {
+label:"Number of AC Units",
+hint:"Select how many AC units need service."
+};
 
-  });
+
+if(/fridge|refrigerator/.test(name))
+
+return {
+label:"Number of Fridges",
+hint:"Select how many fridges need cleaning."
+};
+
+
+return {
+label:"Quantity",
+hint:"Select how many you need."
+};
+
+}
+
+
+function updateQuantityUI(serviceId){
+
+const box=
+document.getElementById("quantityBox");
+
+const input=
+document.getElementById("bookingQuantity");
+
+const label=
+document.getElementById("quantityLabel");
+
+const hint=
+document.getElementById("quantityHint");
+
+
+bookingQuantity=1;
+
+input.value="1";
+
+
+if(isQuantityService(serviceId)){
+
+const q=
+getQuantityLabel(serviceId);
+
+label.textContent=q.label;
+
+hint.textContent=q.hint;
+
+box.classList.add("show");
+
+}else{
+
+box.classList.remove("show");
+
+}
+
+}
+
+
+function changeQuantity(delta){
+
+const input=
+document.getElementById("bookingQuantity");
+
+const next=
+Math.min(
+20,
+Math.max(
+1,
+Number(input.value||1)+delta
+)
+);
+
+bookingQuantity=next;
+
+input.value=String(next);
+
+updateOptionPrice();
+
+}
+
+
+function loadOptionsForService(serviceId){
+
+const select=
+document.getElementById("serviceOption");
+
+const info=
+document.getElementById("selectedServiceInfo");
+
+const preview=
+document.getElementById("pricePreview");
+
+
+select.innerHTML=
+'<option value="">Select service option</option>';
+
+preview.style.display="none";
+
+updateQuantityUI(serviceId);
+
+
+const selected=
+services.find(
+s=>String(s.id)===String(serviceId)
+);
+
+
+if(selected){
+
+info.style.display="block";
+
+info.textContent=
+serviceDescription(selected);
+
+}else{
+
+info.style.display="none";
+
+}
+
+
+const options=
+serviceOptions.filter(
+o=>String(o.service_id)===String(serviceId)
+);
+
+
+if(!options.length){
+
+select.innerHTML=
+'<option value="">No options available</option>';
+
+return;
+
+}
+
+
+options.forEach(o=>{
+
+const el=
+document.createElement("option");
+
+el.value=o.id;
+
+el.textContent=
+o.name+
+" — ₹"+
+Number(o.price).toLocaleString("en-IN");
+
+select.appendChild(el);
+
+});
 
 }
 
 
 function updateOptionPrice(){
 
-  const id =
-    document.getElementById(
-      "serviceOption"
-    ).value;
+const id=
+document.getElementById("serviceOption").value;
 
-  const o =
-    serviceOptions.find(
-      x =>
-        String(x.id) ===
-        String(id)
-    );
+const o=
+serviceOptions.find(
+x=>String(x.id)===String(id)
+);
 
-  const p =
-    document.getElementById(
-      "pricePreview"
-    );
+const p=
+document.getElementById("pricePreview");
 
 
-  if(o){
+const qty=
+isQuantityService(
+document.getElementById("serviceSelect").value
+)
+?
+Number(
+document.getElementById("bookingQuantity").value||1
+)
+:
+1;
 
-    document.getElementById(
-      "selectedPrice"
-    ).textContent =
-      "₹" +
-      Number(o.price)
-        .toLocaleString("en-IN");
 
-    p.style.display =
-      "flex";
+bookingQuantity=qty;
 
-  }else{
 
-    p.style.display =
-      "none";
+if(o){
 
-  }
+document.getElementById(
+"selectedPrice"
+).textContent=
+"₹"+
+(
+Number(o.price||0)*qty
+).toLocaleString("en-IN");
+
+p.style.display="flex";
+
+}else{
+
+p.style.display="none";
+
+}
 
 }
 
 
 function formatTime(t){
 
-  if(!t)return "";
+if(!t)return "";
 
-  const p =
-    String(t).split(":");
+const p=String(t).split(":");
 
-  const h =
-    Number(p[0]);
+const h=Number(p[0]);
 
-  const m =
-    Number(p[1] || 0);
+const m=Number(p[1]||0);
 
-  const ampm =
-    h >= 12
-      ? "PM"
-      : "AM";
+const ampm=h>=12?"PM":"AM";
 
-  return (
-    (h % 12 || 12) +
-    ":" +
-    String(m).padStart(2,"0") +
-    " " +
-    ampm
-  );
+return (
+h%12||12
+)+":"+
+String(m).padStart(2,"0")+
+" "+
+ampm;
 
 }
 
 
 function fillTimeSlots(){
 
-  const s =
-    document.getElementById(
-      "bookingTime"
-    );
+const s=
+document.getElementById("bookingTime");
 
-  s.innerHTML =
-    '<option value="">Select time</option>';
+s.innerHTML=
+'<option value="">Select time</option>';
 
 
-  if(!timeSlots.length){
+if(!timeSlots.length){
 
-    s.innerHTML +=
-      '<option value="" disabled>No time slots available</option>';
+s.innerHTML+=
+'<option value="" disabled>No time slots available</option>';
 
-    return;
-
-  }
-
-
-  timeSlots.forEach(slot=>{
-
-    const raw =
-      slot.slot_time ||
-      "";
-
-    const v =
-      String(raw).substring(
-        0,
-        5
-      );
-
-    if(!v)return;
-
-
-    const o =
-      document.createElement(
-        "option"
-      );
-
-    o.value =
-      v;
-
-    o.textContent =
-      formatTime(v);
-
-    s.appendChild(o);
-
-  });
+return;
 
 }
 
 
-// ================= CURRENT LOCATION =================
+timeSlots.forEach(slot=>{
+
+const raw=
+slot.slot_time||"";
+
+const v=
+String(raw).substring(0,5);
+
+if(!v)return;
+
+const o=
+document.createElement("option");
+
+o.value=v;
+
+o.textContent=
+formatTime(v);
+
+s.appendChild(o);
+
+});
+
+}
+
+
+/* CURRENT LOCATION */
 
 function resetLocationUI(){
 
-  customerLatitude = null;
-  customerLongitude = null;
-  locationAddress = "";
+customerLatitude=null;
+customerLongitude=null;
+locationAddress="";
 
 
-  const status =
-    document.getElementById(
-      "locationStatus"
-    );
+const status=
+document.getElementById(
+"locationStatus"
+);
 
-  const btn =
-    document.getElementById(
-      "currentLocationBtn"
-    );
-
-
-  if(status){
-
-    status.textContent =
-      "Use your current location so our service provider can find you easily.";
-
-    status.style.color =
-      "#777";
-
-  }
+const btn=
+document.getElementById(
+"currentLocationBtn"
+);
 
 
-  if(btn){
+if(status){
 
-    btn.disabled = false;
+status.textContent=
+"Use your current location so our service provider can find you easily.";
 
-    btn.textContent =
-      "📍 Use Current Location";
+status.style.color="#777";
 
-    btn.classList.remove(
-      "captured"
-    );
+}
 
-  }
+
+if(btn){
+
+btn.disabled=false;
+
+btn.textContent=
+"📍 Use Current Location";
+
+btn.classList.remove("captured");
+
+}
 
 }
 
 
 function useCurrentLocation(){
 
-  const btn =
-    document.getElementById(
-      "currentLocationBtn"
-    );
+const btn=
+document.getElementById(
+"currentLocationBtn"
+);
 
-  const status =
-    document.getElementById(
-      "locationStatus"
-    );
-
-
-  if(!navigator.geolocation){
-
-    status.textContent =
-      "Your browser does not support location.";
-
-    showToast(
-      "Location is not supported by your browser."
-    );
-
-    return;
-
-  }
+const status=
+document.getElementById(
+"locationStatus"
+);
 
 
-  btn.disabled = true;
+if(!navigator.geolocation){
 
-  btn.textContent =
-    "📍 Getting Location...";
+status.textContent=
+"Your browser does not support location.";
 
-  status.textContent =
-    "Please allow location permission...";
+showToast(
+"Location is not supported by your browser."
+);
 
-  status.style.color =
-    "#777";
-
-
-  navigator.geolocation.getCurrentPosition(
-
-    pos=>{
-
-      customerLatitude =
-        Number(
-          pos.coords.latitude
-        );
-
-      customerLongitude =
-        Number(
-          pos.coords.longitude
-        );
-
-
-      locationAddress =
-        "Current location (" +
-        customerLatitude.toFixed(6) +
-        ", " +
-        customerLongitude.toFixed(6) +
-        ")";
-
-
-      status.textContent =
-        "✓ Current location captured successfully.";
-
-      status.style.color =
-        "#26733a";
-
-
-      btn.disabled =
-        false;
-
-      btn.textContent =
-        "📍 Location Captured";
-
-      btn.classList.add(
-        "captured"
-      );
-
-
-      showToast(
-        "Current location captured successfully."
-      );
-
-    },
-
-
-    err=>{
-
-      resetLocationUI();
-
-
-      let m =
-        "Could not get your location.";
-
-
-      if(err.code === 1){
-
-        m =
-          "Location permission denied. Please allow location access.";
-
-      }else if(err.code === 2){
-
-        m =
-          "Location unavailable. Please try again.";
-
-      }else if(err.code === 3){
-
-        m =
-          "Location request timed out. Please try again.";
-
-      }
-
-
-      status.textContent =
-        m;
-
-      status.style.color =
-        "#a32626";
-
-
-      showToast(m);
-
-    },
-
-
-    {
-      enableHighAccuracy:true,
-      timeout:15000,
-      maximumAge:0
-    }
-
-  );
+return;
 
 }
 
 
-// ================= BOOKING =================
+btn.disabled=true;
 
-function openBooking(
-  serviceId=null
-){
+btn.textContent=
+"📍 Getting Location...";
 
-  if(!requireLogin())
-    return;
+status.textContent=
+"Please allow location permission...";
 
-
-  resetLocationUI();
+status.style.color="#777";
 
 
-  const modal =
-    document.getElementById(
-      "bookingModal"
-    );
+navigator.geolocation.getCurrentPosition(
 
-  modal.classList.add(
-    "show"
-  );
+pos=>{
 
+customerLatitude=
+Number(pos.coords.latitude);
 
-  selectedServiceId =
-    serviceId;
+customerLongitude=
+Number(pos.coords.longitude);
 
 
-  if(serviceId){
-
-    document.getElementById(
-      "serviceSelect"
-    ).value =
-      serviceId;
-
-    loadOptionsForService(
-      serviceId
-    );
-
-  }else{
-
-    document.getElementById(
-      "serviceSelect"
-    ).value =
-      "";
-
-    loadOptionsForService(
-      ""
-    );
-
-  }
+locationAddress=
+"Current location ("+
+customerLatitude.toFixed(6)+
+", "+
+customerLongitude.toFixed(6)+
+")";
 
 
-  loadProfileIntoBooking();
+status.textContent=
+"✓ Current location captured successfully.";
+
+status.style.color="#26733a";
+
+
+btn.disabled=false;
+
+btn.textContent=
+"📍 Location Captured";
+
+btn.classList.add("captured");
+
+
+showToast(
+"Current location captured successfully."
+);
+
+},
+
+err=>{
+
+resetLocationUI();
+
+let m=
+"Could not get your location.";
+
+
+if(err.code===1)
+
+m=
+"Location permission denied. Please allow location access.";
+
+
+else if(err.code===2)
+
+m=
+"Location unavailable. Please try again.";
+
+
+else if(err.code===3)
+
+m=
+"Location request timed out. Please try again.";
+
+
+status.textContent=m;
+
+status.style.color="#a32626";
+
+showToast(m);
+
+},
+
+{
+enableHighAccuracy:false,
+timeout:60000,
+maximumAge:60000
+}
+
+);
+
+}
+
+
+/* BOOKING */
+
+function openBooking(serviceId=null){
+
+if(!requireLogin())return;
+
+resetLocationUI();
+
+bookingQuantity=1;
+
+const q=
+document.getElementById(
+"bookingQuantity"
+);
+
+if(q)q.value="1";
+
+
+const modal=
+document.getElementById(
+"bookingModal"
+);
+
+modal.classList.add("show");
+
+selectedServiceId=serviceId;
+
+
+if(serviceId){
+
+document.getElementById(
+"serviceSelect"
+).value=serviceId;
+
+loadOptionsForService(serviceId);
+
+}else{
+
+document.getElementById(
+"serviceSelect"
+).value="";
+
+loadOptionsForService("");
+
+}
+
+
+loadProfileIntoBooking();
 
 }
 
 
 function closeBooking(){
 
-  document.getElementById(
-    "bookingModal"
-  ).classList.remove(
-    "show"
-  );
+document.getElementById(
+"bookingModal"
+).classList.remove("show");
 
-  resetLocationUI();
+resetLocationUI();
 
 }
 
 
 async function submitBooking(event){
 
-  event.preventDefault();
+event.preventDefault();
 
 
-  if(!currentUser){
+if(!currentUser){
 
-    openAuth("login");
+openAuth("login");
 
-    return;
+return;
 
-  }
+}
 
 
-  const name =
-    document
-      .getElementById("customerName")
-      .value
-      .trim();
+const name=
+document.getElementById(
+"customerName"
+).value.trim();
 
-  const phone =
-    document
-      .getElementById("customerPhone")
-      .value
-      .trim();
+const phone=
+document.getElementById(
+"customerPhone"
+).value.trim();
 
-  const serviceId =
-    document.getElementById(
-      "serviceSelect"
-    ).value;
+const serviceId=
+document.getElementById(
+"serviceSelect"
+).value;
 
-  const optionId =
-    document.getElementById(
-      "serviceOption"
-    ).value;
+const optionId=
+document.getElementById(
+"serviceOption"
+).value;
 
-  const date =
-    document.getElementById(
-      "bookingDate"
-    ).value;
+const date=
+document.getElementById(
+"bookingDate"
+).value;
 
-  const time =
-    document.getElementById(
-      "bookingTime"
-    ).value;
+const time=
+document.getElementById(
+"bookingTime"
+).value;
 
-  const address =
-    document.getElementById(
-      "customerAddress"
-    ).value
-    .trim();
+const address=
+document.getElementById(
+"customerAddress"
+).value.trim();
 
-  const notes =
-    document.getElementById(
-      "bookingNotes"
-    ).value
-    .trim();
+const notes=
+document.getElementById(
+"bookingNotes"
+).value.trim();
 
 
-  if(!name)
-    return showToast(
-      "Please enter your name."
-    );
+if(!name)
 
+return showToast(
+"Please enter your name."
+);
 
-  if(!/^[0-9]{10}$/.test(phone))
-    return showToast(
-      "Enter a valid 10 digit phone number."
-    );
 
+if(!/^[0-9]{10}$/.test(phone))
 
-  if(!serviceId)
-    return showToast(
-      "Please select a service."
-    );
+return showToast(
+"Enter a valid 10 digit phone number."
+);
 
 
-  if(!optionId)
-    return showToast(
-      "Please select a service option."
-    );
+if(!serviceId)
 
+return showToast(
+"Please select a service."
+);
 
-  if(!date)
-    return showToast(
-      "Please select booking date."
-    );
 
+if(!optionId)
 
-  if(!time)
-    return showToast(
-      "Please select booking time."
-    );
+return showToast(
+"Please select a service option."
+);
 
 
-  if(!address)
-    return showToast(
-      "Please enter service address."
-    );
+if(!date)
 
+return showToast(
+"Please select booking date."
+);
 
-  const button =
-    document.querySelector(
-      "#bookingForm .confirm-btn"
-    );
-
-  button.disabled =
-    true;
-
-  button.textContent =
-    "Booking...";
-
-
-  try{
-
-    let customers =
-      await supabaseFetch(
-        "/rest/v1/customers?select=*&user_id=eq." +
-        encodeURIComponent(
-          currentUser.id
-        ) +
-        "&limit=1"
-      );
-
-
-    let customer =
-      customers &&
-      customers.length
-        ? customers[0]
-        : null;
 
-
-    if(!customer){
+if(!time)
 
-      customer =
-        await supabaseFetch(
-          "/rest/v1/customers",
-          {
-            method:"POST",
-            headers:{
-              "Prefer":
-                "return=representation"
-            },
-            body:JSON.stringify({
-              user_id:
-                currentUser.id,
-              full_name:name,
-              phone,
-              email:
-                currentUser.email ||
-                mobileToEmail(phone),
-              address,
-              city:"Guwahati"
-            })
-          }
-        );
+return showToast(
+"Please select booking time."
+);
 
 
-      customer =
-        Array.isArray(customer)
-          ? customer[0]
-          : customer;
+if(!address)
 
-    }else{
+return showToast(
+"Please enter service address."
+);
 
-      try{
 
-        await supabaseFetch(
-          "/rest/v1/customers?id=eq." +
-          customer.id,
-          {
-            method:"PATCH",
-            headers:{
-              "Prefer":
-                "return=minimal"
-            },
-            body:JSON.stringify({
-              full_name:name,
-              phone,
-              address
-            })
-          }
-        );
+const button=
+document.querySelector(
+"#bookingForm .confirm-btn"
+);
 
-      }catch(e){
+button.disabled=true;
 
-        console.log(
-          "Customer update skipped:",
-          e
-        );
+button.textContent=
+"Booking...";
+
+
+try{
 
-      }
+let customers=
+await supabaseFetch(
+"/rest/v1/customers?select=*&user_id=eq."+
+encodeURIComponent(currentUser.id)+
+"&limit=1"
+);
 
-    }
 
+let customer=
+customers&&customers.length?
+customers[0]:
+null;
 
-    if(
-      !customer ||
-      !customer.id
-    ){
 
-      throw new Error(
-        "Customer profile could not be created. Please check Supabase customers RLS policy."
-      );
+if(!customer){
 
-    }
+customer=
+await supabaseFetch(
+"/rest/v1/customers",
+{
+method:"POST",
+headers:{
+"Prefer":"return=representation"
+},
+body:JSON.stringify({
+user_id:currentUser.id,
+full_name:name,
+phone,
+email:
+currentUser.email||
+mobileToEmail(phone),
+address,
+city:"Guwahati"
+})
+}
+);
 
+customer=
+Array.isArray(customer)?
+customer[0]:
+customer;
 
-    const selectedOption =
-      serviceOptions.find(
-        x =>
-          String(x.id) ===
-          String(optionId)
-      );
+}else{
 
+try{
 
-    const bookingData = {
+await supabaseFetch(
+"/rest/v1/customers?id=eq."+
+customer.id,
+{
+method:"PATCH",
+headers:{
+"Prefer":"return=minimal"
+},
+body:JSON.stringify({
+full_name:name,
+phone,
+address
+})
+}
+);
 
-      customer_id:
-        customer.id,
+}catch(e){
 
-      service_id:
-        Number(serviceId),
+console.log(
+"Customer update skipped:",
+e
+);
 
-      service_option_id:
-        Number(optionId),
+}
 
-      booking_date:
-        date,
+}
 
-      booking_time:
-        time,
 
-      address:
-        address,
+if(!customer||!customer.id)
 
-      phone:
-        phone,
+throw new Error(
+"Customer profile could not be created. Please check Supabase customers RLS policy."
+);
 
-      notes:
-        notes || null,
 
-      status:
-        "pending",
+const selectedOption=
+serviceOptions.find(
+x=>String(x.id)===String(optionId)
+);
 
-      customer_latitude:
-        customerLatitude,
 
-      customer_longitude:
-        customerLongitude,
+const quantity=
+isQuantityService(serviceId)
+?
+Number(
+document.getElementById(
+"bookingQuantity"
+).value||1
+)
+:
+1;
 
-      location_address:
-        locationAddress || null
 
-    };
+bookingQuantity=quantity;
 
 
-    let bookingResult;
+const bookingData={
 
+customer_id:customer.id,
 
-    try{
+service_id:Number(serviceId),
 
-      bookingResult =
-        await supabaseFetch(
-          "/rest/v1/bookings",
-          {
-            method:"POST",
-            headers:{
-              "Prefer":
-                "return=representation"
-            },
-            body:
-              JSON.stringify(
-                bookingData
-              )
-          }
-        );
+service_option_id:Number(optionId),
 
+booking_date:date,
 
-    }catch(firstError){
+booking_time:time,
 
-      console.log(
-        "Primary booking insert failed:",
-        firstError
-      );
+address,
 
+phone,
 
-      const fallback = {
+notes:notes||null,
 
-        customer_id:
-          customer.id,
+status:"pending",
 
-        service_id:
-          Number(serviceId),
+customer_latitude:
+customerLatitude,
 
-        booking_date:
-          date,
+customer_longitude:
+customerLongitude,
 
-        booking_time:
-          time,
+location_address:
+locationAddress||null,
 
-        address:
-          address,
+quantity:quantity,
 
-        phone:
-          phone,
+provider_id:null,
 
-        notes:
-          notes || null,
+provider_name:null,
 
-        status:
-          "pending",
+provider_phone:null,
 
-        customer_latitude:
-          customerLatitude,
+provider_photo:null,
 
-        customer_longitude:
-          customerLongitude,
+provider_rating:null,
 
-        location_address:
-          locationAddress || null
+provider_service:null,
 
-      };
+provider_assigned_at:null
 
+};
 
-      bookingResult =
-        await supabaseFetch(
-          "/rest/v1/bookings",
-          {
-            method:"POST",
-            headers:{
-              "Prefer":
-                "return=representation"
-            },
-            body:
-              JSON.stringify(
-                fallback
-              )
-          }
-        );
 
-    }
+let bookingResult;
 
 
-    saveLocalBooking({
+try{
 
-      id:
-        bookingResult &&
-        bookingResult[0]
-          ? bookingResult[0].id
-          : "local-" +
-            Date.now(),
+bookingResult=
+await supabaseFetch(
+"/rest/v1/bookings",
+{
+method:"POST",
+headers:{
+"Prefer":"return=representation"
+},
+body:JSON.stringify(
+bookingData
+)
+}
+);
 
-      service_id:
-        Number(serviceId),
 
-      service_option_id:
-        Number(optionId),
+}catch(firstError){
 
-      booking_date:
-        date,
+console.log(
+"Primary booking insert failed:",
+firstError
+);
 
-      booking_time:
-        time,
 
-      address:
-        address,
+const fallback={
 
-      notes:
-        notes,
+customer_id:customer.id,
 
-      status:
-        "pending",
+service_id:Number(serviceId),
 
-      customer_latitude:
-        customerLatitude,
+booking_date:date,
 
-      customer_longitude:
-        customerLongitude,
+booking_time:time,
 
-      location_address:
-        locationAddress,
+address,
 
-      service_name:
-        selectedServiceName(
-          serviceId
-        ),
+phone,
 
-      option_name:
-        selectedOption
-          ? selectedOption.name
-          : "Cleaning Service",
+notes:notes||null,
 
-      price:
-        selectedOption
-          ? selectedOption.price
-          : 0
+status:"pending",
 
-    });
+customer_latitude:
+customerLatitude,
 
+customer_longitude:
+customerLongitude,
 
-    document.getElementById(
-      "bookingForm"
-    ).reset();
+location_address:
+locationAddress||null,
 
+quantity:quantity,
 
-    document.getElementById(
-      "pricePreview"
-    ).style.display =
-      "none";
+provider_id:null,
 
+provider_name:null,
 
-    resetLocationUI();
+provider_phone:null,
 
+provider_photo:null,
 
-    closeBooking();
+provider_rating:null,
 
+provider_service:null,
 
-    document.getElementById(
-      "successModal"
-    ).classList.add(
-      "show"
-    );
+provider_assigned_at:null
 
+};
 
-  }catch(error){
 
-    console.log(
-      "Booking error:",
-      error
-    );
+bookingResult=
+await supabaseFetch(
+"/rest/v1/bookings",
+{
+method:"POST",
+headers:{
+"Prefer":"return=representation"
+},
+body:JSON.stringify(
+fallback
+)
+}
+);
 
+}
 
-    showToast(
-      "Booking failed: " +
-      (
-        error.message ||
-        "Unknown error"
-      )
-    );
 
+saveLocalBooking({
 
-  }finally{
+id:
+bookingResult&&
+bookingResult[0]?
+bookingResult[0].id:
+"local-"+Date.now(),
 
-    button.disabled =
-      false;
+service_id:
+Number(serviceId),
 
-    button.textContent =
-      "Confirm Booking";
+service_option_id:
+Number(optionId),
 
-  }
+booking_date:date,
+
+booking_time:time,
+
+address,
+
+notes,
+
+status:"pending",
+
+customer_latitude:
+customerLatitude,
+
+customer_longitude:
+customerLongitude,
+
+location_address:
+locationAddress,
+
+quantity:quantity,
+
+provider_id:null,
+
+provider_name:null,
+
+provider_phone:null,
+
+provider_photo:null,
+
+provider_rating:null,
+
+provider_service:null,
+
+provider_assigned_at:null,
+
+service_name:
+selectedServiceName(serviceId),
+
+option_name:
+selectedOption?
+selectedOption.name:
+"Cleaning Service",
+
+price:
+selectedOption?
+selectedOption.price:
+0
+
+});
+
+
+document.getElementById(
+"bookingForm"
+).reset();
+
+document.getElementById(
+"pricePreview"
+).style.display="none";
+
+resetLocationUI();
+
+closeBooking();
+
+document.getElementById(
+"successModal"
+).classList.add("show");
+
+
+}catch(error){
+
+console.log(
+"Booking error:",
+error
+);
+
+showToast(
+"Booking failed: "+
+(error.message||"Unknown error")
+);
+
+}finally{
+
+button.disabled=false;
+
+button.textContent=
+"Confirm Booking";
+
+}
 
 }
 
 
 function selectedServiceName(id){
 
-  const s =
-    services.find(
-      x =>
-        String(x.id) ===
-        String(id)
-    );
+const s=
+services.find(
+x=>String(x.id)===String(id)
+);
 
-  return s
-    ? serviceName(s)
-    : "Cleaning Service";
+return s?
+serviceName(s):
+"Cleaning Service";
 
 }
 
 
 function getLocalBookings(){
 
-  try{
+try{
 
-    return JSON.parse(
-      localStorage.getItem(
-        "gus_bookings"
-      ) || "[]"
-    );
+return JSON.parse(
+localStorage.getItem(
+"gus_bookings"
+)||"[]"
+);
 
-  }catch{
+}catch{
 
-    return [];
+return [];
 
-  }
+}
 
 }
 
 
 function saveLocalBooking(b){
 
-  const l =
-    getLocalBookings();
+const l=
+getLocalBookings();
 
-  l.unshift(b);
+l.unshift(b);
 
-  localStorage.setItem(
-    "gus_bookings",
-    JSON.stringify(
-      l.slice(0,50)
-    )
-  );
+localStorage.setItem(
+"gus_bookings",
+JSON.stringify(
+l.slice(0,50)
+)
+);
 
 }
 
 
-// ================= BOOKINGS LIST =================
-
 async function loadBookings(){
 
-  const c =
-    document.getElementById(
-      "bookingsList"
-    );
+const c=
+document.getElementById(
+"bookingsList"
+);
 
-  c.innerHTML =
-    '<div class="loading">Loading bookings...</div>';
+c.innerHTML=
+'<div class="loading">Loading bookings...</div>';
 
 
-  if(!currentUser){
+if(!currentUser){
 
-    c.innerHTML = `
+c.innerHTML=
+`
 <div class="no-bookings">
 
 <div class="big">🔐</div>
 
 <h3>Login required</h3>
 
-<p>
-  Login to view your bookings.
-</p>
+<p>Login to view your bookings.</p>
 
 <br>
 
 <button
-  class="small-btn"
-  onclick="openAuth('login')"
+class="small-btn"
+onclick="openAuth('login')"
 >
-  Login
+Login
 </button>
 
 </div>
 `;
 
-    return;
+return;
 
-  }
-
-
-  let remote = [];
+}
 
 
-  try{
-
-    const cs =
-      await supabaseFetch(
-        "/rest/v1/customers?select=id&user_id=eq." +
-        encodeURIComponent(
-          currentUser.id
-        )
-      );
+let remote=[];
 
 
-    if(
-      cs &&
-      cs.length
-    ){
+try{
 
-      const ids =
-        cs.map(
-          x=>x.id
-        ).join(",");
+const cs=
+await supabaseFetch(
+"/rest/v1/customers?select=id&user_id=eq."+
+encodeURIComponent(currentUser.id)
+);
 
 
-      remote =
-        await supabaseFetch(
-          "/rest/v1/bookings?select=*&customer_id=in.(" +
-          ids +
-          ")&order=created_at.desc"
-        );
+if(cs&&cs.length){
+
+const ids=
+cs.map(x=>x.id).join(",");
 
 
-      if(!Array.isArray(remote))
-        remote = [];
-
-    }
-
-  }catch(e){
-
-    console.log(
-      "Load bookings error:",
-      e
-    );
-
-  }
+remote=
+await supabaseFetch(
+"/rest/v1/bookings?select=*&customer_id=in.("+
+ids+
+")&order=created_at.desc"
+);
 
 
-  const local =
-    getLocalBookings();
+if(!Array.isArray(remote))
+
+remote=[];
+
+}
+
+}catch(e){
+
+console.log(
+"Load bookings error:",
+e
+);
+
+}
 
 
-  const ids =
-    new Set(
-      remote.map(
-        x=>String(x.id)
-      )
-    );
+const local=
+getLocalBookings();
+
+const ids=
+new Set(
+remote.map(
+x=>String(x.id)
+)
+);
 
 
-  const merged =
-    [
-      ...remote,
-      ...local.filter(
-        x =>
-          !ids.has(
-            String(x.id)
-          )
-      )
-    ];
+const merged=[
+...remote,
+...local.filter(
+x=>!ids.has(String(x.id))
+)
+];
 
 
-  if(!merged.length){
+if(!merged.length){
 
-    c.innerHTML = `
+c.innerHTML=
+`
 <div class="no-bookings">
 
 <div class="big">📖</div>
@@ -3792,119 +3026,242 @@ async function loadBookings(){
 <h3>No bookings yet</h3>
 
 <p>
-  Your upcoming cleaning bookings will appear here.
+Your upcoming cleaning bookings will appear here.
 </p>
 
 <br>
 
 <button
-  class="small-btn"
-  onclick="openBooking()"
+class="small-btn"
+onclick="openBooking()"
 >
-  Book a Service
+Book a Service
 </button>
 
 </div>
 `;
 
-    return;
+return;
 
-  }
+}
 
 
-  c.innerHTML =
-    merged
-      .map(
-        renderBookingCard
-      )
-      .join("");
+c.innerHTML=
+merged.map(
+renderBookingCard
+).join("");
 
 }
 
 
 function renderBookingCard(b){
 
-  const service =
-    services.find(
-      x =>
-        String(x.id) ===
-        String(b.service_id)
-    );
+const service=
+services.find(
+x=>String(x.id)===String(b.service_id)
+);
 
 
-  const option =
-    serviceOptions.find(
-      x =>
-        String(x.id) ===
-        String(
-          b.service_option_id
-        )
-    );
+const option=
+serviceOptions.find(
+x=>String(x.id)===String(b.service_option_id)
+);
 
 
-  const title =
-    b.service_name ||
-    (
-      service
-        ? serviceName(service)
-        : "Cleaning Service"
-    );
+const title=
+b.service_name||
+(
+service?
+serviceName(service):
+"Cleaning Service"
+);
 
 
-  const optionTitle =
-    b.option_name ||
-    (
-      option
-        ? option.name
-        : "Service"
-    );
+const optionTitle=
+b.option_name||
+(
+option?
+option.name:
+"Service"
+);
 
 
-  const status =
-    String(
-      b.status ||
-      "pending"
-    ).toLowerCase();
+const status=
+String(
+b.status||"pending"
+).toLowerCase();
 
 
-  const date =
-    b.booking_date ||
-    b.date ||
-    "";
+const date=
+b.booking_date||
+b.date||
+"";
 
 
-  const time =
-    b.booking_time ||
-    b.time ||
-    "";
+const time=
+b.booking_time||
+b.time||
+"";
 
 
-  const lat =
-    b.customer_latitude;
+const lat=
+b.customer_latitude;
+
+const lng=
+b.customer_longitude;
 
 
-  const lng =
-    b.customer_longitude;
+const quantity=
+Number(
+b.quantity||1
+);
 
 
-  const mapLink =
-    lat != null &&
-    lng != null
+const showQty=
+isQuantityService(
+b.service_id
+)||
+quantity>1;
 
-      ? `
+
+const mapLink=
+lat!=null&&lng!=null?
+
+`
 <a
-  href="https://www.google.com/maps?q=${encodeURIComponent(lat)},${encodeURIComponent(lng)}"
-  target="_blank"
-  rel="noopener"
+href="https://www.google.com/maps?q=${encodeURIComponent(lat)},${encodeURIComponent(lng)}"
+target="_blank"
+rel="noopener"
 >
-  📍 Open Location
+📍 Open Location
 </a>
 `
 
-      : "";
+:"";
 
 
-  return `
+const hasProvider=
+!!(
+b.provider_id||
+b.provider_name||
+b.provider_phone
+);
+
+
+const providerHtml=
+
+hasProvider?
+
+`
+<div class="provider-card">
+
+<div class="provider-label">
+🧑‍🔧 SERVICE PROVIDER ASSIGNED
+</div>
+
+<div class="provider-row">
+
+${
+b.provider_photo
+?
+`
+<img
+class="provider-photo"
+src="${escapeAttr(b.provider_photo)}"
+alt="Provider"
+>
+`
+:
+`
+<div class="provider-avatar">
+${escapeHtml(
+(b.provider_name||"P")
+.charAt(0)
+.toUpperCase()
+)}
+</div>
+`
+}
+
+<div style="flex:1">
+
+<div class="provider-name">
+${escapeHtml(
+b.provider_name||
+"Service Provider"
+)}
+</div>
+
+${
+b.provider_service
+?
+`
+<div class="provider-sub">
+🧹 ${escapeHtml(
+b.provider_service
+)}
+</div>
+`
+:
+""
+}
+
+${
+b.provider_rating!=null
+?
+`
+<div class="provider-sub">
+⭐ ${escapeHtml(
+b.provider_rating
+)}
+</div>
+`
+:
+""
+}
+
+</div>
+
+</div>
+
+${
+b.provider_phone
+?
+`
+<a
+class="provider-call"
+href="tel:${escapeAttr(b.provider_phone)}"
+>
+📞 Call Provider
+</a>
+`
+:
+""
+}
+
+</div>
+`
+
+:
+
+`
+<div class="provider-card provider-waiting">
+
+<div class="provider-label">
+🧑‍🔧 Service Provider Assign Soon
+</div>
+
+<div class="provider-wait-text">
+We are assigning a suitable service provider for your booking.
+Provider details will appear here after assignment.
+</div>
+
+</div>
+`;
+
+
+return `
+
 <div class="booking-card">
 
 <div class="booking-top">
@@ -3912,86 +3269,94 @@ function renderBookingCard(b){
 <div>
 
 <h3>
-  ${escapeHtml(title)}
+${escapeHtml(title)}
 </h3>
 
 <div class="booking-meta">
 
 ${escapeHtml(optionTitle)}
 
-<br>
+${
+showQty
+?
+`<br>🔢 Quantity: ${quantity}`
+:
+""
+}
 
+<br>
 📅 ${escapeHtml(date)}
 
 <br>
-
 ⏰ ${escapeHtml(
-  formatTime(time)
+formatTime(time)
 )}
 
 <br>
-
 📍 ${escapeHtml(
-  b.address || ""
+b.address||""
 )}
 
 ${
-  lat != null &&
-  lng != null
-    ? "<br>✓ GPS location saved"
-    : ""
+lat!=null&&lng!=null
+?
+"<br>✓ GPS location saved"
+:
+""
 }
 
 </div>
 
 </div>
 
-<span
-  class="status ${escapeAttr(status)}"
->
-  ${escapeHtml(
-    status.charAt(0).toUpperCase() +
-    status.slice(1)
-  )}
+<span class="status ${escapeAttr(status)}">
+
+${escapeHtml(
+status.charAt(0).toUpperCase()+
+status.slice(1)
+)}
+
 </span>
 
 </div>
 
+${providerHtml}
 
 <div class="booking-actions">
 
 <button
-  class="primary"
-  onclick="rebookBooking(${Number(b.service_id)})"
+class="primary"
+onclick="rebookBooking(${Number(b.service_id)})"
 >
-  Rebook
+Rebook
 </button>
 
 ${mapLink}
 
 <button
-  onclick='openReschedule(${JSON.stringify(b)})'
+onclick='openReschedule(${JSON.stringify(b)})'
 >
-  Reschedule
+Reschedule
 </button>
 
 ${
-  status !== "cancelled"
-
-    ? `
+status!=="cancelled"
+?
+`
 <button
-  onclick="cancelBooking('${escapeAttr(String(b.id))}')"
+onclick="cancelBooking('${escapeAttr(String(b.id))}')"
 >
-  Cancel
+Cancel
 </button>
 `
-
-    : ""
+:
+""
 }
 
 </div>
 
 </div>
+
 `;
 
 }
@@ -3999,987 +3364,782 @@ ${
 
 function rebookBooking(id){
 
-  openBooking(id);
+openBooking(id);
 
 }
 
 
 function openReschedule(b){
 
-  if(!currentUser){
+if(!currentUser){
 
-    openAuth("login");
+openAuth("login");
 
-    return;
+return;
 
-  }
-
-
-  const d =
-    prompt(
-      "Enter new date (YYYY-MM-DD):",
-      b.booking_date || ""
-    );
+}
 
 
-  if(!d)return;
+const d=
+prompt(
+"Enter new date (YYYY-MM-DD):",
+b.booking_date||""
+);
+
+if(!d)return;
 
 
-  const t =
-    prompt(
-      "Enter new time (HH:MM):",
-      String(
-        b.booking_time || ""
-      ).substring(0,5)
-    );
+const t=
+prompt(
+"Enter new time (HH:MM):",
+String(
+b.booking_time||""
+).substring(0,5)
+);
+
+if(!t)return;
 
 
-  if(!t)return;
-
-
-  updateBookingSchedule(
-    b.id,
-    d,
-    t
-  );
+updateBookingSchedule(
+b.id,
+d,
+t
+);
 
 }
 
 
 async function updateBookingSchedule(
-  id,
-  date,
-  time
+id,
+date,
+time
 ){
 
-  try{
+try{
 
-    if(
-      String(id).startsWith(
-        "local-"
-      )
-    ){
+if(
+String(id).startsWith("local-")
+){
 
-      const l =
-        getLocalBookings();
+const l=
+getLocalBookings();
 
-
-      const i =
-        l.findIndex(
-          x =>
-            String(x.id) ===
-            String(id)
-        );
+const i=
+l.findIndex(
+x=>String(x.id)===String(id)
+);
 
 
-      if(i >= 0){
+if(i>=0){
 
-        l[i].booking_date =
-          date;
+l[i].booking_date=date;
 
-        l[i].booking_time =
-          time;
+l[i].booking_time=time;
 
+localStorage.setItem(
+"gus_bookings",
+JSON.stringify(l)
+);
 
-        localStorage.setItem(
-          "gus_bookings",
-          JSON.stringify(l)
-        );
+}
 
-      }
+}else{
 
-    }else{
+await supabaseFetch(
+"/rest/v1/bookings?id=eq."+
+encodeURIComponent(id),
+{
+method:"PATCH",
+headers:{
+"Prefer":"return=minimal"
+},
+body:JSON.stringify({
+booking_date:date,
+booking_time:time
+})
+}
+);
 
-      await supabaseFetch(
-        "/rest/v1/bookings?id=eq." +
-        encodeURIComponent(id),
-        {
-          method:"PATCH",
-          headers:{
-            "Prefer":
-              "return=minimal"
-          },
-          body:
-            JSON.stringify({
-              booking_date:
-                date,
-              booking_time:
-                time
-            })
-        }
-      );
-
-    }
+}
 
 
-    showToast(
-      "Booking rescheduled."
-    );
+showToast(
+"Booking rescheduled."
+);
 
-    loadBookings();
+loadBookings();
 
 
-  }catch(e){
+}catch(e){
 
-    console.log(e);
+console.log(e);
 
-    showToast(
-      "Could not reschedule booking."
-    );
+showToast(
+"Could not reschedule booking."
+);
 
-  }
+}
 
 }
 
 
 async function cancelBooking(id){
 
-  if(
-    !confirm(
-      "Are you sure you want to cancel this booking?"
-    )
-  ){
+if(
+!confirm(
+"Are you sure you want to cancel this booking?"
+)
+)
 
-    return;
-
-  }
+return;
 
 
-  try{
+try{
 
-    if(
-      String(id).startsWith(
-        "local-"
-      )
-    ){
+if(
+String(id).startsWith("local-")
+){
 
-      const l =
-        getLocalBookings();
+const l=
+getLocalBookings();
 
+const x=
+l.find(
+b=>String(b.id)===String(id)
+);
 
-      const x =
-        l.find(
-          b =>
-            String(b.id) ===
-            String(id)
-        );
+if(x)x.status="cancelled";
 
+localStorage.setItem(
+"gus_bookings",
+JSON.stringify(l)
+);
 
-      if(x)
-        x.status =
-          "cancelled";
+}else{
 
-
-      localStorage.setItem(
-        "gus_bookings",
-        JSON.stringify(l)
-      );
-
-
-    }else{
-
-      await supabaseFetch(
-        "/rest/v1/bookings?id=eq." +
-        encodeURIComponent(id),
-        {
-          method:"PATCH",
-          headers:{
-            "Prefer":
-              "return=minimal"
-          },
-          body:
-            JSON.stringify({
-              status:
-                "cancelled"
-            })
-        }
-      );
-
-    }
-
-
-    showToast(
-      "Booking cancelled."
-    );
-
-    loadBookings();
-
-
-  }catch(e){
-
-    console.log(e);
-
-    showToast(
-      "Could not cancel booking."
-    );
-
-  }
+await supabaseFetch(
+"/rest/v1/bookings?id=eq."+
+encodeURIComponent(id),
+{
+method:"PATCH",
+headers:{
+"Prefer":"return=minimal"
+},
+body:JSON.stringify({
+status:"cancelled"
+})
+}
+);
 
 }
 
 
-// ================= PROFILE =================
+showToast(
+"Booking cancelled."
+);
+
+loadBookings();
+
+
+}catch(e){
+
+console.log(e);
+
+showToast(
+"Could not cancel booking."
+);
+
+}
+
+}
+
 
 async function loadProfile(){
 
-  updateAuthUI();
+updateAuthUI();
 
-  if(!currentUser)
-    return;
-
-
-  try{
-
-    const cs =
-      await supabaseFetch(
-        "/rest/v1/customers?select=*&user_id=eq." +
-        encodeURIComponent(
-          currentUser.id
-        ) +
-        "&limit=1"
-      );
+if(!currentUser)return;
 
 
-    if(
-      cs &&
-      cs.length
-    ){
+try{
 
-      const c =
-        cs[0];
-
-
-      const name =
-        c.full_name ||
-        "Customer";
+const cs=
+await supabaseFetch(
+"/rest/v1/customers?select=*&user_id=eq."+
+encodeURIComponent(currentUser.id)+
+"&limit=1"
+);
 
 
-      document.getElementById(
-        "profileName"
-      ).textContent =
-        name;
+if(cs&&cs.length){
+
+const c=cs[0];
+
+const name=
+c.full_name||
+"Customer";
 
 
-      document.getElementById(
-        "profilePhone"
-      ).textContent =
-        c.phone ||
-        "Logged in";
+document.getElementById(
+"profileName"
+).textContent=name;
 
 
-      document.getElementById(
-        "profileAvatar"
-      ).textContent =
-        name
-          .charAt(0)
-          .toUpperCase();
+document.getElementById(
+"profilePhone"
+).textContent=
+c.phone||
+"Logged in";
 
 
-      document.getElementById(
-        "profileBtn"
-      ).textContent =
-        name
-          .charAt(0)
-          .toUpperCase();
+document.getElementById(
+"profileAvatar"
+).textContent=
+name.charAt(0).toUpperCase();
 
 
-      document.getElementById(
-        "profileEditName"
-      ).value =
-        c.full_name ||
-        "";
+document.getElementById(
+"profileBtn"
+).textContent=
+name.charAt(0).toUpperCase();
 
 
-      document.getElementById(
-        "profileEditPhone"
-      ).value =
-        c.phone ||
-        "";
+document.getElementById(
+"profileEditName"
+).value=
+c.full_name||"";
 
 
-      document.getElementById(
-        "profileEditEmail"
-      ).value =
-        c.email ||
-        "";
+document.getElementById(
+"profileEditPhone"
+).value=
+c.phone||"";
 
 
-      document.getElementById(
-        "profileEditAddress"
-      ).value =
-        c.address ||
-        "";
+document.getElementById(
+"profileEditEmail"
+).value=
+c.email||"";
 
-    }
 
-  }catch(e){
+document.getElementById(
+"profileEditAddress"
+).value=
+c.address||"";
 
-    console.log(
-      "Profile load error:",
-      e
-    );
+}
 
-  }
+}catch(e){
+
+console.log(
+"Profile load error:",
+e
+);
+
+}
 
 }
 
 
 async function loadProfileIntoBooking(){
 
-  if(!currentUser)
-    return;
+if(!currentUser)return;
 
 
-  try{
+try{
 
-    const cs =
-      await supabaseFetch(
-        "/rest/v1/customers?select=*&user_id=eq." +
-        encodeURIComponent(
-          currentUser.id
-        ) +
-        "&limit=1"
-      );
+const cs=
+await supabaseFetch(
+"/rest/v1/customers?select=*&user_id=eq."+
+encodeURIComponent(currentUser.id)+
+"&limit=1"
+);
 
 
-    if(
-      cs &&
-      cs.length
-    ){
+if(cs&&cs.length){
 
-      const c =
-        cs[0];
+const c=cs[0];
 
 
-      if(c.full_name)
-        document.getElementById(
-          "customerName"
-        ).value =
-          c.full_name;
+if(c.full_name)
+
+document.getElementById(
+"customerName"
+).value=
+c.full_name;
 
 
-      if(c.phone)
-        document.getElementById(
-          "customerPhone"
-        ).value =
-          c.phone;
+if(c.phone)
+
+document.getElementById(
+"customerPhone"
+).value=
+c.phone;
 
 
-      if(c.address)
-        document.getElementById(
-          "customerAddress"
-        ).value =
-          c.address;
+if(c.address)
 
-    }
+document.getElementById(
+"customerAddress"
+).value=
+c.address;
 
-  }catch(e){
+}
 
-    console.log(
-      "Booking profile error:",
-      e
-    );
+}catch(e){
 
-  }
+console.log(
+"Booking profile error:",
+e
+);
+
+}
 
 }
 
 
 function openEditProfile(){
 
-  if(!currentUser){
+if(!currentUser){
 
-    openAuth("login");
+openAuth("login");
 
-    return;
+return;
 
-  }
+}
 
+showPage("profilePage");
 
-  showPage(
-    "profilePage"
-  );
+document.getElementById(
+"editProfileBox"
+).classList.add("show");
 
-
-  document.getElementById(
-    "editProfileBox"
-  ).classList.add(
-    "show"
-  );
-
-
-  loadProfile();
+loadProfile();
 
 }
 
 
 async function saveProfile(){
 
-  if(!currentUser){
+if(!currentUser){
 
-    openAuth("login");
+openAuth("login");
 
-    return;
-
-  }
-
-
-  const name =
-    document
-      .getElementById(
-        "profileEditName"
-      )
-      .value
-      .trim();
-
-
-  const phone =
-    document
-      .getElementById(
-        "profileEditPhone"
-      )
-      .value
-      .trim();
-
-
-  const email =
-    document
-      .getElementById(
-        "profileEditEmail"
-      )
-      .value
-      .trim();
-
-
-  const address =
-    document
-      .getElementById(
-        "profileEditAddress"
-      )
-      .value
-      .trim();
-
-
-  if(!name)
-    return showToast(
-      "Please enter your name."
-    );
-
-
-  if(
-    phone &&
-    !/^[0-9]{10}$/.test(phone)
-  ){
-
-    return showToast(
-      "Enter a valid 10 digit phone number."
-    );
-
-  }
-
-
-  try{
-
-    const cs =
-      await supabaseFetch(
-        "/rest/v1/customers?select=id&user_id=eq." +
-        encodeURIComponent(
-          currentUser.id
-        ) +
-        "&limit=1"
-      );
-
-
-    if(
-      cs &&
-      cs.length
-    ){
-
-      await supabaseFetch(
-        "/rest/v1/customers?id=eq." +
-        cs[0].id,
-        {
-          method:"PATCH",
-          headers:{
-            "Prefer":
-              "return=minimal"
-          },
-          body:
-            JSON.stringify({
-              full_name:name,
-              phone:
-                phone || null,
-              email:
-                email || null,
-              address:
-                address || null
-            })
-        }
-      );
-
-
-    }else{
-
-      await createCustomerProfile(
-        name,
-        phone
-      );
-
-    }
-
-
-    document.getElementById(
-      "editProfileBox"
-    ).classList.remove(
-      "show"
-    );
-
-
-    await loadProfile();
-
-
-    showToast(
-      "Profile saved successfully."
-    );
-
-
-  }catch(e){
-
-    console.log(
-      "Save profile error:",
-      e
-    );
-
-
-    showToast(
-      "Could not save profile."
-    );
-
-  }
+return;
 
 }
 
 
-// ================= PAGE NAVIGATION =================
+const name=
+document.getElementById(
+"profileEditName"
+).value.trim();
+
+const phone=
+document.getElementById(
+"profileEditPhone"
+).value.trim();
+
+const email=
+document.getElementById(
+"profileEditEmail"
+).value.trim();
+
+const address=
+document.getElementById(
+"profileEditAddress"
+).value.trim();
+
+
+if(!name)
+
+return showToast(
+"Please enter your name."
+);
+
+
+if(
+phone&&
+!/^[0-9]{10}$/.test(phone)
+)
+
+return showToast(
+"Enter a valid 10 digit phone number."
+);
+
+
+try{
+
+const cs=
+await supabaseFetch(
+"/rest/v1/customers?select=id&user_id=eq."+
+encodeURIComponent(currentUser.id)+
+"&limit=1"
+);
+
+
+if(cs&&cs.length){
+
+await supabaseFetch(
+"/rest/v1/customers?id=eq."+
+cs[0].id,
+{
+method:"PATCH",
+headers:{
+"Prefer":"return=minimal"
+},
+body:JSON.stringify({
+full_name:name,
+phone:phone||null,
+email:email||null,
+address:address||null
+})
+}
+);
+
+}else{
+
+await createCustomerProfile(
+name,
+phone
+);
+
+}
+
+
+document.getElementById(
+"editProfileBox"
+).classList.remove("show");
+
+await loadProfile();
+
+showToast(
+"Profile saved successfully."
+);
+
+
+}catch(e){
+
+console.log(
+"Save profile error:",
+e
+);
+
+showToast(
+"Could not save profile."
+);
+
+}
+
+}
+
 
 function showPage(id){
 
-  document
-    .querySelectorAll(
-      ".page"
-    )
-    .forEach(
-      p =>
-        p.classList.remove(
-          "active"
-        )
-    );
+document
+.querySelectorAll(".page")
+.forEach(
+p=>p.classList.remove("active")
+);
 
 
-  const p =
-    document.getElementById(
-      id
-    );
+const p=
+document.getElementById(id);
+
+if(p)p.classList.add("active");
 
 
-  if(p)
-    p.classList.add(
-      "active"
-    );
+document
+.querySelectorAll(".nav-btn")
+.forEach(
+b=>b.classList.remove("active")
+);
 
 
-  document
-    .querySelectorAll(
-      ".nav-btn"
-    )
-    .forEach(
-      b =>
-        b.classList.remove(
-          "active"
-        )
-    );
+const map={
+homePage:"navHome",
+bookingsPage:"navBookings",
+offersPage:"navOffers",
+profilePage:"navProfile"
+};
 
 
-  const map = {
+if(map[id])
 
-    homePage:
-      "navHome",
-
-    bookingsPage:
-      "navBookings",
-
-    offersPage:
-      "navOffers",
-
-    profilePage:
-      "navProfile"
-
-  };
+document.getElementById(
+map[id]
+).classList.add("active");
 
 
-  if(map[id]){
-
-    document
-      .getElementById(
-        map[id]
-      )
-      .classList.add(
-        "active"
-      );
-
-  }
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
 }
 
 
 function openSupport(){
 
-  showPage(
-    "supportPage"
-  );
+showPage("supportPage");
 
 }
 
 
 function contactSupport(){
 
-  const phone =
-    "9085860126";
+const phone="9085860126";
 
+if(
+confirm(
+"Contact Guwahati Urban Cleaning Service?\n\n"+
+phone
+)
+)
 
-  if(
-    confirm(
-      "Contact Guwahati Urban Cleaning Service?\n\n" +
-      phone
-    )
-  ){
-
-    window.location.href =
-      "tel:" + phone;
-
-  }
+window.location.href=
+"tel:"+phone;
 
 }
 
 
 function showNotifications(){
 
-  alert(
-`🔔 Notifications
-
-No new notifications right now.`
-  );
+alert(
+"🔔 Notifications\n\nNo new notifications right now."
+);
 
 }
 
-
-// ================= SEARCH =================
 
 function setupSearch(){
 
-  document
-    .getElementById(
-      "searchInput"
-    )
-    .addEventListener(
-      "input",
-      function(){
+document
+.getElementById("searchInput")
+.addEventListener(
+"input",
+function(){
 
-        const q =
-          this.value
-            .trim()
-            .toLowerCase();
+const q=
+this.value.trim().toLowerCase();
 
+document
+.querySelectorAll(".service-card")
+.forEach(c=>{
 
-        document
-          .querySelectorAll(
-            ".service-card"
-          )
-          .forEach(
-            c => {
+const n=
+String(
+c.dataset.name||""
+).toLowerCase();
 
-              const n =
-                String(
-                  c.dataset.name ||
-                  ""
-                ).toLowerCase();
+c.style.display=
+!q||n.includes(q)?
+"flex":
+"none";
 
+});
 
-              c.style.display =
-                !q ||
-                n.includes(q)
-                  ? "flex"
-                  : "none";
-
-            }
-          );
-
-      }
-    );
+}
+);
 
 }
 
-
-// ================= CATEGORIES =================
 
 function setupCategories(){
 
-  document
-    .querySelectorAll(
-      ".category"
-    )
-    .forEach(
-      b =>
-        b.addEventListener(
-          "click",
-          function(){
+document
+.querySelectorAll(".category")
+.forEach(
+b=>
+b.addEventListener(
+"click",
+function(){
 
-            const q =
-              String(
-                this.dataset.category ||
-                ""
-              ).toLowerCase();
+const q=
+String(
+this.dataset.category||""
+).toLowerCase();
 
-
-            showPage(
-              "homePage"
-            );
+showPage("homePage");
 
 
-            const i =
-              document.getElementById(
-                "searchInput"
-              );
+const i=
+document.getElementById(
+"searchInput"
+);
+
+i.value=q;
+
+i.dispatchEvent(
+new Event("input")
+);
 
 
-            i.value =
-              q;
+document
+.getElementById(
+"servicesSection"
+)
+.scrollIntoView({
+behavior:"smooth"
+});
 
-
-            i.dispatchEvent(
-              new Event(
-                "input"
-              )
-            );
-
-
-            document
-              .getElementById(
-                "servicesSection"
-              )
-              .scrollIntoView({
-                behavior:"smooth"
-              });
-
-          }
-        )
-    );
+}
+)
+);
 
 }
 
-
-// ================= DATE =================
 
 function setMinimumDate(){
 
-  const i =
-    document.getElementById(
-      "bookingDate"
-    );
+const i=
+document.getElementById(
+"bookingDate"
+);
 
+const d=new Date();
 
-  const d =
-    new Date();
-
-
-  i.min =
-    d.getFullYear() +
-    "-" +
-    String(
-      d.getMonth()+1
-    ).padStart(2,"0") +
-    "-" +
-    String(
-      d.getDate()
-    ).padStart(2,"0");
+i.min=
+d.getFullYear()+
+"-"+
+String(
+d.getMonth()+1
+).padStart(2,"0")+
+"-"+
+String(
+d.getDate()
+).padStart(2,"0");
 
 }
 
 
-// ================= EVENTS =================
+/* EVENTS */
 
 document
-  .getElementById(
-    "heroBookBtn"
-  )
-  .addEventListener(
-    "click",
-    ()=>openBooking()
-  );
+.getElementById("heroBookBtn")
+.addEventListener(
+"click",
+()=>openBooking()
+);
 
 
 document
-  .getElementById(
-    "offerBtn"
-  )
-  .addEventListener(
-    "click",
-    ()=>openBooking()
-  );
+.getElementById("offerBtn")
+.addEventListener(
+"click",
+()=>openBooking()
+);
 
 
 document
-  .getElementById(
-    "profileBtn"
-  )
-  .addEventListener(
-    "click",
-    ()=>{
-      showPage(
-        "profilePage"
-      );
-      loadProfile();
-    }
-  );
+.getElementById("profileBtn")
+.addEventListener(
+"click",
+()=>{
+showPage("profilePage");
+loadProfile();
+}
+);
 
 
 document
-  .getElementById(
-    "closeBooking"
-  )
-  .addEventListener(
-    "click",
-    closeBooking
-  );
+.getElementById("closeBooking")
+.addEventListener(
+"click",
+closeBooking
+);
 
 
 document
-  .getElementById(
-    "closeSuccess"
-  )
-  .addEventListener(
-    "click",
-    ()=>{
-      document
-        .getElementById(
-          "successModal"
-        )
-        .classList.remove(
-          "show"
-        );
+.getElementById("closeSuccess")
+.addEventListener(
+"click",
+()=>{
+document
+.getElementById("successModal")
+.classList.remove("show");
 
-      showPage(
-        "bookingsPage"
-      );
+showPage("bookingsPage");
 
-      loadBookings();
-    }
-  );
+loadBookings();
+
+}
+);
 
 
 document
-  .getElementById(
-    "bookingModal"
-  )
-  .addEventListener(
-    "click",
-    e=>{
-      if(
-        e.target ===
-        e.currentTarget
-      ){
-
-        closeBooking();
-
-      }
-    }
-  );
+.getElementById("bookingModal")
+.addEventListener(
+"click",
+e=>{
+if(e.target===e.currentTarget)
+closeBooking();
+}
+);
 
 
 document
-  .getElementById(
-    "authModal"
-  )
-  .addEventListener(
-    "click",
-    e=>{
-      if(
-        e.target ===
-        e.currentTarget
-      ){
-
-        closeAuth();
-
-      }
-    }
-  );
+.getElementById("authModal")
+.addEventListener(
+"click",
+e=>{
+if(e.target===e.currentTarget)
+closeAuth();
+}
+);
 
 
 document
-  .getElementById(
-    "serviceSelect"
-  )
-  .addEventListener(
-    "change",
-    function(){
+.getElementById("serviceSelect")
+.addEventListener(
+"change",
+function(){
 
-      loadOptionsForService(
-        this.value
-      );
+loadOptionsForService(
+this.value
+);
 
-    }
-  );
+}
+);
 
 
 document
-  .getElementById(
-    "serviceOption"
-  )
-  .addEventListener(
-    "change",
-    updateOptionPrice
-  );
+.getElementById("serviceOption")
+.addEventListener(
+"change",
+updateOptionPrice
+);
 
 
 document
-  .getElementById(
-    "bookingForm"
-  )
-  .addEventListener(
-    "submit",
-    submitBooking
-  );
+.getElementById("bookingForm")
+.addEventListener(
+"submit",
+submitBooking
+);
 
 
-// ================= INIT =================
+/* INIT */
 
 async function init(){
 
-  setMinimumDate();
+setMinimumDate();
 
-  setupSearch();
+setupSearch();
 
-  setupCategories();
+setupCategories();
 
-  updateAuthModal();
+updateAuthModal();
 
-  await initAuth();
+await initAuth();
 
+await Promise.all([
+loadServices(),
+loadServiceOptions(),
+loadTimeSlots()
+]);
 
-  await Promise.all([
-    loadServices(),
-    loadServiceOptions(),
-    loadTimeSlots()
-  ]);
-
-
-  await loadProfile();
+await loadProfile();
 
 }
 
@@ -4989,6 +4149,5 @@ init();
 </script>
 
 </div>
-
 </body>
 </html>
