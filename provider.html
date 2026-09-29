@@ -2358,7 +2358,7 @@ async function uploadProviderFile(blobOrFile, filename){
         "apikey":SUPABASE_KEY,
         "Authorization":"Bearer " + token,
         "Content-Type":contentType,
-        "x-upsert":"false"
+        "x-upsert":"true"
       },
 
       body:blobOrFile
