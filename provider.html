@@ -2282,53 +2282,101 @@ function getLocation(){
    STORAGE UPLOAD
 ========================================================= */
 
-async function uploadProviderFile(blobOrFile,filename){
+async function uploadProviderFile(blobOrFile, filename){
 
-  if(!providerUser){
+  const token = getToken();
 
-    throw new Error("Provider account not found.");
-
+  if(!token){
+    throw new Error(
+      "Provider session expired. Please login again."
+    );
   }
 
-  const uid=providerUser.id;
+  /* Get the real authenticated user directly from Supabase */
+  const userRes = await fetch(
+    SUPABASE_URL + "/auth/v1/user",
+    {
+      method:"GET",
+      headers:{
+        "apikey":SUPABASE_KEY,
+        "Authorization":"Bearer " + token
+      }
+    }
+  );
 
-  const path=
-    uid+"/"+filename;
+  if(!userRes.ok){
 
-  const fileUrl=
-    SUPABASE_URL+
-    "/storage/v1/object/provider-documents/"+
-    path;
+    const userText = await userRes.text();
 
-  const contentType=
+    console.log("Auth user error:", userText);
+
+    throw new Error(
+      "Provider authentication expired. Please login again."
+    );
+  }
+
+  const authenticatedUser = await userRes.json();
+
+  if(!authenticatedUser || !authenticatedUser.id){
+
+    throw new Error(
+      "Provider user ID could not be verified."
+    );
+  }
+
+  /* Keep local provider user synchronized */
+  providerUser = authenticatedUser;
+
+  const uid = authenticatedUser.id;
+
+  /*
+    IMPORTANT:
+    Storage policy expects:
+    provider-documents/<auth.uid>/filename
+  */
+  const path = uid + "/" + filename;
+
+  console.log("Provider UID:", uid);
+  console.log("Upload path:", path);
+
+  const fileUrl =
+    SUPABASE_URL +
+    "/storage/v1/object/provider-documents/" +
+    encodeURIComponent(uid) +
+    "/" +
+    encodeURIComponent(filename);
+
+  const contentType =
     blobOrFile.type || "application/octet-stream";
 
-  const res=await fetch(
+  const res = await fetch(
     fileUrl,
     {
       method:"POST",
+
       headers:{
         "apikey":SUPABASE_KEY,
-        "Authorization":"Bearer "+getToken(),
+        "Authorization":"Bearer " + token,
         "Content-Type":contentType,
-        "x-upsert":"true"
+        "x-upsert":"false"
       },
+
       body:blobOrFile
     }
   );
 
   if(!res.ok){
 
-    const txt=await res.text();
+    const txt = await res.text();
+
+    console.log("Storage upload error:", txt);
 
     throw new Error(
-      "Document upload failed: "+txt
+      "Document upload failed: " + txt
     );
-
   }
 
   return path;
-
 }
 
 
