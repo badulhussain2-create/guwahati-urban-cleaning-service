@@ -36,6 +36,11 @@ button{
   cursor:pointer;
 }
 
+button:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
 .app{
   max-width:700px;
   margin:auto;
@@ -43,7 +48,7 @@ button{
   min-height:100vh;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 .topbar{
   display:flex;
@@ -91,7 +96,7 @@ button{
   font-weight:bold;
 }
 
-/* SEARCH */
+/* ================= SEARCH ================= */
 
 .search-box{
   margin:8px 16px 16px;
@@ -116,7 +121,7 @@ button{
   background:transparent;
 }
 
-/* PAGE */
+/* ================= PAGE ================= */
 
 .page{
   display:none;
@@ -126,7 +131,7 @@ button{
   display:block;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
   margin:0 16px 24px;
@@ -167,7 +172,7 @@ button{
   font-weight:bold;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 
 .section{
   padding:0 16px;
@@ -190,7 +195,7 @@ button{
   color:#777;
 }
 
-/* CATEGORIES */
+/* ================= CATEGORIES ================= */
 
 .categories{
   display:grid;
@@ -220,7 +225,7 @@ button{
   color:#444;
 }
 
-/* OFFER */
+/* ================= OFFER ================= */
 
 .offer{
   border-radius:18px;
@@ -257,7 +262,7 @@ button{
   white-space:nowrap;
 }
 
-/* SERVICES */
+/* ================= SERVICES ================= */
 
 .services{
   display:flex;
@@ -322,7 +327,7 @@ button{
   font-size:14px;
 }
 
-/* WHY */
+/* ================= WHY ================= */
 
 .why-grid{
   display:grid;
@@ -354,7 +359,7 @@ button{
   margin-top:4px;
 }
 
-/* BOTTOM NAV */
+/* ================= BOTTOM NAV ================= */
 
 .bottom-nav{
   position:fixed;
@@ -392,7 +397,7 @@ button{
   font-weight:bold;
 }
 
-/* GENERAL PAGE */
+/* ================= GENERAL PAGE ================= */
 
 .inner-page{
   padding:18px 16px 30px;
@@ -418,7 +423,7 @@ button{
   font-size:22px;
 }
 
-/* BOOKING CARDS */
+/* ================= BOOKINGS ================= */
 
 .booking-card{
   border:1px solid #eee;
@@ -497,7 +502,7 @@ button{
   margin-bottom:15px;
 }
 
-/* OFFERS PAGE */
+/* ================= OFFERS ================= */
 
 .offer-page-card{
   border-radius:19px;
@@ -537,7 +542,7 @@ button{
   font-weight:bold;
 }
 
-/* PROFILE */
+/* ================= PROFILE ================= */
 
 .profile-card{
   background:#111;
@@ -593,7 +598,11 @@ button{
   color:#aaa;
 }
 
-/* SUPPORT */
+.logout-button{
+  color:#c62828 !important;
+}
+
+/* ================= SUPPORT ================= */
 
 .support-card{
   border:1px solid #eee;
@@ -612,7 +621,7 @@ button{
   color:#777;
 }
 
-/* MODAL */
+/* ================= MODAL ================= */
 
 .modal-overlay{
   position:fixed;
@@ -702,7 +711,7 @@ button{
   margin-top:5px;
 }
 
-/* SUCCESS */
+/* ================= SUCCESS ================= */
 
 .success-overlay{
   position:fixed;
@@ -761,7 +770,7 @@ button{
   border-radius:11px;
 }
 
-/* OPTIONS */
+/* ================= OPTIONS ================= */
 
 .option-info{
   background:#f6f7f9;
@@ -782,7 +791,7 @@ button{
   font-weight:bold;
 }
 
-/* TOAST */
+/* ================= TOAST ================= */
 
 .toast{
   position:fixed;
@@ -807,7 +816,7 @@ button{
   transform:translateX(-50%) translateY(0);
 }
 
-/* LOADING */
+/* ================= LOADING ================= */
 
 .loading{
   padding:25px;
@@ -816,10 +825,11 @@ button{
   font-size:13px;
 }
 
-/* EDIT PROFILE */
+/* ================= EDIT PROFILE ================= */
 
 .edit-profile-box{
   display:none;
+  margin-bottom:18px;
 }
 
 .edit-profile-box.show{
@@ -835,9 +845,130 @@ button{
   font-size:12px;
 }
 
-/* RESPONSIVE */
+/* ================= AUTH MODAL ================= */
+
+.auth-overlay{
+  position:fixed;
+  inset:0;
+  z-index:300;
+  background:rgba(0,0,0,.58);
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+}
+
+.auth-overlay.show{
+  display:flex;
+}
+
+.auth-box{
+  width:100%;
+  max-width:700px;
+  background:#fff;
+  border-radius:25px 25px 0 0;
+  padding:24px 18px 30px;
+  max-height:92vh;
+  overflow-y:auto;
+}
+
+.auth-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.auth-top h2{
+  font-size:22px;
+}
+
+.auth-close{
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#f3f3f3;
+  font-size:23px;
+}
+
+.auth-intro{
+  background:#f6f7f9;
+  border-radius:14px;
+  padding:13px;
+  margin-bottom:18px;
+  font-size:12px;
+  color:#666;
+  line-height:1.5;
+}
+
+.phone-wrap{
+  display:flex;
+  gap:7px;
+}
+
+.phone-prefix{
+  width:62px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #ddd;
+  border-radius:11px;
+  background:#f8f8f8;
+  font-weight:bold;
+  font-size:13px;
+}
+
+.phone-input{
+  flex:1;
+}
+
+.auth-submit{
+  width:100%;
+  border:0;
+  background:#111;
+  color:#fff;
+  padding:14px;
+  border-radius:12px;
+  font-weight:bold;
+  margin-top:4px;
+}
+
+.auth-switch{
+  text-align:center;
+  margin-top:17px;
+  font-size:12px;
+  color:#777;
+}
+
+.auth-switch button{
+  border:0;
+  background:none;
+  color:#111;
+  font-weight:bold;
+}
+
+.auth-note{
+  text-align:center;
+  font-size:10px;
+  color:#999;
+  margin-top:12px;
+  line-height:1.5;
+}
+
+.auth-error{
+  display:none;
+  background:#fdecec;
+  color:#a32626;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:13px;
+  font-size:12px;
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:390px){
+
   .categories{
     gap:5px;
   }
@@ -850,6 +981,7 @@ button{
   .hero h1{
     font-size:27px;
   }
+
 }
 </style>
 </head>
@@ -878,43 +1010,38 @@ button{
   </div>
 
   <div class="search-box">
+
     <span>⌕</span>
 
     <input
       type="text"
       id="searchInput"
-      placeholder="Search for cleaning services"
-    >
-  </div>
+      placeholder="Search for cleaning services">
 
+  </div>
 
   <!-- HERO -->
 
   <section class="hero">
 
-    <div class="hero-content">
+    <span class="hero-tag">
+      ✨ Professional Home Cleaning
+    </span>
 
-      <span class="hero-tag">
-        ✨ Professional Home Cleaning
-      </span>
+    <h1>
+      A cleaner home starts here.
+    </h1>
 
-      <h1>
-        A cleaner home starts here.
-      </h1>
+    <p>
+      Book trusted cleaning professionals
+      for your home in Guwahati.
+    </p>
 
-      <p>
-        Book trusted cleaning professionals
-        for your home in Guwahati.
-      </p>
-
-      <button class="hero-btn" id="heroBookBtn">
-        Book a Service →
-      </button>
-
-    </div>
+    <button class="hero-btn" id="heroBookBtn">
+      Book a Service →
+    </button>
 
   </section>
-
 
   <!-- CATEGORIES -->
 
@@ -956,7 +1083,6 @@ button{
 
   </section>
 
-
   <!-- OFFER -->
 
   <section class="section">
@@ -985,7 +1111,6 @@ button{
 
   </section>
 
-
   <!-- SERVICES -->
 
   <section class="section" id="servicesSection">
@@ -1012,7 +1137,6 @@ button{
     </div>
 
   </section>
-
 
   <!-- WHY US -->
 
@@ -1098,7 +1222,6 @@ button{
 
     </div>
 
-
     <div class="offer-page-card">
 
       <small>WELCOME OFFER</small>
@@ -1118,7 +1241,6 @@ button{
 
     </div>
 
-
     <div class="offer-page-card">
 
       <small>HOME CLEANING</small>
@@ -1137,7 +1259,6 @@ button{
       </div>
 
     </div>
-
 
     <div class="offer-page-card">
 
@@ -1177,7 +1298,6 @@ button{
 
     </div>
 
-
     <div class="profile-card">
 
       <div
@@ -1191,13 +1311,12 @@ button{
       </h3>
 
       <p id="profilePhone">
-        Add your phone number
+        Login to your account
       </p>
 
     </div>
 
-
-    <!-- PROFILE EDIT -->
+    <!-- EDIT PROFILE -->
 
     <div
       class="edit-profile-box"
@@ -1205,9 +1324,7 @@ button{
 
       <div class="form-group">
 
-        <label>
-          Full Name
-        </label>
+        <label>Full Name</label>
 
         <input
           id="profileEditName"
@@ -1216,12 +1333,9 @@ button{
 
       </div>
 
-
       <div class="form-group">
 
-        <label>
-          Phone Number
-        </label>
+        <label>Phone Number</label>
 
         <input
           id="profileEditPhone"
@@ -1231,12 +1345,9 @@ button{
 
       </div>
 
-
       <div class="form-group">
 
-        <label>
-          Email
-        </label>
+        <label>Email</label>
 
         <input
           id="profileEditEmail"
@@ -1245,31 +1356,38 @@ button{
 
       </div>
 
-
       <div class="form-group">
 
-        <label>
-          Address
-        </label>
+        <label>Address</label>
 
         <textarea
           id="profileEditAddress"
-          placeholder="Your address">
-        </textarea>
+          placeholder="Your address"></textarea>
 
       </div>
-
 
       <button
         class="small-btn"
         onclick="saveProfile()">
+
         Save Profile
+
       </button>
 
     </div>
 
 
     <div class="profile-menu">
+
+      <button
+        id="loginProfileButton"
+        onclick="openAuth('login')">
+
+        <span>🔐</span>
+        <strong>Login / Create Account</strong>
+        <span>›</span>
+
+      </button>
 
       <button onclick="openEditProfile()">
 
@@ -1279,7 +1397,6 @@ button{
 
       </button>
 
-
       <button onclick="showPage('bookingsPage'); loadBookings();">
 
         <span>📖</span>
@@ -1287,7 +1404,6 @@ button{
         <span>›</span>
 
       </button>
-
 
       <button onclick="showPage('offersPage')">
 
@@ -1297,7 +1413,6 @@ button{
 
       </button>
 
-
       <button onclick="openSupport()">
 
         <span>💬</span>
@@ -1306,11 +1421,22 @@ button{
 
       </button>
 
-
       <button onclick="showNotifications()">
 
         <span>🔔</span>
         <strong>Notifications</strong>
+        <span>›</span>
+
+      </button>
+
+      <button
+        id="logoutButton"
+        class="logout-button"
+        style="display:none"
+        onclick="logout()">
+
+        <span>🚪</span>
+        <strong>Logout</strong>
         <span>›</span>
 
       </button>
@@ -1340,7 +1466,6 @@ button{
 
     </div>
 
-
     <div class="support-card">
 
       <strong>
@@ -1357,11 +1482,12 @@ button{
       <button
         class="small-btn"
         onclick="contactSupport()">
+
         Contact Us
+
       </button>
 
     </div>
-
 
     <div class="support-card">
 
@@ -1376,7 +1502,6 @@ button{
 
     </div>
 
-
     <div class="support-card">
 
       <strong>
@@ -1389,7 +1514,6 @@ button{
       </p>
 
     </div>
-
 
     <div class="support-card">
 
@@ -1423,7 +1547,6 @@ button{
 
   </button>
 
-
   <button
     class="nav-btn"
     id="navBookings"
@@ -1434,7 +1557,6 @@ button{
 
   </button>
 
-
   <button
     class="nav-btn"
     id="navOffers"
@@ -1444,7 +1566,6 @@ button{
     <span>Offers</span>
 
   </button>
-
 
   <button
     class="nav-btn"
@@ -1481,15 +1602,11 @@ button{
 
     </div>
 
-
     <form id="bookingForm">
-
 
       <div class="form-group">
 
-        <label>
-          Your Name
-        </label>
+        <label>Your Name</label>
 
         <input
           type="text"
@@ -1499,12 +1616,9 @@ button{
 
       </div>
 
-
       <div class="form-group">
 
-        <label>
-          Phone Number
-        </label>
+        <label>Phone Number</label>
 
         <input
           type="tel"
@@ -1515,12 +1629,9 @@ button{
 
       </div>
 
-
       <div class="form-group">
 
-        <label>
-          Service
-        </label>
+        <label>Service</label>
 
         <select
           id="serviceSelect"
@@ -1534,19 +1645,15 @@ button{
 
       </div>
 
-
       <div
         class="option-info"
         id="selectedServiceInfo"
         style="display:none">
       </div>
 
-
       <div class="form-group">
 
-        <label>
-          Service Option
-        </label>
+        <label>Service Option</label>
 
         <select
           id="serviceOption"
@@ -1559,7 +1666,6 @@ button{
         </select>
 
       </div>
-
 
       <div
         class="price-preview"
@@ -1576,12 +1682,9 @@ button{
 
       </div>
 
-
       <div class="form-group">
 
-        <label>
-          Date
-        </label>
+        <label>Date</label>
 
         <input
           type="date"
@@ -1590,12 +1693,9 @@ button{
 
       </div>
 
-
       <div class="form-group">
 
-        <label>
-          Time
-        </label>
+        <label>Time</label>
 
         <select
           id="bookingTime"
@@ -1609,12 +1709,9 @@ button{
 
       </div>
 
-
       <div class="form-group">
 
-        <label>
-          Address
-        </label>
+        <label>Address</label>
 
         <textarea
           id="customerAddress"
@@ -1623,19 +1720,15 @@ button{
 
       </div>
 
-
       <div class="form-group">
 
-        <label>
-          Notes (Optional)
-        </label>
+        <label>Notes (Optional)</label>
 
         <textarea
           id="bookingNotes"
           placeholder="Any special instructions?"></textarea>
 
       </div>
-
 
       <button
         class="confirm-btn"
@@ -1687,6 +1780,154 @@ button{
 </div>
 
 
+<!-- ================= AUTH MODAL ================= -->
+
+<div
+  class="auth-overlay"
+  id="authModal">
+
+  <div class="auth-box">
+
+    <div class="auth-top">
+
+      <h2 id="authTitle">
+        Login
+      </h2>
+
+      <button
+        class="auth-close"
+        onclick="closeAuth()">
+
+        ×
+
+      </button>
+
+    </div>
+
+    <div class="auth-intro">
+
+      🇮🇳 Use your Indian mobile number
+      and password to access your account.
+
+    </div>
+
+    <div
+      class="auth-error"
+      id="authError">
+    </div>
+
+    <!-- SIGNUP NAME -->
+
+    <div
+      class="form-group"
+      id="authNameGroup">
+
+      <label>
+        Full Name
+      </label>
+
+      <input
+        id="authName"
+        type="text"
+        placeholder="Enter your full name">
+
+    </div>
+
+    <!-- MOBILE -->
+
+    <div class="form-group">
+
+      <label>
+        Mobile Number
+      </label>
+
+      <div class="phone-wrap">
+
+        <div class="phone-prefix">
+          +91
+        </div>
+
+        <input
+          class="phone-input"
+          id="authPhone"
+          type="tel"
+          maxlength="10"
+          inputmode="numeric"
+          placeholder="10 digit mobile number">
+
+      </div>
+
+    </div>
+
+    <!-- PASSWORD -->
+
+    <div class="form-group">
+
+      <label>
+        Password
+      </label>
+
+      <input
+        id="authPassword"
+        type="password"
+        placeholder="Minimum 6 characters">
+
+    </div>
+
+    <!-- CONFIRM PASSWORD -->
+
+    <div
+      class="form-group"
+      id="authConfirmGroup">
+
+      <label>
+        Confirm Password
+      </label>
+
+      <input
+        id="authConfirmPassword"
+        type="password"
+        placeholder="Enter password again">
+
+    </div>
+
+    <button
+      class="auth-submit"
+      id="authSubmitButton"
+      onclick="submitAuth()">
+
+      Create Account
+
+    </button>
+
+    <div class="auth-switch">
+
+      <span id="authSwitchText">
+        Already have an account?
+      </span>
+
+      <button
+        id="authSwitchButton"
+        onclick="switchAuthMode()">
+
+        Login
+
+      </button>
+
+    </div>
+
+    <div class="auth-note">
+
+      Your mobile number is used to create
+      and identify your customer account.
+
+    </div>
+
+  </div>
+
+</div>
+
+
 <!-- ================= TOAST ================= -->
 
 <div
@@ -1717,6 +1958,8 @@ let timeSlots = [];
 
 let selectedServiceId = null;
 
+let authMode = "login";
+
 
 /* =====================================================
    SUPABASE HEADERS
@@ -1726,7 +1969,7 @@ function getHeaders(){
 
   const headers = {
     "apikey": SUPABASE_KEY,
-    "Content-Type": "application/json"
+    "Content-Type":"application/json"
   };
 
   if(accessToken){
@@ -1737,16 +1980,17 @@ function getHeaders(){
   }
 
   return headers;
+
 }
 
 
 /* =====================================================
-   API REQUEST
+   SUPABASE API
 ===================================================== */
 
 async function supabaseFetch(
   path,
-  options = {}
+  options={}
 ){
 
   const response =
@@ -1761,28 +2005,52 @@ async function supabaseFetch(
       }
     );
 
+
   if(!response.ok){
 
     const text =
       await response.text();
 
-    throw new Error(
-      text || "Supabase request failed"
-    );
+    let message =
+      text || "Supabase request failed";
+
+    try{
+
+      const json =
+        JSON.parse(text);
+
+      message =
+        json.msg ||
+        json.message ||
+        json.error_description ||
+        json.error ||
+        text;
+
+    }catch(e){}
+
+
+    throw new Error(message);
 
   }
 
+
   const text =
     await response.text();
+
 
   if(!text){
     return null;
   }
 
+
   try{
+
     return JSON.parse(text);
+
   }catch{
+
     return text;
+
   }
 
 }
@@ -1811,98 +2079,476 @@ function showToast(message){
       ()=>{
         toast.classList.remove("show");
       },
-      2800
+      3000
     );
 
 }
 
 
 /* =====================================================
-   AUTH
+   AUTH HELPERS
+===================================================== */
+
+/*
+  Supabase email/password authentication is used
+  internally because native phone-password login
+  is not enabled.
+
+  Customer only sees mobile number + password.
+*/
+
+function mobileToEmail(phone){
+
+  return (
+    String(phone).trim() +
+    "@guscustomer.com"
+  );
+
+}
+
+
+function getSavedToken(){
+
+  return localStorage.getItem(
+    "gus_access_token"
+  );
+
+}
+
+
+/* =====================================================
+   INIT AUTH
 ===================================================== */
 
 async function initAuth(){
 
+  const savedToken =
+    getSavedToken();
+
+
+  if(!savedToken){
+
+    accessToken = null;
+    currentUser = null;
+
+    updateAuthUI();
+
+    return;
+
+  }
+
+
+  accessToken =
+    savedToken;
+
+
   try{
 
-    const savedToken =
-      localStorage.getItem(
-        "gus_access_token"
+    const user =
+      await supabaseFetch(
+        "/auth/v1/user"
       );
 
-    if(savedToken){
 
-      accessToken =
-        savedToken;
+    if(user && user.id){
 
-      try{
+      currentUser =
+        user;
 
-        const user =
-          await supabaseFetch(
-            "/auth/v1/user"
-          );
+      updateAuthUI();
 
-        if(user && user.id){
+      return;
 
-          currentUser =
-            user;
+    }
 
-          return;
 
-        }
+  }catch(error){
 
-      }catch(e){
+    console.log(
+      "Saved session invalid:",
+      error
+    );
 
-        localStorage.removeItem(
-          "gus_access_token"
+  }
+
+
+  localStorage.removeItem(
+    "gus_access_token"
+  );
+
+  accessToken = null;
+  currentUser = null;
+
+  updateAuthUI();
+
+}
+
+
+/* =====================================================
+   AUTH MODAL
+===================================================== */
+
+function openAuth(mode="login"){
+
+  authMode =
+    mode === "signup"
+    ? "signup"
+    : "login";
+
+
+  updateAuthModal();
+
+
+  document
+    .getElementById("authModal")
+    .classList.add("show");
+
+}
+
+
+function closeAuth(){
+
+  document
+    .getElementById("authModal")
+    .classList.remove("show");
+
+}
+
+
+function switchAuthMode(){
+
+  authMode =
+    authMode === "login"
+    ? "signup"
+    : "login";
+
+
+  updateAuthModal();
+
+}
+
+
+function updateAuthModal(){
+
+  const title =
+    document.getElementById(
+      "authTitle"
+    );
+
+  const nameGroup =
+    document.getElementById(
+      "authNameGroup"
+    );
+
+  const confirmGroup =
+    document.getElementById(
+      "authConfirmGroup"
+    );
+
+  const submitButton =
+    document.getElementById(
+      "authSubmitButton"
+    );
+
+  const switchText =
+    document.getElementById(
+      "authSwitchText"
+    );
+
+  const switchButton =
+    document.getElementById(
+      "authSwitchButton"
+    );
+
+
+  document.getElementById(
+    "authError"
+  ).style.display =
+    "none";
+
+
+  if(authMode === "signup"){
+
+    title.textContent =
+      "Create Account";
+
+    nameGroup.style.display =
+      "block";
+
+    confirmGroup.style.display =
+      "block";
+
+    submitButton.textContent =
+      "Create Account";
+
+    switchText.textContent =
+      "Already have an account?";
+
+    switchButton.textContent =
+      "Login";
+
+  }else{
+
+    title.textContent =
+      "Login";
+
+    nameGroup.style.display =
+      "none";
+
+    confirmGroup.style.display =
+      "none";
+
+    submitButton.textContent =
+      "Login";
+
+    switchText.textContent =
+      "Don't have an account?";
+
+    switchButton.textContent =
+      "Create Account";
+
+  }
+
+}
+
+
+/* =====================================================
+   AUTH ERROR
+===================================================== */
+
+function showAuthError(message){
+
+  const box =
+    document.getElementById(
+      "authError"
+    );
+
+  box.textContent =
+    message;
+
+  box.style.display =
+    "block";
+
+}
+
+
+/* =====================================================
+   SUBMIT AUTH
+===================================================== */
+
+async function submitAuth(){
+
+  const name =
+    document.getElementById(
+      "authName"
+    ).value.trim();
+
+
+  const phone =
+    document.getElementById(
+      "authPhone"
+    ).value.trim();
+
+
+  const password =
+    document.getElementById(
+      "authPassword"
+    ).value;
+
+
+  const confirmPassword =
+    document.getElementById(
+      "authConfirmPassword"
+    ).value;
+
+
+  const button =
+    document.getElementById(
+      "authSubmitButton"
+    );
+
+
+  document.getElementById(
+    "authError"
+  ).style.display =
+    "none";
+
+
+  if(!/^[0-9]{10}$/.test(phone)){
+
+    showAuthError(
+      "Enter a valid 10 digit Indian mobile number."
+    );
+
+    return;
+
+  }
+
+
+  if(password.length < 6){
+
+    showAuthError(
+      "Password must be at least 6 characters."
+    );
+
+    return;
+
+  }
+
+
+  if(authMode === "signup"){
+
+    if(!name){
+
+      showAuthError(
+        "Please enter your full name."
+      );
+
+      return;
+
+    }
+
+
+    if(password !== confirmPassword){
+
+      showAuthError(
+        "Passwords do not match."
+      );
+
+      return;
+
+    }
+
+  }
+
+
+  const email =
+    mobileToEmail(phone);
+
+
+  button.disabled =
+    true;
+
+
+  button.textContent =
+    authMode === "signup"
+    ? "Creating Account..."
+    : "Logging in...";
+
+
+  try{
+
+    if(authMode === "signup"){
+
+      /*
+        CREATE SUPABASE AUTH ACCOUNT
+      */
+
+      const signup =
+        await supabaseFetch(
+          "/auth/v1/signup",
+          {
+            method:"POST",
+            headers:{
+              "apikey":SUPABASE_KEY,
+              "Content-Type":
+                "application/json"
+            },
+            body:JSON.stringify({
+
+              email:
+                email,
+
+              password:
+                password,
+
+              data:{
+                full_name:
+                  name,
+
+                phone:
+                  phone
+
+              }
+
+            })
+          }
         );
 
-        accessToken = null;
+
+      /*
+        If confirmation is OFF,
+        Supabase normally returns a session.
+      */
+
+      if(
+        signup &&
+        signup.access_token
+      ){
+
+        accessToken =
+          signup.access_token;
+
+        currentUser =
+          signup.user;
+
+        localStorage.setItem(
+          "gus_access_token",
+          accessToken
+        );
+
+      }else{
+
+        /*
+          If no session is returned,
+          login immediately.
+        */
+
+        await loginWithPassword(
+          email,
+          password
+        );
 
       }
 
-    }
 
+      /*
+        CREATE CUSTOMER PROFILE
+      */
 
-    /*
-      Anonymous account
-    */
-
-    const signupResponse =
-      await fetch(
-        SUPABASE_URL +
-        "/auth/v1/signup",
-        {
-          method:"POST",
-          headers:{
-            "apikey":SUPABASE_KEY,
-            "Content-Type":
-              "application/json"
-          },
-          body:"{}"
-        }
+      await createCustomerProfile(
+        name,
+        phone
       );
 
 
-    const authData =
-      await signupResponse.json();
-console.log("SIGNUP STATUS:", signupResponse.status);
-console.log("SIGNUP RESPONSE:", authData);
+      closeAuth();
 
-    if(authData.access_token){
+      updateAuthUI();
 
-      accessToken =
-        authData.access_token;
+      showToast(
+        "Account created successfully."
+      );
 
-      currentUser =
-        authData.user;
 
-      localStorage.setItem(
-        "gus_access_token",
-        accessToken
+    }else{
+
+      await loginWithPassword(
+        email,
+        password
+      );
+
+
+      closeAuth();
+
+      updateAuthUI();
+
+      showToast(
+        "Login successful."
       );
 
     }
+
 
   }catch(error){
 
@@ -1911,7 +2557,402 @@ console.log("SIGNUP RESPONSE:", authData);
       error
     );
 
+
+    let message =
+      error.message ||
+      "Authentication failed.";
+
+
+    const lower =
+      message.toLowerCase();
+
+
+    if(
+      lower.includes("already registered") ||
+      lower.includes("already exists")
+    ){
+
+      message =
+        "This mobile number is already registered. Please Login.";
+
+    }
+
+
+    if(
+      lower.includes("invalid login credentials")
+    ){
+
+      message =
+        "Wrong mobile number or password.";
+
+    }
+
+
+    if(
+      lower.includes("email rate limit")
+    ){
+
+      message =
+        "Too many attempts. Please try again later.";
+
+    }
+
+
+    showAuthError(
+      message
+    );
+
+
+  }finally{
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      authMode === "signup"
+      ? "Create Account"
+      : "Login";
+
   }
+
+}
+
+
+/* =====================================================
+   LOGIN WITH PASSWORD
+===================================================== */
+
+async function loginWithPassword(
+  email,
+  password
+){
+
+  const response =
+    await supabaseFetch(
+      "/auth/v1/token?grant_type=password",
+      {
+        method:"POST",
+        headers:{
+          "apikey":SUPABASE_KEY,
+          "Content-Type":
+            "application/json"
+        },
+        body:JSON.stringify({
+
+          email:
+            email,
+
+          password:
+            password
+
+        })
+      }
+    );
+
+
+  if(
+    !response ||
+    !response.access_token
+  ){
+
+    throw new Error(
+      "Login failed."
+    );
+
+  }
+
+
+  accessToken =
+    response.access_token;
+
+  currentUser =
+    response.user;
+
+
+  localStorage.setItem(
+    "gus_access_token",
+    accessToken
+  );
+
+}
+
+
+/* =====================================================
+   CREATE CUSTOMER PROFILE
+===================================================== */
+
+async function createCustomerProfile(
+  name,
+  phone
+){
+
+  if(!currentUser){
+
+    return;
+
+  }
+
+
+  try{
+
+    const existing =
+      await supabaseFetch(
+        "/rest/v1/customers?select=*&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        ) +
+        "&limit=1"
+      );
+
+
+    if(
+      existing &&
+      existing.length
+    ){
+
+      return existing[0];
+
+    }
+
+
+    const created =
+      await supabaseFetch(
+        "/rest/v1/customers",
+        {
+          method:"POST",
+          headers:{
+            "Prefer":
+              "return=representation"
+          },
+          body:JSON.stringify({
+
+            user_id:
+              currentUser.id,
+
+            full_name:
+              name,
+
+            phone:
+              phone,
+
+            email:
+              currentUser.email ||
+              mobileToEmail(phone),
+
+            city:
+              "Guwahati"
+
+          })
+        }
+      );
+
+
+    return Array.isArray(created)
+      ? created[0]
+      : created;
+
+
+  }catch(error){
+
+    /*
+      Account can still exist even if
+      customer RLS blocks this insert.
+    */
+
+    console.log(
+      "Customer profile creation error:",
+      error
+    );
+
+
+    return null;
+
+  }
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+async function logout(){
+
+  try{
+
+    if(accessToken){
+
+      await fetch(
+        SUPABASE_URL +
+        "/auth/v1/logout",
+        {
+          method:"POST",
+          headers:{
+            "apikey":SUPABASE_KEY,
+            "Authorization":
+              "Bearer " +
+              accessToken
+          }
+        }
+      );
+
+    }
+
+  }catch(error){
+
+    console.log(
+      "Logout request error:",
+      error
+    );
+
+  }
+
+
+  accessToken = null;
+  currentUser = null;
+
+
+  localStorage.removeItem(
+    "gus_access_token"
+  );
+
+
+  updateAuthUI();
+
+  showPage(
+    "homePage"
+  );
+
+
+  showToast(
+    "Logged out successfully."
+  );
+
+}
+
+
+/* =====================================================
+   AUTH UI
+===================================================== */
+
+function updateAuthUI(){
+
+  const loginButton =
+    document.getElementById(
+      "loginProfileButton"
+    );
+
+  const logoutButton =
+    document.getElementById(
+      "logoutButton"
+    );
+
+  const profileName =
+    document.getElementById(
+      "profileName"
+    );
+
+  const profilePhone =
+    document.getElementById(
+      "profilePhone"
+    );
+
+
+  if(currentUser){
+
+    if(loginButton){
+
+      loginButton.style.display =
+        "none";
+
+    }
+
+
+    if(logoutButton){
+
+      logoutButton.style.display =
+        "flex";
+
+    }
+
+
+    if(profileName){
+
+      profileName.textContent =
+        "Customer";
+
+    }
+
+
+    if(profilePhone){
+
+      profilePhone.textContent =
+        "Logged in";
+
+    }
+
+  }else{
+
+    if(loginButton){
+
+      loginButton.style.display =
+        "flex";
+
+    }
+
+
+    if(logoutButton){
+
+      logoutButton.style.display =
+        "none";
+
+    }
+
+
+    if(profileName){
+
+      profileName.textContent =
+        "Guest Customer";
+
+    }
+
+
+    if(profilePhone){
+
+      profilePhone.textContent =
+        "Login to your account";
+
+    }
+
+  }
+
+}
+
+
+/* =====================================================
+   REQUIRE LOGIN
+===================================================== */
+
+function requireLogin(){
+
+  if(currentUser){
+
+    return true;
+
+  }
+
+
+  openAuth(
+    "login"
+  );
+
+
+  showToast(
+    "Please login to book a service."
+  );
+
+
+  return false;
 
 }
 
@@ -1929,16 +2970,25 @@ async function loadServices(){
         "/rest/v1/services?select=*&order=id.asc"
       );
 
+
     if(!Array.isArray(services)){
+
       services = [];
+
     }
+
 
     renderServices();
     fillServiceSelect();
 
+
   }catch(error){
 
-    console.log(error);
+    console.log(
+      "Services error:",
+      error
+    );
+
 
     services = [];
 
@@ -1962,13 +3012,21 @@ async function loadServiceOptions(){
         "/rest/v1/service_options?select=*&is_active=eq.true&order=sort_order.asc"
       );
 
+
     if(!Array.isArray(serviceOptions)){
+
       serviceOptions = [];
+
     }
+
 
   }catch(error){
 
-    console.log(error);
+    console.log(
+      "Service options error:",
+      error
+    );
+
 
     serviceOptions = [];
 
@@ -1990,15 +3048,24 @@ async function loadTimeSlots(){
         "/rest/v1/time_slots?select=*&is_active=eq.true&order=slot_time.asc"
       );
 
+
     if(!Array.isArray(timeSlots)){
+
       timeSlots = [];
+
     }
+
 
     fillTimeSlots();
 
+
   }catch(error){
 
-    console.log("Time slots error:", error);
+    console.log(
+      "Time slots error:",
+      error
+    );
+
 
     timeSlots = [];
 
@@ -2010,7 +3077,7 @@ async function loadTimeSlots(){
 
 
 /* =====================================================
-   SERVICE NAME HELPER
+   SERVICE HELPERS
 ===================================================== */
 
 function serviceName(service){
@@ -2025,10 +3092,6 @@ function serviceName(service){
 }
 
 
-/* =====================================================
-   SERVICE DESCRIPTION
-===================================================== */
-
 function serviceDescription(service){
 
   return (
@@ -2040,10 +3103,6 @@ function serviceDescription(service){
 }
 
 
-/* =====================================================
-   SERVICE PRICE
-===================================================== */
-
 function servicePrice(service){
 
   const price =
@@ -2052,14 +3111,41 @@ function servicePrice(service){
     service.amount ??
     null;
 
+
   if(price === null){
+
     return "View options";
+
   }
 
-  return "From ₹" +
-    Number(price).toLocaleString(
-      "en-IN"
-    );
+
+  return (
+    "From ₹" +
+    Number(price).toLocaleString("en-IN")
+  );
+
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+  return escapeHtml(value);
 
 }
 
@@ -2088,7 +3174,8 @@ function renderServices(){
 
   if(!services.length){
 
-    list.innerHTML = "";
+    list.innerHTML =
+      "";
 
     empty.style.display =
       "block";
@@ -2124,7 +3211,9 @@ function renderServices(){
 
           <div
             class="service-card"
-            data-name="${escapeHtml(serviceName(service))}">
+            data-name="${escapeHtml(
+              serviceName(service)
+            )}">
 
             ${
               image
@@ -2178,28 +3267,6 @@ function renderServices(){
 
 
 /* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHtml(value){
-
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-function escapeAttr(value){
-
-  return escapeHtml(value);
-
-}
-
-
-/* =====================================================
    SERVICE SELECT
 ===================================================== */
 
@@ -2210,8 +3277,11 @@ function fillServiceSelect(){
       "serviceSelect"
     );
 
+
   if(!select){
+
     return;
+
   }
 
 
@@ -2229,11 +3299,14 @@ function fillServiceSelect(){
           "option"
         );
 
+
       option.value =
         service.id;
 
+
       option.textContent =
         serviceName(service);
+
 
       select.appendChild(
         option
@@ -2246,7 +3319,7 @@ function fillServiceSelect(){
 
 
 /* =====================================================
-   SERVICE OPTION SELECT
+   SERVICE OPTIONS
 ===================================================== */
 
 function loadOptionsForService(
@@ -2258,10 +3331,12 @@ function loadOptionsForService(
       "serviceOption"
     );
 
+
   const info =
     document.getElementById(
       "selectedServiceInfo"
     );
+
 
   const pricePreview =
     document.getElementById(
@@ -2292,6 +3367,7 @@ function loadOptionsForService(
     info.style.display =
       "block";
 
+
     info.textContent =
       serviceDescription(selected);
 
@@ -2318,6 +3394,7 @@ function loadOptionsForService(
         No options available
       </option>`;
 
+
     return;
 
   }
@@ -2331,8 +3408,10 @@ function loadOptionsForService(
           "option"
         );
 
+
       el.value =
         option.id;
+
 
       el.textContent =
         option.name +
@@ -2340,7 +3419,10 @@ function loadOptionsForService(
         Number(option.price)
           .toLocaleString("en-IN");
 
-      select.appendChild(el);
+
+      select.appendChild(
+        el
+      );
 
     }
   );
@@ -2359,6 +3441,7 @@ function updateOptionPrice(){
       "serviceOption"
     ).value;
 
+
   const option =
     serviceOptions.find(
       item =>
@@ -2372,6 +3455,7 @@ function updateOptionPrice(){
       "pricePreview"
     );
 
+
   const price =
     document.getElementById(
       "selectedPrice"
@@ -2384,6 +3468,7 @@ function updateOptionPrice(){
       "₹" +
       Number(option.price)
         .toLocaleString("en-IN");
+
 
     preview.style.display =
       "flex";
@@ -2399,31 +3484,39 @@ function updateOptionPrice(){
 
 
 /* =====================================================
-   TIME SLOTS
+   TIME
 ===================================================== */
 
 function formatTime(time){
 
   if(!time){
+
     return "";
+
   }
+
 
   const parts =
     String(time).split(":");
 
+
   const hour =
     Number(parts[0]);
 
+
   const minute =
     Number(parts[1] || 0);
+
 
   const ampm =
     hour >= 12
     ? "PM"
     : "AM";
 
+
   const h =
     hour % 12 || 12;
+
 
   return (
     h +
@@ -2439,66 +3532,109 @@ function formatTime(time){
 function fillTimeSlots(){
 
   const select =
-    document.getElementById("bookingTime");
+    document.getElementById(
+      "bookingTime"
+    );
+
 
   if(!select){
+
     return;
+
   }
 
-  select.innerHTML =
-    `<option value="">Select time</option>`;
 
-  if(!Array.isArray(timeSlots) || !timeSlots.length){
+  select.innerHTML =
+    `<option value="">
+      Select time
+    </option>`;
+
+
+  if(
+    !Array.isArray(timeSlots) ||
+    !timeSlots.length
+  ){
 
     select.innerHTML +=
       `<option value="" disabled>
         No time slots available
       </option>`;
 
+
     return;
+
   }
 
-  timeSlots.forEach(slot => {
 
-    const rawTime =
-      slot.slot_time || "";
+  timeSlots.forEach(
+    slot => {
 
-    if(!rawTime){
-      return;
+      const rawTime =
+        slot.slot_time ||
+        "";
+
+
+      if(!rawTime){
+
+        return;
+
+      }
+
+
+      const timeValue =
+        String(rawTime).substring(0,5);
+
+
+      const option =
+        document.createElement(
+          "option"
+        );
+
+
+      option.value =
+        timeValue;
+
+
+      option.textContent =
+        formatTime(
+          timeValue
+        );
+
+
+      select.appendChild(
+        option
+      );
+
     }
-
-    const timeValue =
-      String(rawTime).substring(0,5);
-
-    const option =
-      document.createElement("option");
-
-    option.value =
-      timeValue;
-
-    option.textContent =
-      formatTime(timeValue);
-
-    select.appendChild(option);
-
-  });
+  );
 
 }
+
 
 /* =====================================================
    BOOKING MODAL
 ===================================================== */
 
 function openBooking(
-  serviceId = null
+  serviceId=null
 ){
+
+  if(!requireLogin()){
+
+    return;
+
+  }
+
 
   const modal =
     document.getElementById(
       "bookingModal"
     );
 
-  modal.classList.add("show");
+
+  modal.classList.add(
+    "show"
+  );
 
 
   selectedServiceId =
@@ -2512,13 +3648,16 @@ function openBooking(
     ).value =
       serviceId;
 
+
     loadOptionsForService(
       serviceId
     );
 
   }else{
 
-    loadOptionsForService("");
+    loadOptionsForService(
+      ""
+    );
 
   }
 
@@ -2530,17 +3669,19 @@ function openBooking(
 
 function closeBooking(){
 
-  document.getElementById(
-    "bookingModal"
-  ).classList.remove(
-    "show"
-  );
+  document
+    .getElementById(
+      "bookingModal"
+    )
+    .classList.remove(
+      "show"
+    );
 
 }
 
 
 /* =====================================================
-   BOOKING FORM
+   BOOKING SUBMIT
 ===================================================== */
 
 async function submitBooking(
@@ -2552,8 +3693,8 @@ async function submitBooking(
 
   if(!currentUser){
 
-    showToast(
-      "Please wait a moment and try again."
+    openAuth(
+      "login"
     );
 
     return;
@@ -2566,40 +3707,58 @@ async function submitBooking(
       "customerName"
     ).value.trim();
 
+
   const phone =
     document.getElementById(
       "customerPhone"
     ).value.trim();
+
 
   const serviceId =
     document.getElementById(
       "serviceSelect"
     ).value;
 
+
   const optionId =
     document.getElementById(
       "serviceOption"
     ).value;
+
 
   const date =
     document.getElementById(
       "bookingDate"
     ).value;
 
+
   const time =
     document.getElementById(
       "bookingTime"
     ).value;
+
 
   const address =
     document.getElementById(
       "customerAddress"
     ).value.trim();
 
+
   const notes =
     document.getElementById(
       "bookingNotes"
     ).value.trim();
+
+
+  if(!name){
+
+    showToast(
+      "Please enter your name."
+    );
+
+    return;
+
+  }
 
 
   if(!/^[0-9]{10}$/.test(phone)){
@@ -2677,15 +3836,14 @@ async function submitBooking(
   button.disabled =
     true;
 
+
   button.textContent =
     "Booking...";
 
 
   try{
 
-    /* ---------------------------------
-       CUSTOMER
-    --------------------------------- */
+    /* ================= CUSTOMER ================= */
 
     let customers =
       await supabaseFetch(
@@ -2730,7 +3888,7 @@ async function submitBooking(
 
               email:
                 currentUser.email ||
-                null,
+                mobileToEmail(phone),
 
               address:
                 address,
@@ -2778,11 +3936,11 @@ async function submitBooking(
           }
         );
 
-      }catch(e){
+      }catch(error){
 
         console.log(
           "Customer update skipped:",
-          e
+          error
         );
 
       }
@@ -2790,18 +3948,19 @@ async function submitBooking(
     }
 
 
-    if(!customer || !customer.id){
+    if(
+      !customer ||
+      !customer.id
+    ){
 
       throw new Error(
-        "Customer profile could not be created."
+        "Customer profile could not be created. Please check Supabase customers RLS policy."
       );
 
     }
 
 
-    /* ---------------------------------
-       BOOKING
-    --------------------------------- */
+    /* ================= BOOKING ================= */
 
     const selectedOption =
       serviceOptions.find(
@@ -2830,10 +3989,10 @@ async function submitBooking(
 
       address:
         address,
-      
+
       phone:
         phone,
-      
+
       notes:
         notes || null,
 
@@ -2866,11 +4025,11 @@ async function submitBooking(
 
     }catch(firstError){
 
-      /*
-        Fallback for databases
-        where some optional columns
-        are not yet present.
-      */
+      console.log(
+        "Primary booking insert failed:",
+        firstError
+      );
+
 
       const fallbackData = {
 
@@ -2888,10 +4047,10 @@ async function submitBooking(
 
         address:
           address,
-        
-      phone:
-        phone,
-        
+
+        phone:
+          phone,
+
         notes:
           notes || null,
 
@@ -2920,9 +4079,7 @@ async function submitBooking(
     }
 
 
-    /* ---------------------------------
-       LOCAL BACKUP
-    --------------------------------- */
+    /* ================= LOCAL BACKUP ================= */
 
     const localBooking = {
 
@@ -2983,25 +4140,31 @@ async function submitBooking(
     );
 
 
-    document.getElementById(
-      "bookingForm"
-    ).reset();
+    document
+      .getElementById(
+        "bookingForm"
+      )
+      .reset();
 
 
-    document.getElementById(
-      "pricePreview"
-    ).style.display =
+    document
+      .getElementById(
+        "pricePreview"
+      )
+      .style.display =
       "none";
 
 
     closeBooking();
 
 
-    document.getElementById(
-      "successModal"
-    ).classList.add(
-      "show"
-    );
+    document
+      .getElementById(
+        "successModal"
+      )
+      .classList.add(
+        "show"
+      );
 
 
   }catch(error){
@@ -3013,13 +4176,16 @@ async function submitBooking(
 
 
     showToast(
-  "Booking failed: " +
-  (
-    error && error.message
-      ? error.message
-      : "Unknown error"
-  )
-);
+      "Booking failed: " +
+      (
+        error &&
+        error.message
+        ?
+        error.message
+        :
+        "Unknown error"
+      )
+    );
 
 
   }finally{
@@ -3036,7 +4202,7 @@ async function submitBooking(
 
 
 /* =====================================================
-   SELECTED SERVICE NAME
+   SERVICE NAME
 ===================================================== */
 
 function selectedServiceName(
@@ -3050,9 +4216,12 @@ function selectedServiceName(
         String(serviceId)
     );
 
+
   return service
-    ? serviceName(service)
-    : "Cleaning Service";
+    ?
+    serviceName(service)
+    :
+    "Cleaning Service";
 
 }
 
@@ -3087,9 +4256,11 @@ function saveLocalBooking(
   const list =
     getLocalBookings();
 
+
   list.unshift(
     booking
   );
+
 
   localStorage.setItem(
     "gus_bookings",
@@ -3119,50 +4290,85 @@ async function loadBookings(){
     </div>`;
 
 
+  if(!currentUser){
+
+    container.innerHTML = `
+
+      <div class="no-bookings">
+
+        <div class="big">
+          🔐
+        </div>
+
+        <h3>
+          Login required
+        </h3>
+
+        <p>
+          Login to view your bookings.
+        </p>
+
+        <br>
+
+        <button
+          class="small-btn"
+          onclick="openAuth('login')">
+
+          Login
+
+        </button>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
   let remoteBookings = [];
 
 
   try{
 
-    if(currentUser){
+    const customers =
+      await supabaseFetch(
+        "/rest/v1/customers?select=id&user_id=eq." +
+        encodeURIComponent(
+          currentUser.id
+        )
+      );
 
-      const customers =
-        await supabaseFetch(
-          "/rest/v1/customers?select=id&user_id=eq." +
-          encodeURIComponent(
-            currentUser.id
+
+    if(
+      customers &&
+      customers.length
+    ){
+
+      const customerIds =
+        customers
+          .map(
+            c => c.id
           )
+          .join(",");
+
+
+      remoteBookings =
+        await supabaseFetch(
+          "/rest/v1/bookings?select=*&customer_id=in.(" +
+          customerIds +
+          ")&order=created_at.desc"
         );
 
 
       if(
-        customers &&
-        customers.length
+        !Array.isArray(
+          remoteBookings
+        )
       ){
 
-        const customerIds =
-          customers
-            .map(
-              c => c.id
-            )
-            .join(",");
-
-
-        remoteBookings =
-          await supabaseFetch(
-            "/rest/v1/bookings?select=*&customer_id=in.(" +
-            customerIds +
-            ")&order=created_at.desc"
-          );
-
-
-        if(!Array.isArray(
-          remoteBookings
-        )){
-
-          remoteBookings = [];
-
-        }
+        remoteBookings = [];
 
       }
 
@@ -3181,12 +4387,6 @@ async function loadBookings(){
   const local =
     getLocalBookings();
 
-
-  /*
-    Remote bookings are preferred.
-    Local bookings are added only when
-    not already present.
-  */
 
   const ids =
     new Set(
@@ -3286,16 +4486,24 @@ function renderBookingCard(
 
   const serviceTitle =
     booking.service_name ||
-    (service
-      ? serviceName(service)
-      : "Cleaning Service");
+    (
+      service
+      ?
+      serviceName(service)
+      :
+      "Cleaning Service"
+    );
 
 
   const optionTitle =
     booking.option_name ||
-    (option
-      ? option.name
-      : "Service");
+    (
+      option
+      ?
+      option.name
+      :
+      "Service"
+    );
 
 
   const status =
@@ -3357,7 +4565,6 @@ function renderBookingCard(
 
         </div>
 
-
         <span class="status ${escapeAttr(status)}">
 
           ${escapeHtml(
@@ -3369,17 +4576,17 @@ function renderBookingCard(
 
       </div>
 
-
       <div class="booking-actions">
 
         <button
           class="primary"
-          onclick="rebookBooking(${Number(booking.service_id)})">
+          onclick="rebookBooking(${Number(
+            booking.service_id
+          )})">
 
           Rebook
 
         </button>
-
 
         ${
           status !== "cancelled"
@@ -3395,7 +4602,9 @@ function renderBookingCard(
           </button>
 
           <button
-            onclick="cancelBooking('${escapeAttr(String(booking.id))}')">
+            onclick="cancelBooking('${escapeAttr(
+              String(booking.id)
+            )}')">
 
             Cancel
 
@@ -3437,6 +4646,17 @@ function openReschedule(
   booking
 ){
 
+  if(!currentUser){
+
+    openAuth(
+      "login"
+    );
+
+    return;
+
+  }
+
+
   const newDate =
     prompt(
       "Enter new date (YYYY-MM-DD):",
@@ -3445,7 +4665,9 @@ function openReschedule(
 
 
   if(!newDate){
+
     return;
+
   }
 
 
@@ -3459,7 +4681,9 @@ function openReschedule(
 
 
   if(!newTime){
+
     return;
+
   }
 
 
@@ -3480,12 +4704,14 @@ async function updateBookingSchedule(
 
   try{
 
-    if(String(bookingId).startsWith(
-      "local-"
-    )){
+    if(
+      String(bookingId)
+        .startsWith("local-")
+    ){
 
       const list =
         getLocalBookings();
+
 
       const index =
         list.findIndex(
@@ -3503,6 +4729,7 @@ async function updateBookingSchedule(
         list[index].booking_time =
           time;
 
+
         localStorage.setItem(
           "gus_bookings",
           JSON.stringify(list)
@@ -3514,6 +4741,7 @@ async function updateBookingSchedule(
       showToast(
         "Booking rescheduled."
       );
+
 
       loadBookings();
 
@@ -3556,7 +4784,10 @@ async function updateBookingSchedule(
 
   }catch(error){
 
-    console.log(error);
+    console.log(
+      error
+    );
+
 
     showToast(
       "Could not reschedule booking."
@@ -3568,7 +4799,7 @@ async function updateBookingSchedule(
 
 
 /* =====================================================
-   CANCEL BOOKING
+   CANCEL
 ===================================================== */
 
 async function cancelBooking(
@@ -3582,18 +4813,22 @@ async function cancelBooking(
 
 
   if(!ok){
+
     return;
+
   }
 
 
   try{
 
-    if(String(bookingId).startsWith(
-      "local-"
-    )){
+    if(
+      String(bookingId)
+        .startsWith("local-")
+    ){
 
       const list =
         getLocalBookings();
+
 
       const item =
         list.find(
@@ -3652,7 +4887,10 @@ async function cancelBooking(
 
   }catch(error){
 
-    console.log(error);
+    console.log(
+      error
+    );
+
 
     showToast(
       "Could not cancel booking."
@@ -3669,8 +4907,13 @@ async function cancelBooking(
 
 async function loadProfile(){
 
+  updateAuthUI();
+
+
   if(!currentUser){
+
     return;
+
   }
 
 
@@ -3706,7 +4949,7 @@ async function loadProfile(){
         "profilePhone"
       ).textContent =
         customer.phone ||
-        "Add your phone number";
+        "Logged in";
 
 
       const letter =
@@ -3760,7 +5003,10 @@ async function loadProfile(){
 
   }catch(error){
 
-    console.log(error);
+    console.log(
+      "Profile load error:",
+      error
+    );
 
   }
 
@@ -3776,7 +5022,9 @@ async function loadProfileIntoBooking(){
   try{
 
     if(!currentUser){
+
       return;
+
     }
 
 
@@ -3832,7 +5080,10 @@ async function loadProfileIntoBooking(){
 
   }catch(error){
 
-    console.log(error);
+    console.log(
+      "Booking profile error:",
+      error
+    );
 
   }
 
@@ -3845,15 +5096,28 @@ async function loadProfileIntoBooking(){
 
 function openEditProfile(){
 
+  if(!currentUser){
+
+    openAuth(
+      "login"
+    );
+
+    return;
+
+  }
+
+
   showPage(
     "profilePage"
   );
+
 
   document.getElementById(
     "editProfileBox"
   ).classList.add(
     "show"
   );
+
 
   loadProfile();
 
@@ -3864,8 +5128,8 @@ async function saveProfile(){
 
   if(!currentUser){
 
-    showToast(
-      "Profile is not ready yet."
+    openAuth(
+      "login"
     );
 
     return;
@@ -3878,15 +5142,18 @@ async function saveProfile(){
       "profileEditName"
     ).value.trim();
 
+
   const phone =
     document.getElementById(
       "profileEditPhone"
     ).value.trim();
 
+
   const email =
     document.getElementById(
       "profileEditEmail"
     ).value.trim();
+
 
   const address =
     document.getElementById(
@@ -3898,6 +5165,20 @@ async function saveProfile(){
 
     showToast(
       "Please enter your name."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    phone &&
+    !/^[0-9]{10}$/.test(phone)
+  ){
+
+    showToast(
+      "Enter a valid 10 digit phone number."
     );
 
     return;
@@ -3951,36 +5232,9 @@ async function saveProfile(){
 
     }else{
 
-      await supabaseFetch(
-        "/rest/v1/customers",
-        {
-          method:"POST",
-          headers:{
-            "Prefer":
-              "return=minimal"
-          },
-          body:JSON.stringify({
-
-            user_id:
-              currentUser.id,
-
-            full_name:
-              name,
-
-            phone:
-              phone || null,
-
-            email:
-              email || null,
-
-            address:
-              address || null,
-
-            city:
-              "Guwahati"
-
-          })
-        }
+      await createCustomerProfile(
+        name,
+        phone
       );
 
     }
@@ -4003,7 +5257,11 @@ async function saveProfile(){
 
   }catch(error){
 
-    console.log(error);
+    console.log(
+      "Save profile error:",
+      error
+    );
+
 
     showToast(
       "Could not save profile."
@@ -4136,9 +5394,24 @@ function openSupport(){
 
 function contactSupport(){
 
-  showToast(
-    "Support contact option will be connected here."
-  );
+  const phone =
+    "9085860126";
+
+
+  const ok =
+    confirm(
+      "Contact Guwahati Urban Cleaning Service?\n\n" +
+      phone
+    );
+
+
+  if(ok){
+
+    window.location.href =
+      "tel:" +
+      phone;
+
+  }
 
 }
 
@@ -4211,7 +5484,7 @@ function setupSearch(){
 
 
 /* =====================================================
-   CATEGORY FILTER
+   CATEGORY
 ===================================================== */
 
 function setupCategories(){
@@ -4274,7 +5547,7 @@ function setupCategories(){
 
 
 /* =====================================================
-   MINIMUM BOOKING DATE
+   MIN DATE
 ===================================================== */
 
 function setMinimumDate(){
@@ -4383,9 +5656,11 @@ document
           "show"
         );
 
+
       showPage(
         "bookingsPage"
       );
+
 
       loadBookings();
 
@@ -4407,6 +5682,27 @@ document
       ){
 
         closeBooking();
+
+      }
+
+    }
+  );
+
+
+document
+  .getElementById(
+    "authModal"
+  )
+  .addEventListener(
+    "click",
+    function(event){
+
+      if(
+        event.target ===
+        this
+      ){
+
+        closeAuth();
 
       }
 
@@ -4462,14 +5758,19 @@ async function init(){
 
   setupCategories();
 
+  updateAuthModal();
 
   await initAuth();
 
 
   await Promise.all([
+
     loadServices(),
+
     loadServiceOptions(),
+
     loadTimeSlots()
+
   ]);
 
 
