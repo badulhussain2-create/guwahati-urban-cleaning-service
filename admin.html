@@ -5248,30 +5248,43 @@ function closeServiceModal(){
 async function saveService(){
 
   const id =
-    $("serviceEditId").value;
-
+    $("serviceEditId").value.trim();
 
   const name =
     $("serviceNameInput")
       .value
       .trim();
 
-
   const description =
     $("serviceDescriptionInput")
       .value
       .trim();
 
+  const priceText =
+    $("servicePriceInput")
+      .value
+      .trim();
 
   const price =
-    Number(
-      $("servicePriceInput").value
-    );
-
+    Number(priceText);
 
   const isActive =
-    $("serviceActiveInput").value ===
-    "true";
+    $("serviceActiveInput").value === "true";
+
+
+  /* =========================
+     VALIDATION
+  ========================= */
+
+  if(!id){
+
+    alert(
+      "Service ID পাওয়া যায়নি।"
+    );
+
+    return;
+
+  }
 
 
   if(!name){
@@ -5286,7 +5299,8 @@ async function saveService(){
 
 
   if(
-    Number.isNaN(price) ||
+    priceText === "" ||
+    !Number.isFinite(price) ||
     price < 0
   ){
 
@@ -5299,59 +5313,66 @@ async function saveService(){
   }
 
 
-  $("saveServiceBtn")
-    .disabled = true;
+  const btn =
+    $("saveServiceBtn");
 
 
-  $("saveServiceBtn")
-    .textContent =
-      "Saving...";
+  btn.disabled = true;
+
+  btn.textContent =
+    "Updating...";
 
 
   try{
 
+    /* =========================
+       UPDATE DATABASE
+    ========================= */
+
+    const url =
+      "/rest/v1/services?id=eq." +
+      encodeURIComponent(id);
+
+
     const body = {
 
-      name:name,
+      name: name,
 
       description:
         description || null,
 
-      price:price
+      price: price,
+
+      is_active:
+        isActive
 
     };
 
 
-    /*
-      is_active column থাকলে update হবে।
-      না থাকলে প্রথম request fail করলে
-      price/name/description দিয়ে আবার চেষ্টা করা হবে।
-    */
+    console.log(
+      "SERVICE UPDATE REQUEST:",
+      {
+        id: id,
+        price: price,
+        body: body
+      }
+    );
 
-    body.is_active =
-      isActive;
 
-
-    let res =
+    const res =
       await supabaseFetch(
-        id
-        ?
-        "/rest/v1/services?id=eq." +
-        encodeURIComponent(id)
-        :
-        "/rest/v1/services",
+        url,
         {
-          method:
-            id
-            ? "PATCH"
-            : "POST",
+          method: "PATCH",
 
-          headers:{
+          headers: {
+
             "Content-Type":
               "application/json",
 
             "Prefer":
               "return=representation"
+
           },
 
           body:
@@ -5361,49 +5382,50 @@ async function saveService(){
       );
 
 
-    if(
-      !res.ok &&
-      id
-    ){
-
-      const errorText =
-        await res.text();
+    const responseText =
+      await res.text();
 
 
-      if(
-        errorText.includes(
-          "is_active"
-        )
-      ){
-
-        delete body.is_active;
+    console.log(
+      "SUPABASE RESPONSE:",
+      res.status,
+      responseText
+    );
 
 
-        res =
-          await supabaseFetch(
-            "/rest/v1/services?id=eq." +
-            encodeURIComponent(id),
-            {
-              method:"PATCH",
+    /* =========================
+       CHECK DATABASE ERROR
+    ========================= */
 
-              headers:{
-                "Content-Type":
-                  "application/json",
+    if(!res.ok){
 
-                "Prefer":
-                  "return=representation"
-              },
+      throw new Error(
+        responseText ||
+        "Database update failed."
+      );
 
-              body:
-                JSON.stringify(body)
+    }
 
-            }
-          );
 
-      }else{
+    /* =========================
+       READ UPDATED ROW
+    ========================= */
 
-        throw new Error(
-          errorText
+    let updatedRows = [];
+
+
+    if(responseText){
+
+      try{
+
+        updatedRows =
+          JSON.parse(responseText);
+
+      }catch(parseError){
+
+        console.warn(
+          "Response JSON parse হয়নি:",
+          parseError
         );
 
       }
@@ -5411,48 +5433,135 @@ async function saveService(){
     }
 
 
-    if(!res.ok){
+    /*
+      কোনো row update না হলে
+      success দেখানো হবে না
+    */
 
-      const txt =
-        await res.text();
+    if(
+      !Array.isArray(updatedRows) ||
+      updatedRows.length === 0
+    ){
 
-      throw new Error(txt);
+      throw new Error(
+        "Service পাওয়া যায়নি অথবা database-এ কোনো row update হয়নি।"
+      );
 
     }
 
 
-    alert(
-      id
-      ? "Service updated successfully. ✅"
-      : "Service created successfully. ✅"
+    const updatedService =
+      updatedRows[0];
+
+
+    console.log(
+      "UPDATED SERVICE:",
+      updatedService
     );
 
 
-    closeServiceModal();
+    /* =========================
+       VERIFY PRICE
+    ========================= */
+
+    const savedPrice =
+      Number(
+        updatedService.price
+      );
+
+
+    if(savedPrice !== price){
+
+      throw new Error(
+        "Price database-এ সঠিকভাবে save হয়নি। " +
+        "আপনি দিয়েছেন ₹" +
+        price +
+        " কিন্তু database থেকে পাওয়া গেছে ₹" +
+        savedPrice
+      );
+
+    }
+
+
+    /* =========================
+       UPDATE LOCAL DATA
+    ========================= */
+
+    const index =
+      services.findIndex(
+        s =>
+          String(s.id) ===
+          String(id)
+      );
+
+
+    if(index !== -1){
+
+      services[index] = {
+
+        ...services[index],
+
+        ...updatedService
+
+      };
+
+    }
+
+
+    /* =========================
+       REFRESH ADMIN PANEL
+    ========================= */
+
+    renderServicesAdmin();
+
 
     await loadServicesAdmin();
 
-  }catch(err){
 
-    console.error(err);
+    /* =========================
+       CLOSE MODAL
+    ========================= */
+
+    closeServiceModal();
+
+
+    /* =========================
+       SUCCESS
+    ========================= */
 
     alert(
-      "Service save failed:\n\n" +
+      "Service updated successfully. ✅\n\n" +
+      "New Price: ₹" +
+      savedPrice.toLocaleString("en-IN")
+    );
+
+
+  }catch(err){
+
+    console.error(
+      "SERVICE UPDATE ERROR:",
+      err
+    );
+
+
+    alert(
+      "Service update failed ❌\n\n" +
       err.message
     );
 
+
   }finally{
 
-    $("saveServiceBtn")
-      .disabled = false;
+    btn.disabled = false;
 
-    $("saveServiceBtn")
-      .textContent =
+    btn.textContent =
       "Save Service";
 
   }
 
 }
+
+
 
 
 /* SERVICE STATUS */
