@@ -687,6 +687,7 @@ button{
 /* RESPONSIVE */
 
 @media(max-width:420px){
+
   .row{
     grid-template-columns:1fr;
   }
@@ -702,6 +703,7 @@ button{
   .card{
     padding:13px;
   }
+
 }
 </style>
 </head>
@@ -712,7 +714,7 @@ button{
   <div class="loaderBox" id="loaderText">Please wait...</div>
 </div>
 
-<!-- AUTH / REGISTER AREA -->
+<!-- AUTH -->
 
 <div class="overlay" id="authOverlay">
 
@@ -721,13 +723,26 @@ button{
     <div class="authLogo">🧹</div>
 
     <h1>Provider App</h1>
-    <div class="sub">Guwahati Urban Cleaning Service</div>
+
+    <div class="sub">
+      Guwahati Urban Cleaning Service
+    </div>
 
     <div class="authCard">
 
       <div class="authTabs">
-        <button id="loginTab" class="active" onclick="showAuth('login')">Login</button>
-        <button id="signupTab" onclick="showAuth('signup')">Create Account</button>
+
+        <button id="loginTab"
+                class="active"
+                onclick="showAuth('login')">
+          Login
+        </button>
+
+        <button id="signupTab"
+                onclick="showAuth('signup')">
+          Create Account
+        </button>
+
       </div>
 
       <div id="authError" class="error"></div>
@@ -736,18 +751,31 @@ button{
 
         <div class="formGroup">
           <label>Mobile Number</label>
-          <input id="loginPhone" type="tel" maxlength="10" inputmode="numeric"
-                 placeholder="10 digit mobile number">
+
+          <input
+            id="loginPhone"
+            type="tel"
+            maxlength="10"
+            inputmode="numeric"
+            placeholder="10 digit mobile number">
         </div>
 
         <div class="formGroup">
           <label>Password</label>
-          <input id="loginPassword" type="password" placeholder="Password">
+
+          <input
+            id="loginPassword"
+            type="password"
+            placeholder="Password">
         </div>
 
-        <button class="primary" onclick="loginProvider()">Login</button>
+        <button class="primary"
+                onclick="loginProvider()">
+          Login
+        </button>
 
-        <button class="secondary" onclick="startRegistration()">
+        <button class="secondary"
+                onclick="startRegistration()">
           New Provider? Register Now
         </button>
 
@@ -757,252 +785,425 @@ button{
 
         <div class="formGroup">
           <label>Mobile Number</label>
-          <input id="signupPhone" type="tel" maxlength="10" inputmode="numeric"
-                 placeholder="10 digit Indian mobile number">
+
+          <input
+            id="signupPhone"
+            type="tel"
+            maxlength="10"
+            inputmode="numeric"
+            placeholder="10 digit Indian mobile number">
         </div>
 
         <div class="formGroup">
           <label>Create Password</label>
-          <input id="signupPassword" type="password" placeholder="Minimum 6 characters">
+
+          <input
+            id="signupPassword"
+            type="password"
+            placeholder="Minimum 6 characters">
         </div>
 
         <div class="formGroup">
           <label>Confirm Password</label>
-          <input id="signupPassword2" type="password" placeholder="Confirm password">
+
+          <input
+            id="signupPassword2"
+            type="password"
+            placeholder="Confirm password">
         </div>
 
-        <button class="primary" onclick="createProviderAccount()">
+        <button class="primary"
+                onclick="createProviderAccount()">
           Create Provider Account
         </button>
 
       </div>
 
     </div>
+
   </div>
 
-  <!-- REGISTRATION -->
 
-  <div class="authBox" id="registerScreen" style="display:none">
+  <!-- REGISTER -->
+
+  <div class="authBox"
+       id="registerScreen"
+       style="display:none">
 
     <div class="registerHeader">
-      <button class="backBtn" onclick="backToLogin()">←</button>
+
+      <button class="backBtn"
+              onclick="backToLogin()">
+        ←
+      </button>
+
       <h2>Provider Registration</h2>
+
     </div>
 
     <div class="steps">
+
       <div class="stepDot active" id="dot1"></div>
       <div class="stepDot" id="dot2"></div>
       <div class="stepDot" id="dot3"></div>
       <div class="stepDot" id="dot4"></div>
       <div class="stepDot" id="dot5"></div>
+
     </div>
 
     <div class="stepLabel" id="stepLabel">
       Step 1 of 5 — Personal Details
     </div>
 
-    <div id="registerError" class="error"></div>
+    <div id="registerError"
+         class="error">
+    </div>
+
 
     <!-- STEP 1 -->
 
-    <div id="step1" class="authCard">
+    <div id="step1"
+         class="authCard">
 
       <div class="formGroup">
         <label>Full Name *</label>
-        <input id="fullName" placeholder="Enter full name">
+
+        <input
+          id="fullName"
+          placeholder="Enter full name">
       </div>
 
       <div class="formGroup">
         <label>Father / Guardian Name</label>
-        <input id="fatherName" placeholder="Father / guardian name">
+
+        <input
+          id="fatherName"
+          placeholder="Father / guardian name">
       </div>
 
       <div class="row">
 
         <div class="formGroup">
+
           <label>Date of Birth</label>
-          <input id="dob" type="date">
+
+          <input
+            id="dob"
+            type="date">
+
         </div>
 
         <div class="formGroup">
+
           <label>Gender</label>
+
           <select id="gender">
-            <option value="">Select</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
+
+            <option value="">
+              Select
+            </option>
+
+            <option>
+              Male
+            </option>
+
+            <option>
+              Female
+            </option>
+
+            <option>
+              Other
+            </option>
+
           </select>
+
         </div>
 
       </div>
 
       <div class="formGroup">
+
         <label>Mobile Number *</label>
-        <input id="regPhone" type="tel" maxlength="10" inputmode="numeric">
+
+        <input
+          id="regPhone"
+          type="tel"
+          maxlength="10"
+          inputmode="numeric">
+
       </div>
 
       <div class="formGroup">
+
         <label>Email</label>
-        <input id="regEmail" type="email" placeholder="Email address">
+
+        <input
+          id="regEmail"
+          type="email"
+          placeholder="Email address">
+
       </div>
 
-      <button class="primary" onclick="nextStep(1)">
+      <button class="primary"
+              onclick="nextStep(1)">
         Continue →
       </button>
 
     </div>
 
+
     <!-- STEP 2 -->
 
-    <div id="step2" class="authCard" style="display:none">
+    <div id="step2"
+         class="authCard"
+         style="display:none">
 
       <div class="uploadBox">
 
-        <div class="icon">🤳</div>
+        <div class="icon">
+          🤳
+        </div>
 
-        <b>Selfie Verification *</b>
+        <b>
+          Selfie Verification *
+        </b>
 
         <p>
           Take a live selfie using your camera.
         </p>
 
-        <button class="primary" onclick="openCamera()">
+        <button class="primary"
+                onclick="openCamera()">
           📷 Open Camera
         </button>
 
-        <div class="cameraBox" id="cameraBox">
-          <video id="cameraVideo" autoplay playsinline></video>
+        <div class="cameraBox"
+             id="cameraBox">
+
+          <video id="cameraVideo"
+                 autoplay
+                 playsinline>
+          </video>
 
           <div class="cameraControls">
-            <button onclick="captureSelfie()" style="background:white">
+
+            <button
+              onclick="captureSelfie()"
+              style="background:white">
               Capture
             </button>
 
-            <button onclick="closeCamera()" style="background:#374151;color:white">
+            <button
+              onclick="closeCamera()"
+              style="background:#374151;color:white">
               Cancel
             </button>
+
           </div>
+
         </div>
 
-        <img id="selfiePreview" class="preview">
+        <img
+          id="selfiePreview"
+          class="preview">
 
       </div>
+
 
       <div class="formGroup">
-        <label>Aadhaar Number *</label>
-        <input id="aadhaarNumber"
-               type="text"
-               maxlength="12"
-               inputmode="numeric"
-               placeholder="12 digit Aadhaar number">
+
+        <label>
+          Aadhaar Number *
+        </label>
+
+        <input
+          id="aadhaarNumber"
+          type="text"
+          maxlength="12"
+          inputmode="numeric"
+          placeholder="12 digit Aadhaar number">
+
       </div>
+
 
       <div class="uploadBox">
 
-        <div class="icon">🪪</div>
-        <b>Aadhaar Front *</b>
+        <div class="icon">
+          🪪
+        </div>
 
-        <input id="aadhaarFront"
-               type="file"
-               accept="image/*"
-               style="margin-top:12px">
+        <b>
+          Aadhaar Front *
+        </b>
 
-        <img id="aadhaarFrontPreview" class="preview">
+        <input
+          id="aadhaarFront"
+          type="file"
+          accept="image/*"
+          style="margin-top:12px">
+
+        <img
+          id="aadhaarFrontPreview"
+          class="preview">
 
       </div>
+
 
       <div class="uploadBox">
 
-        <div class="icon">🪪</div>
-        <b>Aadhaar Back *</b>
+        <div class="icon">
+          🪪
+        </div>
 
-        <input id="aadhaarBack"
-               type="file"
-               accept="image/*"
-               style="margin-top:12px">
+        <b>
+          Aadhaar Back *
+        </b>
 
-        <img id="aadhaarBackPreview" class="preview">
+        <input
+          id="aadhaarBack"
+          type="file"
+          accept="image/*"
+          style="margin-top:12px">
+
+        <img
+          id="aadhaarBackPreview"
+          class="preview">
 
       </div>
 
-      <button class="primary" onclick="nextStep(2)">
+
+      <button class="primary"
+              onclick="nextStep(2)">
         Continue →
       </button>
 
-      <button class="secondary" onclick="prevStep(2)">
+      <button class="secondary"
+              onclick="prevStep(2)">
         ← Back
       </button>
 
     </div>
 
+
     <!-- STEP 3 -->
 
-    <div id="step3" class="authCard" style="display:none">
+    <div id="step3"
+         class="authCard"
+         style="display:none">
 
-      <h3>Select Services</h3>
+      <h3>
+        Select Services
+      </h3>
 
       <p style="color:#6b7280;font-size:13px">
         Select all services you can provide.
       </p>
 
-      <div id="servicesGrid" class="serviceGrid">
-        <div class="empty">Loading services...</div>
+      <div id="servicesGrid"
+           class="serviceGrid">
+
+        <div class="empty">
+          Loading services...
+        </div>
+
       </div>
 
       <br>
 
-      <button class="primary" onclick="nextStep(3)">
+      <button class="primary"
+              onclick="nextStep(3)">
         Continue →
       </button>
 
-      <button class="secondary" onclick="prevStep(3)">
+      <button class="secondary"
+              onclick="prevStep(3)">
         ← Back
       </button>
 
     </div>
 
+
     <!-- STEP 4 -->
 
-    <div id="step4" class="authCard" style="display:none">
+    <div id="step4"
+         class="authCard"
+         style="display:none">
 
       <div class="formGroup">
-        <label>Work Area</label>
-        <input id="workArea" placeholder="Example: Guwahati">
+
+        <label>
+          Work Area
+        </label>
+
+        <input
+          id="workArea"
+          placeholder="Example: Guwahati">
+
       </div>
 
-      <button class="secondary" onclick="getLocation()">
+      <button class="secondary"
+              onclick="getLocation()">
         📍 Use Current Location
       </button>
 
       <div id="locationText"
            style="font-size:12px;color:#6b7280;margin:10px 0">
+
         Location not selected
+
       </div>
 
       <div class="formGroup">
-        <label>Current Address</label>
-        <textarea id="currentAddress"
-                  placeholder="Current residential address"></textarea>
+
+        <label>
+          Current Address
+        </label>
+
+        <textarea
+          id="currentAddress"
+          placeholder="Current residential address">
+        </textarea>
+
       </div>
 
       <div class="formGroup">
-        <label>Permanent Address</label>
-        <textarea id="permanentAddress"
-                  placeholder="Permanent address"></textarea>
+
+        <label>
+          Permanent Address
+        </label>
+
+        <textarea
+          id="permanentAddress"
+          placeholder="Permanent address">
+        </textarea>
+
       </div>
 
       <div class="row">
 
         <div class="formGroup">
-          <label>City</label>
-          <input id="city" value="Guwahati">
+
+          <label>
+            City
+          </label>
+
+          <input
+            id="city"
+            value="Guwahati">
+
         </div>
 
         <div class="formGroup">
-          <label>PIN Code</label>
-          <input id="pinCode"
-                 maxlength="6"
-                 inputmode="numeric">
+
+          <label>
+            PIN Code
+          </label>
+
+          <input
+            id="pinCode"
+            maxlength="6"
+            inputmode="numeric">
+
         </div>
 
       </div>
@@ -1010,85 +1211,140 @@ button{
       <div class="row">
 
         <div class="formGroup">
-          <label>Experience (Years)</label>
-          <input id="experience"
-                 type="number"
-                 min="0"
-                 value="0">
+
+          <label>
+            Experience (Years)
+          </label>
+
+          <input
+            id="experience"
+            type="number"
+            min="0"
+            value="0">
+
         </div>
 
         <div class="formGroup">
-          <label>Previous Work</label>
-          <input id="previousWork"
-                 placeholder="Company / work">
+
+          <label>
+            Previous Work
+          </label>
+
+          <input
+            id="previousWork"
+            placeholder="Company / work">
+
         </div>
 
       </div>
 
-      <button class="primary" onclick="nextStep(4)">
+      <button class="primary"
+              onclick="nextStep(4)">
         Continue →
       </button>
 
-      <button class="secondary" onclick="prevStep(4)">
+      <button class="secondary"
+              onclick="prevStep(4)">
         ← Back
       </button>
 
     </div>
 
+
     <!-- STEP 5 -->
 
-    <div id="step5" class="authCard" style="display:none">
+    <div id="step5"
+         class="authCard"
+         style="display:none">
 
-      <h3>Payment Details</h3>
+      <h3>
+        Payment Details
+      </h3>
 
       <div class="formGroup">
-        <label>Bank Account Name</label>
-        <input id="bankName" placeholder="Name as per bank account">
+
+        <label>
+          Bank Account Name
+        </label>
+
+        <input
+          id="bankName"
+          placeholder="Name as per bank account">
+
       </div>
 
       <div class="formGroup">
-        <label>Bank Account Number</label>
-        <input id="bankAccount"
-               inputmode="numeric"
-               placeholder="Account number">
+
+        <label>
+          Bank Account Number
+        </label>
+
+        <input
+          id="bankAccount"
+          inputmode="numeric"
+          placeholder="Account number">
+
       </div>
 
       <div class="formGroup">
-        <label>IFSC Code</label>
-        <input id="ifsc"
-               maxlength="11"
-               placeholder="Example: SBIN0001234">
+
+        <label>
+          IFSC Code
+        </label>
+
+        <input
+          id="ifsc"
+          maxlength="11"
+          placeholder="Example: SBIN0001234">
+
       </div>
 
       <div class="formGroup">
-        <label>UPI ID</label>
-        <input id="upi" placeholder="example@upi">
+
+        <label>
+          UPI ID
+        </label>
+
+        <input
+          id="upi"
+          placeholder="example@upi">
+
       </div>
 
-      <div class="uploadBox" style="text-align:left">
+      <div class="uploadBox"
+           style="text-align:left">
 
         <label style="display:flex;gap:10px;align-items:flex-start">
 
-          <input id="terms"
-                 type="checkbox"
-                 style="width:20px;height:20px">
+          <input
+            id="terms"
+            type="checkbox"
+            style="width:20px;height:20px">
 
           <span style="font-size:13px">
+
             I confirm that the information and documents submitted by me
             are correct. I agree to the provider terms and understand that
             my application will be reviewed by the administrator.
+
           </span>
 
         </label>
 
       </div>
 
-      <button class="primary" onclick="submitApplication()">
+      <button class="primary"
+              onclick="submitApplication()">
+
         Submit Provider Application
+
       </button>
 
-      <button class="secondary" onclick="prevStep(5)">
+      <button class="secondary"
+              onclick="prevStep(5)">
+
         ← Back
+
       </button>
 
     </div>
@@ -1100,21 +1356,39 @@ button{
 
 <!-- MAIN APP -->
 
-<div class="app" id="mainApp" style="display:none">
+<div class="app"
+     id="mainApp"
+     style="display:none">
 
   <header class="header">
 
     <div class="brand">
-      <div class="brandIcon">🧹</div>
+
+      <div class="brandIcon">
+        🧹
+      </div>
 
       <div class="brandText">
-        <b>Guwahati Urban</b>
-        <span>Provider App</span>
+
+        <b>
+          Guwahati Urban
+        </b>
+
+        <span>
+          Provider App
+        </span>
+
       </div>
+
     </div>
 
-    <button class="statusBtn" id="onlineBtn" onclick="toggleOnline()">
+    <button
+      class="statusBtn"
+      id="onlineBtn"
+      onclick="toggleOnline()">
+
       ● Offline
+
     </button>
 
   </header>
@@ -1122,64 +1396,131 @@ button{
 
   <!-- HOME -->
 
-  <section class="page active" id="homePage">
+  <section
+    class="page active"
+    id="homePage">
 
     <div class="welcome">
-      <small>Good morning 👋</small>
-      <h2 id="homeName">Provider</h2>
+
+      <small>
+        Good morning 👋
+      </small>
+
+      <h2 id="homeName">
+        Provider
+      </h2>
+
     </div>
 
     <div class="profileCard">
 
-      <div class="avatar" id="homeAvatar">
+      <div class="avatar"
+           id="homeAvatar">
+
         👤
+
       </div>
 
       <div class="profileInfo">
-        <b id="homeProviderName">Provider</b>
-        <small id="homeProviderService">Service Provider</small>
+
+        <b id="homeProviderName">
+          Provider
+        </b>
+
+        <small id="homeProviderService">
+          Service Provider
+        </small>
+
       </div>
 
-      <div>›</div>
+      <div>
+        ›
+      </div>
 
     </div>
 
     <div class="cards">
 
       <div class="card">
-        <div class="statIcon">📋</div>
-        <small>Today's Jobs</small>
-        <strong id="todayJobs">0</strong>
+
+        <div class="statIcon">
+          📋
+        </div>
+
+        <small>
+          Today's Jobs
+        </small>
+
+        <strong id="todayJobs">
+          0
+        </strong>
+
       </div>
 
       <div class="card">
-        <div class="statIcon">✅</div>
-        <small>Completed</small>
-        <strong id="completedJobs">0</strong>
+
+        <div class="statIcon">
+          ✅
+        </div>
+
+        <small>
+          Completed
+        </small>
+
+        <strong id="completedJobs">
+          0
+        </strong>
+
       </div>
 
       <div class="card">
-        <div class="statIcon">₹</div>
-        <small>Today's Earnings</small>
-        <strong id="todayEarnings">₹0</strong>
+
+        <div class="statIcon">
+          ₹
+        </div>
+
+        <small>
+          Today's Earnings
+        </small>
+
+        <strong id="todayEarnings">
+          ₹0
+        </strong>
+
       </div>
 
       <div class="card">
-        <div class="statIcon">💰</div>
-        <small>Total Earnings</small>
-        <strong id="totalEarnings">₹0</strong>
+
+        <div class="statIcon">
+          💰
+        </div>
+
+        <small>
+          Total Earnings
+        </small>
+
+        <strong id="totalEarnings">
+          ₹0
+        </strong>
+
       </div>
 
     </div>
 
     <div class="sectionTitle">
-      <h3>Today's Jobs</h3>
+
+      <h3>
+        Today's Jobs
+      </h3>
+
     </div>
 
     <div id="todayJobsList">
+
       <div class="empty">
         No jobs assigned yet.
       </div>
+
     </div>
 
   </section>
@@ -1187,16 +1528,24 @@ button{
 
   <!-- JOBS -->
 
-  <section class="page" id="jobsPage">
+  <section
+    class="page"
+    id="jobsPage">
 
     <div class="sectionTitle">
-      <h3>My Jobs</h3>
+
+      <h3>
+        My Jobs
+      </h3>
+
     </div>
 
     <div id="allJobsList">
+
       <div class="empty">
         No bookings found.
       </div>
+
     </div>
 
   </section>
@@ -1204,27 +1553,41 @@ button{
 
   <!-- EARNINGS -->
 
-  <section class="page" id="earningsPage">
+  <section
+    class="page"
+    id="earningsPage">
 
     <div class="sectionTitle">
-      <h3>Earnings</h3>
+
+      <h3>
+        Earnings
+      </h3>
+
     </div>
 
-    <div class="card" style="margin-bottom:12px">
+    <div class="card"
+         style="margin-bottom:12px">
 
-      <small>Total Earnings</small>
+      <small>
+        Total Earnings
+      </small>
 
-      <strong id="earningsBig"
-              style="font-size:32px">
+      <strong
+        id="earningsBig"
+        style="font-size:32px">
+
         ₹0
+
       </strong>
 
     </div>
 
     <div id="earningsList">
+
       <div class="empty">
         Earnings details will appear here.
       </div>
+
     </div>
 
   </section>
@@ -1232,15 +1595,23 @@ button{
 
   <!-- NOTIFICATIONS -->
 
-  <section class="page" id="notificationsPage">
+  <section
+    class="page"
+    id="notificationsPage">
 
     <div class="sectionTitle">
-      <h3>Notifications</h3>
+
+      <h3>
+        Notifications
+      </h3>
+
     </div>
 
     <div class="notification">
 
-      <b>Welcome to Provider App 👋</b>
+      <b>
+        Welcome to Provider App 👋
+      </b>
 
       <p>
         Keep your profile updated and stay online when you are available
@@ -1251,7 +1622,9 @@ button{
 
     <div class="notification">
 
-      <b>Application Status</b>
+      <b>
+        Application Status
+      </b>
 
       <p id="notificationStatus">
         Your provider application is being checked.
@@ -1264,21 +1637,37 @@ button{
 
   <!-- PROFILE -->
 
-  <section class="page" id="profilePage">
+  <section
+    class="page"
+    id="profilePage">
 
     <div class="sectionTitle">
-      <h3>My Profile</h3>
+
+      <h3>
+        My Profile
+      </h3>
+
     </div>
 
     <div class="profileCard">
 
-      <div class="avatar" id="profileAvatar">
+      <div class="avatar"
+           id="profileAvatar">
+
         👤
+
       </div>
 
       <div class="profileInfo">
-        <b id="profileName">Provider</b>
-        <small id="profilePhone">—</small>
+
+        <b id="profileName">
+          Provider
+        </b>
+
+        <small id="profilePhone">
+          —
+        </small>
+
       </div>
 
     </div>
@@ -1327,8 +1716,11 @@ button{
 
     </div>
 
-    <button class="danger" onclick="logoutProvider()">
+    <button class="danger"
+            onclick="logoutProvider()">
+
       Logout
+
     </button>
 
   </section>
@@ -1338,34 +1730,49 @@ button{
 
   <nav class="bottomNav">
 
-    <button class="navItem active"
-            onclick="showPage('homePage',this)">
+    <button
+      class="navItem active"
+      onclick="showPage('homePage',this)">
+
       <span>⌂</span>
       Home
+
     </button>
 
-    <button class="navItem"
-            onclick="showPage('jobsPage',this)">
+    <button
+      class="navItem"
+      onclick="showPage('jobsPage',this)">
+
       <span>📋</span>
       Jobs
+
     </button>
 
-    <button class="navItem"
-            onclick="showPage('earningsPage',this)">
+    <button
+      class="navItem"
+      onclick="showPage('earningsPage',this)">
+
       <span>₹</span>
       Earnings
+
     </button>
 
-    <button class="navItem"
-            onclick="showPage('notificationsPage',this)">
+    <button
+      class="navItem"
+      onclick="showPage('notificationsPage',this)">
+
       <span>🔔</span>
       Alerts
+
     </button>
 
-    <button class="navItem"
-            onclick="showPage('profilePage',this)">
+    <button
+      class="navItem"
+      onclick="showPage('profilePage',this)">
+
       <span>👤</span>
       Profile
+
     </button>
 
   </nav>
@@ -1376,7 +1783,7 @@ button{
 <script>
 
 /* =========================================================
-   SUPABASE CONFIG
+   SUPABASE
 ========================================================= */
 
 const SUPABASE_URL =
@@ -1388,20 +1795,23 @@ const SUPABASE_KEY =
 const PROVIDER_TOKEN_KEY =
 "gus_provider_access_token";
 
-let providerUser = null;
-let providerApplication = null;
 
-let currentStep = 1;
+let providerUser=null;
+let providerApplication=null;
 
-let latitude = null;
-let longitude = null;
+let currentStep=1;
 
-let selfieBlob = null;
-let cameraStream = null;
+let latitude=null;
+let longitude=null;
 
-let servicesData = [];
+let selfieBlob=null;
+let cameraStream=null;
 
-let isOnline = false;
+let servicesData=[];
+
+let isOnline=false;
+
+let uploadCounter=0;
 
 
 /* =========================================================
@@ -1412,72 +1822,186 @@ function $(id){
   return document.getElementById(id);
 }
 
+
 function showLoader(text="Please wait..."){
+
   $("loaderText").textContent=text;
+
   $("loader").style.display="flex";
+
 }
+
 
 function hideLoader(){
+
   $("loader").style.display="none";
+
 }
+
 
 function showError(id,message){
+
   const el=$(id);
+
+  if(!el) return;
+
   el.textContent=message;
+
   el.style.display="block";
+
 }
+
 
 function hideError(id){
-  $(id).style.display="none";
+
+  const el=$(id);
+
+  if(el) el.style.display="none";
+
 }
 
+
 function escapeHtml(value){
-  if(value===null || value===undefined) return "";
+
+  if(value===null ||
+     value===undefined){
+
+    return "";
+
+  }
+
   return String(value)
     .replaceAll("&","&amp;")
     .replaceAll("<","&lt;")
     .replaceAll(">","&gt;")
     .replaceAll('"',"&quot;")
     .replaceAll("'","&#039;");
+
 }
+
 
 function providerEmail(phone){
-  return phone + "@gusprovider.com";
+
+  return phone+"@gusprovider.com";
+
 }
+
 
 function getToken(){
-  return localStorage.getItem(PROVIDER_TOKEN_KEY);
+
+  return localStorage.getItem(
+    PROVIDER_TOKEN_KEY
+  );
+
 }
 
+
 function getHeaders(extra={}){
+
   const token=getToken();
 
   return {
+
     "apikey":SUPABASE_KEY,
-    ...(token ? {"Authorization":"Bearer "+token} : {}),
+
+    ...(token
+      ? {"Authorization":"Bearer "+token}
+      : {}),
+
     ...extra
+
   };
+
 }
+
 
 async function supabaseFetch(path,options={}){
+
   return fetch(
+
     SUPABASE_URL+path,
+
     {
+
       ...options,
+
       headers:{
+
         ...getHeaders(),
+
         ...(options.headers||{})
+
       }
+
     }
+
   );
+
 }
 
+
 function serviceName(s){
+
   return s.name ||
          s.title ||
          s.service_name ||
          s.service ||
          "Cleaning Service";
+
+}
+
+
+/* =========================================================
+   UNIQUE FILE NAME
+========================================================= */
+
+function makeUniqueFilename(prefix,ext="jpg"){
+
+  uploadCounter++;
+
+  return (
+    prefix+
+    "_"+
+    Date.now()+
+    "_"+
+    uploadCounter+
+    "_"+
+    Math.random()
+      .toString(36)
+      .slice(2,9)+
+    "."+
+    ext
+  );
+
+}
+
+
+/* =========================================================
+   SESSION CHECK
+========================================================= */
+
+async function ensureProviderSession(){
+
+  const user=await getCurrentUser();
+
+  if(!user){
+
+    localStorage.removeItem(
+      PROVIDER_TOKEN_KEY
+    );
+
+    providerUser=null;
+
+    throw new Error(
+      "Provider login session expired. Please login again."
+    );
+
+  }
+
+  providerUser=user;
+
+  return user;
+
 }
 
 
@@ -1506,78 +2030,130 @@ function showAuth(type){
     $("loginForm").style.display="none";
 
   }
+
 }
 
 
 function backToLogin(){
 
+  closeCamera();
+
   $("registerScreen").style.display="none";
   $("loginScreen").style.display="block";
+
+  showAuth("login");
 
 }
 
 
 /* =========================================================
-   CREATE PROVIDER ACCOUNT
+   CREATE ACCOUNT
 ========================================================= */
 
 async function createProviderAccount(){
 
   hideError("authError");
 
-  const phone=$("signupPhone").value.trim();
-  const password=$("signupPassword").value;
-  const password2=$("signupPassword2").value;
+  const phone=
+    $("signupPhone").value.trim();
+
+  const password=
+    $("signupPassword").value;
+
+  const password2=
+    $("signupPassword2").value;
+
 
   if(!/^[6-9]\d{9}$/.test(phone)){
-    showError("authError",
-      "Please enter a valid 10 digit Indian mobile number.");
+
+    showError(
+      "authError",
+      "Please enter a valid 10 digit Indian mobile number."
+    );
+
     return;
+
   }
+
 
   if(password.length<6){
-    showError("authError",
-      "Password must be at least 6 characters.");
+
+    showError(
+      "authError",
+      "Password must be at least 6 characters."
+    );
+
     return;
+
   }
+
 
   if(password!==password2){
-    showError("authError",
-      "Passwords do not match.");
+
+    showError(
+      "authError",
+      "Passwords do not match."
+    );
+
     return;
+
   }
 
-  showLoader("Creating provider account...");
+
+  showLoader(
+    "Creating provider account..."
+  );
+
 
   try{
 
     const res=await fetch(
-      SUPABASE_URL+"/auth/v1/signup",
+
+      SUPABASE_URL+
+      "/auth/v1/signup",
+
       {
+
         method:"POST",
+
         headers:{
+
           "apikey":SUPABASE_KEY,
-          "Content-Type":"application/json"
+
+          "Content-Type":
+            "application/json"
+
         },
+
         body:JSON.stringify({
+
           email:providerEmail(phone),
+
           password:password
+
         })
+
       }
+
     );
 
+
     const data=await res.json();
+
 
     if(!res.ok){
 
       throw new Error(
+
         data.msg ||
         data.error_description ||
         data.message ||
         "Account creation failed."
+
       );
 
     }
+
 
     if(data.access_token){
 
@@ -1595,14 +2171,18 @@ async function createProviderAccount(){
     }else{
 
       throw new Error(
-        "Account created, but login session was not returned. Please login."
+        "Account created. Please login using your mobile number and password."
       );
 
     }
 
+
   }catch(err){
 
-    showError("authError",err.message);
+    showError(
+      "authError",
+      err.message
+    );
 
   }finally{
 
@@ -1621,65 +2201,118 @@ async function loginProvider(){
 
   hideError("authError");
 
-  const phone=$("loginPhone").value.trim();
-  const password=$("loginPassword").value;
+  const phone=
+    $("loginPhone").value.trim();
+
+  const password=
+    $("loginPassword").value;
+
 
   if(!/^[6-9]\d{9}$/.test(phone)){
-    showError("authError",
-      "Please enter a valid 10 digit mobile number.");
+
+    showError(
+      "authError",
+      "Please enter a valid 10 digit Indian mobile number."
+    );
+
     return;
+
   }
+
 
   if(!password){
-    showError("authError",
-      "Please enter your password.");
+
+    showError(
+      "authError",
+      "Please enter your password."
+    );
+
     return;
+
   }
 
+
   showLoader("Logging in...");
+
 
   try{
 
     const res=await fetch(
-      SUPABASE_URL+"/auth/v1/token?grant_type=password",
+
+      SUPABASE_URL+
+      "/auth/v1/token?grant_type=password",
+
       {
+
         method:"POST",
+
         headers:{
+
           "apikey":SUPABASE_KEY,
-          "Content-Type":"application/json"
+
+          "Content-Type":
+            "application/json"
+
         },
+
         body:JSON.stringify({
+
           email:providerEmail(phone),
+
           password:password
+
         })
+
       }
+
     );
 
+
     const data=await res.json();
+
 
     if(!res.ok){
 
       throw new Error(
+
         data.error_description ||
         data.msg ||
         data.message ||
         "Login failed."
+
       );
 
     }
+
+
+    if(!data.access_token){
+
+      throw new Error(
+        "Login succeeded but no session token was returned."
+      );
+
+    }
+
 
     localStorage.setItem(
       PROVIDER_TOKEN_KEY,
       data.access_token
     );
 
-    providerUser=data.user;
+
+    providerUser=data.user ||
+                  await getCurrentUser();
+
 
     await afterLogin();
 
+
   }catch(err){
 
-    showError("authError",err.message);
+    showError(
+      "authError",
+      err.message
+    );
 
   }finally{
 
@@ -1691,7 +2324,7 @@ async function loginProvider(){
 
 
 /* =========================================================
-   SESSION
+   CURRENT USER
 ========================================================= */
 
 async function getCurrentUser(){
@@ -1700,21 +2333,39 @@ async function getCurrentUser(){
 
   if(!token) return null;
 
+
   try{
 
     const res=await fetch(
-      SUPABASE_URL+"/auth/v1/user",
+
+      SUPABASE_URL+
+      "/auth/v1/user",
+
       {
+
         headers:{
+
           "apikey":SUPABASE_KEY,
-          "Authorization":"Bearer "+token
+
+          "Authorization":
+            "Bearer "+token
+
         }
+
       }
+
     );
 
-    if(!res.ok) return null;
+
+    if(!res.ok){
+
+      return null;
+
+    }
+
 
     return await res.json();
+
 
   }catch(e){
 
@@ -1731,16 +2382,26 @@ async function getCurrentUser(){
 
 async function afterLogin(){
 
-  providerUser=providerUser || await getCurrentUser();
+  providerUser=
+    providerUser ||
+    await getCurrentUser();
+
 
   if(!providerUser){
 
-    localStorage.removeItem(PROVIDER_TOKEN_KEY);
+    localStorage.removeItem(
+      PROVIDER_TOKEN_KEY
+    );
+
     return;
 
   }
 
-  showLoader("Checking provider profile...");
+
+  showLoader(
+    "Checking provider profile..."
+  );
+
 
   try{
 
@@ -1756,25 +2417,54 @@ async function afterLogin(){
 
 
 /* =========================================================
-   APPLICATION
+   LOAD APPLICATION
 ========================================================= */
 
 async function loadApplication(){
 
   const uid=providerUser.id;
 
+
   const res=await supabaseFetch(
+
     "/rest/v1/provider_applications"+
     "?select=*"+
-    "&user_id=eq."+encodeURIComponent(uid)+
+    "&user_id=eq."+
+    encodeURIComponent(uid)+
     "&limit=1"
+
   );
+
 
   if(!res.ok){
 
     const txt=await res.text();
 
-    console.log("Application check error:",txt);
+    console.log(
+      "Application check error:",
+      txt
+    );
+
+
+    /*
+      If SELECT policy is missing, don't silently
+      pretend that the provider has no application.
+    */
+
+    if(
+      txt.includes("row-level security") ||
+      txt.includes("permission denied")
+    ){
+
+      showStatusMessage(
+        "Database permission issue",
+        "Provider application access is blocked by Supabase RLS. Please check the provider_applications SELECT policy."
+      );
+
+      return;
+
+    }
+
 
     startRegistration();
 
@@ -1782,7 +2472,9 @@ async function loadApplication(){
 
   }
 
+
   const rows=await res.json();
+
 
   if(!rows.length){
 
@@ -1792,6 +2484,7 @@ async function loadApplication(){
 
   }
 
+
   providerApplication=rows[0];
 
   handleApplicationStatus();
@@ -1799,13 +2492,20 @@ async function loadApplication(){
 }
 
 
+/* =========================================================
+   APPLICATION STATUS
+========================================================= */
+
 function handleApplicationStatus(){
 
-  const status=providerApplication.status;
+  const status=
+    providerApplication.status;
+
 
   if(status==="approved"){
 
     openMainApp();
+
     loadProviderDashboard();
 
   }else{
@@ -1817,33 +2517,85 @@ function handleApplicationStatus(){
 }
 
 
+function showStatusMessage(title,message){
+
+  $("authOverlay").innerHTML=`
+
+    <div class="statusScreen">
+
+      <div class="statusCard">
+
+        <div class="statusIcon">
+          ⚠️
+        </div>
+
+        <h2>
+          ${escapeHtml(title)}
+        </h2>
+
+        <p>
+          ${escapeHtml(message)}
+        </p>
+
+        <button
+          class="danger"
+          onclick="logoutProvider()">
+
+          Logout
+
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
 /* =========================================================
    REGISTRATION
 ========================================================= */
 
 function startRegistration(){
 
+  closeCamera();
+
   $("loginScreen").style.display="none";
   $("registerScreen").style.display="block";
 
+  currentStep=1;
+
+  updateSteps();
+
+
   if(providerUser){
 
-    const email=providerUser.email || "";
+    const email=
+      providerUser.email || "";
 
-    const synthetic="@gusprovider.com";
+    const synthetic=
+      "@gusprovider.com";
+
 
     if(email.endsWith(synthetic)){
 
       $("regPhone").value=
-        email.replace(synthetic,"");
+        email.replace(
+          synthetic,
+          ""
+        );
 
     }else{
 
-      $("regEmail").value=email;
+      $("regEmail").value=
+        email;
 
     }
 
   }
+
 
   loadServices();
 
@@ -1860,20 +2612,33 @@ function updateSteps(){
     );
 
     $("step"+i).style.display=
-      i===currentStep ? "block" : "none";
+      i===currentStep
+      ? "block"
+      : "none";
 
   }
 
+
   const labels=[
+
     "Personal Details",
+
     "Identity Verification",
+
     "Services",
+
     "Location & Experience",
+
     "Payment Details"
+
   ];
 
+
   $("stepLabel").textContent=
-    "Step "+currentStep+" of 5 — "+labels[currentStep-1];
+    "Step "+
+    currentStep+
+    " of 5 — "+
+    labels[currentStep-1];
 
 }
 
@@ -1882,63 +2647,99 @@ function nextStep(from){
 
   hideError("registerError");
 
+
   if(from===1){
 
-    const name=$("fullName").value.trim();
-    const phone=$("regPhone").value.trim();
+    const name=
+      $("fullName").value.trim();
+
+    const phone=
+      $("regPhone").value.trim();
+
 
     if(!name){
-      showError("registerError","Please enter your full name.");
+
+      showError(
+        "registerError",
+        "Please enter your full name."
+      );
+
       return;
+
     }
 
+
     if(!/^[6-9]\d{9}$/.test(phone)){
+
       showError(
         "registerError",
         "Please enter a valid Indian mobile number."
       );
+
       return;
+
     }
 
   }
 
+
   if(from===2){
 
-    const aadhaar=$("aadhaarNumber").value.replace(/\D/g,"");
+    const aadhaar=
+      $("aadhaarNumber")
+      .value
+      .replace(/\D/g,"");
+
 
     if(!selfieBlob){
+
       showError(
         "registerError",
         "Please capture your selfie using the camera."
       );
+
       return;
+
     }
 
+
     if(aadhaar.length!==12){
+
       showError(
         "registerError",
         "Aadhaar number must contain 12 digits."
       );
+
       return;
+
     }
 
+
     if(!$("aadhaarFront").files.length){
+
       showError(
         "registerError",
         "Please upload Aadhaar front side."
       );
+
       return;
+
     }
 
+
     if(!$("aadhaarBack").files.length){
+
       showError(
         "registerError",
         "Please upload Aadhaar back side."
       );
+
       return;
+
     }
 
   }
+
 
   if(from===3){
 
@@ -1946,6 +2747,7 @@ function nextStep(from){
       document.querySelectorAll(
         ".serviceCheck:checked"
       );
+
 
     if(!selected.length){
 
@@ -1959,6 +2761,7 @@ function nextStep(from){
     }
 
   }
+
 
   if(from===4){
 
@@ -1975,16 +2778,13 @@ function nextStep(from){
 
   }
 
-  currentStep=Math.min(5,from+1);
 
-  updateSteps();
+  currentStep=
+    Math.min(
+      5,
+      from+1
+    );
 
-}
-
-
-function prevStep(from){
-
-  currentStep=Math.max(1,from-1);
 
   updateSteps();
 
@@ -1992,7 +2792,24 @@ function prevStep(from){
 
 
 /* =========================================================
-   LOAD SERVICES
+   PREVIOUS STEP
+========================================================= */
+
+function prevStep(from){
+
+  currentStep=
+    Math.max(
+      1,
+      from-1
+    );
+
+  updateSteps();
+
+}
+
+
+/* =========================================================
+   SERVICES
 ========================================================= */
 
 async function loadServices(){
@@ -2000,29 +2817,48 @@ async function loadServices(){
   if(servicesData.length){
 
     renderServices();
+
     return;
 
   }
 
+
   try{
 
-    const res=await supabaseFetch(
-      "/rest/v1/services?select=*&order=id.asc"
-    );
+    const res=
+      await supabaseFetch(
+        "/rest/v1/services?select=*&order=id.asc"
+      );
 
-    if(!res.ok) throw new Error("Could not load services.");
 
-    servicesData=await res.json();
+    if(!res.ok){
+
+      throw new Error(
+        "Could not load services."
+      );
+
+    }
+
+
+    servicesData=
+      await res.json();
+
 
     renderServices();
+
 
   }catch(err){
 
     $("servicesGrid").innerHTML=
+
       `<div class="empty">
+
         Unable to load services.
+
         <br><br>
+
         ${escapeHtml(err.message)}
+
       </div>`;
 
   }
@@ -2035,30 +2871,39 @@ function renderServices(){
   if(!servicesData.length){
 
     $("servicesGrid").innerHTML=
-      `<div class="empty">No services available.</div>`;
+      `<div class="empty">
+        No services available.
+      </div>`;
 
     return;
 
   }
 
+
   $("servicesGrid").innerHTML=
+
     servicesData.map(s=>{
 
-      const name=serviceName(s);
+      const name=
+        serviceName(s);
+
 
       return `
+
         <label class="serviceOption">
 
           <input
             class="serviceCheck"
             type="checkbox"
             value="${escapeHtml(String(s.id))}"
-            data-name="${escapeHtml(name)}"
-          >
+            data-name="${escapeHtml(name)}">
 
-          <span>${escapeHtml(name)}</span>
+          <span>
+            ${escapeHtml(name)}
+          </span>
 
         </label>
+
       `;
 
     }).join("");
@@ -2072,39 +2917,55 @@ function renderServices(){
 
 async function openCamera(){
 
-  if(!navigator.mediaDevices ||
-     !navigator.mediaDevices.getUserMedia){
+  if(
+    !navigator.mediaDevices ||
+    !navigator.mediaDevices.getUserMedia
+  ){
 
     alert(
-      "Camera is not supported in this browser. " +
-      "Please use Chrome on HTTPS."
+      "Camera is not supported. Please use Chrome on HTTPS."
     );
 
     return;
 
   }
 
+
   try{
 
     cameraStream=
       await navigator.mediaDevices.getUserMedia({
+
         video:{
+
           facingMode:"user",
-          width:{ideal:720},
-          height:{ideal:720}
+
+          width:{
+            ideal:720
+          },
+
+          height:{
+            ideal:720
+          }
+
         },
+
         audio:false
+
       });
 
-    $("cameraVideo").srcObject=cameraStream;
 
-    $("cameraBox").style.display="block";
+    $("cameraVideo").srcObject=
+      cameraStream;
+
+    $("cameraBox").style.display=
+      "block";
+
 
   }catch(err){
 
     alert(
-      "Camera permission was not granted. " +
-      "Please allow camera access and try again."
+      "Camera permission was not granted. Please allow camera access."
     );
 
   }
@@ -2114,21 +2975,35 @@ async function openCamera(){
 
 function captureSelfie(){
 
-  const video=$("cameraVideo");
+  const video=
+    $("cameraVideo");
+
 
   if(!video.videoWidth){
 
-    alert("Camera is not ready yet.");
+    alert(
+      "Camera is not ready yet."
+    );
+
     return;
 
   }
 
-  const canvas=document.createElement("canvas");
 
-  canvas.width=video.videoWidth;
-  canvas.height=video.videoHeight;
+  const canvas=
+    document.createElement("canvas");
 
-  const ctx=canvas.getContext("2d");
+
+  canvas.width=
+    video.videoWidth;
+
+  canvas.height=
+    video.videoHeight;
+
+
+  const ctx=
+    canvas.getContext("2d");
+
 
   ctx.drawImage(
     video,
@@ -2138,21 +3013,42 @@ function captureSelfie(){
     canvas.height
   );
 
+
   canvas.toBlob(
+
     blob=>{
 
-      selfieBlob=blob;
+      if(!blob){
+
+        alert(
+          "Could not capture selfie."
+        );
+
+        return;
+
+      }
+
+
+      selfieBlob=
+        blob;
+
 
       $("selfiePreview").src=
         URL.createObjectURL(blob);
 
-      $("selfiePreview").style.display="block";
+
+      $("selfiePreview").style.display=
+        "block";
+
 
       closeCamera();
 
     },
+
     "image/jpeg",
+
     .88
+
   );
 
 }
@@ -2162,26 +3058,41 @@ function closeCamera(){
 
   if(cameraStream){
 
-    cameraStream.getTracks().forEach(
-      track=>track.stop()
-    );
+    cameraStream
+      .getTracks()
+      .forEach(
+        track=>track.stop()
+      );
 
     cameraStream=null;
 
   }
 
-  $("cameraBox").style.display="none";
 
-  $("cameraVideo").srcObject=null;
+  if($("cameraBox")){
+
+    $("cameraBox").style.display=
+      "none";
+
+  }
+
+
+  if($("cameraVideo")){
+
+    $("cameraVideo").srcObject=
+      null;
+
+  }
 
 }
 
 
 /* =========================================================
-   FILE PREVIEWS
+   FILE PREVIEW
 ========================================================= */
 
-$("aadhaarFront").addEventListener(
+$("aadhaarFront")
+.addEventListener(
   "change",
   function(){
 
@@ -2194,7 +3105,8 @@ $("aadhaarFront").addEventListener(
 );
 
 
-$("aadhaarBack").addEventListener(
+$("aadhaarBack")
+.addEventListener(
   "change",
   function(){
 
@@ -2211,21 +3123,35 @@ function previewFile(file,id){
 
   if(!file) return;
 
+
   if(!file.type.startsWith("image/")){
 
-    alert("Please select an image file.");
+    alert(
+      "Please select an image file."
+    );
+
+    $(id).style.display=
+      "none";
+
     return;
 
   }
 
-  const reader=new FileReader();
+
+  const reader=
+    new FileReader();
+
 
   reader.onload=e=>{
 
-    $(id).src=e.target.result;
-    $(id).style.display="block";
+    $(id).src=
+      e.target.result;
+
+    $(id).style.display=
+      "block";
 
   };
+
 
   reader.readAsDataURL(file);
 
@@ -2240,25 +3166,35 @@ function getLocation(){
 
   if(!navigator.geolocation){
 
-    alert("Location is not supported by this browser.");
+    alert(
+      "Location is not supported by this browser."
+    );
+
     return;
 
   }
 
+
   $("locationText").textContent=
     "Getting current location...";
+
 
   navigator.geolocation.getCurrentPosition(
 
     position=>{
 
-      latitude=position.coords.latitude;
-      longitude=position.coords.longitude;
+      latitude=
+        position.coords.latitude;
+
+      longitude=
+        position.coords.longitude;
+
 
       $("locationText").textContent=
         "✓ Location captured";
 
     },
+
 
     error=>{
 
@@ -2267,10 +3203,15 @@ function getLocation(){
 
     },
 
+
     {
+
       enableHighAccuracy:true,
+
       timeout:15000,
+
       maximumAge:0
+
     }
 
   );
@@ -2282,176 +3223,199 @@ function getLocation(){
    STORAGE UPLOAD
 ========================================================= */
 
-async function uploadProviderFile(blobOrFile, filename){
+async function uploadProviderFile(
+  blobOrFile,
+  filename
+){
 
-  const token = getToken();
+  await ensureProviderSession();
 
-  if(!token){
-    throw new Error(
-      "Provider session expired. Please login again."
-    );
-  }
 
-  /* Get the real authenticated user directly from Supabase */
-  const userRes = await fetch(
-    SUPABASE_URL + "/auth/v1/user",
-    {
-      method:"GET",
-      headers:{
-        "apikey":SUPABASE_KEY,
-        "Authorization":"Bearer " + token
-      }
-    }
-  );
+  const token=
+    getToken();
 
-  if(!userRes.ok){
-
-    const userText = await userRes.text();
-
-    console.log("Auth user error:", userText);
-
-    throw new Error(
-      "Provider authentication expired. Please login again."
-    );
-  }
-
-  const authenticatedUser = await userRes.json();
-
-  if(!authenticatedUser || !authenticatedUser.id){
-
-    throw new Error(
-      "Provider user ID could not be verified."
-    );
-  }
-
-  /* Keep local provider user synchronized */
-  providerUser = authenticatedUser;
-
-  const uid = authenticatedUser.id;
-
-  /*
-    IMPORTANT:
-    Storage policy expects:
-    provider-documents/<auth.uid>/filename
-  */
-  const path = uid + "/" + filename;
-
-  console.log("Provider UID:", uid);
-  console.log("Upload path:", path);
-
-  const fileUrl =
-    SUPABASE_URL +
-    "/storage/v1/object/provider-documents/" +
-    encodeURIComponent(uid) +
-    "/" +
-    encodeURIComponent(filename);
-
-  const contentType =
-    blobOrFile.type || "application/octet-stream";
-
-  const res = await fetch(
-    fileUrl,
-    {
-      method:"POST",
-
-      headers:{
-        "apikey":SUPABASE_KEY,
-        "Authorization":"Bearer " + token,
-        "Content-Type":contentType,
-        "x-upsert":"true"
-      },
-
-async function uploadProviderFile(blobOrFile, filename){
-
-  const token = getToken();
-
-  console.log("=== STORAGE DEBUG START ===");
-  console.log("Token exists:", !!token);
-  console.log("Token length:", token ? token.length : 0);
 
   if(!token){
+
     throw new Error(
-      "Provider session expired. Please login again."
+      "Provider login session expired. Please login again."
     );
+
   }
 
-  const userRes = await fetch(
-    SUPABASE_URL + "/auth/v1/user",
-    {
-      method:"GET",
-      headers:{
-        "apikey":SUPABASE_KEY,
-        "Authorization":"Bearer " + token
-      }
-    }
-  );
 
-  const userText = await userRes.text();
+  if(
+    !blobOrFile
+  ){
 
-  console.log("Auth status:", userRes.status);
-  console.log("Auth response:", userText);
-
-  if(!userRes.ok){
     throw new Error(
-      "Authentication check failed: " + userText
+      "Document file is missing."
     );
+
   }
 
-  const authenticatedUser = JSON.parse(userText);
 
-  if(!authenticatedUser.id){
-    throw new Error(
-      "Authenticated user ID not found."
-    );
-  }
+  const uid=
+    providerUser.id;
 
-  providerUser = authenticatedUser;
 
-  const uid = authenticatedUser.id;
-
-  const path = uid + "/" + filename;
-
-  console.log("AUTH UID:", uid);
-  console.log("FILE NAME:", filename);
-  console.log("STORAGE PATH:", path);
-
-  const fileUrl =
-    SUPABASE_URL +
-    "/storage/v1/object/provider-documents/" +
-    uid +
-    "/" +
+  const path=
+    uid+
+    "/"+
     filename;
 
-  console.log("UPLOAD URL:", fileUrl);
 
-  const res = await fetch(
-    fileUrl,
-    {
-      method:"POST",
-      headers:{
-        "apikey":SUPABASE_KEY,
-        "Authorization":"Bearer " + token,
-        "Content-Type":
-          blobOrFile.type || "application/octet-stream",
-        "x-upsert":"true"
-      },
-      body:blobOrFile
-    }
+  const fileUrl=
+    SUPABASE_URL+
+    "/storage/v1/object/provider-documents/"+
+    path;
+
+
+  const contentType=
+    blobOrFile.type ||
+    "image/jpeg";
+
+
+  console.log(
+    "Uploading provider document:",
+    path
   );
 
-  const responseText = await res.text();
 
-  console.log("Storage status:", res.status);
-  console.log("Storage response:", responseText);
-  console.log("=== STORAGE DEBUG END ===");
+  const res=
+    await fetch(
+
+      fileUrl,
+
+      {
+
+        method:"POST",
+
+        headers:{
+
+          "apikey":
+            SUPABASE_KEY,
+
+          "Authorization":
+            "Bearer "+token,
+
+          "Content-Type":
+            contentType,
+
+          /*
+            IMPORTANT:
+            Do NOT use x-upsert:true.
+            Every filename is unique.
+          */
+
+          "x-upsert":
+            "false"
+
+        },
+
+        body:
+          blobOrFile
+
+      }
+
+    );
+
 
   if(!res.ok){
-    throw new Error(
-      "Document upload failed: " + responseText
+
+    const txt=
+      await res.text();
+
+
+    console.error(
+      "Storage upload error:",
+      res.status,
+      txt
     );
+
+
+    if(res.status===403){
+
+      throw new Error(
+        "Document upload blocked (403). Please check provider-documents Storage RLS policy."
+      );
+
+    }
+
+
+    if(res.status===409){
+
+      throw new Error(
+        "Document already exists. Please try the registration again."
+      );
+
+    }
+
+
+    throw new Error(
+      "Document upload failed ("+
+      res.status+
+      "): "+
+      txt
+    );
+
   }
 
+
   return path;
+
+}
+
+
+/* =========================================================
+   EXISTING APPLICATION CHECK
+========================================================= */
+
+async function getExistingApplication(){
+
+  if(!providerUser){
+
+    return null;
+
+  }
+
+
+  const res=
+    await supabaseFetch(
+
+      "/rest/v1/provider_applications"+
+      "?select=*"+
+      "&user_id=eq."+
+      encodeURIComponent(
+        providerUser.id
+      )+
+      "&limit=1"
+
+    );
+
+
+  if(!res.ok){
+
+    const txt=
+      await res.text();
+
+
+    throw new Error(
+      "Could not check existing provider application: "+
+      txt
+    );
+
+  }
+
+
+  const rows=
+    await res.json();
+
+
+  return rows.length
+    ? rows[0]
+    : null;
+
 }
 
 
@@ -2462,6 +3426,7 @@ async function uploadProviderFile(blobOrFile, filename){
 async function submitApplication(){
 
   hideError("registerError");
+
 
   if(!$("terms").checked){
 
@@ -2474,6 +3439,7 @@ async function submitApplication(){
 
   }
 
+
   if(!providerUser){
 
     showError(
@@ -2485,64 +3451,186 @@ async function submitApplication(){
 
   }
 
-  showLoader("Uploading documents...");
+
+  showLoader(
+    "Checking provider account..."
+  );
+
 
   try{
 
+    await ensureProviderSession();
+
+
+    /*
+      IMPORTANT:
+      Prevent duplicate application 409.
+    */
+
+    const existing=
+      await getExistingApplication();
+
+
+    if(existing){
+
+      providerApplication=
+        existing;
+
+
+      hideLoader();
+
+
+      handleApplicationStatus();
+
+
+      return;
+
+    }
+
+
+    const selfieFile=
+      selfieBlob;
+
+
+    const frontFile=
+      $("aadhaarFront").files[0];
+
+
+    const backFile=
+      $("aadhaarBack").files[0];
+
+
+    if(!selfieFile){
+
+      throw new Error(
+        "Selfie is missing. Please capture your selfie again."
+      );
+
+    }
+
+
+    if(!frontFile){
+
+      throw new Error(
+        "Aadhaar front side is missing."
+      );
+
+    }
+
+
+    if(!backFile){
+
+      throw new Error(
+        "Aadhaar back side is missing."
+      );
+
+    }
+
+
+    $("loaderText").textContent=
+      "Uploading selfie...";
+
+
     const selfiePath=
       await uploadProviderFile(
-        selfieBlob,
-        "selfie.jpg"
+
+        selfieFile,
+
+        makeUniqueFilename(
+          "selfie"
+        )
+
       );
+
+
+    $("loaderText").textContent=
+      "Uploading Aadhaar front...";
+
 
     const frontPath=
       await uploadProviderFile(
-        $("aadhaarFront").files[0],
-        "aadhaar_front.jpg"
+
+        frontFile,
+
+        makeUniqueFilename(
+          "aadhaar_front"
+        )
+
       );
+
+
+    $("loaderText").textContent=
+      "Uploading Aadhaar back...";
+
 
     const backPath=
       await uploadProviderFile(
-        $("aadhaarBack").files[0],
-        "aadhaar_back.jpg"
+
+        backFile,
+
+        makeUniqueFilename(
+          "aadhaar_back"
+        )
+
       );
+
 
     $("loaderText").textContent=
       "Submitting application...";
 
 
     const selectedServices=
-      [...document.querySelectorAll(
-        ".serviceCheck:checked"
-      )].map(el=>el.dataset.name);
+      [
+        ...document.querySelectorAll(
+          ".serviceCheck:checked"
+        )
+      ].map(
+        el=>el.dataset.name
+      );
 
 
     const payload={
 
-      user_id:providerUser.id,
+      user_id:
+        providerUser.id,
 
-      full_name:$("fullName").value.trim(),
+      full_name:
+        $("fullName")
+        .value
+        .trim(),
 
       father_guardian_name:
-        $("fatherName").value.trim() || null,
+        $("fatherName")
+        .value
+        .trim() ||
+        null,
 
       date_of_birth:
-        $("dob").value || null,
+        $("dob").value ||
+        null,
 
       gender:
-        $("gender").value || null,
+        $("gender").value ||
+        null,
 
       phone:
-        $("regPhone").value.trim(),
+        $("regPhone")
+        .value
+        .trim(),
 
       email:
-        $("regEmail").value.trim() || null,
+        $("regEmail")
+        .value
+        .trim() ||
+        null,
 
       selfie_url:
         selfiePath,
 
       aadhaar_number:
-        $("aadhaarNumber").value.replace(/\D/g,""),
+        $("aadhaarNumber")
+        .value
+        .replace(/\D/g,""),
 
       aadhaar_front_url:
         frontPath,
@@ -2551,25 +3639,47 @@ async function submitApplication(){
         backPath,
 
       current_address:
-        $("currentAddress").value.trim() || null,
+        $("currentAddress")
+        .value
+        .trim() ||
+        null,
 
       permanent_address:
-        $("permanentAddress").value.trim() || null,
+        $("permanentAddress")
+        .value
+        .trim() ||
+        null,
 
       city:
-        $("city").value.trim() || null,
+        $("city")
+        .value
+        .trim() ||
+        null,
 
       pin_code:
-        $("pinCode").value.trim() || null,
+        $("pinCode")
+        .value
+        .trim() ||
+        null,
 
       experience_years:
-        Number($("experience").value || 0),
+        Number(
+          $("experience")
+          .value ||
+          0
+        ),
 
       previous_work:
-        $("previousWork").value.trim() || null,
+        $("previousWork")
+        .value
+        .trim() ||
+        null,
 
       work_area:
-        $("workArea").value.trim() || null,
+        $("workArea")
+        .value
+        .trim() ||
+        null,
 
       latitude:
         latitude,
@@ -2581,53 +3691,125 @@ async function submitApplication(){
         selectedServices,
 
       bank_account_name:
-        $("bankName").value.trim() || null,
+        $("bankName")
+        .value
+        .trim() ||
+        null,
 
       bank_account_number:
-        $("bankAccount").value.trim() || null,
+        $("bankAccount")
+        .value
+        .trim() ||
+        null,
 
       bank_ifsc:
-        $("ifsc").value.trim().toUpperCase() || null,
+        $("ifsc")
+        .value
+        .trim()
+        .toUpperCase() ||
+        null,
 
       upi_id:
-        $("upi").value.trim() || null,
+        $("upi")
+        .value
+        .trim() ||
+        null,
 
-      status:"pending"
+      status:
+        "pending"
 
     };
 
 
-    const res=await supabaseFetch(
-      "/rest/v1/provider_applications",
-      {
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json",
-          "Prefer":"return=representation"
-        },
-        body:JSON.stringify(payload)
-      }
-    );
+    const res=
+      await supabaseFetch(
+
+        "/rest/v1/provider_applications",
+
+        {
+
+          method:"POST",
+
+          headers:{
+
+            "Content-Type":
+              "application/json",
+
+            "Prefer":
+              "return=representation"
+
+          },
+
+          body:
+            JSON.stringify(payload)
+
+        }
+
+      );
 
 
     if(!res.ok){
 
-      const txt=await res.text();
+      const txt=
+        await res.text();
+
+
+      /*
+        If another request created it
+        between our check and POST,
+        recover instead of showing raw 409.
+      */
+
+      if(res.status===409){
+
+        const recovered=
+          await getExistingApplication();
+
+
+        if(recovered){
+
+          providerApplication=
+            recovered;
+
+
+          handleApplicationStatus();
+
+          return;
+
+        }
+
+      }
+
 
       throw new Error(
-        "Application submission failed: "+txt
+        "Application submission failed ("+
+        res.status+
+        "): "+
+        txt
       );
 
     }
 
 
-    const rows=await res.json();
+    const rows=
+      await res.json();
 
-    providerApplication=rows[0] || payload;
+
+    providerApplication=
+      rows[0] ||
+      payload;
+
 
     showApplicationSuccess();
 
+
   }catch(err){
+
+    console.error(
+      "Provider application error:",
+      err
+    );
+
 
     showError(
       "registerError",
@@ -2644,7 +3826,7 @@ async function submitApplication(){
 
 
 /* =========================================================
-   APPLICATION SUCCESS / STATUS
+   APPLICATION SUCCESS
 ========================================================= */
 
 function showApplicationSuccess(){
@@ -2655,22 +3837,35 @@ function showApplicationSuccess(){
 
       <div class="statusCard">
 
-        <div class="statusIcon">✅</div>
+        <div class="statusIcon">
+          ✅
+        </div>
 
-        <h2>Application Submitted Successfully</h2>
+        <h2>
+          Application Submitted Successfully
+        </h2>
 
         <p>
+
           Your provider application has been submitted.
           Our admin team will review your information and documents.
+
         </p>
 
         <div class="success">
-          <b>Status: Pending</b>
+
+          <b>
+            Status: Pending
+          </b>
+
         </div>
 
-        <button class="primary"
-                onclick="location.reload()">
+        <button
+          class="primary"
+          onclick="location.reload()">
+
           Continue
+
         </button>
 
       </div>
@@ -2682,7 +3877,57 @@ function showApplicationSuccess(){
 }
 
 
+/* =========================================================
+   STATUS SCREEN
+========================================================= */
+
 function showStatusScreen(status){
+
+  const icon=
+    status==="pending"
+    ? "⏳"
+    : status==="under_review"
+    ? "🔍"
+    : status==="rejected"
+    ? "❌"
+    : status==="suspended"
+    ? "🚫"
+    : "ℹ️";
+
+
+  const title=
+    status==="pending"
+    ? "Application Pending"
+    : status==="under_review"
+    ? "Under Review"
+    : status==="rejected"
+    ? "Application Rejected"
+    : status==="suspended"
+    ? "Account Suspended"
+    : "Application Status";
+
+
+  const message=
+    status==="pending"
+
+    ? "Your provider application has been submitted successfully. Please wait while our admin team reviews it."
+
+    : status==="under_review"
+
+    ? "Your documents and application are currently being reviewed by the admin team."
+
+    : status==="rejected"
+
+    ? "Your application was rejected. Please contact the administrator for more information."
+
+    : status==="suspended"
+
+    ? "Your provider account is currently suspended. Please contact the administrator."
+
+    : "Your current provider application status is "+
+      escapeHtml(status)+
+      ".";
+
 
   $("authOverlay").innerHTML=`
 
@@ -2691,58 +3936,57 @@ function showStatusScreen(status){
       <div class="statusCard">
 
         <div class="statusIcon">
-          ${status==="pending" ? "⏳" :
-            status==="under_review" ? "🔍" :
-            status==="rejected" ? "❌" :
-            status==="suspended" ? "🚫" : "ℹ️"}
+          ${icon}
         </div>
 
         <h2>
-          ${
-            status==="pending"
-            ? "Application Pending"
-            : status==="under_review"
-            ? "Under Review"
-            : status==="rejected"
-            ? "Application Rejected"
-            : status==="suspended"
-            ? "Account Suspended"
-            : "Application Status"
-          }
+          ${title}
         </h2>
 
         <p>
-          ${
-            status==="pending"
-            ? "Your provider application has been submitted successfully. Please wait while our admin team reviews it."
-            : status==="under_review"
-            ? "Your documents and application are currently being reviewed by the admin team."
-            : status==="rejected"
-            ? "Your application was rejected. Please contact the administrator for more information."
-            : status==="suspended"
-            ? "Your provider account is currently suspended. Please contact the administrator."
-            : "Your current provider application status is "+escapeHtml(status)+"."
-          }
+          ${message}
         </p>
 
         ${
+          providerApplication &&
           providerApplication.admin_note
-          ? `<div class="notification"
-                  style="text-align:left">
-                <b>Admin Note</b>
-                <p>${escapeHtml(providerApplication.admin_note)}</p>
-             </div>`
+
+          ? `
+
+            <div
+              class="notification"
+              style="text-align:left">
+
+              <b>
+                Admin Note
+              </b>
+
+              <p>
+                ${escapeHtml(
+                  providerApplication.admin_note
+                )}
+              </p>
+
+            </div>
+
+          `
+
           : ""
+
         }
 
-        <button class="danger"
-                onclick="logoutProvider()">
+        <button
+          class="danger"
+          onclick="logoutProvider()">
+
           Logout
+
         </button>
 
       </div>
 
     </div>
+
   `;
 
 }
@@ -2754,50 +3998,79 @@ function showStatusScreen(status){
 
 function openMainApp(){
 
-  $("authOverlay").style.display="none";
-  $("mainApp").style.display="block";
+  $("authOverlay").style.display=
+    "none";
+
+  $("mainApp").style.display=
+    "block";
 
 }
 
 
 async function loadProviderDashboard(){
 
-  if(!providerApplication) return;
+  if(!providerApplication)
+    return;
 
-  const a=providerApplication;
+
+  const a=
+    providerApplication;
+
 
   $("homeName").textContent=
-    a.full_name || "Provider";
+    a.full_name ||
+    "Provider";
+
 
   $("homeProviderName").textContent=
-    a.full_name || "Provider";
+    a.full_name ||
+    "Provider";
+
 
   $("profileName").textContent=
-    a.full_name || "Provider";
+    a.full_name ||
+    "Provider";
+
 
   $("pName").textContent=
-    a.full_name || "—";
+    a.full_name ||
+    "—";
+
 
   $("pFather").textContent=
-    a.father_guardian_name || "—";
+    a.father_guardian_name ||
+    "—";
+
 
   $("pPhone").textContent=
-    a.phone || "—";
+    a.phone ||
+    "—";
+
 
   $("profilePhone").textContent=
-    a.phone || "—";
+    a.phone ||
+    "—";
+
 
   $("pEmail").textContent=
-    a.email || "—";
+    a.email ||
+    "—";
+
 
   $("pArea").textContent=
-    a.work_area || "—";
+    a.work_area ||
+    "—";
+
 
   $("pExperience").textContent=
-    (a.experience_years || 0)+" years";
+    (a.experience_years || 0)+
+    " years";
+
 
   $("pStatus").textContent=
-    a.status || "—";
+    a.status ||
+    "—";
+
 
   $("pServices").textContent=
     Array.isArray(a.services)
@@ -2805,11 +4078,29 @@ async function loadProviderDashboard(){
     : "—";
 
 
+  if(
+    a.services &&
+    Array.isArray(a.services) &&
+    a.services.length
+  ){
+
+    $("homeProviderService").textContent=
+      a.services.join(", ");
+
+  }
+
+
   if(a.selfie_url){
 
     loadPrivateImage(
+
       a.selfie_url,
-      ["homeAvatar","profileAvatar"]
+
+      [
+        "homeAvatar",
+        "profileAvatar"
+      ]
+
     );
 
   }
@@ -2821,48 +4112,96 @@ async function loadProviderDashboard(){
 
 
 /* =========================================================
-   PRIVATE STORAGE IMAGE
+   PRIVATE IMAGE
 ========================================================= */
 
-async function loadPrivateImage(path,ids){
+async function loadPrivateImage(
+  path,
+  ids
+){
 
-  if(!path) return;
+  if(!path)
+    return;
+
 
   try{
 
     const cleanPath=
-      path.includes("provider-documents/")
-      ? path.split("provider-documents/")[1]
+
+      path.includes(
+        "provider-documents/"
+      )
+
+      ? path.split(
+          "provider-documents/"
+        )[1]
+
       : path;
 
-    const res=await fetch(
-      SUPABASE_URL+
-      "/storage/v1/object/authenticated/provider-documents/"+
-      cleanPath,
-      {
-        headers:{
-          "apikey":SUPABASE_KEY,
-          "Authorization":"Bearer "+getToken()
+
+    const res=
+      await fetch(
+
+        SUPABASE_URL+
+        "/storage/v1/object/authenticated/provider-documents/"+
+        cleanPath,
+
+        {
+
+          headers:{
+
+            "apikey":
+              SUPABASE_KEY,
+
+            "Authorization":
+              "Bearer "+getToken()
+
+          }
+
         }
-      }
-    );
 
-    if(!res.ok) return;
+      );
 
-    const blob=await res.blob();
 
-    const url=URL.createObjectURL(blob);
+    if(!res.ok){
+
+      console.log(
+        "Private image error:",
+        res.status,
+        await res.text()
+      );
+
+      return;
+
+    }
+
+
+    const blob=
+      await res.blob();
+
+
+    const url=
+      URL.createObjectURL(blob);
+
 
     ids.forEach(id=>{
 
-      $(id).innerHTML=
-        `<img src="${url}" alt="Provider">`;
+      if($(id)){
+
+        $(id).innerHTML=
+          `<img src="${url}" alt="Provider">`;
+
+      }
 
     });
 
+
   }catch(e){
 
-    console.log("Image load error",e);
+    console.log(
+      "Image load error",
+      e
+    );
 
   }
 
@@ -2877,16 +4216,15 @@ async function loadBookings(){
 
   try{
 
-    /*
-      These fields are intentionally flexible.
-      The booking table already exists in the project.
-    */
+    const res=
+      await supabaseFetch(
 
-    const res=await supabaseFetch(
-      "/rest/v1/bookings"+
-      "?select=*"+
-      "&order=created_at.desc"
-    );
+        "/rest/v1/bookings"+
+        "?select=*"+
+        "&order=created_at.desc"
+
+      );
+
 
     if(!res.ok){
 
@@ -2899,9 +4237,13 @@ async function loadBookings(){
 
     }
 
-    const bookings=await res.json();
+
+    const bookings=
+      await res.json();
+
 
     renderBookings(bookings);
+
 
   }catch(err){
 
@@ -2921,10 +4263,12 @@ function renderBookings(bookings){
         No jobs assigned yet.
       </div>`;
 
+
     $("allJobsList").innerHTML=
       `<div class="empty">
         No bookings found.
       </div>`;
+
 
     return;
 
@@ -2936,16 +4280,16 @@ function renderBookings(bookings){
     providerUser?.id;
 
 
-  /*
-    Display only bookings that appear assigned
-    to this provider.
-  */
-
   const myBookings=
     bookings.filter(b=>{
 
-      return String(b.provider_id || "")===
-             String(providerId || "");
+      return String(
+        b.provider_id || ""
+      )===
+
+      String(
+        providerId || ""
+      );
 
     });
 
@@ -2962,8 +4306,13 @@ function renderBookings(bookings){
 
   const completed=
     list.filter(b=>
-      String(b.status||"").toLowerCase()
+
+      String(
+        b.status || ""
+      )
+      .toLowerCase()
       .includes("completed")
+
     ).length;
 
 
@@ -2973,19 +4322,28 @@ function renderBookings(bookings){
 
   let earnings=0;
 
+
   list.forEach(b=>{
 
     const amount=
       Number(
+
         b.total_amount ||
         b.amount ||
         b.price ||
         0
+
       );
 
+
     if(
-      String(b.status||"").toLowerCase()
+
+      String(
+        b.status || ""
+      )
+      .toLowerCase()
       .includes("completed")
+
     ){
 
       earnings+=amount;
@@ -3012,10 +4370,12 @@ function renderBookings(bookings){
         No jobs assigned to you yet.
       </div>`;
 
+
     $("allJobsList").innerHTML=
       `<div class="empty">
         No jobs assigned to you yet.
       </div>`;
+
 
     return;
 
@@ -3023,7 +4383,10 @@ function renderBookings(bookings){
 
 
   const html=
-    list.map(renderJob).join("");
+    list.map(
+      renderJob
+    ).join("");
+
 
   $("todayJobsList").innerHTML=
     html;
@@ -3042,15 +4405,18 @@ function renderJob(b){
     b.service_title ||
     "Cleaning Service";
 
+
   const date=
     b.booking_date ||
     b.date ||
     "";
 
+
   const time=
     b.booking_time ||
     b.time ||
     "";
+
 
   const address=
     b.address ||
@@ -3058,15 +4424,24 @@ function renderJob(b){
     b.current_address ||
     "Address not available";
 
+
   const status=
     b.status ||
     "Assigned";
+
 
   const amount=
     b.total_amount ||
     b.amount ||
     b.price ||
     0;
+
+
+  const json=
+    JSON.stringify(
+      JSON.stringify(b)
+    );
+
 
   return `
 
@@ -3077,25 +4452,39 @@ function renderJob(b){
         <div>
 
           <div class="jobTitle">
+
             ${escapeHtml(service)}
+
           </div>
 
           <div class="jobAddress">
+
             📍 ${escapeHtml(address)}
+
           </div>
 
           <div class="jobAddress">
+
             📅 ${escapeHtml(date)}
-            ${time ? " • "+escapeHtml(time) : ""}
+
+            ${
+              time
+              ? " • "+escapeHtml(time)
+              : ""
+            }
+
           </div>
 
         </div>
 
         <div class="badge">
+
           ${escapeHtml(status)}
+
         </div>
 
       </div>
+
 
       <div style="
         margin-top:13px;
@@ -3104,10 +4493,17 @@ function renderJob(b){
         align-items:center;
       ">
 
-        <b>₹${escapeHtml(String(amount))}</b>
+        <b>
+          ₹${escapeHtml(
+            String(amount)
+          )}
+        </b>
+
 
         <button
-          onclick="openJobDetails(${escapeHtml(JSON.stringify(JSON.stringify(b)))})"
+
+          onclick='openJobDetails(${json})'
+
           style="
             background:#111827;
             color:white;
@@ -3115,7 +4511,9 @@ function renderJob(b){
             border-radius:10px;
             font-size:12px;
           ">
+
           View
+
         </button>
 
       </div>
@@ -3138,20 +4536,24 @@ function openJobDetails(json){
     const b=
       JSON.parse(json);
 
+
     const service=
       b.service_name ||
       b.service ||
       "Cleaning Service";
+
 
     const address=
       b.address ||
       b.customer_address ||
       "Address not available";
 
+
     const phone=
       b.customer_phone ||
       b.phone ||
       "";
+
 
     const amount=
       b.total_amount ||
@@ -3159,16 +4561,45 @@ function openJobDetails(json){
       b.price ||
       0;
 
+
     alert(
+
       "JOB DETAILS\n\n"+
-      "Service: "+service+"\n"+
-      "Date: "+(b.booking_date||b.date||"—")+"\n"+
-      "Time: "+(b.booking_time||b.time||"—")+"\n"+
-      "Address: "+address+"\n"+
-      "Customer: "+(b.customer_name||"—")+"\n"+
-      "Phone: "+phone+"\n"+
-      "Amount: ₹"+amount
+
+      "Service: "+
+      service+
+
+      "\nDate: "+
+      (
+        b.booking_date ||
+        b.date ||
+        "—"
+      )+
+
+      "\nTime: "+
+      (
+        b.booking_time ||
+        b.time ||
+        "—"
+      )+
+
+      "\nAddress: "+
+      address+
+
+      "\nCustomer: "+
+      (
+        b.customer_name ||
+        "—"
+      )+
+
+      "\nPhone: "+
+      phone+
+
+      "\nAmount: ₹"+
+      amount
+
     );
+
 
   }catch(e){
 
@@ -3185,13 +4616,24 @@ function openJobDetails(json){
 
 function showPage(id,button){
 
-  document.querySelectorAll(".page")
-    .forEach(p=>p.classList.remove("active"));
+  document
+    .querySelectorAll(".page")
+    .forEach(
+      p=>p.classList.remove("active")
+    );
 
-  $(id).classList.add("active");
 
-  document.querySelectorAll(".navItem")
-    .forEach(n=>n.classList.remove("active"));
+  $(id).classList.add(
+    "active"
+  );
+
+
+  document
+    .querySelectorAll(".navItem")
+    .forEach(
+      n=>n.classList.remove("active")
+    );
+
 
   if(button)
     button.classList.add("active");
@@ -3200,24 +4642,36 @@ function showPage(id,button){
 
 
 /* =========================================================
-   ONLINE / OFFLINE
+   ONLINE
 ========================================================= */
 
 function toggleOnline(){
 
-  isOnline=!isOnline;
+  isOnline=
+    !isOnline;
 
-  const btn=$("onlineBtn");
+
+  const btn=
+    $("onlineBtn");
+
 
   if(isOnline){
 
-    btn.textContent="● Online";
-    btn.classList.add("online");
+    btn.textContent=
+      "● Online";
+
+    btn.classList.add(
+      "online"
+    );
 
   }else{
 
-    btn.textContent="● Offline";
-    btn.classList.remove("online");
+    btn.textContent=
+      "● Offline";
+
+    btn.classList.remove(
+      "online"
+    );
 
   }
 
@@ -3230,10 +4684,18 @@ function toggleOnline(){
 
 function logoutProvider(){
 
-  localStorage.removeItem(PROVIDER_TOKEN_KEY);
+  closeCamera();
+
+
+  localStorage.removeItem(
+    PROVIDER_TOKEN_KEY
+  );
+
 
   providerUser=null;
+
   providerApplication=null;
+
 
   location.reload();
 
@@ -3249,19 +4711,28 @@ async function boot(){
   const user=
     await getCurrentUser();
 
+
   if(!user){
 
-    $("authOverlay").style.display="block";
-    $("mainApp").style.display="none";
+    $("authOverlay").style.display=
+      "block";
+
+    $("mainApp").style.display=
+      "none";
+
     return;
 
   }
 
-  providerUser=user;
+
+  providerUser=
+    user;
+
 
   await afterLogin();
 
 }
+
 
 boot();
 
