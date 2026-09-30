@@ -42,8 +42,6 @@ button{
   padding-bottom:85px;
 }
 
-/* HEADER */
-
 .header{
   position:sticky;
   top:0;
@@ -97,8 +95,6 @@ button{
   background:#16a34a;
 }
 
-/* PAGES */
-
 .page{
   display:none;
   padding:16px;
@@ -107,8 +103,6 @@ button{
 .page.active{
   display:block;
 }
-
-/* HOME */
 
 .welcome{
   margin-top:5px;
@@ -251,8 +245,6 @@ button{
   border-radius:18px;
 }
 
-/* NAV */
-
 .bottomNav{
   position:fixed;
   z-index:30;
@@ -290,8 +282,6 @@ button{
   font-weight:bold;
 }
 
-/* BUTTONS */
-
 .primary{
   width:100%;
   padding:14px;
@@ -319,8 +309,6 @@ button{
   color:#991b1b;
   font-weight:bold;
 }
-
-/* AUTH */
 
 .overlay{
   position:fixed;
@@ -391,8 +379,6 @@ button{
   box-shadow:0 2px 7px rgba(0,0,0,.08);
 }
 
-/* FORM */
-
 .formGroup{
   margin-bottom:14px;
 }
@@ -450,8 +436,6 @@ button{
   font-size:13px;
   margin-bottom:12px;
 }
-
-/* REGISTER */
 
 .registerHeader{
   display:flex;
@@ -580,8 +564,6 @@ button{
   margin-bottom:10px;
 }
 
-/* STATUS */
-
 .statusScreen{
   min-height:calc(100vh - 70px);
   display:flex;
@@ -613,8 +595,6 @@ button{
   line-height:1.5;
 }
 
-/* PROFILE */
-
 .profileSection{
   background:white;
   border-radius:18px;
@@ -645,8 +625,6 @@ button{
   font-size:13px;
 }
 
-/* NOTIFICATION */
-
 .notification{
   background:white;
   border-radius:16px;
@@ -663,8 +641,6 @@ button{
   color:#6b7280;
   font-size:13px;
 }
-
-/* LOADING */
 
 .loader{
   position:fixed;
@@ -683,8 +659,6 @@ button{
   border-radius:15px;
   font-size:14px;
 }
-
-/* RESPONSIVE */
 
 @media(max-width:420px){
 
@@ -713,8 +687,6 @@ button{
 <div class="loader" id="loader">
   <div class="loaderBox" id="loaderText">Please wait...</div>
 </div>
-
-<!-- AUTH -->
 
 <div class="overlay" id="authOverlay">
 
@@ -823,9 +795,6 @@ button{
 
   </div>
 
-
-  <!-- REGISTER -->
-
   <div class="authBox"
        id="registerScreen"
        style="display:none">
@@ -858,9 +827,6 @@ button{
     <div id="registerError"
          class="error">
     </div>
-
-
-    <!-- STEP 1 -->
 
     <div id="step1"
          class="authCard">
@@ -951,9 +917,6 @@ button{
 
     </div>
 
-
-    <!-- STEP 2 -->
-
     <div id="step2"
          class="authCard"
          style="display:none">
@@ -1009,7 +972,6 @@ button{
 
       </div>
 
-
       <div class="formGroup">
 
         <label>
@@ -1024,7 +986,6 @@ button{
           placeholder="12 digit Aadhaar number">
 
       </div>
-
 
       <div class="uploadBox">
 
@@ -1048,7 +1009,6 @@ button{
 
       </div>
 
-
       <div class="uploadBox">
 
         <div class="icon">
@@ -1071,7 +1031,6 @@ button{
 
       </div>
 
-
       <button class="primary"
               onclick="nextStep(2)">
         Continue →
@@ -1083,9 +1042,6 @@ button{
       </button>
 
     </div>
-
-
-    <!-- STEP 3 -->
 
     <div id="step3"
          class="authCard"
@@ -1121,9 +1077,6 @@ button{
       </button>
 
     </div>
-
-
-    <!-- STEP 4 -->
 
     <div id="step4"
          class="authCard"
@@ -1250,9 +1203,6 @@ button{
 
     </div>
 
-
-    <!-- STEP 5 -->
-
     <div id="step5"
          class="authCard"
          style="display:none">
@@ -1353,9 +1303,6 @@ button{
 
 </div>
 
-
-<!-- MAIN APP -->
-
 <div class="app"
      id="mainApp"
      style="display:none">
@@ -1392,9 +1339,6 @@ button{
     </button>
 
   </header>
-
-
-  <!-- HOME -->
 
   <section
     class="page active"
@@ -1525,9 +1469,6 @@ button{
 
   </section>
 
-
-  <!-- JOBS -->
-
   <section
     class="page"
     id="jobsPage">
@@ -1549,9 +1490,6 @@ button{
     </div>
 
   </section>
-
-
-  <!-- EARNINGS -->
 
   <section
     class="page"
@@ -1592,9 +1530,6 @@ button{
 
   </section>
 
-
-  <!-- NOTIFICATIONS -->
-
   <section
     class="page"
     id="notificationsPage">
@@ -1633,9 +1568,6 @@ button{
     </div>
 
   </section>
-
-
-  <!-- PROFILE -->
 
   <section
     class="page"
@@ -1725,9 +1657,6 @@ button{
 
   </section>
 
-
-  <!-- NAV -->
-
   <nav class="bottomNav">
 
     <button
@@ -1779,12 +1708,7 @@ button{
 
 </div>
 
-
 <script>
-
-/* =========================================================
-   SUPABASE
-========================================================= */
 
 const SUPABASE_URL =
 "https://uuwgiyyyrodghvjvicoy.supabase.co";
@@ -1794,7 +1718,6 @@ const SUPABASE_KEY =
 
 const PROVIDER_TOKEN_KEY =
 "gus_provider_access_token";
-
 
 let providerUser=null;
 let providerApplication=null;
@@ -1813,31 +1736,22 @@ let isOnline=false;
 
 let uploadCounter=0;
 
-
-/* =========================================================
-   HELPERS
-========================================================= */
-
 function $(id){
   return document.getElementById(id);
 }
 
-
 function showLoader(text="Please wait..."){
 
   $("loaderText").textContent=text;
-
   $("loader").style.display="flex";
 
 }
-
 
 function hideLoader(){
 
   $("loader").style.display="none";
 
 }
-
 
 function showError(id,message){
 
@@ -1846,11 +1760,9 @@ function showError(id,message){
   if(!el) return;
 
   el.textContent=message;
-
   el.style.display="block";
 
 }
-
 
 function hideError(id){
 
@@ -1859,7 +1771,6 @@ function hideError(id){
   if(el) el.style.display="none";
 
 }
-
 
 function escapeHtml(value){
 
@@ -1879,13 +1790,11 @@ function escapeHtml(value){
 
 }
 
-
 function providerEmail(phone){
 
   return phone+"@gusprovider.com";
 
 }
-
 
 function getToken(){
 
@@ -1894,7 +1803,6 @@ function getToken(){
   );
 
 }
-
 
 function getHeaders(extra={}){
 
@@ -1913,7 +1821,6 @@ function getHeaders(extra={}){
   };
 
 }
-
 
 async function supabaseFetch(path,options={}){
 
@@ -1939,7 +1846,6 @@ async function supabaseFetch(path,options={}){
 
 }
 
-
 function serviceName(s){
 
   return s.name ||
@@ -1949,11 +1855,6 @@ function serviceName(s){
          "Cleaning Service";
 
 }
-
-
-/* =========================================================
-   UNIQUE FILE NAME
-========================================================= */
 
 function makeUniqueFilename(prefix,ext="jpg"){
 
@@ -1974,11 +1875,6 @@ function makeUniqueFilename(prefix,ext="jpg"){
   );
 
 }
-
-
-/* =========================================================
-   SESSION CHECK
-========================================================= */
 
 async function ensureProviderSession(){
 
@@ -2004,11 +1900,6 @@ async function ensureProviderSession(){
 
 }
 
-
-/* =========================================================
-   AUTH UI
-========================================================= */
-
 function showAuth(type){
 
   hideError("authError");
@@ -2033,7 +1924,6 @@ function showAuth(type){
 
 }
 
-
 function backToLogin(){
 
   closeCamera();
@@ -2044,11 +1934,6 @@ function backToLogin(){
   showAuth("login");
 
 }
-
-
-/* =========================================================
-   CREATE ACCOUNT
-========================================================= */
 
 async function createProviderAccount(){
 
@@ -2063,7 +1948,6 @@ async function createProviderAccount(){
   const password2=
     $("signupPassword2").value;
 
-
   if(!/^[6-9]\d{9}$/.test(phone)){
 
     showError(
@@ -2074,7 +1958,6 @@ async function createProviderAccount(){
     return;
 
   }
-
 
   if(password.length<6){
 
@@ -2087,7 +1970,6 @@ async function createProviderAccount(){
 
   }
 
-
   if(password!==password2){
 
     showError(
@@ -2099,11 +1981,9 @@ async function createProviderAccount(){
 
   }
 
-
   showLoader(
     "Creating provider account..."
   );
-
 
   try{
 
@@ -2137,9 +2017,7 @@ async function createProviderAccount(){
 
     );
 
-
     const data=await res.json();
-
 
     if(!res.ok){
 
@@ -2153,7 +2031,6 @@ async function createProviderAccount(){
       );
 
     }
-
 
     if(data.access_token){
 
@@ -2176,7 +2053,6 @@ async function createProviderAccount(){
 
     }
 
-
   }catch(err){
 
     showError(
@@ -2192,11 +2068,6 @@ async function createProviderAccount(){
 
 }
 
-
-/* =========================================================
-   LOGIN
-========================================================= */
-
 async function loginProvider(){
 
   hideError("authError");
@@ -2206,7 +2077,6 @@ async function loginProvider(){
 
   const password=
     $("loginPassword").value;
-
 
   if(!/^[6-9]\d{9}$/.test(phone)){
 
@@ -2219,7 +2089,6 @@ async function loginProvider(){
 
   }
 
-
   if(!password){
 
     showError(
@@ -2231,9 +2100,7 @@ async function loginProvider(){
 
   }
 
-
   showLoader("Logging in...");
-
 
   try{
 
@@ -2267,9 +2134,7 @@ async function loginProvider(){
 
     );
 
-
     const data=await res.json();
-
 
     if(!res.ok){
 
@@ -2284,7 +2149,6 @@ async function loginProvider(){
 
     }
 
-
     if(!data.access_token){
 
       throw new Error(
@@ -2293,19 +2157,15 @@ async function loginProvider(){
 
     }
 
-
     localStorage.setItem(
       PROVIDER_TOKEN_KEY,
       data.access_token
     );
 
-
     providerUser=data.user ||
                   await getCurrentUser();
 
-
     await afterLogin();
-
 
   }catch(err){
 
@@ -2322,17 +2182,11 @@ async function loginProvider(){
 
 }
 
-
-/* =========================================================
-   CURRENT USER
-========================================================= */
-
 async function getCurrentUser(){
 
   const token=getToken();
 
   if(!token) return null;
-
 
   try{
 
@@ -2356,16 +2210,13 @@ async function getCurrentUser(){
 
     );
 
-
     if(!res.ok){
 
       return null;
 
     }
 
-
     return await res.json();
-
 
   }catch(e){
 
@@ -2375,17 +2226,11 @@ async function getCurrentUser(){
 
 }
 
-
-/* =========================================================
-   AFTER LOGIN
-========================================================= */
-
 async function afterLogin(){
 
   providerUser=
     providerUser ||
     await getCurrentUser();
-
 
   if(!providerUser){
 
@@ -2397,11 +2242,9 @@ async function afterLogin(){
 
   }
 
-
   showLoader(
     "Checking provider profile..."
   );
-
 
   try{
 
@@ -2415,15 +2258,9 @@ async function afterLogin(){
 
 }
 
-
-/* =========================================================
-   LOAD APPLICATION
-========================================================= */
-
 async function loadApplication(){
 
   const uid=providerUser.id;
-
 
   const res=await supabaseFetch(
 
@@ -2435,7 +2272,6 @@ async function loadApplication(){
 
   );
 
-
   if(!res.ok){
 
     const txt=await res.text();
@@ -2444,12 +2280,6 @@ async function loadApplication(){
       "Application check error:",
       txt
     );
-
-
-    /*
-      If SELECT policy is missing, don't silently
-      pretend that the provider has no application.
-    */
 
     if(
       txt.includes("row-level security") ||
@@ -2465,16 +2295,13 @@ async function loadApplication(){
 
     }
 
-
     startRegistration();
 
     return;
 
   }
 
-
   const rows=await res.json();
-
 
   if(!rows.length){
 
@@ -2484,23 +2311,16 @@ async function loadApplication(){
 
   }
 
-
   providerApplication=rows[0];
 
   handleApplicationStatus();
 
 }
 
-
-/* =========================================================
-   APPLICATION STATUS
-========================================================= */
-
 function handleApplicationStatus(){
 
   const status=
     providerApplication.status;
-
 
   if(status==="approved"){
 
@@ -2515,7 +2335,6 @@ function handleApplicationStatus(){
   }
 
 }
-
 
 function showStatusMessage(title,message){
 
@@ -2553,11 +2372,6 @@ function showStatusMessage(title,message){
 
 }
 
-
-/* =========================================================
-   REGISTRATION
-========================================================= */
-
 function startRegistration(){
 
   closeCamera();
@@ -2569,7 +2383,6 @@ function startRegistration(){
 
   updateSteps();
 
-
   if(providerUser){
 
     const email=
@@ -2577,7 +2390,6 @@ function startRegistration(){
 
     const synthetic=
       "@gusprovider.com";
-
 
     if(email.endsWith(synthetic)){
 
@@ -2596,11 +2408,9 @@ function startRegistration(){
 
   }
 
-
   loadServices();
 
 }
-
 
 function updateSteps(){
 
@@ -2618,7 +2428,6 @@ function updateSteps(){
 
   }
 
-
   const labels=[
 
     "Personal Details",
@@ -2633,7 +2442,6 @@ function updateSteps(){
 
   ];
 
-
   $("stepLabel").textContent=
     "Step "+
     currentStep+
@@ -2642,11 +2450,9 @@ function updateSteps(){
 
 }
 
-
 function nextStep(from){
 
   hideError("registerError");
-
 
   if(from===1){
 
@@ -2655,7 +2461,6 @@ function nextStep(from){
 
     const phone=
       $("regPhone").value.trim();
-
 
     if(!name){
 
@@ -2667,7 +2472,6 @@ function nextStep(from){
       return;
 
     }
-
 
     if(!/^[6-9]\d{9}$/.test(phone)){
 
@@ -2682,14 +2486,12 @@ function nextStep(from){
 
   }
 
-
   if(from===2){
 
     const aadhaar=
       $("aadhaarNumber")
       .value
       .replace(/\D/g,"");
-
 
     if(!selfieBlob){
 
@@ -2702,7 +2504,6 @@ function nextStep(from){
 
     }
 
-
     if(aadhaar.length!==12){
 
       showError(
@@ -2714,7 +2515,6 @@ function nextStep(from){
 
     }
 
-
     if(!$("aadhaarFront").files.length){
 
       showError(
@@ -2725,7 +2525,6 @@ function nextStep(from){
       return;
 
     }
-
 
     if(!$("aadhaarBack").files.length){
 
@@ -2740,14 +2539,12 @@ function nextStep(from){
 
   }
 
-
   if(from===3){
 
     const selected=
       document.querySelectorAll(
         ".serviceCheck:checked"
       );
-
 
     if(!selected.length){
 
@@ -2761,7 +2558,6 @@ function nextStep(from){
     }
 
   }
-
 
   if(from===4){
 
@@ -2778,22 +2574,15 @@ function nextStep(from){
 
   }
 
-
   currentStep=
     Math.min(
       5,
       from+1
     );
 
-
   updateSteps();
 
 }
-
-
-/* =========================================================
-   PREVIOUS STEP
-========================================================= */
 
 function prevStep(from){
 
@@ -2807,11 +2596,6 @@ function prevStep(from){
 
 }
 
-
-/* =========================================================
-   SERVICES
-========================================================= */
-
 async function loadServices(){
 
   if(servicesData.length){
@@ -2822,14 +2606,12 @@ async function loadServices(){
 
   }
 
-
   try{
 
     const res=
       await supabaseFetch(
         "/rest/v1/services?select=*&order=id.asc"
       );
-
 
     if(!res.ok){
 
@@ -2839,13 +2621,10 @@ async function loadServices(){
 
     }
 
-
     servicesData=
       await res.json();
 
-
     renderServices();
-
 
   }catch(err){
 
@@ -2865,7 +2644,6 @@ async function loadServices(){
 
 }
 
-
 function renderServices(){
 
   if(!servicesData.length){
@@ -2879,14 +2657,12 @@ function renderServices(){
 
   }
 
-
   $("servicesGrid").innerHTML=
 
     servicesData.map(s=>{
 
       const name=
         serviceName(s);
-
 
       return `
 
@@ -2910,11 +2686,6 @@ function renderServices(){
 
 }
 
-
-/* =========================================================
-   CAMERA
-========================================================= */
-
 async function openCamera(){
 
   if(
@@ -2929,7 +2700,6 @@ async function openCamera(){
     return;
 
   }
-
 
   try{
 
@@ -2954,13 +2724,11 @@ async function openCamera(){
 
       });
 
-
     $("cameraVideo").srcObject=
       cameraStream;
 
     $("cameraBox").style.display=
       "block";
-
 
   }catch(err){
 
@@ -2972,12 +2740,10 @@ async function openCamera(){
 
 }
 
-
 function captureSelfie(){
 
   const video=
     $("cameraVideo");
-
 
   if(!video.videoWidth){
 
@@ -2989,10 +2755,8 @@ function captureSelfie(){
 
   }
 
-
   const canvas=
     document.createElement("canvas");
-
 
   canvas.width=
     video.videoWidth;
@@ -3000,10 +2764,8 @@ function captureSelfie(){
   canvas.height=
     video.videoHeight;
 
-
   const ctx=
     canvas.getContext("2d");
-
 
   ctx.drawImage(
     video,
@@ -3012,7 +2774,6 @@ function captureSelfie(){
     canvas.width,
     canvas.height
   );
-
 
   canvas.toBlob(
 
@@ -3028,18 +2789,14 @@ function captureSelfie(){
 
       }
 
-
       selfieBlob=
         blob;
-
 
       $("selfiePreview").src=
         URL.createObjectURL(blob);
 
-
       $("selfiePreview").style.display=
         "block";
-
 
       closeCamera();
 
@@ -3052,7 +2809,6 @@ function captureSelfie(){
   );
 
 }
-
 
 function closeCamera(){
 
@@ -3068,14 +2824,12 @@ function closeCamera(){
 
   }
 
-
   if($("cameraBox")){
 
     $("cameraBox").style.display=
       "none";
 
   }
-
 
   if($("cameraVideo")){
 
@@ -3085,11 +2839,6 @@ function closeCamera(){
   }
 
 }
-
-
-/* =========================================================
-   FILE PREVIEW
-========================================================= */
 
 $("aadhaarFront")
 .addEventListener(
@@ -3104,7 +2853,6 @@ $("aadhaarFront")
   }
 );
 
-
 $("aadhaarBack")
 .addEventListener(
   "change",
@@ -3118,11 +2866,9 @@ $("aadhaarBack")
   }
 );
 
-
 function previewFile(file,id){
 
   if(!file) return;
-
 
   if(!file.type.startsWith("image/")){
 
@@ -3137,10 +2883,8 @@ function previewFile(file,id){
 
   }
 
-
   const reader=
     new FileReader();
-
 
   reader.onload=e=>{
 
@@ -3152,15 +2896,9 @@ function previewFile(file,id){
 
   };
 
-
   reader.readAsDataURL(file);
 
 }
-
-
-/* =========================================================
-   LOCATION
-========================================================= */
 
 function getLocation(){
 
@@ -3174,10 +2912,8 @@ function getLocation(){
 
   }
 
-
   $("locationText").textContent=
     "Getting current location...";
-
 
   navigator.geolocation.getCurrentPosition(
 
@@ -3189,12 +2925,10 @@ function getLocation(){
       longitude=
         position.coords.longitude;
 
-
       $("locationText").textContent=
         "✓ Location captured";
 
     },
-
 
     error=>{
 
@@ -3202,7 +2936,6 @@ function getLocation(){
         "Unable to get location. Please allow location permission.";
 
     },
-
 
     {
 
@@ -3218,11 +2951,6 @@ function getLocation(){
 
 }
 
-
-/* =========================================================
-   STORAGE UPLOAD
-========================================================= */
-
 async function uploadProviderFile(
   blobOrFile,
   filename
@@ -3230,10 +2958,8 @@ async function uploadProviderFile(
 
   await ensureProviderSession();
 
-
   const token=
     getToken();
-
 
   if(!token){
 
@@ -3242,7 +2968,6 @@ async function uploadProviderFile(
     );
 
   }
-
 
   if(
     !blobOrFile
@@ -3254,33 +2979,27 @@ async function uploadProviderFile(
 
   }
 
-
   const uid=
     providerUser.id;
-
 
   const path=
     uid+
     "/"+
     filename;
 
-
   const fileUrl=
     SUPABASE_URL+
     "/storage/v1/object/provider-documents/"+
     path;
 
-
   const contentType=
     blobOrFile.type ||
     "image/jpeg";
-
 
   console.log(
     "Uploading provider document:",
     path
   );
-
 
   const res=
     await fetch(
@@ -3302,12 +3021,6 @@ async function uploadProviderFile(
           "Content-Type":
             contentType,
 
-          /*
-            IMPORTANT:
-            Do NOT use x-upsert:true.
-            Every filename is unique.
-          */
-
           "x-upsert":
             "false"
 
@@ -3320,19 +3033,16 @@ async function uploadProviderFile(
 
     );
 
-
   if(!res.ok){
 
     const txt=
       await res.text();
-
 
     console.error(
       "Storage upload error:",
       res.status,
       txt
     );
-
 
     if(res.status===403){
 
@@ -3342,7 +3052,6 @@ async function uploadProviderFile(
 
     }
 
-
     if(res.status===409){
 
       throw new Error(
@@ -3350,7 +3059,6 @@ async function uploadProviderFile(
       );
 
     }
-
 
     throw new Error(
       "Document upload failed ("+
@@ -3361,15 +3069,9 @@ async function uploadProviderFile(
 
   }
 
-
   return path;
 
 }
-
-
-/* =========================================================
-   EXISTING APPLICATION CHECK
-========================================================= */
 
 async function getExistingApplication(){
 
@@ -3378,7 +3080,6 @@ async function getExistingApplication(){
     return null;
 
   }
-
 
   const res=
     await supabaseFetch(
@@ -3393,12 +3094,10 @@ async function getExistingApplication(){
 
     );
 
-
   if(!res.ok){
 
     const txt=
       await res.text();
-
 
     throw new Error(
       "Could not check existing provider application: "+
@@ -3407,10 +3106,8 @@ async function getExistingApplication(){
 
   }
 
-
   const rows=
     await res.json();
-
 
   return rows.length
     ? rows[0]
@@ -3418,15 +3115,9 @@ async function getExistingApplication(){
 
 }
 
-
-/* =========================================================
-   SUBMIT APPLICATION
-========================================================= */
-
 async function submitApplication(){
 
   hideError("registerError");
-
 
   if(!$("terms").checked){
 
@@ -3439,7 +3130,6 @@ async function submitApplication(){
 
   }
 
-
   if(!providerUser){
 
     showError(
@@ -3451,54 +3141,38 @@ async function submitApplication(){
 
   }
 
-
   showLoader(
     "Checking provider account..."
   );
-
 
   try{
 
     await ensureProviderSession();
 
-
-    /*
-      IMPORTANT:
-      Prevent duplicate application 409.
-    */
-
     const existing=
       await getExistingApplication();
-
 
     if(existing){
 
       providerApplication=
         existing;
 
-
       hideLoader();
 
-
       handleApplicationStatus();
-
 
       return;
 
     }
 
-
     const selfieFile=
       selfieBlob;
-
 
     const frontFile=
       $("aadhaarFront").files[0];
 
-
     const backFile=
       $("aadhaarBack").files[0];
-
 
     if(!selfieFile){
 
@@ -3508,7 +3182,6 @@ async function submitApplication(){
 
     }
 
-
     if(!frontFile){
 
       throw new Error(
@@ -3516,7 +3189,6 @@ async function submitApplication(){
       );
 
     }
-
 
     if(!backFile){
 
@@ -3526,10 +3198,8 @@ async function submitApplication(){
 
     }
 
-
     $("loaderText").textContent=
       "Uploading selfie...";
-
 
     const selfiePath=
       await uploadProviderFile(
@@ -3542,10 +3212,8 @@ async function submitApplication(){
 
       );
 
-
     $("loaderText").textContent=
       "Uploading Aadhaar front...";
-
 
     const frontPath=
       await uploadProviderFile(
@@ -3558,10 +3226,8 @@ async function submitApplication(){
 
       );
 
-
     $("loaderText").textContent=
       "Uploading Aadhaar back...";
-
 
     const backPath=
       await uploadProviderFile(
@@ -3574,10 +3240,8 @@ async function submitApplication(){
 
       );
 
-
     $("loaderText").textContent=
       "Submitting application...";
-
 
     const selectedServices=
       [
@@ -3587,7 +3251,6 @@ async function submitApplication(){
       ].map(
         el=>el.dataset.name
       );
-
 
     const payload={
 
@@ -3720,7 +3383,6 @@ async function submitApplication(){
 
     };
 
-
     const res=
       await supabaseFetch(
 
@@ -3747,30 +3409,20 @@ async function submitApplication(){
 
       );
 
-
     if(!res.ok){
 
       const txt=
         await res.text();
-
-
-      /*
-        If another request created it
-        between our check and POST,
-        recover instead of showing raw 409.
-      */
 
       if(res.status===409){
 
         const recovered=
           await getExistingApplication();
 
-
         if(recovered){
 
           providerApplication=
             recovered;
-
 
           handleApplicationStatus();
 
@@ -3779,7 +3431,6 @@ async function submitApplication(){
         }
 
       }
-
 
       throw new Error(
         "Application submission failed ("+
@@ -3790,18 +3441,14 @@ async function submitApplication(){
 
     }
 
-
     const rows=
       await res.json();
-
 
     providerApplication=
       rows[0] ||
       payload;
 
-
     showApplicationSuccess();
-
 
   }catch(err){
 
@@ -3809,7 +3456,6 @@ async function submitApplication(){
       "Provider application error:",
       err
     );
-
 
     showError(
       "registerError",
@@ -3823,11 +3469,6 @@ async function submitApplication(){
   }
 
 }
-
-
-/* =========================================================
-   APPLICATION SUCCESS
-========================================================= */
 
 function showApplicationSuccess(){
 
@@ -3876,11 +3517,6 @@ function showApplicationSuccess(){
 
 }
 
-
-/* =========================================================
-   STATUS SCREEN
-========================================================= */
-
 function showStatusScreen(status){
 
   const icon=
@@ -3894,7 +3530,6 @@ function showStatusScreen(status){
     ? "🚫"
     : "ℹ️";
 
-
   const title=
     status==="pending"
     ? "Application Pending"
@@ -3905,7 +3540,6 @@ function showStatusScreen(status){
     : status==="suspended"
     ? "Account Suspended"
     : "Application Status";
-
 
   const message=
     status==="pending"
@@ -3927,7 +3561,6 @@ function showStatusScreen(status){
     : "Your current provider application status is "+
       escapeHtml(status)+
       ".";
-
 
   $("authOverlay").innerHTML=`
 
@@ -3991,11 +3624,6 @@ function showStatusScreen(status){
 
 }
 
-
-/* =========================================================
-   MAIN APP
-========================================================= */
-
 function openMainApp(){
 
   $("authOverlay").style.display=
@@ -4006,77 +3634,62 @@ function openMainApp(){
 
 }
 
-
 async function loadProviderDashboard(){
 
   if(!providerApplication)
     return;
 
-
   const a=
     providerApplication;
-
 
   $("homeName").textContent=
     a.full_name ||
     "Provider";
 
-
   $("homeProviderName").textContent=
     a.full_name ||
     "Provider";
-
 
   $("profileName").textContent=
     a.full_name ||
     "Provider";
 
-
   $("pName").textContent=
     a.full_name ||
     "—";
-
 
   $("pFather").textContent=
     a.father_guardian_name ||
     "—";
 
-
   $("pPhone").textContent=
     a.phone ||
     "—";
-
 
   $("profilePhone").textContent=
     a.phone ||
     "—";
 
-
   $("pEmail").textContent=
     a.email ||
     "—";
-
 
   $("pArea").textContent=
     a.work_area ||
     "—";
 
-
   $("pExperience").textContent=
     (a.experience_years || 0)+
     " years";
-
 
   $("pStatus").textContent=
     a.status ||
     "—";
 
-
   $("pServices").textContent=
     Array.isArray(a.services)
     ? a.services.join(", ")
     : "—";
-
 
   if(
     a.services &&
@@ -4088,7 +3701,6 @@ async function loadProviderDashboard(){
       a.services.join(", ");
 
   }
-
 
   if(a.selfie_url){
 
@@ -4105,15 +3717,9 @@ async function loadProviderDashboard(){
 
   }
 
-
   await loadBookings();
 
 }
-
-
-/* =========================================================
-   PRIVATE IMAGE
-========================================================= */
 
 async function loadPrivateImage(
   path,
@@ -4122,7 +3728,6 @@ async function loadPrivateImage(
 
   if(!path)
     return;
-
 
   try{
 
@@ -4137,7 +3742,6 @@ async function loadPrivateImage(
         )[1]
 
       : path;
-
 
     const res=
       await fetch(
@@ -4162,7 +3766,6 @@ async function loadPrivateImage(
 
       );
 
-
     if(!res.ok){
 
       console.log(
@@ -4175,14 +3778,11 @@ async function loadPrivateImage(
 
     }
 
-
     const blob=
       await res.blob();
 
-
     const url=
       URL.createObjectURL(blob);
-
 
     ids.forEach(id=>{
 
@@ -4194,7 +3794,6 @@ async function loadPrivateImage(
       }
 
     });
-
 
   }catch(e){
 
@@ -4209,65 +3808,246 @@ async function loadPrivateImage(
 
 
 /* =========================================================
-   BOOKINGS
+   BOOKINGS - UPDATED
 ========================================================= */
 
 async function loadBookings(){
 
   try{
 
-    const res=
-      await supabaseFetch(
+    /*
+      Make sure the current provider session
+      is valid before requesting bookings.
+    */
 
-        "/rest/v1/bookings"+
-        "?select=*"+
-        "&order=created_at.desc"
-
-      );
+    await ensureProviderSession();
 
 
-    if(!res.ok){
+    if(!providerUser){
 
       console.log(
-        "Bookings load error:",
-        await res.text()
+        "Provider user not available."
       );
+
+      renderBookings([]);
 
       return;
 
     }
 
 
-    const bookings=
+    const uid =
+      String(
+        providerUser.id || ""
+      );
+
+
+    /*
+      providerApplication.id is the numeric
+      provider application ID.
+
+      providerUser.id is the Supabase Auth UUID.
+
+      Admin assignment may store either one
+      inside bookings.provider_id, so we check
+      BOTH values.
+    */
+
+    const applicationId =
+      providerApplication?.id
+        ? String(
+            providerApplication.id
+          )
+        : "";
+
+
+    const filters=[];
+
+
+    if(uid){
+
+      filters.push(
+        "provider_id.eq."+
+        encodeURIComponent(uid)
+      );
+
+    }
+
+
+    if(applicationId){
+
+      filters.push(
+        "provider_id.eq."+
+        encodeURIComponent(applicationId)
+      );
+
+    }
+
+
+    if(!filters.length){
+
+      console.log(
+        "No provider ID available."
+      );
+
+      renderBookings([]);
+
+      return;
+
+    }
+
+
+    /*
+      Supabase OR filter.
+
+      Example:
+
+      provider_id.eq.UUID,
+      provider_id.eq.25
+    */
+
+    const orFilter =
+      filters.join(",");
+
+
+    const path =
+      "/rest/v1/bookings"+
+      "?select=*"+
+      "&or=("+
+      orFilter+
+      ")"+
+      "&order=created_at.desc";
+
+
+    console.log(
+      "Loading provider bookings:",
+      {
+        uid:uid,
+        applicationId:applicationId,
+        path:path
+      }
+    );
+
+
+    const res =
+      await supabaseFetch(path);
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+
+      console.error(
+        "Provider bookings load error:",
+        res.status,
+        txt
+      );
+
+
+      renderBookings([]);
+
+      return;
+
+    }
+
+
+    const bookings =
       await res.json();
 
 
-    renderBookings(bookings);
+    console.log(
+      "Provider bookings:",
+      bookings
+    );
+
+
+    renderBookings(
+      Array.isArray(bookings)
+      ? bookings
+      : []
+    );
 
 
   }catch(err){
 
-    console.log(err);
+    console.error(
+      "loadBookings error:",
+      err
+    );
+
+
+    renderBookings([]);
 
   }
 
 }
 
 
+/* =========================================================
+   RENDER BOOKINGS - UPDATED
+========================================================= */
+
 function renderBookings(bookings){
 
-  if(!bookings.length){
+  if(!Array.isArray(bookings)){
+
+    bookings=[];
+
+  }
+
+
+  const list =
+    bookings;
+
+
+  /*
+    No assigned jobs
+  */
+
+  if(!list.length){
+
+    $("todayJobs").textContent=
+      "0";
+
+
+    $("completedJobs").textContent=
+      "0";
+
+
+    $("totalEarnings").textContent=
+      "₹0";
+
+
+    $("todayEarnings").textContent=
+      "₹0";
+
+
+    $("earningsBig").textContent=
+      "₹0";
+
 
     $("todayJobsList").innerHTML=
       `<div class="empty">
-        No jobs assigned yet.
+        No jobs assigned to you yet.
       </div>`;
 
 
     $("allJobsList").innerHTML=
       `<div class="empty">
-        No bookings found.
+        No bookings assigned to you yet.
       </div>`;
+
+
+    if($("earningsList")){
+
+      $("earningsList").innerHTML=
+        `<div class="empty">
+          No completed jobs yet.
+        </div>`;
+
+    }
 
 
     return;
@@ -4275,124 +4055,201 @@ function renderBookings(bookings){
   }
 
 
-  const providerId=
-    providerApplication?.id ||
-    providerUser?.id;
+  /*
+    Completed jobs
+  */
 
-
-  const myBookings=
-    bookings.filter(b=>{
+  const completed =
+    list.filter(b=>{
 
       return String(
-        b.provider_id || ""
-      )===
-
-      String(
-        providerId || ""
-      );
+        b.status || ""
+      )
+      .toLowerCase()
+      .includes("completed");
 
     });
 
 
-  const list=
-    myBookings.length
-    ? myBookings
-    : [];
-
-
-  $("todayJobs").textContent=
-    list.length;
-
-
-  const completed=
-    list.filter(b=>
-
-      String(
-        b.status || ""
-      )
-      .toLowerCase()
-      .includes("completed")
-
-    ).length;
-
-
-  $("completedJobs").textContent=
-    completed;
-
+  /*
+    Earnings
+  */
 
   let earnings=0;
 
 
-  list.forEach(b=>{
+  completed.forEach(b=>{
 
-    const amount=
+    const amount =
       Number(
-
-        b.total_amount ||
-        b.amount ||
-        b.price ||
+        b.total_amount ??
+        b.amount ??
+        b.price ??
         0
-
       );
 
 
-    if(
+    if(Number.isFinite(amount)){
 
-      String(
-        b.status || ""
-      )
-      .toLowerCase()
-      .includes("completed")
-
-    ){
-
-      earnings+=amount;
+      earnings += amount;
 
     }
 
   });
 
 
+  /*
+    Dashboard counters
+  */
+
+  $("todayJobs").textContent=
+    String(
+      list.length
+    );
+
+
+  $("completedJobs").textContent=
+    String(
+      completed.length
+    );
+
+
   $("totalEarnings").textContent=
     "₹"+earnings;
 
+
   $("todayEarnings").textContent=
     "₹"+earnings;
+
 
   $("earningsBig").textContent=
     "₹"+earnings;
 
 
-  if(!list.length){
+  /*
+    Job cards
+  */
 
-    $("todayJobsList").innerHTML=
-      `<div class="empty">
-        No jobs assigned to you yet.
-      </div>`;
-
-
-    $("allJobsList").innerHTML=
-      `<div class="empty">
-        No jobs assigned to you yet.
-      </div>`;
-
-
-    return;
-
-  }
-
-
-  const html=
-    list.map(
-      renderJob
-    ).join("");
+  const html =
+    list
+      .map(
+        renderJob
+      )
+      .join("");
 
 
   $("todayJobsList").innerHTML=
     html;
 
+
   $("allJobsList").innerHTML=
     html;
+
+
+  /*
+    Earnings list
+  */
+
+  if($("earningsList")){
+
+    if(!completed.length){
+
+      $("earningsList").innerHTML=
+        `<div class="empty">
+          No completed jobs yet.
+        </div>`;
+
+    }else{
+
+      $("earningsList").innerHTML=
+
+        completed.map(b=>{
+
+          const service =
+            b.service_name ||
+            b.service ||
+            b.service_title ||
+            "Cleaning Service";
+
+
+          const date =
+            b.booking_date ||
+            b.date ||
+            "";
+
+
+          const amount =
+            Number(
+              b.total_amount ??
+              b.amount ??
+              b.price ??
+              0
+            );
+
+
+          return `
+
+            <div class="jobCard">
+
+              <div class="jobTop">
+
+                <div>
+
+                  <div class="jobTitle">
+
+                    ${escapeHtml(
+                      service
+                    )}
+
+                  </div>
+
+                  <div class="jobAddress">
+
+                    📅 ${escapeHtml(
+                      date
+                    )}
+
+                  </div>
+
+                </div>
+
+
+                <div
+                  class="badge"
+                  style="
+                    background:#dcfce7;
+                    color:#166534;
+                  ">
+
+                  Completed
+
+                </div>
+
+              </div>
+
+
+              <div
+                style="
+                  margin-top:12px;
+                  font-size:18px;
+                  font-weight:bold;
+                ">
+
+                ₹${escapeHtml(
+                  String(amount)
+                )}
+
+              </div>
+
+            </div>
+
+          `;
+
+        }).join("");
+
+    }
+
+  }
 
 }
 
@@ -4422,6 +4279,7 @@ function renderJob(b){
     b.address ||
     b.customer_address ||
     b.current_address ||
+    b.location_address ||
     "Address not available";
 
 
@@ -4431,9 +4289,9 @@ function renderJob(b){
 
 
   const amount=
-    b.total_amount ||
-    b.amount ||
-    b.price ||
+    b.total_amount ??
+    b.amount ??
+    b.price ??
     0;
 
 
@@ -4525,10 +4383,6 @@ function renderJob(b){
 }
 
 
-/* =========================================================
-   JOB DETAILS
-========================================================= */
-
 function openJobDetails(json){
 
   try{
@@ -4540,12 +4394,15 @@ function openJobDetails(json){
     const service=
       b.service_name ||
       b.service ||
+      b.service_title ||
       "Cleaning Service";
 
 
     const address=
       b.address ||
       b.customer_address ||
+      b.current_address ||
+      b.location_address ||
       "Address not available";
 
 
@@ -4556,9 +4413,9 @@ function openJobDetails(json){
 
 
     const amount=
-      b.total_amount ||
-      b.amount ||
-      b.price ||
+      b.total_amount ??
+      b.amount ??
+      b.price ??
       0;
 
 
@@ -4609,11 +4466,6 @@ function openJobDetails(json){
 
 }
 
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
 function showPage(id,button){
 
   document
@@ -4639,11 +4491,6 @@ function showPage(id,button){
     button.classList.add("active");
 
 }
-
-
-/* =========================================================
-   ONLINE
-========================================================= */
 
 function toggleOnline(){
 
@@ -4677,34 +4524,21 @@ function toggleOnline(){
 
 }
 
-
-/* =========================================================
-   LOGOUT
-========================================================= */
-
 function logoutProvider(){
 
   closeCamera();
-
 
   localStorage.removeItem(
     PROVIDER_TOKEN_KEY
   );
 
-
   providerUser=null;
 
   providerApplication=null;
 
-
   location.reload();
 
 }
-
-
-/* =========================================================
-   STARTUP
-========================================================= */
 
 async function boot(){
 
@@ -4732,7 +4566,6 @@ async function boot(){
   await afterLogin();
 
 }
-
 
 boot();
 
