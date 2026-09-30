@@ -5566,64 +5566,30 @@ async function saveService(){
 
 /* SERVICE STATUS */
 
-async function toggleServiceStatus(
-  id,
-  current
-){
+async function toggleServiceStatus(id, current){
 
-  const newStatus =
-    !current;
-
+  const newStatus = !current;
 
   try{
 
-    const url =
-      "/rest/v1/services?id=eq." +
-      encodeURIComponent(id);
-
-
-    const body = {
-      is_active: newStatus
-    };
-
-
-    console.log(
-      "SERVICE STATUS UPDATE REQUEST:",
+    const res = await supabaseFetch(
+      "/rest/v1/rpc/toggle_service_status",
       {
-        id: id,
-        current: current,
-        newStatus: newStatus,
-        body: body
+        method: "POST",
+
+        headers:{
+          "Content-Type":"application/json",
+          "Prefer":"return=representation"
+        },
+
+        body: JSON.stringify({
+          service_id: Number(id),
+          new_status: newStatus
+        })
       }
     );
 
-
-    const res =
-      await supabaseFetch(
-        url,
-        {
-          method: "PATCH",
-
-          headers: {
-
-            "Content-Type":
-              "application/json",
-
-            "Prefer":
-              "return=representation"
-
-          },
-
-          body:
-            JSON.stringify(body)
-
-        }
-      );
-
-
-    const responseText =
-      await res.text();
-
+    const responseText = await res.text();
 
     console.log(
       "SERVICE STATUS RESPONSE:",
@@ -5631,66 +5597,12 @@ async function toggleServiceStatus(
       responseText
     );
 
-
     if(!res.ok){
-
       throw new Error(
         responseText ||
         "Service status update failed."
       );
-
     }
-
-
-    let updatedRows = [];
-
-
-    if(responseText){
-
-      try{
-
-        updatedRows =
-          JSON.parse(responseText);
-
-      }catch(parseError){
-
-        console.warn(
-          "Response JSON parse হয়নি:",
-          parseError
-        );
-
-      }
-
-    }
-
-
-    if(
-      !Array.isArray(updatedRows) ||
-      updatedRows.length === 0
-    ){
-
-      throw new Error(
-        "Service পাওয়া যায়নি অথবা status update হয়নি।"
-      );
-
-    }
-
-
-    const updatedService =
-      updatedRows[0];
-
-
-    if(
-      Boolean(updatedService.is_active) !==
-      newStatus
-    ){
-
-      throw new Error(
-        "Service status database-এ সঠিকভাবে update হয়নি।"
-      );
-
-    }
-
 
     alert(
       newStatus
@@ -5698,9 +5610,7 @@ async function toggleServiceStatus(
         : "Service deactivated successfully. ✅"
     );
 
-
     await loadServicesAdmin();
-
 
   }catch(err){
 
@@ -5709,15 +5619,15 @@ async function toggleServiceStatus(
       err
     );
 
-
     alert(
       "Service status update failed ❌\n\n" +
       err.message
     );
-
   }
-
 }
+
+
+
 
     
 
