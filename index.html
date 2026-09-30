@@ -169,14 +169,22 @@ margin-top:12px;
 padding:12px;
 background:#f0f5ff;
 border-radius:12px;
+font-size:13px;
+}
+.amount-row{
 display:flex;
 justify-content:space-between;
 align-items:center;
-font-size:13px;
+margin:4px 0;
 }
-.booking-amount strong{
-font-size:16px;
+.amount-row.discount{color:#26733a}
+.amount-row.final{
+border-top:1px solid #dce5f5;
+padding-top:8px;
+margin-top:8px;
+font-weight:bold;
 }
+.amount-row.final strong{font-size:17px}
 
 .booking-actions{
 display:flex;gap:7px;margin-top:13px;flex-wrap:wrap
@@ -201,15 +209,32 @@ border-radius:9px;padding:8px 5px;font-size:11px
 border-radius:19px;background:#111;color:#fff;
 padding:20px;margin-bottom:13px
 }
-.offer-page-card:nth-child(2){background:#eef5ff;color:#111}
+.offer-page-card:nth-child(even){background:#eef5ff;color:#111}
 .offer-page-card h3{margin:7px 0;font-size:19px}
 .offer-page-card p{
 color:#aaa;font-size:12px;line-height:1.5
 }
-.offer-page-card:nth-child(2) p{color:#666}
+.offer-page-card:nth-child(even) p{color:#666}
 .coupon{
 margin-top:15px;display:inline-block;border:1px dashed currentColor;
 padding:8px 12px;border-radius:8px;font-size:12px;font-weight:bold
+}
+.offer-type-badge{
+display:inline-block;
+font-size:10px;
+padding:5px 8px;
+border-radius:20px;
+background:rgba(255,255,255,.12);
+margin-top:4px
+}
+.offer-page-card:nth-child(even) .offer-type-badge{
+background:#fff
+}
+.offer-empty{
+text-align:center;
+padding:35px 15px;
+color:#777;
+font-size:13px
 }
 
 .profile-card{
@@ -385,12 +410,152 @@ font-size:11px;color:#777;line-height:1.5
 
 .price-preview{
 background:#f0f5ff;padding:12px;border-radius:12px;
-margin-bottom:14px;display:flex;
-justify-content:space-between;font-weight:bold
+margin-bottom:14px;
+}
+.price-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:13px;
+margin:5px 0;
+}
+.price-row.discount{
+color:#26733a;
+}
+.price-row.final{
+border-top:1px solid #d9e3f5;
+padding-top:9px;
+margin-top:9px;
+font-weight:bold;
+}
+.price-row.final span:last-child{
+font-size:18px;
+}
+.applied-offer{
+display:none;
+background:#eaf7ed;
+color:#26733a;
+border-radius:11px;
+padding:10px;
+font-size:11px;
+line-height:1.5;
+margin-bottom:12px;
+}
+.applied-offer.show{display:block}
+.coupon-row{
+display:flex;
+gap:7px;
+}
+.coupon-row input{
+flex:1;
+}
+.coupon-row button{
+border:0;
+background:#111;
+color:#fff;
+border-radius:10px;
+padding:0 14px;
+font-size:12px;
+font-weight:bold;
+}
+.remove-coupon{
+border:0;
+background:none;
+color:#a32626;
+font-size:11px;
+margin-top:7px;
+display:none;
+}
+
+.offer-popup-overlay{
+position:fixed;
+inset:0;
+z-index:250;
+background:rgba(0,0,0,.58);
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+.offer-popup-overlay.show{display:flex}
+.offer-popup{
+width:100%;
+max-width:390px;
+background:#fff;
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+.offer-popup-top{
+background:#111;
+color:#fff;
+padding:24px 20px;
+position:relative;
+}
+.offer-popup-close{
+position:absolute;
+right:13px;
+top:13px;
+width:34px;
+height:34px;
+border:0;
+border-radius:50%;
+background:rgba(255,255,255,.12);
+color:#fff;
+font-size:20px;
+}
+.offer-popup-tag{
+font-size:10px;
+font-weight:bold;
+letter-spacing:.5px;
+opacity:.8;
+}
+.offer-popup h2{
+font-size:24px;
+margin:8px 0;
+line-height:1.15;
+}
+.offer-popup p{
+font-size:12px;
+line-height:1.5;
+color:#ccc;
+}
+.offer-popup-body{
+padding:20px;
+}
+.offer-popup-discount{
+font-size:30px;
+font-weight:bold;
+margin-bottom:5px;
+}
+.offer-popup-info{
+font-size:12px;
+color:#777;
+line-height:1.6;
+}
+.offer-popup-code{
+margin-top:13px;
+border:1px dashed #999;
+border-radius:10px;
+padding:11px;
+text-align:center;
+font-weight:bold;
+font-size:13px;
+letter-spacing:1px;
+}
+.offer-popup-btn{
+width:100%;
+border:0;
+background:#111;
+color:#fff;
+padding:13px;
+border-radius:11px;
+margin-top:15px;
+font-weight:bold;
 }
 
 .toast{
-position:fixed;z-index:200;bottom:85px;left:50%;
+position:fixed;z-index:400;bottom:85px;left:50%;
 transform:translateX(-50%) translateY(20px);
 background:#111;color:#fff;padding:11px 16px;border-radius:10px;
 font-size:12px;opacity:0;pointer-events:none;transition:.3s;
@@ -542,11 +707,11 @@ font-size:12px
 <section class="section">
 <div class="offer">
 <div class="offer-text">
-<small>LIMITED OFFER</small>
-<h3>Fresh home, fresh feeling.</h3>
-<p>Professional cleaning at your doorstep.</p>
+<small id="homeOfferSmall">LIMITED OFFER</small>
+<h3 id="homeOfferTitle">Fresh home, fresh feeling.</h3>
+<p id="homeOfferText">Professional cleaning at your doorstep.</p>
 </div>
-<button class="offer-btn" id="offerBtn">Book Now</button>
+<button class="offer-btn" id="offerBtn">View Offer</button>
 </div>
 </section>
 
@@ -615,24 +780,8 @@ font-size:12px
 <h2>Offers</h2>
 </div>
 
-<div class="offer-page-card">
-<small>WELCOME OFFER</small>
-<h3>Get special cleaning offers</h3>
-<p>Enjoy professional cleaning services at special prices.</p>
-<div class="coupon">WELCOME10</div>
-</div>
-
-<div class="offer-page-card">
-<small>HOME CLEANING</small>
-<h3>Fresh Home Offer</h3>
-<p>Book your home cleaning service and ask our team about current offers.</p>
-<div class="coupon">FRESH10</div>
-</div>
-
-<div class="offer-page-card">
-<small>REGULAR CUSTOMER</small>
-<h3>Thank you for choosing us</h3>
-<p>Repeat customers may receive special service offers.</p>
+<div id="offersList">
+<div class="loading">Loading offers...</div>
 </div>
 
 </div>
@@ -699,7 +848,7 @@ font-size:12px
 <span>›</span>
 </button>
 
-<button onclick="showPage('offersPage')">
+<button onclick="showPage('offersPage');loadOffers();">
 <span>🎁</span>
 <strong>Offers & Coupons</strong>
 <span>›</span>
@@ -775,7 +924,7 @@ font-size:12px
 <span>Bookings</span>
 </button>
 
-<button class="nav-btn" id="navOffers" onclick="showPage('offersPage')">
+<button class="nav-btn" id="navOffers" onclick="showPage('offersPage');loadOffers();">
 <span>%</span>
 <span>Offers</span>
 </button>
@@ -787,6 +936,8 @@ font-size:12px
 
 </nav>
 
+
+<!-- BOOKING MODAL -->
 
 <div class="modal-overlay" id="bookingModal">
 
@@ -851,10 +1002,64 @@ readonly
 </select>
 </div>
 
+
+<!-- COUPON -->
+
+<div class="form-group">
+<label>Coupon Code (Optional)</label>
+
+<div class="coupon-row">
+
+<input
+id="couponInput"
+type="text"
+placeholder="Enter coupon code"
+autocomplete="off"
+>
+
+<button
+type="button"
+onclick="applyCoupon()"
+>
+Apply
+</button>
+
+</div>
+
+<button
+type="button"
+id="removeCouponBtn"
+class="remove-coupon"
+onclick="removeCoupon()"
+>
+✕ Remove applied coupon
+</button>
+
+</div>
+
+
+<div class="applied-offer" id="appliedOfferBox"></div>
+
+
 <div class="price-preview" id="pricePreview" style="display:none">
-<span>Estimated Price</span>
+
+<div class="price-row">
+<span>Original Price</span>
+<span id="originalPrice">₹0</span>
+</div>
+
+<div class="price-row discount" id="discountRow" style="display:none">
+<span id="discountLabel">Discount</span>
+<span id="discountPrice">-₹0</span>
+</div>
+
+<div class="price-row final">
+<span>Final Amount</span>
 <span id="selectedPrice">₹0</span>
 </div>
+
+</div>
+
 
 <div class="form-group">
 <label>Date</label>
@@ -911,6 +1116,8 @@ Confirm Booking
 </div>
 
 
+<!-- SUCCESS -->
+
 <div class="success-overlay" id="successModal">
 
 <div class="success-box">
@@ -932,6 +1139,64 @@ Done
 
 </div>
 
+
+<!-- OFFER POPUP -->
+
+<div class="offer-popup-overlay" id="offerPopup">
+
+<div class="offer-popup">
+
+<div class="offer-popup-top">
+
+<button
+class="offer-popup-close"
+onclick="closeOfferPopup()"
+>
+×
+</button>
+
+<div class="offer-popup-tag" id="popupOfferTag">
+SPECIAL OFFER
+</div>
+
+<h2 id="popupOfferTitle">
+Special Cleaning Offer
+</h2>
+
+<p id="popupOfferMessage">
+Save more on your next cleaning booking.
+</p>
+
+</div>
+
+<div class="offer-popup-body">
+
+<div class="offer-popup-discount" id="popupOfferDiscount">
+SPECIAL OFFER
+</div>
+
+<div class="offer-popup-info" id="popupOfferInfo"></div>
+
+<div
+class="offer-popup-code"
+id="popupOfferCode"
+style="display:none"
+></div>
+
+<button
+class="offer-popup-btn"
+onclick="usePopupOffer()"
+>
+Book Now & Save
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- AUTH -->
 
 <div class="auth-overlay" id="authModal">
 
@@ -1015,6 +1280,7 @@ let accessToken=null;
 let services=[];
 let serviceOptions=[];
 let timeSlots=[];
+let offers=[];
 
 let selectedServiceId=null;
 let authMode="login";
@@ -1025,8 +1291,15 @@ let locationAddress="";
 
 let bookingQuantity=1;
 
+let appliedOffer=null;
+let appliedCouponCode="";
+
 let toastTimer;
 
+
+/* =========================
+   SUPABASE
+========================= */
 
 function getHeaders(){
 
@@ -1093,6 +1366,10 @@ return text;
 }
 
 
+/* =========================
+   BASIC HELPERS
+========================= */
+
 function showToast(message){
 
 const t=document.getElementById("toast");
@@ -1124,6 +1401,39 @@ return localStorage.getItem("gus_access_token");
 
 }
 
+
+function escapeHtml(v){
+
+return String(v??"")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(v){
+
+return escapeHtml(v);
+
+}
+
+
+function formatMoney(amount){
+
+return "₹"+
+Number(amount||0).toLocaleString("en-IN",{
+maximumFractionDigits:2
+});
+
+}
+
+
+/* =========================
+   AUTH
+========================= */
 
 async function initAuth(){
 
@@ -1578,6 +1888,10 @@ return false;
 }
 
 
+/* =========================
+   SERVICES
+========================= */
+
 async function loadServices(){
 
 try{
@@ -1696,25 +2010,6 @@ return p===null?
 "View options":
 "From ₹"+
 Number(p).toLocaleString("en-IN");
-
-}
-
-
-function escapeHtml(v){
-
-return String(v??"")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
-
-
-function escapeAttr(v){
-
-return escapeHtml(v);
 
 }
 
@@ -1976,6 +2271,10 @@ updateOptionPrice();
 }
 
 
+/* =========================
+   OPTIONS + PRICE
+========================= */
+
 function loadOptionsForService(serviceId){
 
 const select=
@@ -1992,6 +2291,8 @@ select.innerHTML=
 '<option value="">Select service option</option>';
 
 preview.style.display="none";
+
+removeCoupon(false);
 
 updateQuantityUI(serviceId);
 
@@ -2051,7 +2352,319 @@ select.appendChild(el);
 }
 
 
-function updateOptionPrice(){
+function getCurrentQuantity(){
+
+const serviceId=
+document.getElementById("serviceSelect").value;
+
+return isQuantityService(serviceId)
+?
+Number(
+document.getElementById("bookingQuantity").value||1
+)
+:
+1;
+
+}
+
+
+function calculateDiscount(amount,offer){
+
+if(!offer)return 0;
+
+const min=
+Number(offer.min_booking_amount||0);
+
+if(amount<min)return 0;
+
+const type=
+String(offer.offer_type||"percentage");
+
+const value=
+Number(offer.discount_value||0);
+
+let discount=0;
+
+if(type==="percentage"){
+
+discount=
+amount*value/100;
+
+}else if(type==="fixed"){
+
+discount=value;
+
+}else if(type==="first_booking"){
+
+discount=
+amount*value/100;
+
+}
+
+if(
+offer.max_discount!==null&&
+offer.max_discount!==""&&
+Number(offer.max_discount)>0
+){
+
+discount=
+Math.min(
+discount,
+Number(offer.max_discount)
+);
+
+}
+
+discount=
+Math.max(
+0,
+Math.min(
+discount,
+amount
+)
+);
+
+return Math.round(
+discount*100
+)/100;
+
+}
+
+
+function isOfferDateValid(offer){
+
+const today=
+new Date();
+
+today.setHours(0,0,0,0);
+
+if(offer.start_date){
+
+const start=
+new Date(offer.start_date+"T00:00:00");
+
+if(today<start)return false;
+
+}
+
+if(offer.end_date){
+
+const end=
+new Date(offer.end_date+"T23:59:59");
+
+if(today>end)return false;
+
+}
+
+return true;
+
+}
+
+
+function offerDiscountText(offer){
+
+const type=
+String(offer.offer_type||"percentage");
+
+const value=
+Number(offer.discount_value||0);
+
+if(type==="percentage")
+return value+"% OFF";
+
+if(type==="fixed")
+return formatMoney(value)+" OFF";
+
+if(type==="first_booking")
+return value+"% OFF";
+
+return "SPECIAL OFFER";
+
+}
+
+
+async function customerHasPreviousBooking(){
+
+if(!currentUser)return false;
+
+try{
+
+const customers=
+await supabaseFetch(
+"/rest/v1/customers?select=id&user_id=eq."+
+encodeURIComponent(currentUser.id)+
+"&limit=1"
+);
+
+if(!customers||!customers.length)
+return false;
+
+const customerId=customers[0].id;
+
+const bookings=
+await supabaseFetch(
+"/rest/v1/bookings?select=id&customer_id=eq."+
+encodeURIComponent(customerId)+
+"&limit=1"
+);
+
+return Array.isArray(bookings)&&bookings.length>0;
+
+}catch(e){
+
+console.log(
+"First booking check error:",
+e
+);
+
+return false;
+
+}
+
+}
+
+
+async function getApplicableOffer(amount){
+
+if(!offers.length)return null;
+
+const validOffers=
+offers.filter(
+o=>
+o.is_active===true&&
+isOfferDateValid(o)
+);
+
+
+if(!validOffers.length)return null;
+
+
+/* Coupon will be handled separately */
+
+
+/* First booking offer */
+
+let hasPrevious=true;
+
+for(const offer of validOffers){
+
+if(
+String(offer.offer_type)==="first_booking"
+){
+
+if(!currentUser)continue;
+
+hasPrevious=
+await customerHasPreviousBooking();
+
+if(!hasPrevious&&
+Number(amount)>=Number(offer.min_booking_amount||0)
+){
+
+return offer;
+
+}
+
+}
+
+}
+
+
+/* Auto apply offers */
+
+const autoOffers=
+validOffers.filter(
+o=>
+o.auto_apply===true&&
+String(o.offer_type)!=="first_booking"
+);
+
+
+if(!autoOffers.length)return null;
+
+
+/* Find highest discount */
+
+let best=null;
+let bestDiscount=0;
+
+for(const offer of autoOffers){
+
+const d=
+calculateDiscount(
+amount,
+offer
+);
+
+if(d>bestDiscount){
+
+bestDiscount=d;
+best=offer;
+
+}
+
+}
+
+return best;
+
+}
+
+
+function updateAppliedOfferUI(){
+
+const box=
+document.getElementById("appliedOfferBox");
+
+const remove=
+document.getElementById("removeCouponBtn");
+
+if(!appliedOffer){
+
+box.classList.remove("show");
+box.innerHTML="";
+
+if(remove){
+
+remove.style.display=
+appliedCouponCode?
+"block":
+"none";
+
+}
+
+return;
+
+}
+
+
+const discount=
+offerDiscountText(appliedOffer);
+
+box.innerHTML=
+`
+<strong>🎉 ${escapeHtml(
+appliedOffer.title||"Offer Applied"
+)}</strong>
+<br>
+${escapeHtml(discount)}
+${
+appliedOffer.coupon_code
+?
+` • Coupon: ${escapeHtml(appliedOffer.coupon_code)}`
+:
+""
+}
+`;
+
+box.classList.add("show");
+
+if(remove)
+remove.style.display="block";
+
+}
+
+
+async function updateOptionPrice(){
 
 const id=
 document.getElementById("serviceOption").value;
@@ -2064,43 +2677,723 @@ x=>String(x.id)===String(id)
 const p=
 document.getElementById("pricePreview");
 
+const discountRow=
+document.getElementById("discountRow");
 
-const qty=
-isQuantityService(
-document.getElementById("serviceSelect").value
-)
-?
-Number(
-document.getElementById("bookingQuantity").value||1
-)
-:
-1;
 
+const qty=getCurrentQuantity();
 
 bookingQuantity=qty;
 
 
-if(o){
+if(!o){
 
-const total=
+p.style.display="none";
+appliedOffer=null;
+updateAppliedOfferUI();
+return;
+
+}
+
+
+const originalAmount=
 Number(o.price||0)*qty;
+
+
+let discount=0;
+
+
+/* If a coupon was manually entered */
+
+if(appliedCouponCode){
+
+const code=
+appliedCouponCode.trim().toLowerCase();
+
+const couponOffer=
+offers.find(
+x=>
+x.is_active===true&&
+isOfferDateValid(x)&&
+String(x.coupon_code||"").trim().toLowerCase()===code
+);
+
+if(couponOffer){
+
+if(
+String(couponOffer.offer_type)==="first_booking"
+){
+
+const previous=
+await customerHasPreviousBooking();
+
+if(!previous){
+
+discount=
+calculateDiscount(
+originalAmount,
+couponOffer
+);
+
+appliedOffer=couponOffer;
+
+}else{
+
+appliedOffer=null;
+}
+
+}else{
+
+discount=
+calculateDiscount(
+originalAmount,
+couponOffer
+);
+
+if(
+discount>0
+){
+
+appliedOffer=couponOffer;
+
+}else{
+
+appliedOffer=null;
+
+}
+
+}
+
+}
+
+}else{
+
+/* Automatic offer */
+
+const autoOffer=
+await getApplicableOffer(
+originalAmount
+);
+
+if(autoOffer){
+
+discount=
+calculateDiscount(
+originalAmount,
+autoOffer
+);
+
+appliedOffer=
+discount>0?
+autoOffer:
+null;
+
+}
+
+}
+
+
+const finalAmount=
+Math.max(
+0,
+originalAmount-discount
+);
+
+
+document.getElementById(
+"originalPrice"
+).textContent=
+formatMoney(originalAmount);
+
 
 document.getElementById(
 "selectedPrice"
 ).textContent=
-"₹"+
-total.toLocaleString("en-IN");
+formatMoney(finalAmount);
 
-p.style.display="flex";
+
+if(discount>0){
+
+discountRow.style.display="flex";
+
+document.getElementById(
+"discountLabel"
+).textContent=
+"Discount"+
+(
+appliedOffer&&appliedOffer.title
+?
+" ("+appliedOffer.title+")"
+:
+""
+);
+
+document.getElementById(
+"discountPrice"
+).textContent=
+"-"+formatMoney(discount);
 
 }else{
 
-p.style.display="none";
+discountRow.style.display="none";
+
+}
+
+updateAppliedOfferUI();
+
+p.style.display="block";
+
+return {
+originalAmount,
+discountAmount:discount,
+finalAmount,
+offer:appliedOffer
+};
+
+}
+
+
+async function applyCoupon(){
+
+const input=
+document.getElementById("couponInput");
+
+const code=
+input.value.trim().toUpperCase();
+
+if(!code){
+
+return showToast(
+"Please enter a coupon code."
+);
+
+}
+
+
+const offer=
+offers.find(
+x=>
+x.is_active===true&&
+isOfferDateValid(x)&&
+String(x.coupon_code||"").trim().toUpperCase()===code
+);
+
+
+if(!offer){
+
+appliedCouponCode="";
+appliedOffer=null;
+
+updateAppliedOfferUI();
+
+return showToast(
+"Invalid or expired coupon code."
+);
+
+}
+
+
+const optionId=
+document.getElementById(
+"serviceOption"
+).value;
+
+if(!optionId){
+
+return showToast(
+"Select a service option first."
+);
+
+}
+
+
+appliedCouponCode=code;
+
+await updateOptionPrice();
+
+
+if(!appliedOffer){
+
+appliedCouponCode="";
+
+return showToast(
+"This coupon is not applicable to this booking."
+);
+
+}
+
+
+showToast(
+"Coupon applied successfully."
+);
+
+}
+
+
+function removeCoupon(showMessage=true){
+
+appliedCouponCode="";
+
+appliedOffer=null;
+
+const input=
+document.getElementById("couponInput");
+
+if(input)
+input.value="";
+
+const remove=
+document.getElementById("removeCouponBtn");
+
+if(remove)
+remove.style.display="none";
+
+const box=
+document.getElementById("appliedOfferBox");
+
+if(box){
+
+box.classList.remove("show");
+box.innerHTML="";
+
+}
+
+if(showMessage){
+
+updateOptionPrice();
+
+showToast(
+"Coupon removed."
+);
 
 }
 
 }
 
+
+/* =========================
+   OFFERS
+========================= */
+
+async function loadOffers(){
+
+try{
+
+offers=
+await supabaseFetch(
+"/rest/v1/offers?select=*&is_active=eq.true&order=created_at.desc"
+);
+
+if(!Array.isArray(offers))
+offers=[];
+
+}catch(e){
+
+offers=[];
+
+console.log(
+"Offers error:",
+e
+);
+
+}
+
+renderOffers();
+
+updateHomeOffer();
+
+}
+
+
+function renderOffers(){
+
+const container=
+document.getElementById("offersList");
+
+if(!container)return;
+
+
+const valid=
+offers.filter(
+o=>
+o.is_active===true&&
+isOfferDateValid(o)
+);
+
+
+if(!valid.length){
+
+container.innerHTML=
+`
+<div class="offer-empty">
+🎁<br><br>
+No active offers are available right now.
+<br><br>
+Please check again later.
+</div>
+`;
+
+return;
+
+}
+
+
+container.innerHTML=
+valid.map(
+(offer,index)=>{
+
+const discount=
+offerDiscountText(offer);
+
+const type=
+offer.offer_type==="first_booking"
+?
+"FIRST BOOKING"
+:
+offer.offer_type==="fixed"
+?
+"FIXED DISCOUNT"
+:
+"PERCENTAGE OFFER";
+
+const min=
+Number(offer.min_booking_amount||0);
+
+return `
+<div class="offer-page-card">
+
+<small>${escapeHtml(type)}</small>
+
+<h3>
+${escapeHtml(
+offer.title||"Special Offer"
+)}
+</h3>
+
+<div class="offer-type-badge">
+${escapeHtml(discount)}
+</div>
+
+<p>
+${escapeHtml(
+offer.description||
+offer.popup_message||
+"Enjoy this special cleaning offer."
+)}
+</p>
+
+${
+min>0
+?
+`
+<p style="margin-top:8px">
+Minimum booking: ${formatMoney(min)}
+</p>
+`
+:
+""
+}
+
+${
+offer.max_discount
+?
+`
+<p style="margin-top:4px">
+Maximum discount: ${formatMoney(offer.max_discount)}
+</p>
+`
+:
+""
+}
+
+${
+offer.coupon_code
+?
+`
+<div class="coupon">
+${escapeHtml(offer.coupon_code)}
+</div>
+`
+:
+""
+}
+
+<br>
+
+<button
+class="small-btn"
+style="margin-top:12px"
+onclick='useOfferFromPage(${JSON.stringify(offer).replace(/'/g,"&#039;")})'
+>
+Book Now
+</button>
+
+</div>
+`;
+
+}
+).join("");
+
+}
+
+
+function updateHomeOffer(){
+
+const title=
+document.getElementById("homeOfferTitle");
+
+const text=
+document.getElementById("homeOfferText");
+
+const small=
+document.getElementById("homeOfferSmall");
+
+const button=
+document.getElementById("offerBtn");
+
+
+if(!title||!text)return;
+
+
+const valid=
+offers.filter(
+o=>
+o.is_active===true&&
+isOfferDateValid(o)
+);
+
+
+if(!valid.length){
+
+small.textContent="CLEANING SERVICE";
+
+title.textContent=
+"Fresh home, fresh feeling.";
+
+text.textContent=
+"Professional cleaning at your doorstep.";
+
+if(button)
+button.textContent="Book Now";
+
+return;
+
+}
+
+
+const offer=valid[0];
+
+small.textContent=
+offerDiscountText(offer);
+
+title.textContent=
+offer.title||
+"Special Cleaning Offer";
+
+text.textContent=
+offer.popup_message||
+offer.description||
+"Book now and save on your cleaning service.";
+
+if(button)
+button.textContent="View Offer";
+
+}
+
+
+function openOfferPopup(offer){
+
+if(!offer)return;
+
+document.getElementById(
+"popupOfferTag"
+).textContent=
+offer.offer_type==="first_booking"
+?
+"FIRST BOOKING OFFER"
+:
+"SPECIAL OFFER";
+
+document.getElementById(
+"popupOfferTitle"
+).textContent=
+offer.popup_title||
+offer.title||
+"Special Cleaning Offer";
+
+document.getElementById(
+"popupOfferMessage"
+).textContent=
+offer.popup_message||
+offer.description||
+"Save more on your cleaning booking.";
+
+document.getElementById(
+"popupOfferDiscount"
+).textContent=
+offerDiscountText(offer);
+
+
+let info="";
+
+if(Number(offer.min_booking_amount||0)>0){
+
+info+=
+"Minimum booking amount: "+
+formatMoney(offer.min_booking_amount)+
+"<br>";
+
+}
+
+if(offer.max_discount){
+
+info+=
+"Maximum discount: "+
+formatMoney(offer.max_discount)+
+"<br>";
+
+}
+
+if(offer.end_date){
+
+info+=
+"Valid until: "+
+offer.end_date;
+
+}
+
+if(!info)
+info="Offer available while active.";
+
+document.getElementById(
+"popupOfferInfo"
+).innerHTML=info;
+
+
+const codeBox=
+document.getElementById(
+"popupOfferCode"
+);
+
+if(offer.coupon_code){
+
+codeBox.textContent=
+"Coupon: "+
+offer.coupon_code;
+
+codeBox.style.display="block";
+
+}else{
+
+codeBox.style.display="none";
+
+}
+
+
+window.currentPopupOffer=offer;
+
+document.getElementById(
+"offerPopup"
+).classList.add("show");
+
+}
+
+
+function closeOfferPopup(){
+
+document.getElementById(
+"offerPopup"
+).classList.remove("show");
+
+}
+
+
+function usePopupOffer(){
+
+const offer=
+window.currentPopupOffer;
+
+closeOfferPopup();
+
+if(offer){
+
+openBooking();
+
+if(offer.coupon_code){
+
+document.getElementById(
+"couponInput"
+).value=
+offer.coupon_code;
+
+showToast(
+"Coupon added. Select your service to apply it."
+);
+
+}
+
+}
+
+}
+
+
+function useOfferFromPage(offer){
+
+openBooking();
+
+if(offer&&offer.coupon_code){
+
+document.getElementById(
+"couponInput"
+).value=
+offer.coupon_code;
+
+showToast(
+"Coupon added. Select your service to apply it."
+);
+
+}
+
+}
+
+
+/* =========================
+   QUANTITY
+========================= */
+
+function resetBookingPricing(){
+
+appliedOffer=null;
+appliedCouponCode="";
+
+const input=
+document.getElementById("couponInput");
+
+if(input)
+input.value="";
+
+const box=
+document.getElementById("appliedOfferBox");
+
+if(box){
+
+box.classList.remove("show");
+box.innerHTML="";
+
+}
+
+const remove=
+document.getElementById("removeCouponBtn");
+
+if(remove)
+remove.style.display="none";
+
+}
+
+
+/* =========================
+   TIME
+========================= */
 
 function formatTime(t){
 
@@ -2167,6 +3460,10 @@ s.appendChild(o);
 
 }
 
+
+/* =========================
+   LOCATION
+========================= */
 
 function resetLocationUI(){
 
@@ -2332,13 +3629,17 @@ maximumAge:60000
 }
 
 
-/* BOOKING */
+/* =========================
+   BOOKING
+========================= */
 
 function openBooking(serviceId=null){
 
 if(!requireLogin())return;
 
 resetLocationUI();
+
+resetBookingPricing();
 
 bookingQuantity=1;
 
@@ -2394,6 +3695,10 @@ resetLocationUI();
 
 }
 
+
+/* =========================
+   SUBMIT BOOKING
+========================= */
 
 async function submitBooking(event){
 
@@ -2535,8 +3840,96 @@ selectedOption.price||0
 );
 
 
-const totalAmount=
+const originalAmount=
 unitPrice*quantity;
+
+
+/* Recalculate final discount before saving */
+
+let discountAmount=0;
+let finalAmount=originalAmount;
+let finalOffer=null;
+
+
+/* Manual coupon */
+
+if(appliedCouponCode){
+
+const code=
+appliedCouponCode.trim().toLowerCase();
+
+const couponOffer=
+offers.find(
+x=>
+x.is_active===true&&
+isOfferDateValid(x)&&
+String(x.coupon_code||"").trim().toLowerCase()===code
+);
+
+if(couponOffer){
+
+if(
+String(couponOffer.offer_type)==="first_booking"
+){
+
+const previous=
+await customerHasPreviousBooking();
+
+if(!previous){
+
+discountAmount=
+calculateDiscount(
+originalAmount,
+couponOffer
+);
+
+finalOffer=couponOffer;
+
+}
+
+}else{
+
+discountAmount=
+calculateDiscount(
+originalAmount,
+couponOffer
+);
+
+if(discountAmount>0)
+finalOffer=couponOffer;
+
+}
+
+}
+
+}else{
+
+const autoOffer=
+await getApplicableOffer(
+originalAmount
+);
+
+if(autoOffer){
+
+discountAmount=
+calculateDiscount(
+originalAmount,
+autoOffer
+);
+
+if(discountAmount>0)
+finalOffer=autoOffer;
+
+}
+
+}
+
+
+finalAmount=
+Math.max(
+0,
+originalAmount-discountAmount
+);
 
 
 const button=
@@ -2653,7 +4046,29 @@ notes:notes||null,
 
 status:"pending",
 
-total_amount:totalAmount,
+/* PRICE + OFFER */
+
+total_amount:finalAmount,
+
+original_amount:originalAmount,
+
+discount_amount:discountAmount,
+
+final_amount:finalAmount,
+
+offer_id:
+finalOffer?
+Number(finalOffer.id):
+null,
+
+offer_code:
+finalOffer&&finalOffer.coupon_code
+?
+finalOffer.coupon_code
+:
+null,
+
+/* LOCATION */
 
 customer_latitude:
 customerLatitude,
@@ -2665,6 +4080,8 @@ location_address:
 locationAddress||null,
 
 quantity:quantity,
+
+/* PROVIDER */
 
 provider_id:null,
 
@@ -2711,6 +4128,13 @@ firstError
 );
 
 
+/*
+Fallback:
+If any offer-related column is temporarily
+missing from schema, booking can still be created
+with the original existing booking fields.
+*/
+
 const fallback={
 
 customer_id:customer.id,
@@ -2731,7 +4155,7 @@ notes:notes||null,
 
 status:"pending",
 
-total_amount:totalAmount,
+total_amount:finalAmount,
 
 customer_latitude:
 customerLatitude,
@@ -2826,9 +4250,40 @@ status:"pending",
 total_amount:
 savedRemoteBooking?
 Number(
-savedRemoteBooking.total_amount??totalAmount
+savedRemoteBooking.total_amount??finalAmount
 ):
-totalAmount,
+finalAmount,
+
+original_amount:
+savedRemoteBooking?
+Number(
+savedRemoteBooking.original_amount??originalAmount
+):
+originalAmount,
+
+discount_amount:
+savedRemoteBooking?
+Number(
+savedRemoteBooking.discount_amount??discountAmount
+):
+discountAmount,
+
+final_amount:
+savedRemoteBooking?
+Number(
+savedRemoteBooking.final_amount??finalAmount
+):
+finalAmount,
+
+offer_id:
+finalOffer?
+Number(finalOffer.id):
+null,
+
+offer_code:
+finalOffer?
+finalOffer.coupon_code||null:
+null,
 
 customer_latitude:
 customerLatitude,
@@ -2862,7 +4317,7 @@ option_name:
 selectedOption.name,
 
 price:
-totalAmount
+finalAmount
 
 });
 
@@ -2876,6 +4331,8 @@ document.getElementById(
 ).style.display="none";
 
 resetLocationUI();
+
+resetBookingPricing();
 
 closeBooking();
 
@@ -2922,6 +4379,10 @@ serviceName(s):
 }
 
 
+/* =========================
+   LOCAL BOOKINGS
+========================= */
+
 function getLocalBookings(){
 
 try{
@@ -2957,6 +4418,10 @@ l.slice(0,50)
 
 }
 
+
+/* =========================
+   BOOKINGS
+========================= */
 
 async function loadBookings(){
 
@@ -3304,23 +4769,80 @@ Provider details will appear here after assignment.
 `;
 
 
-const rawAmount=
+const original=
+Number(
+b.original_amount ??
 b.total_amount ??
 b.price ??
-0;
+0
+);
 
 
-const totalAmount=
-Number(rawAmount||0);
+const discount=
+Number(
+b.discount_amount||0
+);
 
 
-const amountHtml=
+const finalAmount=
+Number(
+b.final_amount ??
+b.total_amount ??
+b.price ??
+0
+);
+
+
+let amountHtml="";
+
+if(discount>0){
+
+amountHtml=
 `
 <div class="booking-amount">
-<span>💰 Total Amount</span>
-<strong>₹${totalAmount.toLocaleString("en-IN")}</strong>
+
+<div class="amount-row">
+<span>Original Amount</span>
+<span>${formatMoney(original)}</span>
+</div>
+
+<div class="amount-row discount">
+<span>
+🎁 Discount
+${
+b.offer_code
+?
+" ("+escapeHtml(b.offer_code)+")"
+:
+""
+}
+</span>
+<span>- ${formatMoney(discount)}</span>
+</div>
+
+<div class="amount-row final">
+<span>💰 Final Amount</span>
+<strong>${formatMoney(finalAmount)}</strong>
+</div>
+
 </div>
 `;
+
+}else{
+
+amountHtml=
+`
+<div class="booking-amount">
+
+<div class="amount-row final" style="border-top:0;padding-top:0;margin-top:0">
+<span>💰 Total Amount</span>
+<strong>${formatMoney(finalAmount)}</strong>
+</div>
+
+</div>
+`;
+
+}
 
 
 return `
@@ -3619,6 +5141,10 @@ showToast(
 }
 
 
+/* =========================
+   PROFILE
+========================= */
+
 async function loadProfile(){
 
 updateAuthUI();
@@ -3899,6 +5425,10 @@ showToast(
 }
 
 
+/* =========================
+   NAVIGATION
+========================= */
+
 function showPage(id){
 
 document
@@ -3935,6 +5465,9 @@ document.getElementById(
 map[id]
 ).classList.add("active");
 
+
+if(id==="offersPage")
+loadOffers();
 
 window.scrollTo({
 top:0,
@@ -3977,6 +5510,10 @@ alert(
 }
 
 
+/* =========================
+   SEARCH
+========================= */
+
 function setupSearch(){
 
 document
@@ -4009,6 +5546,10 @@ c.style.display=
 
 }
 
+
+/* =========================
+   CATEGORIES
+========================= */
 
 function setupCategories(){
 
@@ -4055,6 +5596,10 @@ behavior:"smooth"
 }
 
 
+/* =========================
+   DATE
+========================= */
+
 function setMinimumDate(){
 
 const i=
@@ -4078,6 +5623,10 @@ d.getDate()
 }
 
 
+/* =========================
+   EVENTS
+========================= */
+
 document
 .getElementById("heroBookBtn")
 .addEventListener(
@@ -4090,7 +5639,34 @@ document
 .getElementById("offerBtn")
 .addEventListener(
 "click",
-()=>openBooking()
+()=>{
+
+if(offers.length){
+
+const valid=
+offers.filter(
+o=>
+o.is_active===true&&
+isOfferDateValid(o)
+);
+
+if(valid.length){
+
+openOfferPopup(valid[0]);
+
+}else{
+
+openBooking();
+
+}
+
+}else{
+
+openBooking();
+
+}
+
+}
 );
 
 
@@ -4142,6 +5718,17 @@ closeBooking();
 
 
 document
+.getElementById("offerPopup")
+.addEventListener(
+"click",
+e=>{
+if(e.target===e.currentTarget)
+closeOfferPopup();
+}
+);
+
+
+document
 .getElementById("authModal")
 .addEventListener(
 "click",
@@ -4170,6 +5757,20 @@ document
 .getElementById("serviceOption")
 .addEventListener(
 "change",
+async function(){
+
+/* Remove previous manual coupon if service changes */
+
+await updateOptionPrice();
+
+}
+);
+
+
+document
+.getElementById("bookingQuantity")
+.addEventListener(
+"change",
 updateOptionPrice
 );
 
@@ -4181,6 +5782,10 @@ document
 submitBooking
 );
 
+
+/* =========================
+   INIT
+========================= */
 
 async function init(){
 
@@ -4197,10 +5802,35 @@ await initAuth();
 await Promise.all([
 loadServices(),
 loadServiceOptions(),
-loadTimeSlots()
+loadTimeSlots(),
+loadOffers()
 ]);
 
 await loadProfile();
+
+
+/*
+Show offer popup only when
+there is an active offer.
+*/
+
+const validOffers=
+offers.filter(
+o=>
+o.is_active===true&&
+isOfferDateValid(o)
+);
+
+if(validOffers.length){
+
+setTimeout(
+()=>{
+openOfferPopup(validOffers[0]);
+},
+1200
+);
+
+}
 
 }
 
