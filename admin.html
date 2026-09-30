@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guwahati Urban Cleaning - Admin</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+  background:#f4f6f8;
+  color:#17202a;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* LOGIN */
+#loginScreen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:linear-gradient(135deg,#0f766e,#0ea5e9);
+}
+
+.login-card{
+  width:100%;
+  max-width:420px;
+  background:white;
+  border-radius:24px;
+  padding:30px 22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.18);
+}
+
+.logo{
+  width:70px;
+  height:70px;
+  border-radius:20px;
+  background:#0f766e;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  margin:0 auto 16px;
+}
+
+.login-card h1{
+  text-align:center;
+  font-size:24px;
+  margin-bottom:7px;
+}
+
+.login-card p{
+  text-align:center;
+  color:#68727d;
+  margin-bottom:25px;
+  font-size:14px;
+}
+
+.input{
+  width:100%;
+  padding:14px 15px;
+  border:1px solid #d9dee4;
+  border-radius:13px;
+  margin-bottom:14px;
+  font-size:15px;
+  outline:none;
+}
+
+.input:focus{
+  border-color:#0f766e;
+}
+
+.primary-btn{
+  width:100%;
+  padding:14px;
+  background:#0f766e;
+  color:white;
+  border-radius:13px;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.primary-btn:disabled{
+  opacity:.6;
+}
+
+.error{
+  background:#fee2e2;
+  color:#991b1b;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:14px;
+  font-size:14px;
+}
+
+/* APP */
+#app{
+  min-height:100vh;
+}
+
+.topbar{
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:10;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.topbar-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand-icon{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  background:#0f766e;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:21px;
+}
+
+.brand h2{
+  font-size:17px;
+}
+
+.brand span{
+  display:block;
+  font-size:11px;
+  color:#7b8794;
+  margin-top:2px;
+}
+
+.logout-btn{
+  background:#fee2e2;
+  color:#b91c1c;
+  padding:9px 13px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+/* CONTENT */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px 15px 100px;
+}
+
+.welcome{
+  margin-bottom:20px;
+}
+
+.welcome h1{
+  font-size:25px;
+}
+
+.welcome p{
+  color:#6b7280;
+  margin-top:5px;
+}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-bottom:22px;
+}
+
+.stat{
+  background:white;
+  border-radius:18px;
+  padding:17px;
+  box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.stat-icon{
+  font-size:23px;
+  margin-bottom:9px;
+}
+
+.stat-value{
+  font-size:25px;
+  font-weight:bold;
+}
+
+.stat-label{
+  font-size:12px;
+  color:#737b86;
+  margin-top:4px;
+}
+
+/* MENU */
+.section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:20px 0 12px;
+}
+
+.section-title h2{
+  font-size:19px;
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.menu-card{
+  background:white;
+  padding:18px;
+  border-radius:18px;
+  box-shadow:0 3px 12px rgba(0,0,0,.05);
+  text-align:left;
+}
+
+.menu-card .icon{
+  font-size:27px;
+  margin-bottom:10px;
+}
+
+.menu-card h3{
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+.menu-card p{
+  color:#7a838d;
+  font-size:12px;
+}
+
+/* PROVIDERS */
+.panel{
+  background:white;
+  border-radius:20px;
+  padding:17px;
+  margin-top:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.filter-row{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  margin-bottom:15px;
+}
+
+.filter-btn{
+  white-space:nowrap;
+  padding:9px 13px;
+  background:#f1f5f9;
+  border-radius:10px;
+  color:#475569;
+  font-size:13px;
+}
+
+.filter-btn.active{
+  background:#0f766e;
+  color:white;
+}
+
+.provider-card{
+  border:1px solid #e5e7eb;
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:12px;
+}
+
+.provider-head{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.provider-photo{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  object-fit:cover;
+  background:#e5e7eb;
+}
+
+.provider-info{
+  flex:1;
+}
+
+.provider-info h3{
+  font-size:16px;
+}
+
+.provider-info p{
+  font-size:12px;
+  color:#6b7280;
+  margin-top:3px;
+}
+
+.status{
+  padding:6px 9px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.status.pending{
+  background:#fef3c7;
+  color:#92400e;
+}
+
+.status.approved{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.status.rejected{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.status.suspended{
+  background:#e5e7eb;
+  color:#374151;
+}
+
+.provider-details{
+  margin-top:13px;
+  border-top:1px solid #eee;
+  padding-top:12px;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.action-row{
+  display:flex;
+  gap:8px;
+  margin-top:13px;
+}
+
+.action-btn{
+  flex:1;
+  padding:10px;
+  border-radius:10px;
+  font-weight:bold;
+  font-size:12px;
+}
+
+.approve{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.reject{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.view{
+  background:#e0f2fe;
+  color:#075985;
+}
+
+.note{
+  width:100%;
+  min-height:70px;
+  padding:10px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  resize:vertical;
+  margin-top:10px;
+}
+
+.empty{
+  text-align:center;
+  padding:35px 10px;
+  color:#7b8794;
+}
+
+.loading{
+  text-align:center;
+  padding:25px;
+  color:#64748b;
+}
+
+/* MOBILE NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  border-top:1px solid #e5e7eb;
+  display:flex;
+  justify-content:center;
+  z-index:20;
+}
+
+.bottom-nav-inner{
+  width:100%;
+  max-width:700px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.nav-btn{
+  padding:10px 4px 9px;
+  background:white;
+  color:#64748b;
+  font-size:11px;
+}
+
+.nav-btn div{
+  font-size:20px;
+  margin-bottom:3px;
+}
+
+.nav-btn.active{
+  color:#0f766e;
+  font-weight:bold;
+}
+
+/* DESKTOP */
+@media(min-width:700px){
+  .stats{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .menu-grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .bottom-nav{
+    display:none;
+  }
+
+  .container{
+    padding-bottom:40px;
+  }
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:50;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+
+.modal-box{
+  width:100%;
+  max-width:700px;
+  max-height:90vh;
+  overflow:auto;
+  background:white;
+  border-radius:24px 24px 0 0;
+  padding:20px;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.close{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:#f1f5f9;
+}
+
+.document-img{
+  width:100%;
+  max-height:350px;
+  object-fit:contain;
+  background:#f1f5f9;
+  border-radius:12px;
+  margin-top:8px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+
+  <div class="login-card">
+
+    <div class="logo">🧹</div>
+
+    <h1>Admin Panel</h1>
+    <p>Guwahati Urban Cleaning Service</p>
+
+    <div id="loginError" class="error hidden"></div>
+
+    <input
+      id="email"
+      class="input"
+      type="email"
+      placeholder="Admin email"
+      autocomplete="email"
+    >
+
+    <input
+      id="password"
+      class="input"
+      type="password"
+      placeholder="Password"
+      autocomplete="current-password"
+    >
+
+    <button id="loginBtn" class="primary-btn">
+      Login
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- APP -->
+<div id="app" class="hidden">
+
+  <header class="topbar">
+    <div class="topbar-inner">
+
+      <div class="brand">
+        <div class="brand-icon">🧹</div>
+        <div>
+          <h2>Guwahati Urban</h2>
+          <span>Admin Panel</span>
+        </div>
+      </div>
+
+      <button id="logoutBtn" class="logout-btn">
+        Logout
+      </button>
+
+    </div>
+  </header>
+
+
+  <main class="container">
+
+    <!-- DASHBOARD -->
+    <section id="dashboardSection">
+
+      <div class="welcome">
+        <h1>Dashboard 👋</h1>
+        <p>Manage your cleaning marketplace from here.</p>
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <div class="stat-icon">📦</div>
+          <div id="totalBookings" class="stat-value">0</div>
+          <div class="stat-label">Total Bookings</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">👷</div>
+          <div id="totalProviders" class="stat-value">0</div>
+          <div class="stat-label">Providers</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">👥</div>
+          <div id="totalCustomers" class="stat-value">0</div>
+          <div class="stat-label">Customers</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">🟡</div>
+          <div id="pendingProviders" class="stat-value">0</div>
+          <div class="stat-label">Pending Providers</div>
+        </div>
+
+      </div>
+
+
+      <div class="section-title">
+        <h2>Management</h2>
+      </div>
+
+      <div class="menu-grid">
+
+        <button class="menu-card" onclick="showSection('providers')">
+          <div class="icon">👷</div>
+          <h3>Providers</h3>
+          <p>Applications & approval</p>
+        </button>
+
+        <button class="menu-card" onclick="showSection('bookings')">
+          <div class="icon">📦</div>
+          <h3>Bookings</h3>
+          <p>Manage customer bookings</p>
+        </button>
+
+        <button class="menu-card">
+          <div class="icon">🧹</div>
+          <h3>Services</h3>
+          <p>Prices & sub-services</p>
+        </button>
+
+        <button class="menu-card">
+          <div class="icon">🎁</div>
+          <h3>Offers</h3>
+          <p>Discounts & promotions</p>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROVIDERS -->
+    <section id="providersSection" class="hidden">
+
+      <div class="section-title">
+        <h2>Provider Applications</h2>
+      </div>
+
+      <div class="panel">
+
+        <div class="filter-row">
+
+          <button class="filter-btn active"
+                  onclick="setProviderFilter('all',this)">
+            All
+          </button>
+
+          <button class="filter-btn"
+                  onclick="setProviderFilter('pending',this)">
+            Pending
+          </button>
+
+          <button class="filter-btn"
+                  onclick="setProviderFilter('approved',this)">
+            Approved
+          </button>
+
+          <button class="filter-btn"
+                  onclick="setProviderFilter('rejected',this)">
+            Rejected
+          </button>
+
+        </div>
+
+        <div id="providersList">
+          <div class="loading">Loading providers...</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOOKINGS PLACEHOLDER -->
+    <section id="bookingsSection" class="hidden">
+
+      <div class="section-title">
+        <h2>Bookings</h2>
+      </div>
+
+      <div class="panel">
+
+        <div class="empty">
+          <div style="font-size:40px">📦</div>
+          <h3 style="margin:10px 0">Booking Management</h3>
+          <p>
+            এই section-এ পরের ধাপে আমরা customer bookings,
+            provider assignment এবং booking status যোগ করব।
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- NAV -->
+  <nav class="bottom-nav">
+
+    <div class="bottom-nav-inner">
+
+      <button class="nav-btn active"
+              onclick="showSection('dashboard')">
+        <div>🏠</div>
+        Home
+      </button>
+
+      <button class="nav-btn"
+              onclick="showSection('providers')">
+        <div>👷</div>
+        Providers
+      </button>
+
+      <button class="nav-btn"
+              onclick="showSection('bookings')">
+        <div>📦</div>
+        Bookings
+      </button>
+
+      <button class="nav-btn"
+              onclick="logout()">
+        <div>🚪</div>
+        Logout
+      </button>
+
+    </div>
+
+  </nav>
+
+</div>
+
+
+<!-- PROVIDER MODAL -->
+<div id="providerModal" class="modal hidden">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+      <h2>Provider Details</h2>
+
+      <button class="close" onclick="closeProviderModal()">
+        ✕
+      </button>
+    </div>
+
+    <div id="providerModalContent"></div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+const SUPABASE_URL =
+  "https://uuwgiyyyrodghvjvicoy.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_1-iphInSnhfjN8zFmrnuSw_qu1l_qOf";
+
+const TOKEN_KEY =
+  "gus_admin_access_token";
+
+let adminUser = null;
+let providers = [];
+let providerFilter = "all";
+
+
+function $(id){
+  return document.getElementById(id);
+}
+
+
+function getToken(){
+  return localStorage.getItem(TOKEN_KEY);
+}
+
+
+function setToken(token){
+  if(token){
+    localStorage.setItem(TOKEN_KEY, token);
+  }else{
+    localStorage.removeItem(TOKEN_KEY);
+  }
+}
+
+
+/* SUPABASE FETCH */
+async function supabaseFetch(path, options={}){
+
+  const token = getToken();
+
+  const headers = {
+    "apikey": SUPABASE_KEY,
+    ...(options.headers || {})
+  };
+
+  if(token){
+    headers["Authorization"] =
+      "Bearer " + token;
+  }
+
+  return fetch(
+    SUPABASE_URL + path,
+    {
+      ...options,
+      headers
+    }
+  );
+}
+
+
+/* LOGIN */
+async function login(){
+
+  const email =
+    $("email").value.trim();
+
+  const password =
+    $("password").value;
+
+  $("loginError").classList.add("hidden");
+
+  if(!email || !password){
+
+    showLoginError(
+      "Email এবং password দিন।"
+    );
+
+    return;
+  }
+
+  $("loginBtn").disabled = true;
+  $("loginBtn").textContent = "Logging in...";
+
+  try{
+
+    const res = await fetch(
+      SUPABASE_URL +
+      "/auth/v1/token?grant_type=password",
+      {
+        method:"POST",
+        headers:{
+          "apikey":SUPABASE_KEY,
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          email,
+          password
+        })
+      }
+    );
+
+    const data = await res.json();
+
+    if(!res.ok){
+
+      throw new Error(
+        data.msg ||
+        data.error_description ||
+        data.message ||
+        "Login failed."
+      );
+
+    }
+
+    if(!data.access_token){
+
+      throw new Error(
+        "Login token পাওয়া যায়নি।"
+      );
+
+    }
+
+    setToken(data.access_token);
+
+    adminUser =
+      data.user || null;
+
+    /* Check admin permission */
+    const adminCheck =
+      await supabaseFetch(
+        "/rest/v1/admin_users?select=id,user_id,is_active&user_id=eq." +
+        encodeURIComponent(adminUser.id) +
+        "&is_active=eq.true&limit=1"
+      );
+
+    if(!adminCheck.ok){
+
+      throw new Error(
+        "Admin permission check failed."
+      );
+
+    }
+
+    const adminRows =
+      await adminCheck.json();
+
+    if(!adminRows.length){
+
+      setToken(null);
+
+      throw new Error(
+        "এই account-এর Admin permission নেই।"
+      );
+
+    }
+
+    openApp();
+
+  }catch(err){
+
+    console.error(err);
+
+    showLoginError(
+      err.message ||
+      "Login failed."
+    );
+
+  }finally{
+
+    $("loginBtn").disabled = false;
+    $("loginBtn").textContent = "Login";
+
+  }
+
+}
+
+
+function showLoginError(message){
+
+  $("loginError").textContent =
+    message;
+
+  $("loginError").classList.remove(
+    "hidden"
+  );
+
+}
+
+
+/* CURRENT USER */
+async function getCurrentUser(){
+
+  const token = getToken();
+
+  if(!token){
+    return null;
+  }
+
+  const res =
+    await supabaseFetch(
+      "/auth/v1/user"
+    );
+
+  if(!res.ok){
+    return null;
+  }
+
+  return await res.json();
+
+}
+
+
+/* START APP */
+async function boot(){
+
+  try{
+
+    const user =
+      await getCurrentUser();
+
+    if(!user){
+
+      setToken(null);
+      showLogin();
+
+      return;
+
+    }
+
+    adminUser = user;
+
+    const adminCheck =
+      await supabaseFetch(
+        "/rest/v1/admin_users?select=id,user_id,is_active&user_id=eq." +
+        encodeURIComponent(user.id) +
+        "&is_active=eq.true&limit=1"
+      );
+
+    if(!adminCheck.ok){
+
+      setToken(null);
+      showLogin();
+
+      return;
+
+    }
+
+    const rows =
+      await adminCheck.json();
+
+    if(!rows.length){
+
+      setToken(null);
+      showLogin();
+
+      return;
+
+    }
+
+    openApp();
+
+  }catch(err){
+
+    console.error(err);
+    showLogin();
+
+  }
+
+}
+
+
+function showLogin(){
+
+  $("loginScreen").classList.remove(
+    "hidden"
+  );
+
+  $("app").classList.add(
+    "hidden"
+  );
+
+}
+
+
+async function openApp(){
+
+  $("loginScreen").classList.add(
+    "hidden"
+  );
+
+  $("app").classList.remove(
+    "hidden"
+  );
+
+  await loadDashboard();
+
+}
+
+
+/* DASHBOARD */
+async function loadDashboard(){
+
+  try{
+
+    /* Providers */
+    const providerRes =
+      await supabaseFetch(
+        "/rest/v1/provider_applications?select=id,status"
+      );
+
+    if(providerRes.ok){
+
+      const providerRows =
+        await providerRes.json();
+
+      providers =
+        providerRows;
+
+      $("totalProviders").textContent =
+        providerRows.filter(
+          x => x.status === "approved"
+        ).length;
+
+      $("pendingProviders").textContent =
+        providerRows.filter(
+          x =>
+            x.status === "pending" ||
+            x.status === "under_review"
+        ).length;
+
+    }
+
+
+    /* Bookings */
+    const bookingRes =
+      await supabaseFetch(
+        "/rest/v1/bookings?select=id"
+      );
+
+    if(bookingRes.ok){
+
+      const bookingRows =
+        await bookingRes.json();
+
+      $("totalBookings").textContent =
+        bookingRows.length;
+
+    }
+
+
+    /* Customers */
+    const customerRes =
+      await supabaseFetch(
+        "/rest/v1/customers?select=id"
+      );
+
+    if(customerRes.ok){
+
+      const customerRows =
+        await customerRes.json();
+
+      $("totalCustomers").textContent =
+        customerRows.length;
+
+    }
+
+  }catch(err){
+
+    console.error(
+      "Dashboard error:",
+      err
+    );
+
+  }
+
+}
+
+
+/* SECTION */
+function showSection(section){
+
+  $("dashboardSection")
+    .classList.add("hidden");
+
+  $("providersSection")
+    .classList.add("hidden");
+
+  $("bookingsSection")
+    .classList.add("hidden");
+
+
+  if(section === "dashboard"){
+
+    $("dashboardSection")
+      .classList.remove("hidden");
+
+    loadDashboard();
+
+  }
+
+  if(section === "providers"){
+
+    $("providersSection")
+      .classList.remove("hidden");
+
+    loadProviders();
+
+  }
+
+  if(section === "bookings"){
+
+    $("bookingsSection")
+      .classList.remove("hidden");
+
+  }
+
+
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+}
+
+
+/* LOAD PROVIDERS */
+async function loadProviders(){
+
+  $("providersList").innerHTML =
+    '<div class="loading">Loading providers...</div>';
+
+  try{
+
+    const res =
+      await supabaseFetch(
+        "/rest/v1/provider_applications?select=*&order=created_at.desc"
+      );
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+    providers =
+      await res.json();
+
+    renderProviders();
+
+  }catch(err){
+
+    console.error(err);
+
+    $("providersList").innerHTML =
+      `
+      <div class="empty">
+        <div style="font-size:35px">⚠️</div>
+        <p style="margin-top:10px">
+          Provider applications load করা যাচ্ছে না।
+        </p>
+        <small>${escapeHtml(err.message)}</small>
+      </div>
+      `;
+
+  }
+
+}
+
+
+/* FILTER */
+function setProviderFilter(
+  filter,
+  button
+){
+
+  providerFilter =
+    filter;
+
+  document
+    .querySelectorAll(".filter-btn")
+    .forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+  button.classList.add("active");
+
+  renderProviders();
+
+}
+
+
+/* RENDER */
+function renderProviders(){
+
+  let list =
+    providers;
+
+  if(providerFilter !== "all"){
+
+    list =
+      providers.filter(
+        p =>
+          p.status === providerFilter
+      );
+
+  }
+
+  if(!list.length){
+
+    $("providersList").innerHTML =
+      `
+      <div class="empty">
+        <div style="font-size:40px">👷</div>
+        <p style="margin-top:10px">
+          No provider applications found.
+        </p>
+      </div>
+      `;
+
+    return;
+
+  }
+
+  $("providersList").innerHTML =
+    list.map(
+      providerCard
+    ).join("");
+
+}
+
+
+/* PROVIDER CARD */
+function providerCard(p){
+
+  const services =
+    Array.isArray(p.services)
+      ? p.services.join(", ")
+      : "";
+
+  const status =
+    p.status || "pending";
+
+  const photo =
+    p.selfie_url
+      ? getStorageUrl(p.selfie_url)
+      : "";
+
+  return `
+    <div class="provider-card">
+
+      <div class="provider-head">
+
+        ${
+          photo
+          ?
+          `<img
+             class="provider-photo"
+             src="${escapeAttr(photo)}"
+             onerror="this.style.display='none'"
+           >`
+          :
+          `<div class="provider-photo"
+                style="display:flex;align-items:center;justify-content:center;font-size:24px">
+             👤
+           </div>`
+        }
+
+        <div class="provider-info">
+
+          <h3>
+            ${escapeHtml(p.full_name || "Unnamed Provider")}
+          </h3>
+
+          <p>
+            📞 ${escapeHtml(p.phone || "-")}
+          </p>
+
+          <p>
+            📍 ${escapeHtml(p.work_area || p.city || "-")}
+          </p>
+
+        </div>
+
+        <span class="status ${escapeAttr(status)}">
+          ${escapeHtml(status)}
+        </span>
+
+      </div>
+
+
+      <div class="provider-details">
+
+        <b>Experience:</b>
+        ${escapeHtml(String(p.experience_years || 0))} years
+        <br>
+
+        <b>Services:</b>
+        ${escapeHtml(services || "-")}
+        <br>
+
+        <b>Application:</b>
+        ${formatDate(p.created_at)}
+
+      </div>
+
+
+      <div class="action-row">
+
+        <button
+          class="action-btn view"
+          onclick="viewProvider('${p.id}')">
+          View Details
+        </button>
+
+        ${
+          status !== "approved"
+          ?
+          `
+          <button
+            class="action-btn approve"
+            onclick="changeProviderStatus('${p.id}','approved')">
+            ✓ Approve
+          </button>
+          `
+          :
+          `
+          <button
+            class="action-btn reject"
+            onclick="changeProviderStatus('${p.id}','suspended')">
+            Suspend
+          </button>
+          `
+        }
+
+      </div>
+
+
+      ${
+        status === "pending" ||
+        status === "under_review"
+        ?
+        `
+        <div class="action-row">
+
+          <button
+            class="action-btn reject"
+            onclick="changeProviderStatus('${p.id}','rejected')">
+            ✕ Reject
+          </button>
+
+        </div>
+        `
+        :
+        ""
+      }
+
+    </div>
+  `;
+
+}
+
+
+/* VIEW PROVIDER */
+async function viewProvider(id){
+
+  const provider =
+    providers.find(
+      p => String(p.id) === String(id)
+    );
+
+  if(!provider){
+    return;
+  }
+
+  $("providerModal").classList.remove(
+    "hidden"
+  );
+
+  $("providerModalContent").innerHTML =
+    `
+    <div class="loading">
+      Loading documents...
+    </div>
+    `;
+
+  let selfie = "";
+  let front = "";
+  let back = "";
+
+  try{
+
+    if(provider.selfie_url){
+      selfie =
+        await loadPrivateImage(
+          provider.selfie_url
+        );
+    }
+
+    if(provider.aadhaar_front_url){
+      front =
+        await loadPrivateImage(
+          provider.aadhaar_front_url
+        );
+    }
+
+    if(provider.aadhaar_back_url){
+      back =
+        await loadPrivateImage(
+          provider.aadhaar_back_url
+        );
+    }
+
+  }catch(err){
+
+    console.error(err);
+
+  }
+
+
+  const services =
+    Array.isArray(provider.services)
+      ? provider.services.join(", ")
+      : "-";
+
+
+  $("providerModalContent").innerHTML =
+    `
+    <div>
+
+      <h3>
+        ${escapeHtml(provider.full_name || "-")}
+      </h3>
+
+      <p style="margin-top:7px;color:#64748b">
+        📞 ${escapeHtml(provider.phone || "-")}
+      </p>
+
+      <p style="margin-top:5px;color:#64748b">
+        ✉️ ${escapeHtml(provider.email || "-")}
+      </p>
+
+      <hr style="margin:15px 0;border:0;border-top:1px solid #eee">
+
+      <p><b>Father / Guardian:</b>
+        ${escapeHtml(provider.father_guardian_name || "-")}
+      </p>
+
+      <p><b>Date of Birth:</b>
+        ${escapeHtml(provider.date_of_birth || "-")}
+      </p>
+
+      <p><b>Gender:</b>
+        ${escapeHtml(provider.gender || "-")}
+      </p>
+
+      <p><b>Aadhaar:</b>
+        ${escapeHtml(provider.aadhaar_number || "-")}
+      </p>
+
+      <p><b>Current Address:</b>
+        ${escapeHtml(provider.current_address || "-")}
+      </p>
+
+      <p><b>Permanent Address:</b>
+        ${escapeHtml(provider.permanent_address || "-")}
+      </p>
+
+      <p><b>City:</b>
+        ${escapeHtml(provider.city || "-")}
+      </p>
+
+      <p><b>PIN:</b>
+        ${escapeHtml(provider.pin_code || "-")}
+      </p>
+
+      <p><b>Experience:</b>
+        ${escapeHtml(String(provider.experience_years || 0))} years
+      </p>
+
+      <p><b>Previous Work:</b>
+        ${escapeHtml(provider.previous_work || "-")}
+      </p>
+
+      <p><b>Work Area:</b>
+        ${escapeHtml(provider.work_area || "-")}
+      </p>
+
+      <p><b>Services:</b>
+        ${escapeHtml(services)}
+      </p>
+
+      <hr style="margin:15px 0;border:0;border-top:1px solid #eee">
+
+      <h3>Selfie</h3>
+
+      ${
+        selfie
+        ?
+        `<img class="document-img"
+               src="${escapeAttr(selfie)}">`
+        :
+        `<p style="color:#777;margin-top:8px">
+           Selfie unavailable
+         </p>`
+      }
+
+
+      <h3 style="margin-top:18px">
+        Aadhaar Front
+      </h3>
+
+      ${
+        front
+        ?
+        `<img class="document-img"
+               src="${escapeAttr(front)}">`
+        :
+        `<p style="color:#777;margin-top:8px">
+           Aadhaar front unavailable
+         </p>`
+      }
+
+
+      <h3 style="margin-top:18px">
+        Aadhaar Back
+      </h3>
+
+      ${
+        back
+        ?
+        `<img class="document-img"
+               src="${escapeAttr(back)}">`
+        :
+        `<p style="color:#777;margin-top:8px">
+           Aadhaar back unavailable
+         </p>`
+      }
+
+
+      <textarea
+        id="adminNote"
+        class="note"
+        placeholder="Admin note..."
+      >${escapeHtml(provider.admin_note || "")}</textarea>
+
+
+      <div class="action-row">
+
+        <button
+          class="action-btn approve"
+          onclick="changeProviderStatus('${provider.id}','approved')">
+          ✓ Approve Provider
+        </button>
+
+        <button
+          class="action-btn reject"
+          onclick="changeProviderStatus('${provider.id}','rejected')">
+          ✕ Reject
+        </button>
+
+      </div>
+
+    </div>
+    `;
+
+}
+
+
+/* PRIVATE STORAGE IMAGE */
+async function loadPrivateImage(path){
+
+  const token =
+    getToken();
+
+  const url =
+    SUPABASE_URL +
+    "/storage/v1/object/authenticated/provider-documents/" +
+    path;
+
+  const res =
+    await fetch(
+      url,
+      {
+        headers:{
+          "apikey":SUPABASE_KEY,
+          "Authorization":
+            "Bearer " + token
+        }
+      }
+    );
+
+  if(!res.ok){
+
+    throw new Error(
+      "Could not load private image."
+    );
+
+  }
+
+  const blob =
+    await res.blob();
+
+  return URL.createObjectURL(
+    blob
+  );
+
+}
+
+
+/* STORAGE URL FOR PHOTO */
+function getStorageUrl(path){
+
+  return (
+    SUPABASE_URL +
+    "/storage/v1/object/authenticated/provider-documents/" +
+    path
+  );
+
+}
+
+
+/* CHANGE PROVIDER STATUS */
+async function changeProviderStatus(
+  id,
+  status
+){
+
+  const provider =
+    providers.find(
+      p => String(p.id) === String(id)
+    );
+
+  if(!provider){
+    return;
+  }
+
+
+  let note = "";
+
+  const noteEl =
+    $("adminNote");
+
+  if(noteEl){
+    note =
+      noteEl.value.trim();
+  }
+
+
+  if(status === "rejected"){
+
+    const ok =
+      confirm(
+        "এই provider application reject করতে চান?"
+      );
+
+    if(!ok){
+      return;
+    }
+
+  }
+
+
+  if(status === "suspended"){
+
+    const ok =
+      confirm(
+        "এই provider suspend করতে চান?"
+      );
+
+    if(!ok){
+      return;
+    }
+
+  }
+
+
+  try{
+
+    const body = {
+      status:status,
+      admin_note:note,
+      reviewed_by:adminUser.id,
+      reviewed_at:new Date().toISOString(),
+      updated_at:new Date().toISOString()
+    };
+
+
+    const res =
+      await supabaseFetch(
+        "/rest/v1/provider_applications?id=eq." +
+        encodeURIComponent(id),
+        {
+          method:"PATCH",
+          headers:{
+            "Content-Type":
+              "application/json",
+            "Prefer":
+              "return=representation"
+          },
+          body:JSON.stringify(body)
+        }
+      );
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    alert(
+      "Provider status updated successfully."
+    );
+
+
+    closeProviderModal();
+
+    await loadProviders();
+
+    await loadDashboard();
+
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      "Status update failed:\n\n" +
+      err.message
+    );
+
+  }
+
+}
+
+
+/* CLOSE MODAL */
+function closeProviderModal(){
+
+  $("providerModal")
+    .classList.add("hidden");
+
+  $("providerModalContent")
+    .innerHTML = "";
+
+}
+
+
+/* LOGOUT */
+async function logout(){
+
+  try{
+
+    const token =
+      getToken();
+
+    if(token){
+
+      await fetch(
+        SUPABASE_URL +
+        "/auth/v1/logout",
+        {
+          method:"POST",
+          headers:{
+            "apikey":SUPABASE_KEY,
+            "Authorization":
+              "Bearer " + token
+          }
+        }
+      );
+
+    }
+
+  }catch(err){
+
+    console.error(err);
+
+  }
+
+  setToken(null);
+  adminUser = null;
+
+  showLogin();
+
+}
+
+
+/* HELPERS */
+function escapeHtml(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttr(value){
+
+  return escapeHtml(value);
+
+}
+
+
+function formatDate(value){
+
+  if(!value){
+    return "-";
+  }
+
+  try{
+
+    return new Date(value)
+      .toLocaleString(
+        "en-IN",
+        {
+          dateStyle:"medium",
+          timeStyle:"short"
+        }
+      );
+
+  }catch(err){
+
+    return value;
+
+  }
+
+}
+
+
+/* EVENTS */
+$("loginBtn")
+  .addEventListener(
+    "click",
+    login
+  );
+
+$("logoutBtn")
+  .addEventListener(
+    "click",
+    logout
+  );
+
+
+$("password")
+  .addEventListener(
+    "keydown",
+    e => {
+      if(e.key === "Enter"){
+        login();
+      }
+    }
+  );
+
+
+$("providerModal")
+  .addEventListener(
+    "click",
+    e => {
+      if(e.target.id === "providerModal"){
+        closeProviderModal();
+      }
+    }
+  );
+
+
+/* START */
+boot();
+
+</script>
+
+</body>
+</html>
