@@ -5574,6 +5574,15 @@ async function toggleServiceStatus(
   const newStatus =
     !current;
 
+  console.log(
+    "SERVICE STATUS UPDATE:",
+    {
+      id: id,
+      current: current,
+      newStatus: newStatus,
+      token: !!getToken()
+    }
+  );
 
   try{
 
@@ -5592,28 +5601,50 @@ async function toggleServiceStatus(
               "return=representation"
           },
 
-          body:
-            JSON.stringify({
-              is_active:newStatus
-            })
-
+          body: JSON.stringify({
+            is_active: newStatus
+          })
         }
       );
 
 
+    const txt =
+      await res.text();
+
+
+    console.log(
+      "SUPABASE RESPONSE:",
+      res.status,
+      txt
+    );
+
+
     if(!res.ok){
 
-      const txt =
-        await res.text();
-
-      throw new Error(txt);
+      throw new Error(
+        txt ||
+        "Service status update failed."
+      );
 
     }
 
 
+    alert(
+      newStatus
+        ? "Service activated successfully."
+        : "Service deactivated successfully."
+    );
+
+
     await loadServicesAdmin();
 
+
   }catch(err){
+
+    console.error(
+      "SERVICE STATUS ERROR:",
+      err
+    );
 
     alert(
       "Service status update failed:\n\n" +
@@ -5623,6 +5654,7 @@ async function toggleServiceStatus(
   }
 
 }
+    
 
 
 /* OPTION MODAL */
