@@ -299,6 +299,63 @@ textarea:focus{
   color:white;
 }
 
+/* COMMON */
+
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-group label{
+  display:block;
+  font-size:12px;
+  font-weight:bold;
+  color:#475569;
+  margin-bottom:6px;
+}
+
+.form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.small-btn{
+  padding:9px 12px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.success-btn{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.edit-btn{
+  background:#e0f2fe;
+  color:#075985;
+}
+
+.delete-btn{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.add-btn{
+  background:#0f766e;
+  color:white;
+}
+
+.muted{
+  color:#64748b;
+  font-size:12px;
+}
+
+.price{
+  font-weight:bold;
+  color:#0f766e;
+}
+
 /* PROVIDER */
 
 .provider-card{
@@ -361,6 +418,16 @@ textarea:focus{
 .status.suspended{
   background:#e5e7eb;
   color:#374151;
+}
+
+.status.cancelled{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+.status.assigned{
+  background:#dcfce7;
+  color:#166534;
 }
 
 .provider-details{
@@ -549,19 +616,184 @@ textarea:focus{
   font-weight:bold;
 }
 
-.status.pending{
-  background:#fef3c7;
-  color:#92400e;
+/* SERVICES */
+
+.service-admin-card{
+  border:1px solid #e5e7eb;
+  border-radius:17px;
+  padding:15px;
+  margin-bottom:14px;
+  background:white;
 }
 
-.status.cancelled{
-  background:#fee2e2;
-  color:#991b1b;
+.service-admin-head{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
 }
 
-.status.assigned{
-  background:#dcfce7;
-  color:#166534;
+.service-admin-main{
+  flex:1;
+}
+
+.service-admin-main h3{
+  font-size:16px;
+}
+
+.service-admin-main p{
+  font-size:12px;
+  color:#64748b;
+  margin-top:4px;
+}
+
+.service-price{
+  font-size:18px;
+  font-weight:bold;
+  color:#0f766e;
+}
+
+.service-actions{
+  display:flex;
+  gap:7px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.service-actions button{
+  padding:9px 11px;
+  border-radius:9px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.option-box{
+  margin-top:13px;
+  padding-top:13px;
+  border-top:1px solid #eee;
+}
+
+.option-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:9px;
+}
+
+.option-head h4{
+  font-size:13px;
+}
+
+.option-card{
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:12px;
+  padding:11px;
+  margin-bottom:8px;
+}
+
+.option-card-top{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.option-card-main{
+  flex:1;
+}
+
+.option-card-main strong{
+  font-size:13px;
+}
+
+.option-card-main p{
+  font-size:11px;
+  color:#64748b;
+  margin-top:3px;
+}
+
+.option-card-actions{
+  display:flex;
+  gap:5px;
+}
+
+.option-card-actions button{
+  padding:7px 9px;
+  border-radius:8px;
+  font-size:11px;
+}
+
+/* OFFERS */
+
+.offer-admin-card{
+  border:1px solid #e5e7eb;
+  border-radius:17px;
+  padding:15px;
+  margin-bottom:13px;
+  background:white;
+}
+
+.offer-admin-head{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.offer-admin-main{
+  flex:1;
+}
+
+.offer-admin-main h3{
+  font-size:16px;
+}
+
+.offer-admin-main p{
+  font-size:12px;
+  color:#64748b;
+  margin-top:4px;
+}
+
+.offer-value{
+  font-size:19px;
+  font-weight:bold;
+  color:#0f766e;
+}
+
+.offer-meta{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:12px;
+}
+
+.offer-meta-item{
+  background:#f8fafc;
+  padding:9px;
+  border-radius:10px;
+}
+
+.offer-meta-label{
+  font-size:10px;
+  color:#64748b;
+}
+
+.offer-meta-value{
+  font-size:12px;
+  font-weight:bold;
+  margin-top:3px;
+}
+
+.offer-actions{
+  display:flex;
+  gap:7px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+
+.offer-actions button{
+  padding:9px 11px;
+  border-radius:9px;
+  font-size:11px;
+  font-weight:bold;
 }
 
 /* MODAL */
@@ -670,18 +902,18 @@ textarea:focus{
   width:100%;
   max-width:700px;
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(5,1fr);
 }
 
 .nav-btn{
   padding:10px 4px 9px;
   background:white;
   color:#64748b;
-  font-size:11px;
+  font-size:10px;
 }
 
 .nav-btn div{
-  font-size:20px;
+  font-size:19px;
   margin-bottom:3px;
 }
 
@@ -737,23 +969,20 @@ textarea:focus{
 
     <div id="loginError" class="error hidden"></div>
 
-    <input
-      id="email"
-      class="input"
-      type="email"
-      placeholder="Admin email"
-      autocomplete="email"
-    >
+    <input id="email"
+           class="input"
+           type="email"
+           placeholder="Admin email"
+           autocomplete="email">
 
-    <input
-      id="password"
-      class="input"
-      type="password"
-      placeholder="Password"
-      autocomplete="current-password"
-    >
+    <input id="password"
+           class="input"
+           type="password"
+           placeholder="Password"
+           autocomplete="current-password">
 
-    <button id="loginBtn" class="primary-btn">
+    <button id="loginBtn"
+            class="primary-btn">
       Login
     </button>
 
@@ -766,432 +995,408 @@ textarea:focus{
 
 <div id="app" class="hidden">
 
-  <header class="topbar">
+<header class="topbar">
 
-    <div class="topbar-inner">
+  <div class="topbar-inner">
 
-      <div class="brand">
+    <div class="brand">
 
-        <div class="brand-icon">
-          🧹
-        </div>
+      <div class="brand-icon">🧹</div>
 
-        <div>
-
-          <h2>Guwahati Urban</h2>
-
-          <span>
-            Admin Panel
-          </span>
-
-        </div>
-
+      <div>
+        <h2>Guwahati Urban</h2>
+        <span>Admin Panel</span>
       </div>
 
-      <button
-        id="logoutBtn"
-        class="logout-btn">
-        Logout
+    </div>
+
+    <button id="logoutBtn"
+            class="logout-btn">
+      Logout
+    </button>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+<!-- DASHBOARD -->
+
+<section id="dashboardSection">
+
+  <div class="welcome">
+
+    <h1>Dashboard 👋</h1>
+
+    <p>
+      Manage your cleaning marketplace from here.
+    </p>
+
+  </div>
+
+
+  <div class="stats">
+
+    <div class="stat">
+      <div class="stat-icon">📦</div>
+      <div id="totalBookings"
+           class="stat-value">0</div>
+      <div class="stat-label">Total Bookings</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">👷</div>
+      <div id="totalProviders"
+           class="stat-value">0</div>
+      <div class="stat-label">Providers</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">👥</div>
+      <div id="totalCustomers"
+           class="stat-value">0</div>
+      <div class="stat-label">Customers</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">🟡</div>
+      <div id="pendingProviders"
+           class="stat-value">0</div>
+      <div class="stat-label">Pending Providers</div>
+    </div>
+
+  </div>
+
+
+  <div class="section-title">
+    <h2>Management</h2>
+  </div>
+
+
+  <div class="menu-grid">
+
+    <button class="menu-card"
+            onclick="showSection('providers')">
+
+      <div class="icon">👷</div>
+
+      <h3>Providers</h3>
+
+      <p>Applications & approval</p>
+
+    </button>
+
+
+    <button class="menu-card"
+            onclick="showSection('bookings')">
+
+      <div class="icon">📦</div>
+
+      <h3>Bookings</h3>
+
+      <p>Manage customer bookings</p>
+
+    </button>
+
+
+    <button class="menu-card"
+            onclick="showSection('services')">
+
+      <div class="icon">🧹</div>
+
+      <h3>Services</h3>
+
+      <p>Prices & sub-services</p>
+
+    </button>
+
+
+    <button class="menu-card"
+            onclick="showSection('offers')">
+
+      <div class="icon">🎁</div>
+
+      <h3>Offers</h3>
+
+      <p>Discounts & promotions</p>
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- PROVIDERS -->
+
+<section id="providersSection"
+         class="hidden">
+
+  <div class="section-title">
+
+    <h2>Provider Applications</h2>
+
+    <button class="filter-btn"
+            onclick="loadProviders()">
+      🔄
+    </button>
+
+  </div>
+
+
+  <div class="panel">
+
+    <div class="filter-row">
+
+      <button class="filter-btn active"
+              onclick="setProviderFilter('all',this)">
+        All
+      </button>
+
+      <button class="filter-btn"
+              onclick="setProviderFilter('pending',this)">
+        Pending
+      </button>
+
+      <button class="filter-btn"
+              onclick="setProviderFilter('approved',this)">
+        Approved
+      </button>
+
+      <button class="filter-btn"
+              onclick="setProviderFilter('rejected',this)">
+        Rejected
       </button>
 
     </div>
 
-  </header>
 
+    <div id="providersList">
 
-  <main class="container">
-
-    <!-- DASHBOARD -->
-
-    <section id="dashboardSection">
-
-      <div class="welcome">
-
-        <h1>
-          Dashboard 👋
-        </h1>
-
-        <p>
-          Manage your cleaning marketplace from here.
-        </p>
-
+      <div class="loading">
+        Loading providers...
       </div>
 
+    </div>
 
-      <div class="stats">
+  </div>
 
-        <div class="stat">
+</section>
 
-          <div class="stat-icon">
-            📦
-          </div>
 
-          <div id="totalBookings"
-               class="stat-value">
-            0
-          </div>
+<!-- BOOKINGS -->
 
-          <div class="stat-label">
-            Total Bookings
-          </div>
+<section id="bookingsSection"
+         class="hidden">
 
-        </div>
+  <div class="section-title">
 
+    <h2>Customer Bookings</h2>
 
-        <div class="stat">
+    <button class="filter-btn"
+            onclick="loadBookings()">
+      🔄 Refresh
+    </button>
 
-          <div class="stat-icon">
-            👷
-          </div>
+  </div>
 
-          <div id="totalProviders"
-               class="stat-value">
-            0
-          </div>
 
-          <div class="stat-label">
-            Providers
-          </div>
+  <div class="panel">
 
-        </div>
+    <div class="filter-row">
 
-
-        <div class="stat">
-
-          <div class="stat-icon">
-            👥
-          </div>
-
-          <div id="totalCustomers"
-               class="stat-value">
-            0
-          </div>
-
-          <div class="stat-label">
-            Customers
-          </div>
-
-        </div>
-
-
-        <div class="stat">
-
-          <div class="stat-icon">
-            🟡
-          </div>
-
-          <div id="pendingProviders"
-               class="stat-value">
-            0
-          </div>
-
-          <div class="stat-label">
-            Pending Providers
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="section-title">
-
-        <h2>
-          Management
-        </h2>
-
-      </div>
-
-
-      <div class="menu-grid">
-
-        <button
-          class="menu-card"
-          onclick="showSection('providers')">
-
-          <div class="icon">
-            👷
-          </div>
-
-          <h3>
-            Providers
-          </h3>
-
-          <p>
-            Applications & approval
-          </p>
-
-        </button>
-
-
-        <button
-          class="menu-card"
-          onclick="showSection('bookings')">
-
-          <div class="icon">
-            📦
-          </div>
-
-          <h3>
-            Bookings
-          </h3>
-
-          <p>
-            Manage customer bookings
-          </p>
-
-        </button>
-
-
-        <button
-          class="menu-card"
-          onclick="alert('Services Management will be added next.')">
-
-          <div class="icon">
-            🧹
-          </div>
-
-          <h3>
-            Services
-          </h3>
-
-          <p>
-            Prices & sub-services
-          </p>
-
-        </button>
-
-
-        <button
-          class="menu-card"
-          onclick="alert('Offers Management will be added next.')">
-
-          <div class="icon">
-            🎁
-          </div>
-
-          <h3>
-            Offers
-          </h3>
-
-          <p>
-            Discounts & promotions
-          </p>
-
-        </button>
-
-      </div>
-
-    </section>
-
-
-    <!-- PROVIDERS -->
-
-    <section
-      id="providersSection"
-      class="hidden">
-
-      <div class="section-title">
-
-        <h2>
-          Provider Applications
-        </h2>
-
-      </div>
-
-
-      <div class="panel">
-
-        <div class="filter-row">
-
-          <button
-            class="filter-btn active"
-            onclick="setProviderFilter('all',this)">
-            All
-          </button>
-
-          <button
-            class="filter-btn"
-            onclick="setProviderFilter('pending',this)">
-            Pending
-          </button>
-
-          <button
-            class="filter-btn"
-            onclick="setProviderFilter('approved',this)">
-            Approved
-          </button>
-
-          <button
-            class="filter-btn"
-            onclick="setProviderFilter('rejected',this)">
-            Rejected
-          </button>
-
-        </div>
-
-
-        <div id="providersList">
-
-          <div class="loading">
-            Loading providers...
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- BOOKINGS -->
-
-    <section
-      id="bookingsSection"
-      class="hidden">
-
-      <div class="section-title">
-
-        <h2>
-          Customer Bookings
-        </h2>
-
-        <button
-          class="filter-btn"
-          onclick="loadBookings()">
-          🔄 Refresh
-        </button>
-
-      </div>
-
-
-      <div class="panel">
-
-        <div class="filter-row">
-
-          <button
-            class="filter-btn active"
-            onclick="setBookingFilter('all',this)">
-            All
-          </button>
-
-          <button
-            class="filter-btn"
-            onclick="setBookingFilter('pending',this)">
-            Pending
-          </button>
-
-          <button
-            class="filter-btn"
-            onclick="setBookingFilter('assigned',this)">
-            Assigned
-          </button>
-
-          <button
-            class="filter-btn"
-            onclick="setBookingFilter('cancelled',this)">
-            Cancelled
-          </button>
-
-        </div>
-
-
-        <div id="bookingsList">
-
-          <div class="loading">
-            Loading bookings...
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- NAV -->
-
-  <nav class="bottom-nav">
-
-    <div class="bottom-nav-inner">
-
-      <button
-        class="nav-btn active"
-        onclick="showSection('dashboard')">
-
-        <div>
-          🏠
-        </div>
-
-        Home
-
+      <button class="filter-btn active"
+              onclick="setBookingFilter('all',this)">
+        All
       </button>
 
-
-      <button
-        class="nav-btn"
-        onclick="showSection('providers')">
-
-        <div>
-          👷
-        </div>
-
-        Providers
-
+      <button class="filter-btn"
+              onclick="setBookingFilter('pending',this)">
+        Pending
       </button>
 
-
-      <button
-        class="nav-btn"
-        onclick="showSection('bookings')">
-
-        <div>
-          📦
-        </div>
-
-        Bookings
-
+      <button class="filter-btn"
+              onclick="setBookingFilter('assigned',this)">
+        Assigned
       </button>
 
-
-      <button
-        class="nav-btn"
-        onclick="logout()">
-
-        <div>
-          🚪
-        </div>
-
-        Logout
-
+      <button class="filter-btn"
+              onclick="setBookingFilter('cancelled',this)">
+        Cancelled
       </button>
 
     </div>
 
-  </nav>
+
+    <div id="bookingsList">
+
+      <div class="loading">
+        Loading bookings...
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="servicesSection"
+         class="hidden">
+
+  <div class="section-title">
+
+    <h2>🧹 Services</h2>
+
+    <button class="filter-btn"
+            onclick="loadServicesAdmin()">
+      🔄 Refresh
+    </button>
+
+  </div>
+
+
+  <div class="panel">
+
+    <button class="primary-btn"
+            onclick="openServiceModal()"
+            style="margin-bottom:15px">
+
+      + Add New Service
+
+    </button>
+
+
+    <div id="servicesAdminList">
+
+      <div class="loading">
+        Loading services...
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- OFFERS -->
+
+<section id="offersSection"
+         class="hidden">
+
+  <div class="section-title">
+
+    <h2>🎁 Offers & Discounts</h2>
+
+    <button class="filter-btn"
+            onclick="loadOffers()">
+      🔄 Refresh
+    </button>
+
+  </div>
+
+
+  <div class="panel">
+
+    <button class="primary-btn"
+            onclick="openOfferModal()"
+            style="margin-bottom:15px">
+
+      + Create New Offer
+
+    </button>
+
+
+    <div id="offersAdminList">
+
+      <div class="loading">
+        Loading offers...
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+  <div class="bottom-nav-inner">
+
+    <button class="nav-btn active"
+            onclick="showSection('dashboard')">
+
+      <div>🏠</div>
+      Home
+
+    </button>
+
+
+    <button class="nav-btn"
+            onclick="showSection('providers')">
+
+      <div>👷</div>
+      Providers
+
+    </button>
+
+
+    <button class="nav-btn"
+            onclick="showSection('bookings')">
+
+      <div>📦</div>
+      Bookings
+
+    </button>
+
+
+    <button class="nav-btn"
+            onclick="showSection('services')">
+
+      <div>🧹</div>
+      Services
+
+    </button>
+
+
+    <button class="nav-btn"
+            onclick="showSection('offers')">
+
+      <div>🎁</div>
+      Offers
+
+    </button>
+
+  </div>
+
+</nav>
 
 </div>
 
 
 <!-- PROVIDER MODAL -->
 
-<div
-  id="providerModal"
-  class="modal hidden">
+<div id="providerModal"
+     class="modal hidden">
 
   <div class="modal-box">
 
     <div class="modal-head">
 
-      <h2>
-        Provider Details
-      </h2>
+      <h2>Provider Details</h2>
 
-      <button
-        class="close"
-        onclick="closeProviderModal()">
+      <button class="close"
+              onclick="closeProviderModal()">
         ✕
       </button>
 
@@ -1206,21 +1411,17 @@ textarea:focus{
 
 <!-- BOOKING MODAL -->
 
-<div
-  id="bookingModal"
-  class="modal hidden">
+<div id="bookingModal"
+     class="modal hidden">
 
   <div class="modal-box">
 
     <div class="modal-head">
 
-      <h2>
-        Booking Details
-      </h2>
+      <h2>Booking Details</h2>
 
-      <button
-        class="close"
-        onclick="closeBookingModal()">
+      <button class="close"
+              onclick="closeBookingModal()">
         ✕
       </button>
 
@@ -1233,23 +1434,19 @@ textarea:focus{
 </div>
 
 
-<!-- ASSIGN PROVIDER MODAL -->
+<!-- ASSIGN PROVIDER -->
 
-<div
-  id="assignModal"
-  class="modal hidden">
+<div id="assignModal"
+     class="modal hidden">
 
   <div class="modal-box">
 
     <div class="modal-head">
 
-      <h2>
-        Assign Provider
-      </h2>
+      <h2>Assign Provider</h2>
 
-      <button
-        class="close"
-        onclick="closeAssignModal()">
+      <button class="close"
+              onclick="closeAssignModal()">
         ✕
       </button>
 
@@ -1265,8 +1462,7 @@ textarea:focus{
         Approved Providers
       </h3>
 
-      <p
-        style="font-size:12px;color:#64748b;margin-top:4px">
+      <p style="font-size:12px;color:#64748b;margin-top:4px">
         Select a provider for this booking.
       </p>
 
@@ -1282,12 +1478,460 @@ textarea:focus{
     </div>
 
 
-    <button
-      id="confirmAssignBtn"
-      class="primary-btn"
-      style="margin-top:16px">
+    <button id="confirmAssignBtn"
+            class="primary-btn"
+            style="margin-top:16px">
 
       Assign Provider
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- SERVICE MODAL -->
+
+<div id="serviceModal"
+     class="modal hidden">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2 id="serviceModalTitle">
+        Add Service
+      </h2>
+
+      <button class="close"
+              onclick="closeServiceModal()">
+        ✕
+      </button>
+
+    </div>
+
+
+    <input type="hidden"
+           id="serviceEditId">
+
+
+    <div class="form-group">
+
+      <label>Service Name</label>
+
+      <input id="serviceNameInput"
+             class="input"
+             placeholder="Example: Bathroom Cleaning">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Description</label>
+
+      <textarea id="serviceDescriptionInput"
+                class="input"
+                rows="3"
+                placeholder="Service description"></textarea>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Base Price ₹</label>
+
+      <input id="servicePriceInput"
+             class="input"
+             type="number"
+             min="0"
+             placeholder="499">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Active</label>
+
+      <select id="serviceActiveInput"
+              class="select">
+
+        <option value="true">
+          Active
+        </option>
+
+        <option value="false">
+          Inactive
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <button class="primary-btn"
+            id="saveServiceBtn"
+            onclick="saveService()">
+
+      Save Service
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- OPTION MODAL -->
+
+<div id="optionModal"
+     class="modal hidden">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2 id="optionModalTitle">
+        Add Sub-Service
+      </h2>
+
+      <button class="close"
+              onclick="closeOptionModal()">
+        ✕
+      </button>
+
+    </div>
+
+
+    <input type="hidden"
+           id="optionEditId">
+
+    <input type="hidden"
+           id="optionServiceId">
+
+
+    <div class="form-group">
+
+      <label>Sub-Service Name</label>
+
+      <input id="optionNameInput"
+             class="input"
+             placeholder="Example: 1 BHK">
+
+    </div>
+
+
+    <div class="form-row">
+
+      <div class="form-group">
+
+        <label>Price ₹</label>
+
+        <input id="optionPriceInput"
+               class="input"
+               type="number"
+               min="0"
+               placeholder="999">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Duration (minutes)</label>
+
+        <input id="optionDurationInput"
+               class="input"
+               type="number"
+               min="1"
+               placeholder="120">
+
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Sort Order</label>
+
+      <input id="optionSortInput"
+             class="input"
+             type="number"
+             min="0"
+             value="0">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Active</label>
+
+      <select id="optionActiveInput"
+              class="select">
+
+        <option value="true">
+          Active
+        </option>
+
+        <option value="false">
+          Inactive
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <button class="primary-btn"
+            id="saveOptionBtn"
+            onclick="saveOption()">
+
+      Save Sub-Service
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- OFFER MODAL -->
+
+<div id="offerModal"
+     class="modal hidden">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h2 id="offerModalTitle">
+        Create Offer
+      </h2>
+
+      <button class="close"
+              onclick="closeOfferModal()">
+        ✕
+      </button>
+
+    </div>
+
+
+    <input type="hidden"
+           id="offerEditId">
+
+
+    <div class="form-group">
+
+      <label>Offer Title</label>
+
+      <input id="offerTitleInput"
+             class="input"
+             placeholder="Example: Welcome Offer">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Description</label>
+
+      <textarea id="offerDescriptionInput"
+                class="input"
+                rows="3"
+                placeholder="Offer description"></textarea>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Offer Type</label>
+
+      <select id="offerTypeInput"
+              class="select"
+              onchange="updateOfferTypeUI()">
+
+        <option value="percentage">
+          Percentage Discount
+        </option>
+
+        <option value="fixed">
+          Fixed Discount
+        </option>
+
+        <option value="first_booking">
+          First Booking Offer
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-row">
+
+      <div class="form-group">
+
+        <label>Discount Value</label>
+
+        <input id="offerDiscountInput"
+               class="input"
+               type="number"
+               min="0"
+               step="0.01"
+               placeholder="10">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Minimum Booking ₹</label>
+
+        <input id="offerMinimumInput"
+               class="input"
+               type="number"
+               min="0"
+               step="0.01"
+               value="0">
+
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Maximum Discount ₹</label>
+
+      <input id="offerMaximumInput"
+             class="input"
+             type="number"
+             min="0"
+             step="0.01"
+             placeholder="Optional">
+
+      <div class="muted">
+        Percentage offer-এর maximum discount limit.
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Coupon Code</label>
+
+      <input id="offerCouponInput"
+             class="input"
+             placeholder="WELCOME10">
+
+    </div>
+
+
+    <div class="form-row">
+
+      <div class="form-group">
+
+        <label>Start Date</label>
+
+        <input id="offerStartInput"
+               class="input"
+               type="date">
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>End Date</label>
+
+        <input id="offerEndInput"
+               class="input"
+               type="date">
+
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Popup Title</label>
+
+      <input id="offerPopupTitleInput"
+             class="input"
+             placeholder="Special Offer 🎁">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Popup Message</label>
+
+      <textarea id="offerPopupMessageInput"
+                class="input"
+                rows="3"
+                placeholder="Get special discount on your booking."></textarea>
+
+    </div>
+
+
+    <div class="form-row">
+
+      <div class="form-group">
+
+        <label>Offer Status</label>
+
+        <select id="offerActiveInput"
+                class="select">
+
+          <option value="true">
+            Active
+          </option>
+
+          <option value="false">
+            Inactive
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>Auto Apply</label>
+
+        <select id="offerAutoApplyInput"
+                class="select">
+
+          <option value="true">
+            Yes
+          </option>
+
+          <option value="false">
+            No
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+    <button class="primary-btn"
+            id="saveOfferBtn"
+            onclick="saveOffer()">
+
+      Save Offer
 
     </button>
 
@@ -1319,10 +1963,16 @@ let bookingFilter = "all";
 
 let services = [];
 
+let serviceOptions = [];
+
+let offers = [];
+
 let currentAssignBooking = null;
 
 let selectedProviderId = null;
 
+
+/* HELPER */
 
 function $(id){
   return document.getElementById(id);
@@ -1337,14 +1987,18 @@ function getToken(){
 function setToken(token){
 
   if(token){
+
     localStorage.setItem(
       TOKEN_KEY,
       token
     );
+
   }else{
+
     localStorage.removeItem(
       TOKEN_KEY
     );
+
   }
 
 }
@@ -1361,13 +2015,19 @@ async function supabaseFetch(
     getToken();
 
   const headers = {
-    "apikey": SUPABASE_KEY,
+
+    "apikey":
+      SUPABASE_KEY,
+
     ...(options.headers || {})
+
   };
 
   if(token){
+
     headers["Authorization"] =
       "Bearer " + token;
+
   }
 
   return fetch(
@@ -1394,6 +2054,7 @@ async function login(){
   $("loginError")
     .classList.add("hidden");
 
+
   if(!email || !password){
 
     showLoginError(
@@ -1401,12 +2062,15 @@ async function login(){
     );
 
     return;
+
   }
+
 
   $("loginBtn").disabled = true;
 
   $("loginBtn").textContent =
     "Logging in...";
+
 
   try{
 
@@ -1417,7 +2081,8 @@ async function login(){
         {
           method:"POST",
           headers:{
-            "apikey":SUPABASE_KEY,
+            "apikey":
+              SUPABASE_KEY,
             "Content-Type":
               "application/json"
           },
@@ -1428,8 +2093,10 @@ async function login(){
         }
       );
 
+
     const data =
       await res.json();
+
 
     if(!res.ok){
 
@@ -1442,6 +2109,7 @@ async function login(){
 
     }
 
+
     if(!data.access_token){
 
       throw new Error(
@@ -1449,6 +2117,7 @@ async function login(){
       );
 
     }
+
 
     setToken(
       data.access_token
@@ -1461,7 +2130,9 @@ async function login(){
     const adminCheck =
       await supabaseFetch(
         "/rest/v1/admin_users?select=id,user_id,is_active&user_id=eq." +
-        encodeURIComponent(adminUser.id) +
+        encodeURIComponent(
+          adminUser.id
+        ) +
         "&is_active=eq.true&limit=1"
       );
 
@@ -1535,14 +2206,17 @@ async function getCurrentUser(){
     return null;
   }
 
+
   const res =
     await supabaseFetch(
       "/auth/v1/user"
     );
 
+
   if(!res.ok){
     return null;
   }
+
 
   return await res.json();
 
@@ -1558,6 +2232,7 @@ async function boot(){
     const user =
       await getCurrentUser();
 
+
     if(!user){
 
       setToken(null);
@@ -1568,6 +2243,7 @@ async function boot(){
 
     }
 
+
     adminUser =
       user;
 
@@ -1575,7 +2251,9 @@ async function boot(){
     const adminCheck =
       await supabaseFetch(
         "/rest/v1/admin_users?select=id,user_id,is_active&user_id=eq." +
-        encodeURIComponent(user.id) +
+        encodeURIComponent(
+          user.id
+        ) +
         "&is_active=eq.true&limit=1"
       );
 
@@ -1662,10 +2340,13 @@ async function loadDashboard(){
       const providerRows =
         await providerRes.json();
 
+
       $("totalProviders").textContent =
         providerRows.filter(
-          x => x.status === "approved"
+          x =>
+            x.status === "approved"
         ).length;
+
 
       $("pendingProviders").textContent =
         providerRows.filter(
@@ -1688,6 +2369,7 @@ async function loadDashboard(){
       const bookingRows =
         await bookingRes.json();
 
+
       $("totalBookings").textContent =
         bookingRows.length;
 
@@ -1704,6 +2386,7 @@ async function loadDashboard(){
 
       const customerRows =
         await customerRes.json();
+
 
       $("totalCustomers").textContent =
         customerRows.length;
@@ -1733,6 +2416,12 @@ function showSection(section){
     .classList.add("hidden");
 
   $("bookingsSection")
+    .classList.add("hidden");
+
+  $("servicesSection")
+    .classList.add("hidden");
+
+  $("offersSection")
     .classList.add("hidden");
 
 
@@ -1766,6 +2455,26 @@ function showSection(section){
   }
 
 
+  if(section === "services"){
+
+    $("servicesSection")
+      .classList.remove("hidden");
+
+    loadServicesAdmin();
+
+  }
+
+
+  if(section === "offers"){
+
+    $("offersSection")
+      .classList.remove("hidden");
+
+    loadOffers();
+
+  }
+
+
   document
     .querySelectorAll(".nav-btn")
     .forEach(btn =>
@@ -1783,6 +2492,7 @@ async function loadProviders(){
 
   $("providersList").innerHTML =
     '<div class="loading">Loading providers...</div>';
+
 
   try{
 
@@ -1804,6 +2514,7 @@ async function loadProviders(){
 
     providers =
       await res.json();
+
 
     renderProviders();
 
@@ -1843,11 +2554,15 @@ function setProviderFilter(
   providerFilter =
     filter;
 
+
   document
-    .querySelectorAll("#providersSection .filter-btn")
+    .querySelectorAll(
+      "#providersSection .filter-btn"
+    )
     .forEach(btn =>
       btn.classList.remove("active")
     );
+
 
   button.classList.add("active");
 
@@ -1860,6 +2575,7 @@ function renderProviders(){
 
   let list =
     providers;
+
 
   if(providerFilter !== "all"){
 
@@ -1904,13 +2620,15 @@ function renderProviders(){
 
 function providerCard(p){
 
-  const services =
+  const serviceList =
     Array.isArray(p.services)
       ? p.services.join(", ")
       : "";
 
+
   const status =
     p.status || "pending";
+
 
   return `
     <div class="provider-card">
@@ -1923,6 +2641,7 @@ function providerCard(p){
           👤
         </div>
 
+
         <div class="provider-info">
 
           <h3>
@@ -1932,12 +2651,14 @@ function providerCard(p){
             )}
           </h3>
 
+
           <p>
             📞
             ${escapeHtml(
               p.phone || "-"
             )}
           </p>
+
 
           <p>
             📍
@@ -1950,8 +2671,8 @@ function providerCard(p){
 
         </div>
 
-        <span
-          class="status ${escapeAttr(status)}">
+
+        <span class="status ${escapeAttr(status)}">
 
           ${escapeHtml(status)}
 
@@ -1974,7 +2695,7 @@ function providerCard(p){
 
         <b>Services:</b>
         ${escapeHtml(
-          services || "-"
+          serviceList || "-"
         )}
 
         <br>
@@ -2150,16 +2871,14 @@ async function viewProvider(id){
 
 
       <p style="margin-top:7px;color:#64748b">
-        📞
-        ${escapeHtml(
+        📞 ${escapeHtml(
           provider.phone || "-"
         )}
       </p>
 
 
       <p style="margin-top:5px;color:#64748b">
-        ✉️
-        ${escapeHtml(
+        ✉️ ${escapeHtml(
           provider.email || "-"
         )}
       </p>
@@ -2270,9 +2989,7 @@ async function viewProvider(id){
       <hr style="margin:15px 0;border:0;border-top:1px solid #eee">
 
 
-      <h3>
-        Selfie
-      </h3>
+      <h3>Selfie</h3>
 
 
       ${
@@ -2390,6 +3107,7 @@ async function loadPrivateImage(path){
   const token =
     getToken();
 
+
   const url =
     SUPABASE_URL +
     "/storage/v1/object/authenticated/provider-documents/" +
@@ -2401,7 +3119,9 @@ async function loadPrivateImage(path){
       url,
       {
         headers:{
-          "apikey":SUPABASE_KEY,
+          "apikey":
+            SUPABASE_KEY,
+
           "Authorization":
             "Bearer " + token
         }
@@ -2429,7 +3149,7 @@ async function loadPrivateImage(path){
 }
 
 
-/* CHANGE PROVIDER STATUS */
+/* PROVIDER STATUS */
 
 async function changeProviderStatus(
   id,
@@ -2457,8 +3177,10 @@ async function changeProviderStatus(
 
 
   if(noteEl){
+
     note =
       noteEl.value.trim();
+
   }
 
 
@@ -2547,7 +3269,6 @@ async function changeProviderStatus(
 
     await loadDashboard();
 
-
   }catch(err){
 
     console.error(err);
@@ -2578,11 +3299,6 @@ async function loadBookings(){
 
   try{
 
-    /*
-      Load bookings.
-      Existing columns are used.
-    */
-
     const bookingRes =
       await supabaseFetch(
         "/rest/v1/bookings?select=*&order=created_at.desc"
@@ -2603,10 +3319,6 @@ async function loadBookings(){
       await bookingRes.json();
 
 
-    /*
-      Load services.
-    */
-
     const serviceRes =
       await supabaseFetch(
         "/rest/v1/services?select=*"
@@ -2625,10 +3337,6 @@ async function loadBookings(){
     }
 
 
-    /*
-      Load providers.
-    */
-
     const providerRes =
       await supabaseFetch(
         "/rest/v1/provider_applications?select=*&status=eq.approved&order=full_name.asc"
@@ -2644,7 +3352,6 @@ async function loadBookings(){
 
 
     renderBookings();
-
 
   }catch(err){
 
@@ -2677,8 +3384,6 @@ async function loadBookings(){
 }
 
 
-/* BOOKING FILTER */
-
 function setBookingFilter(
   filter,
   button
@@ -2707,8 +3412,6 @@ function setBookingFilter(
 }
 
 
-/* SERVICE NAME */
-
 function getServiceName(
   serviceId
 ){
@@ -2722,7 +3425,10 @@ function getServiceName(
 
 
   if(!service){
-    return "Service #" + serviceId;
+
+    return "Service #" +
+      serviceId;
+
   }
 
 
@@ -2735,8 +3441,6 @@ function getServiceName(
 
 }
 
-
-/* BOOKING CARD */
 
 function bookingCard(
   booking
@@ -2803,7 +3507,9 @@ function bookingCard(
 
   const amount =
     Number(
-      booking.total_amount || 0
+      booking.final_amount ??
+      booking.total_amount ??
+      0
     );
 
 
@@ -2839,8 +3545,7 @@ function bookingCard(
           </div>
 
           <div class="booking-customer">
-            📞
-            ${escapeHtml(
+            📞 ${escapeHtml(
               booking.phone || "-"
             )}
           </div>
@@ -2854,11 +3559,9 @@ function bookingCard(
             ₹${amount.toFixed(2)}
           </div>
 
-          <div
-            style="margin-top:5px;text-align:right">
+          <div style="margin-top:5px;text-align:right">
 
-            <span
-              class="status ${escapeAttr(displayStatus)}">
+            <span class="status ${escapeAttr(displayStatus)}">
 
               ${escapeHtml(
                 displayStatus
@@ -2871,6 +3574,41 @@ function bookingCard(
         </div>
 
       </div>
+
+
+      ${
+        Number(booking.discount_amount || 0) > 0
+
+        ?
+
+        `
+        <div style="
+          margin-top:10px;
+          padding:9px;
+          background:#ecfdf5;
+          border-radius:10px;
+          font-size:12px;
+          color:#166534">
+
+          Original:
+          ₹${Number(
+            booking.original_amount || 0
+          ).toFixed(2)}
+
+          &nbsp; • &nbsp;
+
+          Discount:
+          ₹${Number(
+            booking.discount_amount || 0
+          ).toFixed(2)}
+
+        </div>
+        `
+
+        :
+
+        ""
+      }
 
 
       <div class="booking-meta">
@@ -2955,8 +3693,7 @@ function bookingCard(
           </div>
 
           <div class="assigned-phone">
-            📞
-            ${escapeHtml(
+            📞 ${escapeHtml(
               booking.provider_phone ||
               "-"
             )}
@@ -3039,8 +3776,6 @@ function bookingCard(
 
 }
 
-
-/* RENDER BOOKINGS */
 
 function renderBookings(){
 
@@ -3125,7 +3860,9 @@ function viewBooking(id){
 
   const amount =
     Number(
-      booking.total_amount || 0
+      booking.final_amount ??
+      booking.total_amount ??
+      0
     );
 
 
@@ -3149,9 +3886,11 @@ function viewBooking(id){
 
         <div
           style="font-size:20px;font-weight:bold;margin-top:4px">
+
           #${escapeHtml(
             booking.id
           )}
+
         </div>
 
       </div>
@@ -3195,10 +3934,70 @@ function viewBooking(id){
         </p>
 
 
+        ${
+          Number(booking.original_amount || 0) > 0
+
+          ?
+
+          `
+          <p style="margin-top:8px">
+            <b>Original Amount:</b>
+            ₹${Number(
+              booking.original_amount
+            ).toFixed(2)}
+          </p>
+          `
+
+          :
+
+          ""
+        }
+
+
+        ${
+          Number(booking.discount_amount || 0) > 0
+
+          ?
+
+          `
+          <p style="margin-top:8px;color:#166534">
+            <b>Discount:</b>
+            -₹${Number(
+              booking.discount_amount
+            ).toFixed(2)}
+          </p>
+          `
+
+          :
+
+          ""
+        }
+
+
         <p style="margin-top:8px">
-          <b>Amount:</b>
+          <b>Final Amount:</b>
           ₹${amount.toFixed(2)}
         </p>
+
+
+        ${
+          booking.offer_code
+
+          ?
+
+          `
+          <p style="margin-top:8px">
+            <b>Offer:</b>
+            ${escapeHtml(
+              booking.offer_code
+            )}
+          </p>
+          `
+
+          :
+
+          ""
+        }
 
 
         <p style="margin-top:8px">
@@ -3233,9 +4032,7 @@ function viewBooking(id){
         style="margin:18px 0;border:0;border-top:1px solid #eee">
 
 
-      <h3>
-        Provider
-      </h3>
+      <h3>Provider</h3>
 
 
       ${
@@ -3258,8 +4055,7 @@ function viewBooking(id){
           </div>
 
           <div class="assigned-phone">
-            📞
-            ${escapeHtml(
+            📞 ${escapeHtml(
               booking.provider_phone ||
               "-"
             )}
@@ -3267,16 +4063,19 @@ function viewBooking(id){
 
           ${
             booking.provider_service
+
             ?
+
             `
             <div class="assigned-phone">
-              🧹
-              ${escapeHtml(
+              🧹 ${escapeHtml(
                 booking.provider_service
               )}
             </div>
             `
+
             :
+
             ""
           }
 
@@ -3327,9 +4126,7 @@ function viewBooking(id){
 }
 
 
-/* =========================
-   ASSIGN PROVIDER
-========================= */
+/* ASSIGN PROVIDER */
 
 async function openAssignModal(
   bookingId
@@ -3413,8 +4210,6 @@ async function openAssignModal(
 }
 
 
-/* LOAD APPROVED PROVIDERS */
-
 async function loadApprovedProvidersForAssignment(){
 
   $("approvedProvidersList").innerHTML =
@@ -3426,10 +4221,6 @@ async function loadApprovedProvidersForAssignment(){
 
 
   try{
-
-    /*
-      Always refresh approved providers.
-    */
 
     const res =
       await supabaseFetch(
@@ -3479,9 +4270,7 @@ async function loadApprovedProvidersForAssignment(){
 
     $("approvedProvidersList").innerHTML =
       approved
-        .map(
-          providerChoiceCard
-        )
+        .map(providerChoiceCard)
         .join("");
 
 
@@ -3515,8 +4304,6 @@ async function loadApprovedProvidersForAssignment(){
 
 }
 
-
-/* PROVIDER CHOICE */
 
 function providerChoiceCard(
   provider
@@ -3556,17 +4343,17 @@ function providerChoiceCard(
           )}
         </h4>
 
+
         <p>
-          📞
-          ${escapeHtml(
+          📞 ${escapeHtml(
             provider.phone ||
             "-"
           )}
         </p>
 
+
         <p>
-          🧹
-          ${escapeHtml(
+          🧹 ${escapeHtml(
             Array.isArray(
               provider.services
             )
@@ -3596,8 +4383,6 @@ function providerChoiceCard(
 }
 
 
-/* SELECT PROVIDER */
-
 function selectProvider(
   providerId
 ){
@@ -3617,41 +4402,38 @@ function selectProvider(
     );
 
 
-  const radios =
-    document.querySelectorAll(
+  document
+    .querySelectorAll(
       'input[name="providerChoice"]'
-    );
+    )
+    .forEach(
+      radio => {
 
+        if(
+          String(
+            radio.value
+          ) ===
+          String(providerId)
+        ){
 
-  radios.forEach(
-    radio => {
+          radio.checked =
+            true;
 
-      if(
-        String(
-          radio.value
-        ) ===
-        String(providerId)
-      ){
+          radio
+            .closest(
+              ".provider-choice"
+            )
+            ?.classList.add(
+              "selected"
+            );
 
-        radio.checked = true;
-
-        radio
-          .closest(
-            ".provider-choice"
-          )
-          ?.classList.add(
-            "selected"
-          );
+        }
 
       }
-
-    }
-  );
+    );
 
 }
 
-
-/* CONFIRM ASSIGN */
 
 async function confirmAssignProvider(){
 
@@ -3711,12 +4493,6 @@ async function confirmAssignProvider(){
 
   try{
 
-    /*
-      IMPORTANT:
-      provider_id uses provider_applications.id
-      because provider.html uses the same ID.
-    */
-
     const body = {
 
       provider_id:
@@ -3758,11 +4534,6 @@ async function confirmAssignProvider(){
     };
 
 
-    /*
-      We intentionally DO NOT change booking.status.
-      Existing status is currently pending/cancelled.
-    */
-
     const res =
       await supabaseFetch(
         "/rest/v1/bookings?id=eq." +
@@ -3797,14 +4568,6 @@ async function confirmAssignProvider(){
     }
 
 
-    const updated =
-      await res.json();
-
-
-    /*
-      Update local booking.
-    */
-
     const index =
       bookings.findIndex(
         b =>
@@ -3835,7 +4598,6 @@ async function confirmAssignProvider(){
 
     await loadDashboard();
 
-
   }catch(err){
 
     console.error(err);
@@ -3858,8 +4620,6 @@ async function confirmAssignProvider(){
 
 }
 
-
-/* UNASSIGN */
 
 async function unassignProvider(
   bookingId
@@ -3968,7 +4728,6 @@ async function unassignProvider(
 
     renderBookings();
 
-
   }catch(err){
 
     console.error(err);
@@ -3983,7 +4742,2224 @@ async function unassignProvider(
 }
 
 
-/* CLOSE ASSIGN */
+/* =========================
+   SERVICES MANAGEMENT
+========================= */
+
+async function loadServicesAdmin(){
+
+  $("servicesAdminList").innerHTML =
+    `
+    <div class="loading">
+      Loading services...
+    </div>
+    `;
+
+
+  try{
+
+    const serviceRes =
+      await supabaseFetch(
+        "/rest/v1/services?select=*&order=id.asc"
+      );
+
+
+    if(!serviceRes.ok){
+
+      const txt =
+        await serviceRes.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    services =
+      await serviceRes.json();
+
+
+    const optionRes =
+      await supabaseFetch(
+        "/rest/v1/service_options?select=*&order=sort_order.asc"
+      );
+
+
+    if(optionRes.ok){
+
+      serviceOptions =
+        await optionRes.json();
+
+    }else{
+
+      serviceOptions = [];
+
+    }
+
+
+    renderServicesAdmin();
+
+  }catch(err){
+
+    console.error(err);
+
+
+    $("servicesAdminList").innerHTML =
+      `
+      <div class="empty">
+
+        <div style="font-size:35px">
+          ⚠️
+        </div>
+
+        <p style="margin-top:10px">
+          Services load করা যাচ্ছে না।
+        </p>
+
+        <small>
+          ${escapeHtml(
+            err.message
+          )}
+        </small>
+
+      </div>
+      `;
+
+  }
+
+}
+
+
+function renderServicesAdmin(){
+
+  if(!services.length){
+
+    $("servicesAdminList").innerHTML =
+      `
+      <div class="empty">
+
+        <div style="font-size:40px">
+          🧹
+        </div>
+
+        <p style="margin-top:10px">
+          কোনো service পাওয়া যায়নি।
+        </p>
+
+      </div>
+      `;
+
+    return;
+
+  }
+
+
+  $("servicesAdminList").innerHTML =
+    services
+      .map(
+        renderServiceAdminCard
+      )
+      .join("");
+
+}
+
+
+function renderServiceAdminCard(
+  service
+){
+
+  const options =
+    serviceOptions.filter(
+      o =>
+        String(o.service_id) ===
+        String(service.id)
+    );
+
+
+  const name =
+    service.name ||
+    service.title ||
+    service.service_name ||
+    "Unnamed Service";
+
+
+  const description =
+    service.description ||
+    service.short_description ||
+    "";
+
+
+  const price =
+    Number(
+      service.price ??
+      service.starting_price ??
+      service.amount ??
+      0
+    );
+
+
+  const active =
+    service.is_active !== false;
+
+
+  return `
+    <div class="service-admin-card">
+
+      <div class="service-admin-head">
+
+        <div class="service-admin-main">
+
+          <h3>
+            ${escapeHtml(name)}
+          </h3>
+
+          <p>
+            ${escapeHtml(
+              description ||
+              "No description"
+            )}
+          </p>
+
+        </div>
+
+
+        <div style="text-align:right">
+
+          <div class="service-price">
+            ₹${price.toLocaleString("en-IN")}
+          </div>
+
+          <span class="status ${
+            active
+            ? "approved"
+            : "suspended"
+          }">
+
+            ${
+              active
+              ? "ACTIVE"
+              : "INACTIVE"
+            }
+
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="service-actions">
+
+        <button
+          class="edit-btn"
+          onclick="openServiceModal('${service.id}')">
+
+          ✏️ Edit Service
+
+        </button>
+
+
+        <button
+          class="${
+            active
+            ? "warning"
+            : "success-btn"
+          }"
+          onclick="toggleServiceStatus('${service.id}',${active})">
+
+          ${
+            active
+            ? "⏸ Deactivate"
+            : "▶ Activate"
+          }
+
+        </button>
+
+
+        <button
+          class="add-btn"
+          onclick="openOptionModal('${service.id}')">
+
+          + Sub-Service
+
+        </button>
+
+      </div>
+
+
+      <div class="option-box">
+
+        <div class="option-head">
+
+          <h4>
+            Sub-Services / Options
+          </h4>
+
+          <span class="muted">
+            ${options.length} option(s)
+          </span>
+
+        </div>
+
+
+        ${
+          options.length
+
+          ?
+
+          options
+            .map(
+              renderOptionCard
+            )
+            .join("")
+
+          :
+
+          `
+          <div
+            style="
+              background:#f8fafc;
+              padding:12px;
+              border-radius:10px;
+              color:#64748b;
+              font-size:12px">
+
+            No sub-service added.
+
+          </div>
+          `
+        }
+
+      </div>
+
+    </div>
+  `;
+
+}
+
+
+function renderOptionCard(
+  option
+){
+
+  const optionName =
+    option.name ||
+    option.title ||
+    option.option_name ||
+    "Unnamed Option";
+
+
+  const price =
+    Number(
+      option.price || 0
+    );
+
+
+  const duration =
+    Number(
+      option.duration_minutes ??
+      option.duration ??
+      0
+    );
+
+
+  const active =
+    option.is_active !== false;
+
+
+  return `
+    <div class="option-card">
+
+      <div class="option-card-top">
+
+        <div class="option-card-main">
+
+          <strong>
+            ${escapeHtml(
+              optionName
+            )}
+          </strong>
+
+          <p>
+
+            <span class="price">
+              ₹${price.toLocaleString("en-IN")}
+            </span>
+
+            ${
+              duration
+              ?
+              " • " +
+              duration +
+              " min"
+              :
+              ""
+            }
+
+            •
+            ${
+              active
+              ? "Active"
+              : "Inactive"
+            }
+
+          </p>
+
+        </div>
+
+
+        <div class="option-card-actions">
+
+          <button
+            class="edit-btn"
+            onclick="openOptionModal('${option.service_id}','${option.id}')">
+
+            ✏️
+
+          </button>
+
+
+          <button
+            class="${
+              active
+              ? "warning"
+              : "success-btn"
+            }"
+            onclick="toggleOptionStatus('${option.id}',${active})">
+
+            ${
+              active
+              ? "⏸"
+              : "▶"
+            }
+
+          </button>
+
+
+          <button
+            class="delete-btn"
+            onclick="deleteOption('${option.id}')">
+
+            🗑
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  `;
+
+}
+
+
+/* SERVICE MODAL */
+
+function openServiceModal(
+  serviceId=null
+){
+
+  $("serviceModal")
+    .classList.remove("hidden");
+
+
+  $("serviceEditId").value =
+    "";
+
+
+  $("serviceNameInput").value =
+    "";
+
+
+  $("serviceDescriptionInput").value =
+    "";
+
+
+  $("servicePriceInput").value =
+    "";
+
+
+  $("serviceActiveInput").value =
+    "true";
+
+
+  $("serviceModalTitle").textContent =
+    serviceId
+    ? "Edit Service"
+    : "Add Service";
+
+
+  if(serviceId){
+
+    const service =
+      services.find(
+        s =>
+          String(s.id) ===
+          String(serviceId)
+      );
+
+
+    if(!service){
+      return;
+    }
+
+
+    $("serviceEditId").value =
+      service.id;
+
+
+    $("serviceNameInput").value =
+      service.name ||
+      service.title ||
+      service.service_name ||
+      "";
+
+
+    $("serviceDescriptionInput").value =
+      service.description ||
+      "";
+
+
+    $("servicePriceInput").value =
+      service.price ??
+      service.starting_price ??
+      service.amount ??
+      "";
+
+
+    $("serviceActiveInput").value =
+      service.is_active === false
+      ? "false"
+      : "true";
+
+  }
+
+}
+
+
+function closeServiceModal(){
+
+  $("serviceModal")
+    .classList.add("hidden");
+
+}
+
+
+async function saveService(){
+
+  const id =
+    $("serviceEditId").value;
+
+
+  const name =
+    $("serviceNameInput")
+      .value
+      .trim();
+
+
+  const description =
+    $("serviceDescriptionInput")
+      .value
+      .trim();
+
+
+  const price =
+    Number(
+      $("servicePriceInput").value
+    );
+
+
+  const isActive =
+    $("serviceActiveInput").value ===
+    "true";
+
+
+  if(!name){
+
+    alert(
+      "Service name দিন।"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    Number.isNaN(price) ||
+    price < 0
+  ){
+
+    alert(
+      "সঠিক price দিন।"
+    );
+
+    return;
+
+  }
+
+
+  $("saveServiceBtn")
+    .disabled = true;
+
+
+  $("saveServiceBtn")
+    .textContent =
+      "Saving...";
+
+
+  try{
+
+    const body = {
+
+      name:name,
+
+      description:
+        description || null,
+
+      price:price
+
+    };
+
+
+    /*
+      is_active column থাকলে update হবে।
+      না থাকলে প্রথম request fail করলে
+      price/name/description দিয়ে আবার চেষ্টা করা হবে।
+    */
+
+    body.is_active =
+      isActive;
+
+
+    let res =
+      await supabaseFetch(
+        id
+        ?
+        "/rest/v1/services?id=eq." +
+        encodeURIComponent(id)
+        :
+        "/rest/v1/services",
+        {
+          method:
+            id
+            ? "PATCH"
+            : "POST",
+
+          headers:{
+            "Content-Type":
+              "application/json",
+
+            "Prefer":
+              "return=representation"
+          },
+
+          body:
+            JSON.stringify(body)
+
+        }
+      );
+
+
+    if(
+      !res.ok &&
+      id
+    ){
+
+      const errorText =
+        await res.text();
+
+
+      if(
+        errorText.includes(
+          "is_active"
+        )
+      ){
+
+        delete body.is_active;
+
+
+        res =
+          await supabaseFetch(
+            "/rest/v1/services?id=eq." +
+            encodeURIComponent(id),
+            {
+              method:"PATCH",
+
+              headers:{
+                "Content-Type":
+                  "application/json",
+
+                "Prefer":
+                  "return=representation"
+              },
+
+              body:
+                JSON.stringify(body)
+
+            }
+          );
+
+      }else{
+
+        throw new Error(
+          errorText
+        );
+
+      }
+
+    }
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    alert(
+      id
+      ? "Service updated successfully. ✅"
+      : "Service created successfully. ✅"
+    );
+
+
+    closeServiceModal();
+
+    await loadServicesAdmin();
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      "Service save failed:\n\n" +
+      err.message
+    );
+
+  }finally{
+
+    $("saveServiceBtn")
+      .disabled = false;
+
+    $("saveServiceBtn")
+      .textContent =
+      "Save Service";
+
+  }
+
+}
+
+
+/* SERVICE STATUS */
+
+async function toggleServiceStatus(
+  id,
+  current
+){
+
+  const newStatus =
+    !current;
+
+
+  try{
+
+    const res =
+      await supabaseFetch(
+        "/rest/v1/services?id=eq." +
+        encodeURIComponent(id),
+        {
+          method:"PATCH",
+
+          headers:{
+            "Content-Type":
+              "application/json",
+
+            "Prefer":
+              "return=representation"
+          },
+
+          body:
+            JSON.stringify({
+              is_active:newStatus
+            })
+
+        }
+      );
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    await loadServicesAdmin();
+
+  }catch(err){
+
+    alert(
+      "Service status update failed:\n\n" +
+      err.message
+    );
+
+  }
+
+}
+
+
+/* OPTION MODAL */
+
+function openOptionModal(
+  serviceId,
+  optionId=null
+){
+
+  $("optionModal")
+    .classList.remove("hidden");
+
+
+  $("optionEditId").value =
+    "";
+
+
+  $("optionServiceId").value =
+    serviceId;
+
+
+  $("optionNameInput").value =
+    "";
+
+
+  $("optionPriceInput").value =
+    "";
+
+
+  $("optionDurationInput").value =
+    "";
+
+
+  $("optionSortInput").value =
+    "0";
+
+
+  $("optionActiveInput").value =
+    "true";
+
+
+  $("optionModalTitle").textContent =
+    optionId
+    ? "Edit Sub-Service"
+    : "Add Sub-Service";
+
+
+  if(optionId){
+
+    const option =
+      serviceOptions.find(
+        o =>
+          String(o.id) ===
+          String(optionId)
+      );
+
+
+    if(!option){
+      return;
+    }
+
+
+    $("optionEditId").value =
+      option.id;
+
+
+    $("optionServiceId").value =
+      option.service_id;
+
+
+    $("optionNameInput").value =
+      option.name ||
+      option.title ||
+      option.option_name ||
+      "";
+
+
+    $("optionPriceInput").value =
+      option.price || "";
+
+
+    $("optionDurationInput").value =
+      option.duration_minutes ??
+      option.duration ??
+      "";
+
+
+    $("optionSortInput").value =
+      option.sort_order ??
+      0;
+
+
+    $("optionActiveInput").value =
+      option.is_active === false
+      ? "false"
+      : "true";
+
+  }
+
+}
+
+
+function closeOptionModal(){
+
+  $("optionModal")
+    .classList.add("hidden");
+
+}
+
+
+async function saveOption(){
+
+  const id =
+    $("optionEditId").value;
+
+
+  const serviceId =
+    $("optionServiceId").value;
+
+
+  const name =
+    $("optionNameInput")
+      .value
+      .trim();
+
+
+  const price =
+    Number(
+      $("optionPriceInput").value
+    );
+
+
+  const duration =
+    Number(
+      $("optionDurationInput").value
+    );
+
+
+  const sortOrder =
+    Number(
+      $("optionSortInput").value || 0
+    );
+
+
+  const isActive =
+    $("optionActiveInput").value ===
+    "true";
+
+
+  if(!serviceId){
+
+    alert(
+      "Service পাওয়া যায়নি।"
+    );
+
+    return;
+
+  }
+
+
+  if(!name){
+
+    alert(
+      "Sub-service name দিন।"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    Number.isNaN(price) ||
+    price < 0
+  ){
+
+    alert(
+      "সঠিক price দিন।"
+    );
+
+    return;
+
+  }
+
+
+  $("saveOptionBtn")
+    .disabled = true;
+
+
+  $("saveOptionBtn")
+    .textContent =
+      "Saving...";
+
+
+  try{
+
+    const body = {
+
+      service_id:
+        Number(serviceId),
+
+      name:name,
+
+      price:price,
+
+      duration_minutes:
+        duration > 0
+        ? duration
+        : null,
+
+      sort_order:
+        Number.isNaN(sortOrder)
+        ? 0
+        : sortOrder,
+
+      is_active:
+        isActive
+
+    };
+
+
+    const res =
+      await supabaseFetch(
+        id
+        ?
+        "/rest/v1/service_options?id=eq." +
+        encodeURIComponent(id)
+        :
+        "/rest/v1/service_options",
+        {
+          method:
+            id
+            ? "PATCH"
+            : "POST",
+
+          headers:{
+            "Content-Type":
+              "application/json",
+
+            "Prefer":
+              "return=representation"
+          },
+
+          body:
+            JSON.stringify(body)
+
+        }
+      );
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    alert(
+      id
+      ? "Sub-service updated successfully. ✅"
+      : "Sub-service added successfully. ✅"
+    );
+
+
+    closeOptionModal();
+
+    await loadServicesAdmin();
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      "Sub-service save failed:\n\n" +
+      err.message
+    );
+
+  }finally{
+
+    $("saveOptionBtn")
+      .disabled = false;
+
+    $("saveOptionBtn")
+      .textContent =
+      "Save Sub-Service";
+
+  }
+
+}
+
+
+/* OPTION STATUS */
+
+async function toggleOptionStatus(
+  id,
+  current
+){
+
+  try{
+
+    const res =
+      await supabaseFetch(
+        "/rest/v1/service_options?id=eq." +
+        encodeURIComponent(id),
+        {
+          method:"PATCH",
+
+          headers:{
+            "Content-Type":
+              "application/json",
+
+            "Prefer":
+              "return=representation"
+          },
+
+          body:
+            JSON.stringify({
+              is_active:!current
+            })
+
+        }
+      );
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    await loadServicesAdmin();
+
+  }catch(err){
+
+    alert(
+      "Sub-service status update failed:\n\n" +
+      err.message
+    );
+
+  }
+
+}
+
+
+/* DELETE OPTION */
+
+async function deleteOption(
+  id
+){
+
+  if(!confirm(
+    "এই sub-service delete করতে চান?"
+  )){
+
+    return;
+
+  }
+
+
+  try{
+
+    const res =
+      await supabaseFetch(
+        "/rest/v1/service_options?id=eq." +
+        encodeURIComponent(id),
+        {
+          method:"DELETE"
+        }
+      );
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    alert(
+      "Sub-service deleted successfully."
+    );
+
+
+    await loadServicesAdmin();
+
+  }catch(err){
+
+    alert(
+      "Delete failed:\n\n" +
+      err.message
+    );
+
+  }
+
+}
+
+
+/* =========================
+   OFFERS MANAGEMENT
+========================= */
+
+async function loadOffers(){
+
+  $("offersAdminList").innerHTML =
+    `
+    <div class="loading">
+      Loading offers...
+    </div>
+    `;
+
+
+  try{
+
+    const res =
+      await supabaseFetch(
+        "/rest/v1/offers?select=*&order=created_at.desc"
+      );
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    offers =
+      await res.json();
+
+
+    renderOffers();
+
+  }catch(err){
+
+    console.error(err);
+
+
+    $("offersAdminList").innerHTML =
+      `
+      <div class="empty">
+
+        <div style="font-size:35px">
+          ⚠️
+        </div>
+
+        <p style="margin-top:10px">
+          Offers load করা যাচ্ছে না।
+        </p>
+
+        <small>
+          ${escapeHtml(
+            err.message
+          )}
+        </small>
+
+      </div>
+      `;
+
+  }
+
+}
+
+
+function renderOffers(){
+
+  if(!offers.length){
+
+    $("offersAdminList").innerHTML =
+      `
+      <div class="empty">
+
+        <div style="font-size:40px">
+          🎁
+        </div>
+
+        <p style="margin-top:10px">
+          এখনো কোনো offer তৈরি করা হয়নি।
+        </p>
+
+      </div>
+      `;
+
+    return;
+
+  }
+
+
+  $("offersAdminList").innerHTML =
+    offers
+      .map(
+        renderOfferCard
+      )
+      .join("");
+
+}
+
+
+function renderOfferCard(
+  offer
+){
+
+  const type =
+    offer.offer_type ||
+    "percentage";
+
+
+  let valueText = "";
+
+
+  if(type === "percentage"){
+
+    valueText =
+      Number(
+        offer.discount_value || 0
+      ) + "% OFF";
+
+  }else if(type === "fixed"){
+
+    valueText =
+      "₹" +
+      Number(
+        offer.discount_value || 0
+      ).toLocaleString("en-IN") +
+      " OFF";
+
+  }else{
+
+    valueText =
+      Number(
+        offer.discount_value || 0
+      ) +
+      "% FIRST BOOKING";
+
+  }
+
+
+  const active =
+    offer.is_active !== false;
+
+
+  const autoApply =
+    offer.auto_apply !== false;
+
+
+  return `
+    <div class="offer-admin-card">
+
+      <div class="offer-admin-head">
+
+        <div class="offer-admin-main">
+
+          <h3>
+            🎁 ${escapeHtml(
+              offer.title
+            )}
+          </h3>
+
+
+          <p>
+            ${escapeHtml(
+              offer.description ||
+              "No description"
+            )}
+          </p>
+
+        </div>
+
+
+        <div style="text-align:right">
+
+          <div class="offer-value">
+            ${escapeHtml(
+              valueText
+            )}
+          </div>
+
+
+          <span class="status ${
+            active
+            ? "approved"
+            : "suspended"
+          }">
+
+            ${
+              active
+              ? "ACTIVE"
+              : "INACTIVE"
+            }
+
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="offer-meta">
+
+        <div class="offer-meta-item">
+
+          <div class="offer-meta-label">
+            TYPE
+          </div>
+
+          <div class="offer-meta-value">
+            ${escapeHtml(
+              type
+            )}
+          </div>
+
+        </div>
+
+
+        <div class="offer-meta-item">
+
+          <div class="offer-meta-label">
+            MINIMUM
+          </div>
+
+          <div class="offer-meta-value">
+            ₹${Number(
+              offer.min_booking_amount || 0
+            ).toLocaleString("en-IN")}
+          </div>
+
+        </div>
+
+
+        <div class="offer-meta-item">
+
+          <div class="offer-meta-label">
+            MAX DISCOUNT
+          </div>
+
+          <div class="offer-meta-value">
+            ${
+              offer.max_discount !== null &&
+              offer.max_discount !== undefined
+              ?
+              "₹" +
+              Number(
+                offer.max_discount
+              ).toLocaleString("en-IN")
+              :
+              "No limit"
+            }
+          </div>
+
+        </div>
+
+
+        <div class="offer-meta-item">
+
+          <div class="offer-meta-label">
+            COUPON
+          </div>
+
+          <div class="offer-meta-value">
+            ${escapeHtml(
+              offer.coupon_code ||
+              "Auto"
+            )}
+          </div>
+
+        </div>
+
+
+        <div class="offer-meta-item">
+
+          <div class="offer-meta-label">
+            START
+          </div>
+
+          <div class="offer-meta-value">
+            ${escapeHtml(
+              offer.start_date ||
+              "-"
+            )}
+          </div>
+
+        </div>
+
+
+        <div class="offer-meta-item">
+
+          <div class="offer-meta-label">
+            END
+          </div>
+
+          <div class="offer-meta-value">
+            ${escapeHtml(
+              offer.end_date ||
+              "-"
+            )}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div
+        style="
+          margin-top:10px;
+          font-size:12px;
+          color:#64748b">
+
+        ${
+          autoApply
+          ? "⚡ Auto Apply: Yes"
+          : "🎟️ Auto Apply: No"
+        }
+
+        ${
+          offer.offer_type === "first_booking"
+          ? " • 👤 First Booking Only"
+          : ""
+        }
+
+      </div>
+
+
+      <div class="offer-actions">
+
+        <button
+          class="edit-btn"
+          onclick="openOfferModal('${offer.id}')">
+
+          ✏️ Edit
+
+        </button>
+
+
+        <button
+          class="${
+            active
+            ? "warning"
+            : "success-btn"
+          }"
+          onclick="toggleOfferStatus('${offer.id}',${active})">
+
+          ${
+            active
+            ? "⏸ Deactivate"
+            : "▶ Activate"
+          }
+
+        </button>
+
+
+        <button
+          class="delete-btn"
+          onclick="deleteOffer('${offer.id}')">
+
+          🗑 Delete
+
+        </button>
+
+      </div>
+
+
+      ${
+        offer.popup_title ||
+        offer.popup_message
+
+        ?
+
+        `
+        <div
+          style="
+            margin-top:12px;
+            padding:11px;
+            background:#f8fafc;
+            border-radius:11px">
+
+          <div
+            style="
+              font-size:11px;
+              color:#64748b">
+
+            POPUP
+
+          </div>
+
+          <strong
+            style="
+              display:block;
+              margin-top:4px;
+              font-size:13px">
+
+            ${escapeHtml(
+              offer.popup_title ||
+              ""
+            )}
+
+          </strong>
+
+          <p
+            style="
+              margin-top:4px;
+              font-size:11px;
+              color:#64748b">
+
+            ${escapeHtml(
+              offer.popup_message ||
+              ""
+            )}
+
+          </p>
+
+        </div>
+        `
+
+        :
+
+        ""
+      }
+
+    </div>
+  `;
+
+}
+
+
+/* OFFER MODAL */
+
+function openOfferModal(
+  offerId=null
+){
+
+  $("offerModal")
+    .classList.remove("hidden");
+
+
+  $("offerEditId").value =
+    "";
+
+
+  $("offerTitleInput").value =
+    "";
+
+
+  $("offerDescriptionInput").value =
+    "";
+
+
+  $("offerTypeInput").value =
+    "percentage";
+
+
+  $("offerDiscountInput").value =
+    "";
+
+
+  $("offerMinimumInput").value =
+    "0";
+
+
+  $("offerMaximumInput").value =
+    "";
+
+
+  $("offerCouponInput").value =
+    "";
+
+
+  $("offerStartInput").value =
+    "";
+
+
+  $("offerEndInput").value =
+    "";
+
+
+  $("offerPopupTitleInput").value =
+    "";
+
+
+  $("offerPopupMessageInput").value =
+    "";
+
+
+  $("offerActiveInput").value =
+    "true";
+
+
+  $("offerAutoApplyInput").value =
+    "true";
+
+
+  $("offerModalTitle").textContent =
+    offerId
+    ? "Edit Offer"
+    : "Create Offer";
+
+
+  if(offerId){
+
+    const offer =
+      offers.find(
+        o =>
+          String(o.id) ===
+          String(offerId)
+      );
+
+
+    if(!offer){
+      return;
+    }
+
+
+    $("offerEditId").value =
+      offer.id;
+
+
+    $("offerTitleInput").value =
+      offer.title || "";
+
+
+    $("offerDescriptionInput").value =
+      offer.description || "";
+
+
+    $("offerTypeInput").value =
+      offer.offer_type ||
+      "percentage";
+
+
+    $("offerDiscountInput").value =
+      offer.discount_value ??
+      "";
+
+
+    $("offerMinimumInput").value =
+      offer.min_booking_amount ??
+      0;
+
+
+    $("offerMaximumInput").value =
+      offer.max_discount ??
+      "";
+
+
+    $("offerCouponInput").value =
+      offer.coupon_code ||
+      "";
+
+
+    $("offerStartInput").value =
+      offer.start_date ||
+      "";
+
+
+    $("offerEndInput").value =
+      offer.end_date ||
+      "";
+
+
+    $("offerPopupTitleInput").value =
+      offer.popup_title ||
+      "";
+
+
+    $("offerPopupMessageInput").value =
+      offer.popup_message ||
+      "";
+
+
+    $("offerActiveInput").value =
+      offer.is_active === false
+      ? "false"
+      : "true";
+
+
+    $("offerAutoApplyInput").value =
+      offer.auto_apply === false
+      ? "false"
+      : "true";
+
+  }
+
+
+  updateOfferTypeUI();
+
+}
+
+
+function updateOfferTypeUI(){
+
+  const type =
+    $("offerTypeInput").value;
+
+
+  const label =
+    document.querySelector(
+      'label[for="offerDiscountInput"]'
+    );
+
+
+  /*
+    No special behaviour is forced here.
+    The same discount field is used for:
+    percentage, fixed and first booking.
+  */
+
+}
+
+
+function closeOfferModal(){
+
+  $("offerModal")
+    .classList.add("hidden");
+
+}
+
+
+async function saveOffer(){
+
+  const id =
+    $("offerEditId").value;
+
+
+  const title =
+    $("offerTitleInput")
+      .value
+      .trim();
+
+
+  const description =
+    $("offerDescriptionInput")
+      .value
+      .trim();
+
+
+  const offerType =
+    $("offerTypeInput").value;
+
+
+  const discountValue =
+    Number(
+      $("offerDiscountInput").value
+    );
+
+
+  const minAmount =
+    Number(
+      $("offerMinimumInput").value || 0
+    );
+
+
+  const maxInput =
+    $("offerMaximumInput").value
+      .trim();
+
+
+  const maxDiscount =
+    maxInput === ""
+    ? null
+    : Number(maxInput);
+
+
+  const coupon =
+    $("offerCouponInput")
+      .value
+      .trim()
+      .toUpperCase();
+
+
+  const startDate =
+    $("offerStartInput").value ||
+    null;
+
+
+  const endDate =
+    $("offerEndInput").value ||
+    null;
+
+
+  const popupTitle =
+    $("offerPopupTitleInput")
+      .value
+      .trim();
+
+
+  const popupMessage =
+    $("offerPopupMessageInput")
+      .value
+      .trim();
+
+
+  const isActive =
+    $("offerActiveInput").value ===
+    "true";
+
+
+  const autoApply =
+    $("offerAutoApplyInput").value ===
+    "true";
+
+
+  if(!title){
+
+    alert(
+      "Offer title দিন।"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    Number.isNaN(discountValue) ||
+    discountValue < 0
+  ){
+
+    alert(
+      "সঠিক discount value দিন।"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    offerType === "percentage" &&
+    discountValue > 100
+  ){
+
+    alert(
+      "Percentage discount 100-এর বেশি হতে পারে না।"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    Number.isNaN(minAmount) ||
+    minAmount < 0
+  ){
+
+    alert(
+      "Minimum booking amount সঠিক দিন।"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    maxDiscount !== null &&
+    (
+      Number.isNaN(maxDiscount) ||
+      maxDiscount < 0
+    )
+  ){
+
+    alert(
+      "Maximum discount সঠিক দিন।"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    startDate &&
+    endDate &&
+    startDate > endDate
+  ){
+
+    alert(
+      "End date, Start date-এর আগে হতে পারবে না।"
+    );
+
+    return;
+
+  }
+
+
+  $("saveOfferBtn")
+    .disabled = true;
+
+
+  $("saveOfferBtn")
+    .textContent =
+      "Saving...";
+
+
+  try{
+
+    const body = {
+
+      title:title,
+
+      description:
+        description || null,
+
+      offer_type:
+        offerType,
+
+      discount_value:
+        discountValue,
+
+      min_booking_amount:
+        minAmount,
+
+      max_discount:
+        maxDiscount,
+
+      coupon_code:
+        coupon || null,
+
+      popup_title:
+        popupTitle || null,
+
+      popup_message:
+        popupMessage || null,
+
+      start_date:
+        startDate,
+
+      end_date:
+        endDate,
+
+      is_active:
+        isActive,
+
+      auto_apply:
+        autoApply,
+
+      updated_at:
+        new Date().toISOString()
+
+    };
+
+
+    const res =
+      await supabaseFetch(
+        id
+        ?
+        "/rest/v1/offers?id=eq." +
+        encodeURIComponent(id)
+        :
+        "/rest/v1/offers",
+        {
+          method:
+            id
+            ? "PATCH"
+            : "POST",
+
+          headers:{
+            "Content-Type":
+              "application/json",
+
+            "Prefer":
+              "return=representation"
+          },
+
+          body:
+            JSON.stringify(body)
+
+        }
+      );
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    alert(
+      id
+      ? "Offer updated successfully. 🎁"
+      : "Offer created successfully. 🎁"
+    );
+
+
+    closeOfferModal();
+
+    await loadOffers();
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      "Offer save failed:\n\n" +
+      err.message
+    );
+
+  }finally{
+
+    $("saveOfferBtn")
+      .disabled = false;
+
+    $("saveOfferBtn")
+      .textContent =
+      "Save Offer";
+
+  }
+
+}
+
+
+/* OFFER STATUS */
+
+async function toggleOfferStatus(
+  id,
+  current
+){
+
+  try{
+
+    const res =
+      await supabaseFetch(
+        "/rest/v1/offers?id=eq." +
+        encodeURIComponent(id),
+        {
+          method:"PATCH",
+
+          headers:{
+            "Content-Type":
+              "application/json",
+
+            "Prefer":
+              "return=representation"
+          },
+
+          body:
+            JSON.stringify({
+              is_active:!current,
+              updated_at:
+                new Date().toISOString()
+            })
+
+        }
+      );
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    await loadOffers();
+
+  }catch(err){
+
+    alert(
+      "Offer status update failed:\n\n" +
+      err.message
+    );
+
+  }
+
+}
+
+
+/* DELETE OFFER */
+
+async function deleteOffer(
+  id
+){
+
+  if(!confirm(
+    "এই offer delete করতে চান?"
+  )){
+
+    return;
+
+  }
+
+
+  try{
+
+    const res =
+      await supabaseFetch(
+        "/rest/v1/offers?id=eq." +
+        encodeURIComponent(id),
+        {
+          method:"DELETE"
+        }
+      );
+
+
+    if(!res.ok){
+
+      const txt =
+        await res.text();
+
+      throw new Error(txt);
+
+    }
+
+
+    alert(
+      "Offer deleted successfully."
+    );
+
+
+    await loadOffers();
+
+  }catch(err){
+
+    alert(
+      "Offer delete failed:\n\n" +
+      err.message
+    );
+
+  }
+
+}
+
+
+/* =========================
+   CLOSE MODALS
+========================= */
 
 function closeAssignModal(){
 
@@ -3992,16 +6968,16 @@ function closeAssignModal(){
       "hidden"
     );
 
+
   currentAssignBooking =
     null;
+
 
   selectedProviderId =
     null;
 
 }
 
-
-/* CLOSE BOOKING */
 
 function closeBookingModal(){
 
@@ -4010,13 +6986,12 @@ function closeBookingModal(){
       "hidden"
     );
 
+
   $("bookingModalContent")
     .innerHTML = "";
 
 }
 
-
-/* CLOSE PROVIDER */
 
 function closeProviderModal(){
 
@@ -4024,6 +6999,7 @@ function closeProviderModal(){
     .classList.add(
       "hidden"
     );
+
 
   $("providerModalContent")
     .innerHTML = "";
@@ -4255,7 +7231,9 @@ $("password")
     e => {
 
       if(e.key === "Enter"){
+
         login();
+
       }
 
     }
@@ -4309,6 +7287,60 @@ $("assignModal")
       ){
 
         closeAssignModal();
+
+      }
+
+    }
+  );
+
+
+$("serviceModal")
+  .addEventListener(
+    "click",
+    e => {
+
+      if(
+        e.target.id ===
+        "serviceModal"
+      ){
+
+        closeServiceModal();
+
+      }
+
+    }
+  );
+
+
+$("optionModal")
+  .addEventListener(
+    "click",
+    e => {
+
+      if(
+        e.target.id ===
+        "optionModal"
+      ){
+
+        closeOptionModal();
+
+      }
+
+    }
+  );
+
+
+$("offerModal")
+  .addEventListener(
+    "click",
+    e => {
+
+      if(
+        e.target.id ===
+        "offerModal"
+      ){
+
+        closeOfferModal();
 
       }
 
