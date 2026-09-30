@@ -164,6 +164,20 @@ background:#eaf7ed;color:#26733a
 }
 .status.cancelled{background:#fdecec;color:#a32626}
 
+.booking-amount{
+margin-top:12px;
+padding:12px;
+background:#f0f5ff;
+border-radius:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:13px;
+}
+.booking-amount strong{
+font-size:16px;
+}
+
 .booking-actions{
 display:flex;gap:7px;margin-top:13px;flex-wrap:wrap
 }
@@ -306,7 +320,6 @@ background:#f6f7f9;border-radius:12px;
 padding:11px;margin-bottom:10px;font-size:12px;color:#555
 }
 
-/* QUANTITY */
 .quantity-box{
 display:none;align-items:center;justify-content:space-between;
 gap:12px;background:#f6f7f9;border-radius:12px;
@@ -331,7 +344,6 @@ padding:8px 4px!important;background:#fff!important;
 font-weight:bold
 }
 
-/* PROVIDER */
 .provider-card{
 margin-top:14px;padding:14px;background:#f0f7f2;
 border:1px solid #dcefe1;border-radius:13px
@@ -402,7 +414,6 @@ border:0;background:#111;color:#fff;
 padding:10px 13px;border-radius:9px;font-size:12px
 }
 
-/* AUTH */
 .auth-overlay{
 position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.58);
 display:none;align-items:flex-end;justify-content:center
@@ -467,7 +478,6 @@ font-size:12px
 <body>
 <div class="app">
 
-<!-- HOME -->
 <div class="page active" id="homePage">
 
 <div class="topbar">
@@ -581,7 +591,6 @@ font-size:12px
 </div>
 
 
-<!-- BOOKINGS -->
 <div class="page" id="bookingsPage">
 <div class="inner-page">
 
@@ -598,7 +607,6 @@ font-size:12px
 </div>
 
 
-<!-- OFFERS -->
 <div class="page" id="offersPage">
 <div class="inner-page">
 
@@ -631,7 +639,6 @@ font-size:12px
 </div>
 
 
-<!-- PROFILE -->
 <div class="page" id="profilePage">
 <div class="inner-page">
 
@@ -722,7 +729,6 @@ font-size:12px
 </div>
 
 
-<!-- SUPPORT -->
 <div class="page" id="supportPage">
 <div class="inner-page">
 
@@ -757,7 +763,6 @@ font-size:12px
 </div>
 
 
-<!-- BOTTOM NAV -->
 <nav class="bottom-nav">
 
 <button class="nav-btn active" id="navHome" onclick="showPage('homePage')">
@@ -783,7 +788,6 @@ font-size:12px
 </nav>
 
 
-<!-- BOOKING MODAL -->
 <div class="modal-overlay" id="bookingModal">
 
 <div class="modal">
@@ -814,8 +818,6 @@ font-size:12px
 
 <div class="option-info" id="selectedServiceInfo" style="display:none"></div>
 
-
-<!-- QUANTITY -->
 <div class="quantity-box" id="quantityBox">
 
 <div class="quantity-info">
@@ -842,7 +844,6 @@ readonly
 
 </div>
 
-
 <div class="form-group">
 <label>Service Option</label>
 <select id="serviceOption" required>
@@ -867,8 +868,6 @@ readonly
 </select>
 </div>
 
-
-<!-- LOCATION -->
 <div class="form-group">
 
 <label>Service Location</label>
@@ -892,7 +891,6 @@ onclick="useCurrentLocation()"
 
 </div>
 
-
 <div class="form-group">
 <label>Service Address</label>
 <textarea id="customerAddress" placeholder="Enter complete service address" required></textarea>
@@ -913,7 +911,6 @@ Confirm Booking
 </div>
 
 
-<!-- SUCCESS -->
 <div class="success-overlay" id="successModal">
 
 <div class="success-box">
@@ -936,7 +933,6 @@ Done
 </div>
 
 
-<!-- AUTH -->
 <div class="auth-overlay" id="authModal">
 
 <div class="auth-box">
@@ -2086,13 +2082,14 @@ bookingQuantity=qty;
 
 if(o){
 
+const total=
+Number(o.price||0)*qty;
+
 document.getElementById(
 "selectedPrice"
 ).textContent=
 "₹"+
-(
-Number(o.price||0)*qty
-).toLocaleString("en-IN");
+total.toLocaleString("en-IN");
 
 p.style.display="flex";
 
@@ -2170,8 +2167,6 @@ s.appendChild(o);
 
 }
 
-
-/* CURRENT LOCATION */
 
 function resetLocationUI(){
 
@@ -2504,6 +2499,46 @@ return showToast(
 );
 
 
+const selectedOption=
+serviceOptions.find(
+x=>String(x.id)===String(optionId)
+);
+
+
+if(!selectedOption){
+
+return showToast(
+"Selected service option could not be found. Please select again."
+);
+
+}
+
+
+const quantity=
+isQuantityService(serviceId)
+?
+Number(
+document.getElementById(
+"bookingQuantity"
+).value||1
+)
+:
+1;
+
+
+bookingQuantity=quantity;
+
+
+const unitPrice=
+Number(
+selectedOption.price||0
+);
+
+
+const totalAmount=
+unitPrice*quantity;
+
+
 const button=
 document.querySelector(
 "#bookingForm .confirm-btn"
@@ -2598,27 +2633,6 @@ throw new Error(
 );
 
 
-const selectedOption=
-serviceOptions.find(
-x=>String(x.id)===String(optionId)
-);
-
-
-const quantity=
-isQuantityService(serviceId)
-?
-Number(
-document.getElementById(
-"bookingQuantity"
-).value||1
-)
-:
-1;
-
-
-bookingQuantity=quantity;
-
-
 const bookingData={
 
 customer_id:customer.id,
@@ -2638,6 +2652,8 @@ phone,
 notes:notes||null,
 
 status:"pending",
+
+total_amount:totalAmount,
 
 customer_latitude:
 customerLatitude,
@@ -2701,6 +2717,8 @@ customer_id:customer.id,
 
 service_id:Number(serviceId),
 
+service_option_id:Number(optionId),
+
 booking_date:date,
 
 booking_time:time,
@@ -2712,6 +2730,8 @@ phone,
 notes:notes||null,
 
 status:"pending",
+
+total_amount:totalAmount,
 
 customer_latitude:
 customerLatitude,
@@ -2741,6 +2761,8 @@ provider_assigned_at:null
 };
 
 
+try{
+
 bookingResult=
 await supabaseFetch(
 "/rest/v1/bookings",
@@ -2755,15 +2777,34 @@ fallback
 }
 );
 
+}catch(fallbackError){
+
+throw new Error(
+fallbackError.message||
+firstError.message||
+"Booking could not be created."
+);
+
 }
+
+}
+
+
+const savedRemoteBooking=
+bookingResult&&
+Array.isArray(bookingResult)&&
+bookingResult[0]
+?
+bookingResult[0]
+:
+null;
 
 
 saveLocalBooking({
 
 id:
-bookingResult&&
-bookingResult[0]?
-bookingResult[0].id:
+savedRemoteBooking?
+savedRemoteBooking.id:
 "local-"+Date.now(),
 
 service_id:
@@ -2781,6 +2822,13 @@ address,
 notes,
 
 status:"pending",
+
+total_amount:
+savedRemoteBooking?
+Number(
+savedRemoteBooking.total_amount??totalAmount
+):
+totalAmount,
 
 customer_latitude:
 customerLatitude,
@@ -2811,14 +2859,10 @@ service_name:
 selectedServiceName(serviceId),
 
 option_name:
-selectedOption?
-selectedOption.name:
-"Cleaning Service",
+selectedOption.name,
 
 price:
-selectedOption?
-selectedOption.price:
-0
+totalAmount
 
 });
 
@@ -3260,6 +3304,25 @@ Provider details will appear here after assignment.
 `;
 
 
+const rawAmount=
+b.total_amount ??
+b.price ??
+0;
+
+
+const totalAmount=
+Number(rawAmount||0);
+
+
+const amountHtml=
+`
+<div class="booking-amount">
+<span>💰 Total Amount</span>
+<strong>₹${totalAmount.toLocaleString("en-IN")}</strong>
+</div>
+`;
+
+
 return `
 
 <div class="booking-card">
@@ -3319,6 +3382,8 @@ status.slice(1)
 </span>
 
 </div>
+
+${amountHtml}
 
 ${providerHtml}
 
@@ -4013,8 +4078,6 @@ d.getDate()
 }
 
 
-/* EVENTS */
-
 document
 .getElementById("heroBookBtn")
 .addEventListener(
@@ -4118,8 +4181,6 @@ document
 submitBooking
 );
 
-
-/* INIT */
 
 async function init(){
 
