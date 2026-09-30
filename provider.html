@@ -2361,18 +2361,93 @@ async function uploadProviderFile(blobOrFile, filename){
         "x-upsert":"true"
       },
 
+async function uploadProviderFile(blobOrFile, filename){
+
+  const token = getToken();
+
+  console.log("=== STORAGE DEBUG START ===");
+  console.log("Token exists:", !!token);
+  console.log("Token length:", token ? token.length : 0);
+
+  if(!token){
+    throw new Error(
+      "Provider session expired. Please login again."
+    );
+  }
+
+  const userRes = await fetch(
+    SUPABASE_URL + "/auth/v1/user",
+    {
+      method:"GET",
+      headers:{
+        "apikey":SUPABASE_KEY,
+        "Authorization":"Bearer " + token
+      }
+    }
+  );
+
+  const userText = await userRes.text();
+
+  console.log("Auth status:", userRes.status);
+  console.log("Auth response:", userText);
+
+  if(!userRes.ok){
+    throw new Error(
+      "Authentication check failed: " + userText
+    );
+  }
+
+  const authenticatedUser = JSON.parse(userText);
+
+  if(!authenticatedUser.id){
+    throw new Error(
+      "Authenticated user ID not found."
+    );
+  }
+
+  providerUser = authenticatedUser;
+
+  const uid = authenticatedUser.id;
+
+  const path = uid + "/" + filename;
+
+  console.log("AUTH UID:", uid);
+  console.log("FILE NAME:", filename);
+  console.log("STORAGE PATH:", path);
+
+  const fileUrl =
+    SUPABASE_URL +
+    "/storage/v1/object/provider-documents/" +
+    uid +
+    "/" +
+    filename;
+
+  console.log("UPLOAD URL:", fileUrl);
+
+  const res = await fetch(
+    fileUrl,
+    {
+      method:"POST",
+      headers:{
+        "apikey":SUPABASE_KEY,
+        "Authorization":"Bearer " + token,
+        "Content-Type":
+          blobOrFile.type || "application/octet-stream",
+        "x-upsert":"true"
+      },
       body:blobOrFile
     }
   );
 
+  const responseText = await res.text();
+
+  console.log("Storage status:", res.status);
+  console.log("Storage response:", responseText);
+  console.log("=== STORAGE DEBUG END ===");
+
   if(!res.ok){
-
-    const txt = await res.text();
-
-    console.log("Storage upload error:", txt);
-
     throw new Error(
-      "Document upload failed: " + txt
+      "Document upload failed: " + responseText
     );
   }
 
